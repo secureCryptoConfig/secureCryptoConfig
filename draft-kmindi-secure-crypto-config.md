@@ -14,10 +14,10 @@ pi: [toc, sortrefs, symrefs]
 
 author:
  -
-    ins: "H. Tschofenig"
-    name: "Hannes Tschofenig"
-    organization: "Arm Limited"
-    email: hannes.tschofenig@arm.com
+    ins: "K. Mindermann"
+    name: "Kai Mindermann"
+    organization: "University of Stuttgart"
+    email: kai.mindermann@iste.uni-stuttgart.de
 
 normative:
   RFC2119:
