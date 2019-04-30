@@ -1,7 +1,7 @@
 ---
 title: Secure Crypto Config
 abbrev: SCC
-docname: draft-kmindi-secure-crypto-config
+docname: draft-kmindi-secure-crypto-config-latest
 category: info
 
 ipr: trust200902
