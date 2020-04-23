@@ -57,6 +57,8 @@ when, and only when, they appear in all capitals, as shown here.
 
 TODO Security
 
+TODO are some of the listed common issues relevant?: https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues
+
 
 # IANA Considerations
 
