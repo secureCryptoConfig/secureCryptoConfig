@@ -16,8 +16,8 @@ author:
  -
     ins: "K. Mindermann"
     name: "Kai Mindermann"
-    organization: "University of Stuttgart"
-    email: kai.mindermann@iste.uni-stuttgart.de
+    organization: "iC Consult GmbH"
+    email: kai.mindermann@ic-consult.com
 
 normative:
   RFC2119:
