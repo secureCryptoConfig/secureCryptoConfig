@@ -37,7 +37,7 @@ Cryptography providers, libraries and APIs usually define defaults for the offer
 These defaults have to be kept to be backwards compatible with all users of the API that used the defaults.
 Yet, these default choices become insecure at some later point. 
 E.g. a key size of 128 bit may not be sufficient anymore.
-To keep these defaults up-to-date this RFC describes three things: 
+To keep these defaults up-to-date three things are described in this document: 
 (1) A process that is repeated every year, where the
 CRFG publishes a new set of default configurations for standardized cryptography primitives, 
 (2) a format based on *TODO* that specifies the default secure configuration of this (and previous) year(s) and 
