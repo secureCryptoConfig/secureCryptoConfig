@@ -22,6 +22,7 @@ install:
 script:
  - make
  #- make issues || make issues DISABLE_ISSUE_FETCH=true && make gh-issues
+ - make setup-ghpages
  - make gh-pages
 
 deploy:
