@@ -44,14 +44,30 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 TODO Introduction
 
+## Motivation
 
-# Conventions and Definitions
+## Terminology
+
+### Conventions and Definitions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
 document are to be interpreted as described in BCP 14 {{RFC2119}} {{!RFC8174}}
 when, and only when, they appear in all capitals, as shown here.
 
+## Use Cases
+
+# Requirements and Assumptions
+
+## Requirements
+
+## Assumptions
+
+# Data Structures
+
+TODO is JSON a appropriate format?
+
+# Process Consensus Finding and Publication
 
 # Security Considerations
 
@@ -64,6 +80,7 @@ TODO are some of the listed common issues relevant?: https://trac.ietf.org/trac/
 
 This document has no IANA actions.
 
+# References
 
 
 --- back
@@ -72,3 +89,10 @@ This document has no IANA actions.
 {:numbered="false"}
 
 TODO acknowledge.
+
+# Appendix?
+
+## Example JSON Secure Crypto Config
+
+## Example Java Interface using Secure Crypto Config
+
