@@ -2,9 +2,9 @@
 
 This is the working area for the individual Internet-Draft, "Secure Crypto Config".
 
-* [Editor's Copy](https://kmindi.github.io/secureCryptoConfig/#go.draft-kmindi-secure-crypto-config.html)
+* [Editor's Copy](https://secureCryptoConfig.github.io/secureCryptoConfig/#go.draft-kmindi-secure-crypto-config.html)
 * [Individual Draft](https://tools.ietf.org/html/draft-kmindi-secure-crypto-config)
-* [Compare Editor's Copy to Individual Draft](https://kmindi.github.io/secureCryptoConfig/#go.draft-kmindi-secure-crypto-config.diff)
+* [Compare Editor's Copy to Individual Draft](https://secureCryptoConfig.github.io/secureCryptoConfig/#go.draft-kmindi-secure-crypto-config.diff)
 
 ## Building the Draft
 
