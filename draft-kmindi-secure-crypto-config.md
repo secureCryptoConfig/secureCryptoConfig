@@ -18,6 +18,11 @@ author:
     name: "Kai Mindermann"
     organization: "iC Consult GmbH"
     email: kai.mindermann@ic-consult.com
+ -
+    ins: "L. Teis"
+    name: "Lisa Teis"
+    organization: ""
+    email: lisa.teis@example.com
 
 normative:
   RFC2119:
@@ -85,11 +90,9 @@ This document has no IANA actions.
 
 --- back
 
-# Appendix?
+# Example JSON Secure Crypto Config
 
-## Example JSON Secure Crypto Config
-
-## Example Java Interface using Secure Crypto Config
+# Example Java Interface using Secure Crypto Config
 
 # Acknowledgments
 {:numbered="false"}
