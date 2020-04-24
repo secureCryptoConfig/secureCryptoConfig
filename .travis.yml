@@ -21,8 +21,7 @@ install:
 
 script:
  - make
- #- make issues || make issues DISABLE_ISSUE_FETCH=true && make gh-issues
- - ./lib/setup-branch.sh gh-pages index.html archive.json
+ - make issues || make issues DISABLE_ISSUE_FETCH=true && make gh-issues
  - make gh-pages
 
 deploy:
