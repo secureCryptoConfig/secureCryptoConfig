@@ -85,14 +85,13 @@ This document has no IANA actions.
 
 --- back
 
-# Acknowledgments
-{:numbered="false"}
-
-TODO acknowledge.
-
 # Appendix?
 
 ## Example JSON Secure Crypto Config
 
 ## Example Java Interface using Secure Crypto Config
 
+# Acknowledgments
+{:numbered="false"}
+
+TODO acknowledge.
