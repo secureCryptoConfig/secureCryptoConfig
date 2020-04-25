@@ -47,13 +47,16 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 # TODO Remove at the end
 
-- TODO https://www.ietf.org/standards/ids/guidelines/
-- TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
+- [ ] TODO https://www.ietf.org/standards/ids/guidelines/
+- [ ] TODO References:
+  - [ ] "Normative references specify documents that must be read to understand or implement the technology in the new RFC, or whose technology must be present for the technology in the new RFC to work." (https://www.ietf.org/about/groups/iesg/statements/normative-informative-references/)
+  - [ ] "Handling Normative References to Standards-Track Documents" https://tools.ietf.org/html/rfc4897
+- [ ] TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
 
 # Introduction
 
 - [ ] TODO Introduction
-- [ ] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{RFC6916}}.
+- [ ] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
 
 > Algorithm Suite A:  The "current" algorithm suite used for hashing
 >                and signing; used in examples in this document.
@@ -61,7 +64,7 @@ CRFG publishes a new set of default configurations for standardized cryptography
 >   Algorithm Suite B:  The "next" algorithm suite used for hashing and
 >               signing; used in examples in this document.
 
-- [ ] TODO integrate "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{RFC7696}}.
+- [ ] TODO integrate "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}}.
 
 ## Motivation
 
