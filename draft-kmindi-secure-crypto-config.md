@@ -45,9 +45,23 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 --- middle
 
+# TODO Remove at the end
+
+- TODO https://www.ietf.org/standards/ids/guidelines/
+- TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
+
 # Introduction
 
-TODO Introduction
+- [ ] TODO Introduction
+- [ ] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" {{RFC6916}}/{{BCP6916}}
+
+> Algorithm Suite A:  The "current" algorithm suite used for hashing
+>                and signing; used in examples in this document.
+>
+>   Algorithm Suite B:  The "next" algorithm suite used for hashing and
+>               signing; used in examples in this document.
+
+- [ ] TODO integrate "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" {{RFC7696}}/{{BCP201}}
 
 ## Motivation
 
