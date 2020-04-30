@@ -22,7 +22,7 @@ author:
     ins: "L. Teis"
     name: "Lisa Teis"
     organization: ""
-    email: lisa.teis@example.com
+    email: lisateis102@gmail.com
 
 normative:
   RFC2119:
