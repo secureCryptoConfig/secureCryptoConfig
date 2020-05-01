@@ -59,6 +59,7 @@ CRFG publishes a new set of default configurations for standardized cryptography
 # Introduction
 
 [^TODO]
+
 - [ ] TODO Write Introduction
   - [ ] Mention Goals: yearly published secure configuration recommendations that can be used per default from cryptography libraries
   - [ ] Mention target group ((1) developers who are not experts but still need to implement cryptography functionality. (2) Cryptography library developers that should integrate SCC to provide secure defaults)
