@@ -111,6 +111,15 @@ when, and only when, they appear in all capitals, as shown here.
 
 # Data Structures
 
+|              | More than 10 years   | More than 1 year               | More than 1 week | Less than one week |
+|--------------|----------------------|--------------------------------|------------------|--------------------|
+| TOP SECRET   | TOP_SECRET_gt10years | TOP_SECRET_gt1yearsEndFragment |                  |                    |
+| SECRET       |                      |                                |                  |                    |
+| CONFIDENTIAL |                      |                                |                  |                    |
+~~~~
+{: #scc_secret_vs_longevity title="Combination of Classification vs Longevity"}
+
+
 See {{scc_example}}.
 
 *TODO is JSON a appropriate format?*
