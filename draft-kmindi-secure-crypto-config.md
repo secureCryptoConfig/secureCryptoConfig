@@ -116,7 +116,6 @@ when, and only when, they appear in all capitals, as shown here.
 | TOP SECRET   | TOP_SECRET_gt10years | TOP_SECRET_gt1yearsEndFragment |                  |                    |
 | SECRET       |                      |                                |                  |                    |
 | CONFIDENTIAL |                      |                                |                  |                    |
-~~~~
 {: #scc_secret_vs_longevity}
 
 
