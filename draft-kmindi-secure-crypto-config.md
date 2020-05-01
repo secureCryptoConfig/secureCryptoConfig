@@ -56,6 +56,7 @@ CRFG publishes a new set of default configurations for standardized cryptography
 # Introduction
 
 - [ ] TODO Introduction
+- [ ] Mention/Refer to "CBOR Object Signing and Encryption (COSE)" {{!RFC8152}}
 - [ ] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
 
 > Algorithm Suite A:  The "current" algorithm suite used for hashing
