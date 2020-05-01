@@ -108,6 +108,8 @@ when, and only when, they appear in all capitals, as shown here.
 
 # Data Structures
 
+See {{scc_example}}.
+
 *TODO is JSON a appropriate format?*
 
 # Process Consensus Finding and Publication
@@ -129,6 +131,11 @@ This document has no IANA actions.
 --- back
 
 # Example JSON Secure Crypto Config
+
+~~~~
+{:: include src/scc_example.json}
+~~~~
+{: #scc_example title="Example for JSON format"}
 
 # Example Java Interface using Secure Crypto Config
 

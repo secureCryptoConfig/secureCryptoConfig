@@ -1,0 +1,31 @@
+{
+    "PolicyName": "Current SCC",
+    "Publisher": [
+        {
+            "name": "Crypto Forum Research Group",
+            "URL" : "https://irtf.org/cfrg"
+        }
+    ],
+    "Version": "1.0",
+    "PolicyIssueDate": "20.04.2020",
+    "NextUpdate": "20.04.2021",
+    "Usage": {
+        "Symmetric Encryption": [
+            {
+                "AlgorithmName": "AES",
+                "Blockmode": "GCM",
+                "Padding": "NoPadding",
+                "NonceLength": 256,
+                "AuthenticationTagLength": 128,
+                "Validity": "31.04.2022",
+                "ObjectID": "xxxxx"
+            }
+        ],
+        "Asymmetric Encryption": [
+            "....like for Symmetric Encryption but maybe other Parameters or some with null ..."
+        ],
+        "Hashing": [
+            "....."
+        ]
+    }
+}
