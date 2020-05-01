@@ -54,8 +54,11 @@ CRFG publishes a new set of default configurations for standardized cryptography
   - [ ] "Handling Normative References to Standards-Track Documents" https://tools.ietf.org/html/rfc4897
 - [ ] TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
 
+[^TODO]: Do not remove the TODOS, but mark them as complete by adding an x between the brackets.
+
 # Introduction
 
+[^TODO]
 - [ ] TODO Write Introduction
   - [ ] Mention Goals: yearly published secure configuration recommendations that can be used per default from cryptography libraries
   - [ ] Mention target group ((1) developers who are not experts but still need to implement cryptography functionality. (2) Cryptography library developers that should integrate SCC to provide secure defaults)
@@ -91,7 +94,7 @@ when, and only when, they appear in all capitals, as shown here.
 
 ## Requirements
 
-- Document classification: Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
+- Information classification: Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
 - Longevity: The time some information must be protected can differ from milliseconds to decades (related to Document classification)
 - Contrained Devices: Computing power is not always available for both the most advanced cryptography algorithms and their parameters.
 - Which primitives should be covered?
@@ -110,6 +113,28 @@ when, and only when, they appear in all capitals, as shown here.
 - What does secure mean?
 - Level of security? (key length?)
 
+# Secure Crypto Config
+
+## Information classification
+
+- [ ] TODO describe Why is document classification needed (refer to Requirements if possible).
+- [ ] TODO Refer to [Classified Information](https://en.wikipedia.org/wiki/Classified_information) and [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf) or other material to find a globally valid definition for classifying information.
+
+## Longevity
+
+
+
+# Process Consensus Finding and Publication
+
+## Consensus Finding
+
+
+
+## Publication
+
+- [ ] TODO Describe used versioning concept for SCC. 
+- [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
+
 # Data Structures
 
 |              | More than 10 years   | More than 1 year               | More than 1 week | Less than one week |
@@ -123,8 +148,6 @@ when, and only when, they appear in all capitals, as shown here.
 See {{scc_example}}.
 
 *TODO is JSON a appropriate format?*
-
-# Process Consensus Finding and Publication
 
 # Security Considerations
 
