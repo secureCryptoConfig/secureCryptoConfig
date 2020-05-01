@@ -55,8 +55,10 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 # Introduction
 
-- [ ] TODO Introduction
-- [ ] Mention/Refer to "CBOR Object Signing and Encryption (COSE)" {{!RFC8152}}
+- [ ] TODO Write Introduction
+- [ ] TODO Mention/Refer to "CBOR Object Signing and Encryption (COSE)" {{!RFC8152}}
+- [ ] TODO Mention/Refer to "The JavaScript Object Notation (JSON) Data Interchange Format" {{!RFC8259}}
+- [ ] TODO Mention/Refer to " Data Structure for the Security Suitability of Cryptographic Algorithms (DSSC)" {{?RFC5698}}
 - [ ] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
 
 > Algorithm Suite A:  The "current" algorithm suite used for hashing
