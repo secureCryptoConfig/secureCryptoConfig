@@ -133,7 +133,7 @@ This document has no IANA actions.
 # Example JSON Secure Crypto Config
 
 ~~~~
-{:: include src/scc_example.json}
+{::include src/scc_example.json}
 ~~~~
 {: #scc_example title="Example for JSON format"}
 
