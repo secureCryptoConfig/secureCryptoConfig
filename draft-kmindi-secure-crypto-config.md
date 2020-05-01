@@ -97,6 +97,7 @@ when, and only when, they appear in all capitals, as shown here.
 - Information classification: Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
 - Longevity: The time some information must be protected can differ from milliseconds to decades (related to Document classification)
 - Contrained Devices: Computing power is not always available for both the most advanced cryptography algorithms and their parameters.
+- *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Gouvernment? Company?). Presumably  different group of attackers.
 - Which primitives should be covered?
 - Which algorithms (per primitive) should be covered?
 - Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
@@ -114,6 +115,14 @@ when, and only when, they appear in all capitals, as shown here.
 - Level of security? (key length?)
 
 # Secure Crypto Config
+
+## Threat Model / Adversaries
+
+- [ ] TODO describe adversaries / group of adversaries and their powers
+- [ ] TODO describe other general threats for the Secure Crypto Config (maybe put that into the section Security Considerations):
+  - [ ] Process
+  - [ ] Publication
+  - [ ] Content
 
 ## Information classification
 
