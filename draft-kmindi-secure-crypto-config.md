@@ -112,6 +112,7 @@ when, and only when, they appear in all capitals, as shown here.
 - Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one)
 - Must be easy to update by the committee
 - Interoperability with other standards/formats (e.g. {{-COSE}})
+- Recommendation what should be the default secure crypto config for a cryptography library (e.g. should it be the one for TOP Secret or *only* for Secret?)
 
 ## Assumptions
 
