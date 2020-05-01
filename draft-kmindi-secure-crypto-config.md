@@ -57,6 +57,10 @@ CRFG publishes a new set of default configurations for standardized cryptography
 # Introduction
 
 - [ ] TODO Write Introduction
+  - [ ] Mention Goals: yearly published secure configuration recommendations that can be used per default from cryptography libraries
+  - [ ] Mention target group ((1) developers who are not experts but still need to implement cryptography functionality. (2) Cryptography library developers that should integrate SCC to provide secure defaults)
+  - [ ] TODO mention TLS Cipher suites: https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4
+  - [ ] TODO mention why the Recommended Column is not enough
 - [ ] TODO Mention/Refer to "CBOR Object Signing and Encryption (COSE)" {{-COSE}}
   - see defined Algorithms/Parameters etc at the IANA registry: https://www.iana.org/assignments/cose/cose.xhtml
   - E.G. There is an entry for the Advanced Encryption Standard with key size, mode and tag length: A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag;
