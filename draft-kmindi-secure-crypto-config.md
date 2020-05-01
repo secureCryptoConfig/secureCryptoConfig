@@ -117,7 +117,7 @@ when, and only when, they appear in all capitals, as shown here.
 | SECRET       |                      |                                |                  |                    |
 | CONFIDENTIAL |                      |                                |                  |                    |
 ~~~~
-{: #scc_secret_vs_longevity title="Combination of Classification vs Longevity"}
+{: #scc_secret_vs_longevity}
 
 
 See {{scc_example}}.
