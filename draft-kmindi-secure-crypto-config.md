@@ -61,20 +61,14 @@ CRFG publishes a new set of default configurations for standardized cryptography
   - [ ] Mention target group ((1) developers who are not experts but still need to implement cryptography functionality. (2) Cryptography library developers that should integrate SCC to provide secure defaults)
   - [ ] TODO mention TLS Cipher suites: https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4
   - [ ] TODO mention why the Recommended Column is not enough
+- [ ] TODO Mention/Refer to how many input parameters (5 to 8 in addition to the password itself) [The memory-hard Argon2 password hash and proof-of-work function](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-10#section-3.1) has.
+- [ ] TODO integrate "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}}.
+- [ ] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
 - [ ] TODO Mention/Refer to "CBOR Object Signing and Encryption (COSE)" {{-COSE}}
   - see defined Algorithms/Parameters etc at the IANA registry: https://www.iana.org/assignments/cose/cose.xhtml
   - E.G. There is an entry for the Advanced Encryption Standard with key size, mode and tag length: A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag;
 - [ ] TODO Mention/Refer to "The JavaScript Object Notation (JSON) Data Interchange Format" {{!RFC8259}}
 - [ ] TODO Mention/Refer to " Data Structure for the Security Suitability of Cryptographic Algorithms (DSSC)" {{?RFC5698}}
-- [ ] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
-
-> Algorithm Suite A:  The "current" algorithm suite used for hashing
->                and signing; used in examples in this document.
->
->   Algorithm Suite B:  The "next" algorithm suite used for hashing and
->               signing; used in examples in this document.
-
-- [ ] TODO integrate "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}}.
 
 ## Motivation
 
