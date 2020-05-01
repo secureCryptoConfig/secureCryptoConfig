@@ -109,6 +109,9 @@ when, and only when, they appear in all capitals, as shown here.
 - Easy to integrate by cryptography libraries
 - Experts should still be able to use/access the unaltered output of cryptographic primitives
 - Regular updates (yearly?)
+- Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one)
+- Must be easy to update by the committee
+- Interoperability with other standards/formats (e.g. {{-COSE}})
 
 ## Assumptions
 
