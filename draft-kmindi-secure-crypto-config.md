@@ -27,6 +27,7 @@ author:
 normative:
   RFC2119:
   RFC8152: COSE
+  RFC4949: SecurityGlossary
 
 informative:
 
@@ -63,16 +64,16 @@ CRFG publishes a new set of default configurations for standardized cryptography
 - [ ] TODO Write Introduction
   - [ ] Mention Goals: yearly published secure configuration recommendations that can be used per default from cryptography libraries
   - [ ] Mention target group ((1) developers who are not experts but still need to implement cryptography functionality. (2) Cryptography library developers that should integrate SCC to provide secure defaults)
-  - [ ] TODO mention TLS Cipher suites: https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4
+  - [ ] TODO mention and describe [TLS Cipher suites](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4)
   - [ ] TODO mention why the Recommended Column is not enough
 - [ ] TODO Mention/Refer to how many input parameters (5 to 8 in addition to the password itself) [The memory-hard Argon2 password hash and proof-of-work function](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-10#section-3.1) has.
 - [ ] TODO integrate "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}}.
 - [ ] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
 - [ ] TODO Mention/Refer to "CBOR Object Signing and Encryption (COSE)" {{-COSE}}
-  - see defined Algorithms/Parameters etc at the IANA registry: https://www.iana.org/assignments/cose/cose.xhtml
-  - E.G. There is an entry for the Advanced Encryption Standard with key size, mode and tag length: A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag;
+  - see defined Algorithms/Parameters etc. at the [IANA registry for COSE](https://www.iana.org/assignments/cose/cose.xhtml)
+  - e.g. There is an entry for the Advanced Encryption Standard with key size, mode and tag length: A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag;
 - [ ] TODO Mention/Refer to "The JavaScript Object Notation (JSON) Data Interchange Format" {{!RFC8259}}
-- [ ] TODO Mention/Refer to " Data Structure for the Security Suitability of Cryptographic Algorithms (DSSC)" {{?RFC5698}}
+- [ ] TODO Mention/Refer to "Data Structure for the Security Suitability of Cryptographic Algorithms (DSSC)" {{?RFC5698}}
 
 ## Motivation
 
@@ -85,11 +86,15 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 document are to be interpreted as described in BCP 14 {{RFC2119}} {{!RFC8174}}
 when, and only when, they appear in all capitals, as shown here.
 
+### Terms
+
+- [ ] TODO Refer to {{-SecurityGlossary}}
+
 ## Use Cases
 
 ### Misuse Cases
 
-*"A Misuse Case [...] highlights something that should not happen (i.e. a Negative Scenario)" https://en.wikipedia.org/w/index.php?title=Misuse_case&oldid=941745374*
+*"A Misuse Case [...] highlights something that should not happen (i.e. a Negative Scenario)"* [Misuse Case](https://en.wikipedia.org/w/index.php?title=Misuse_case&oldid=941745374)
 
 # Requirements and Assumptions
 
@@ -161,13 +166,13 @@ when, and only when, they appear in all capitals, as shown here.
 
 See {{scc_example}}.
 
-*TODO is JSON a appropriate format?*
+- [ ] TODO is JSON a appropriate format?
+- [ ] TODO How is COSE more approriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
 
 # Security Considerations
 
-*TODO Security*
-
-*TODO are some of the listed common issues relevant?: https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues*
+- [ ] TODO Security
+- [ ] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)*
 
 
 # IANA Considerations
@@ -191,4 +196,4 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+- [ ] TODO acknowledge.
