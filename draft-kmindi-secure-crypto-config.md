@@ -63,7 +63,8 @@ CRFG publishes a new set of default configurations for standardized cryptography
 [^TODO]
 
 - [ ] TODO Write Introduction
-  - [ ] Mention Goals: yearly published secure configuration recommendations that can be used per default from cryptography libraries
+  - [ ] Mention Main Goals: (1) Enable cryptography libraries and APIs to offer secure defaults with inherent future-proofnes; (2) Prevent non-expert programmers from misusing cryptography APIs; (3) Allow standardized definition of secure parameters for cryptography algorithms.
+  - [ ] Mention: Yearly published secure configuration recommendations that can be used per default from cryptography libraries. This prevents aging/maturing libraries from offering insecure default implementations. 
   - [ ] Mention target group ((1) developers who are not experts but still need to implement cryptography functionality. (2) Cryptography library developers that should integrate SCC to provide secure defaults. (3) standardization institutions (like BSI or NIST) who can use the publication format for their own set of cryptography recommendations)
   - [ ] TODO mention and describe [TLS Cipher suites](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4)
   - [ ] TODO mention why the Recommended Column is not enough
@@ -141,7 +142,9 @@ The term "hash" is used as a synonym for "cryptographic hash".
 ## Requirements
 
 - Information classification: Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
+  - Information classification is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its classification.
 - Longevity: The time some information must be protected can differ from milliseconds to decades (related to Document classification)
+  - Different SCC's based on longevity is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its longevity.
 - Contrained Devices: Computing power is not always available for both the most advanced cryptography algorithms and their parameters.
 - *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Gouvernment? Company?). Presumably  different group of attackers.
 - Which primitives should be covered?
@@ -163,6 +166,7 @@ The term "hash" is used as a synonym for "cryptographic hash".
 
 - What does secure mean?
 - Level of security? (key length?)
+- [ ] Describe that it is assumed that experts can still use the non-default or customizable variants of cryptography algorithms
 
 # Secure Crypto Config
 
@@ -208,6 +212,20 @@ See {{scc_example}}.
 
 - [ ] TODO is JSON a appropriate format?
 - [ ] TODO How is COSE more approriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
+
+# Cryptography Algorithm Standards Recommendation
+
+- [ ] TODO should there be a template for cryptogrpahy algorithm standards (in addition to COSE) for the Secure Crypto Config or is it enough that the Secure Crypto Config Consensus Finding defines the secure parameters for all cryptography algorithms?
+
+# Implementation Specification
+
+- [ ] TODO describe requirements for cryptography API implementors and designers
+- [ ] TODO decide how the configuration should be made available to programmers
+  - [ ] e.g. should there be constants like "SCC_TOP_SECRET_LATEST" and "SCC_TOP_SECRET_LATEST". 
+  - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
+- [ ] TODO how should cryptography implementations, that implement/support SCC, generate the parameters?
+  - [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
+  - [ ] 
 
 # Security Considerations
 
