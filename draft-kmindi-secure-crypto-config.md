@@ -54,6 +54,7 @@ CRFG publishes a new set of default configurations for standardized cryptography
   - [ ] "Normative references specify documents that must be read to understand or implement the technology in the new RFC, or whose technology must be present for the technology in the new RFC to work." (https://www.ietf.org/about/groups/iesg/statements/normative-informative-references/)
   - [ ] "Handling Normative References to Standards-Track Documents" https://tools.ietf.org/html/rfc4897
 - [ ] TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
+- [ ] TODO Check if "Generic Security Service Application Program Interface Version 2, Update 1" {{RFC2743}} is relevant.
 
 [^TODO]: Do not remove the TODOS, but mark them as complete by adding an x between the brackets.
 
@@ -88,7 +89,46 @@ when, and only when, they appear in all capitals, as shown here.
 
 ### Terms
 
-- [ ] TODO Refer to {{-SecurityGlossary}}
+The terms 
+  "Alice and Bob",
+  "API",
+  "attack",
+  "authenticity",
+  "availability",
+  "break",
+  "brute force", 
+  "cipher",
+  "ciphertext",
+  "classified", 
+  "classification level", 
+  "classification label", 
+  "clear text",
+  "confidentiality",
+  "cryptographic hash",
+  "encode",
+  "encrypt",
+  "encryption",
+  "hybrid encryption",
+  "initialization value (IV)",
+  "integrity",
+  "key", 
+  "mode",
+  "nonce",
+  "password",
+  "permanent storage",
+  "plain text",
+  "plaintext",
+  "protocol",
+  "risk",
+  "salt",
+  "security",
+  "threat",
+  "trust",
+  "vulnerability",
+in this document are to be interpreted as described in {{-SecurityGlossary}}.
+
+The term "hash" is used as a synonym for "cryptographic hash".
+
 
 ## Use Cases
 
