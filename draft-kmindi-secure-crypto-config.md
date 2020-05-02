@@ -161,6 +161,7 @@ The term "hash" is used as a synonym for "cryptographic hash".
 - Must be easy to update by the committee
 - Interoperability with other standards/formats (e.g. {{-COSE}})
 - Recommendation what should be the default secure crypto config for a cryptography library (e.g. should it be the one for TOP Secret or *only* for Secret?)
+- Recommendation what should a cryptography library do if it can not support the parameters specified in the latest Secure Crypto Config. (E.g. key size for RSA would be n*2 and the library supports only n)
 
 ## Assumptions
 
