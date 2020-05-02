@@ -157,11 +157,12 @@ The term "hash" is used as a synonym for "cryptographic hash".
 - Easy to integrate by cryptography libraries
 - Experts should still be able to use/access the unaltered output of cryptographic primitives
 - Regular updates (yearly?)
-- Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one)
+- Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hiearchical approach with inheritance from the base SCC?)
 - Must be easy to update by the committee
 - Interoperability with other standards/formats (e.g. {{-COSE}})
 - Recommendation what should be the default secure crypto config for a cryptography library (e.g. should it be the one for TOP Secret or *only* for Secret?)
 - Recommendation what should a cryptography library do if it can not support the parameters specified in the latest Secure Crypto Config. (E.g. key size for RSA would be n*2 and the library supports only n)
+- Recommendation how should a cryptography library integrate the Secure Crypto Config so that it should be up to date as soon as possible after a new SCC has been published?
 
 ## Assumptions
 
