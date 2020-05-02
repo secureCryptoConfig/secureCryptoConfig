@@ -54,7 +54,7 @@ CRFG publishes a new set of default configurations for standardized cryptography
   - [ ] "Normative references specify documents that must be read to understand or implement the technology in the new RFC, or whose technology must be present for the technology in the new RFC to work." (https://www.ietf.org/about/groups/iesg/statements/normative-informative-references/)
   - [ ] "Handling Normative References to Standards-Track Documents" https://tools.ietf.org/html/rfc4897
 - [ ] TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
-- [ ] TODO Check if "Generic Security Service Application Program Interface Version 2, Update 1" {{RFC2743}} is relevant.
+- [ ] TODO Check if "Generic Security Service Application Program Interface Version 2, Update 1" {{?RFC2743}} is relevant.
 
 [^TODO]: Do not remove the TODOS, but mark them as complete by adding an x between the brackets.
 
