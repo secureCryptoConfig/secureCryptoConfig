@@ -3,25 +3,43 @@
     "Publisher": [
         {
             "name": "Crypto Forum Research Group",
-            "URL" : "https://irtf.org/cfrg"
+            "URL": "https://irtf.org/cfrg"
         }
     ],
     "Version": "1.0.0",
     "PolicyIssueDate": "2020-04-20",
-    "NextUpdate": "2021-04-20",
+    
     "Usage": {
-        "Symmetric Encryption": [
+        "SymmetricEncryption": [
             {
-                "AlgorithmName": "AES",
-                "KeyLength": 256,
-                "Blockmode": "GCM",
-                "Padding": "NoPadding",
-                "NonceLength": 256,
-                "AuthenticationTagLength": 128,
-                "Validity": "2022-10-20",
-                "ObjectID": "xxxxx"
+                "Topsecret": {
+                    "AlgorithmName": "AES",
+                    "KeyLength": 256,
+                    "Blockmode": "GCM",
+                    "Padding": "NoPadding",
+                    "NonceLength": 256,
+                    "AuthenticationTagLength": 128,
+                    "Validity": "2022-10-20",
+                    "ObjectID": "xxxxx"
+                }
+            },
+            {
+                "Secret": {
+                    ".....": "...."
+                }
+            },
+            {
+                "Confidential": {
+                    ".....": "...."
+                }
+            },
+            {
+                "Restricted": {
+                    ".....": "...."
+                }
             }
         ],
+
         "AsymmetricEncryption": [
             "....."
         ],
