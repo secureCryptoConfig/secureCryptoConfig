@@ -8,9 +8,9 @@
     ],
     "Version": "1.0.0",
     "PolicyIssueDate": "2020-04-20",
-
+    "NextUpdate": "2021-04-20",
     "Usage": {
-        "SymmetricEncryption": [
+        "Symmetric Encryption": [
             {
                 "AlgorithmName": "AES",
                 "KeyLength": 256,
