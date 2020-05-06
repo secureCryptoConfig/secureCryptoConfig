@@ -94,7 +94,7 @@ Another point that can lead to the wrong insecure parameter choice are cryptogra
 Normally they should provide secure default parameters, but these are not always secure or no longer up to the current standard of security. 
 To alleviate these problems, it is a good idea to generate and provide a standardized definition of secure parameters for cryptographic primitives. 
 This could be used to ensure correct parameter usage and thus provide more security, since standardization across all implementations could be guaranteed. 
-A data structure to represent this standardized definition in JSON {{-JSON}} is given in the following (/ref chapter of datastructure). 
+A data structure to represent this standardized definition in JSON {{-JSON}} is given in the following {{dataStructures}}. 
 This standardized definition of a secure parameter set is referred to as Secure Crypto Config (SCC) in the following.
 (?) When creating such a data structure it is helpful to take a look at the Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}} and the "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}} as a reference to ensure cryptographic algorithm agility.
 
@@ -248,7 +248,7 @@ The term "hash" is used as a synonym for "cryptographic hash".
 - [ ] TODO Describe used versioning concept for SCC. 
 - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
 
-# Data Structures
+# Data Structures {#dataStructures}
 
 |              | More than 10 years   | More than 1 year               | More than 1 week | Less than one week |
 |--------------|----------------------|--------------------------------|------------------|--------------------|
