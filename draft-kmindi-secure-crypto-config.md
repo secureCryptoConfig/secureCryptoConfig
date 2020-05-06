@@ -94,7 +94,7 @@ Another point that can lead to the wrong insecure parameter choice are cryptogra
 Normally they should provide secure default parameters, but these are not always secure or no longer up to the current standard of security. 
 To alleviate these problems, it is a good idea to generate and provide a standardized definition of secure parameters for cryptographic primitives. 
 This could be used to ensure correct parameter usage and thus provide more security, since standardization across all implementations could be guaranteed. 
-A data structure to represent this standardized definition in JSON {{-JSON} is given in the following (/ref chapter of datastructure). 
+A data structure to represent this standardized definition in JSON {{-JSON}} is given in the following (/ref chapter of datastructure). 
 This standardized definition of a secure parameter set is referred to as Secure Crypto Config (SCC) in the following.
 (?) When creating such a data structure it is helpful to take a look at the Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}} and the "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}} as a reference to ensure cryptographic algorithm agility.
 
@@ -123,7 +123,7 @@ Otherwise the cipher obtained by encryption cannot be decrypted correctly back a
 This could be solved by developing different backwards compatible layers. 
 However, it would be more advantageous to store the parameters used for the encryption in addition to the actual encrypted data, which would considerably reduce the maintenance costs in contrast to the solution mentioned beforehand. 
 This is also necessary to prevent applications from becoming incompatible with updated SCC over time. 
-To store this necessary informations regarding the parameters there are already different standards like CMS {{-CMS} or COSE {{-COSE}. 
+To store this necessary informations regarding the parameters there are already different standards like CMS {{-CMS}} or COSE {{-COSE}}. 
 The parameters and algorithms defined for COSE can be found at the [IANA registry for COSE](https://www.iana.org/assignments/cose/cose.xhtml).
 
 
