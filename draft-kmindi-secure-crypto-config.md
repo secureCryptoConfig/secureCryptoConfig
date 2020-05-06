@@ -32,7 +32,7 @@ normative:
 
 informative:
   RFC5652: CMS
-  RFC5698: DSCC
+  RFC5698: DSSC
 
 
 
