@@ -190,6 +190,8 @@ The term "hash" is used as a synonym for "cryptographic hash".
 
 #### Symmetric Encryption
 
+Symmetric Encryption is an important cryptographic primitive especially
+
 plaintext + key => ciphertext
 
 AES
@@ -326,6 +328,25 @@ See {{scc_example}}.
   - [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
 
 # Security Considerations
+
+## Special Use Cases and (Non-)Security Experts
+
+The Secure Crypto Config does not apply to all use cases for cryptography and usage of cryptography primitives.
+It is meant to provide secure defaults for the most common use cases and for non-expert programmers.
+Additionally, non-experts may still implement vulnerable code by using the Secure Crypto Config. 
+Yet, it should reduce the vulnerabilities from making the wrong choices about parameters for cryptography primitives.
+
+## Security of Cryptography primitives and implementations
+
+The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure.
+
+## Security Guarantees
+
+The Secure Crypto Config does not guarantee security for the proposed parameter configuration.
+E.g. a new algorithm that can do brute-force attacks exponentially faster could be existing or published right after the publication of the most recent Secure Crypto Config was published itself.
+Yet, the Secure Crypto Config makes a best effort to be as up-to-date with recent discoveries, research and developments in cryptography algorithms as possible.
+
+## TODO
 
 - [ ] TODO Security
 - [ ] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
