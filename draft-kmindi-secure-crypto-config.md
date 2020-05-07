@@ -178,6 +178,50 @@ The term "hash" is used as a synonym for "cryptographic hash".
 
 ## Use Cases
 
+### Cryptographic primitives
+
+#### Symmetric Encryption
+
+plaintext + key => ciphertext
+
+AES
+
+A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag;
+
+
+#### Asymmetric Encryption
+
+plaintext + publickey => ciphertext
+
+ciphertext + privatekey => plaintext
+
+RSA
+
+#### Hashing
+
+plaintext => hash
+
+SHA-3
+
+##### Password Derivation
+
+plaintext,hashalgorithm => hash
+
+argon2
+
+#### Digital Signatures
+
+plaintext,privatekey => signature
+
+signature,publickey => vailid/not-valid
+
+ECDSA
+
+### Secure Crypto Config Use Cases
+
+- [ ] TODO
+
+
 ### Misuse Cases
 
 *"A Misuse Case [...] highlights something that should not happen (i.e. a Negative Scenario)"* [Misuse Case](https://en.wikipedia.org/w/index.php?title=Misuse_case&oldid=941745374)
@@ -248,7 +292,7 @@ The term "hash" is used as a synonym for "cryptographic hash".
 # Data Structures {#dataStructures}
 
 |              | More than 10 years   | More than 1 year               | More than 1 week | Less than one week |
-|--------------|----------------------|--------------------------------|------------------|--------------------|
+| ------------ | -------------------- | ------------------------------ | ---------------- | ------------------ |
 | TOP SECRET   | TOP_SECRET_gt10years | TOP_SECRET_gt1yearsEndFragment |                  |                    |
 | SECRET       |                      |                                |                  |                    |
 | CONFIDENTIAL |                      |                                |                  |                    |
