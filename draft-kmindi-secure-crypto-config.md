@@ -85,55 +85,51 @@ CRFG publishes a new set of default configurations for standardized cryptography
 ## Motivation
 The correct choice of secure parameters when implementing cryptographic primitives or algorithms is not always easy to ensure.
 However, the security of the primitives to be used depends mainly on the choice of these parameters (e.g. the correct key length).
-For this reason, it is necessary to assure that the choice of parameters is made correctly. Unfortunately, this is not always easy.
-This is a big issue especially for software developers who are not primarily concerned with cryptography, but nevertheless have to generate cryptographic secure code. 
-In order to choose the right parameters, they often make use of documentations and tutorials from the Internet.
-But not every source provides a safe choice of parameters or even shows an outdated selection of parameters.
-Therefore, there is the danger of causing insecurity during the implementation of cryptographic code.
-
-Another point that can lead to the wrong insecure parameter choice are cryptographic libraries.
-Normally they should provide secure default parameters, but these are not always secure or no longer up to the current standard of security.
-To alleviate these problems, it is a good idea to generate and provide a standardized definition of secure parameters for cryptographic primitives.
-This could be used to ensure correct parameter usage and thus provide more security, since standardization across all implementations could be guaranteed.
-A data structure to represent this standardized definition in JSON {{-JSON}} is given in the following {{dataStructures}}.
+In order to be able to prevent insecure implementations and usage of cryptography, it is necessary to assure that the choice of parameters is made correctly.
+Unfortunately, this is not always easy.
+The correct choice of secure parameters is a big issue especially for software developers who are not primarily concerned with cryptography.
+Often, they choose necessary parameters based on documentation which is outdated or shows an insecure parameter set.
+Another point that can lead to an insecure choice are cryptographic libraries.
+Normally they should provide secure default parameters, but often it is the case that they are insecure or outdated.
+Therefore, we also need to prevent the misuse of cryptographic APIs.
+Furthermore, it is necessary to find a way to enable cryptographic libraries and APIs to offer a secure choice of parameters.
+To alleviate the mentioned problems, it is a good idea to generate and provide a standardized definition of secure parameters for cryptographic primitives.
+Such a standard would also lead to a standardization across all implementations. A data structure to represent this standardized definition in JSON {{-JSON}} is given in the following {{dataStructures}}.
 This standardized definition of a secure parameter set is referred to as Secure Crypto Config (SCC) in the following.
 
-(?) When creating such a data structure algorithm agility is an important property to consider. 
-Having the property of algorithm agility includes that it should be easy to switch from one set of parameters and algorithms to another. 
-This is a necessary property to be able to always guarantee the current state of security and to be able to adapt accordingly. 
-Therefore, this is also a property that the SCC should have. Procedures that contribute to the achievement of algorithm agility are described in more detail in the "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}} and the "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
-
-It already exists a Data Structure for the Security Suitability of Cryptographic Algorithms (DSSC) {{-DSSC}} which stores some of the parameters, that are also required for the SCC, in an XML-format. 
-But DSSC was originally created for other purposes than the SCC and therefore also contains components that are not required for the SCC. 
-DSSC represents a data structure that should support the automatic analysis of security suitability of given cryptographic algorithms. 
-This is important because the security standard changes over time and it becomes necessary to check the security suitability regularly. 
-In contrast to SCC, DSSC does not make suggestions for currently secure parameters that should be used, but is intended for the evaluation of algorithms. 
-Nevertheless, it can be regarded as a reference, as it contains a lot of information that is also necessary for the SCC.
-
-The data structure created for SCC could also be useful as a template for standardisation institutions such as NIST or BSI to provide their parameter recommendations in a structured way.
-This would serve the purpose of offering a version that is also easy to read by machines, in contrast to their mostly textual and only human readable recommendations on their websites.
-
-If the SCC is provided with a secure parameter set, it can also be used to update cryptographic libraries.
-With the help of this obsolete or insecure default parameters could be bypassed and the secure predefined parameters of the SCC could be used instead. 
-Therefore the publication of SCC could also be helpful for cryptography library developers that should integrate SCC to provide secure defaults. But in practice, it is often not possible to simply change the interfaces of existing cryptographic libraries.
+The publication of a SCC would be helpful especially for developers that are not specialized in cryptography.
+Often the basic concept of cryptographic primitives like hashing, in which the plaintext simply gets hashed with the help of a hash algorithm, is easy to understand. But the actual usage can get rather difficult.
+This can be seen on the [example of Argon2](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-10#section-3.1) in which it is necessary to provide up to 8 additional parameters to be able to start the actual hashing.
+There is a huge gap between the concept and the actual implementation.
+SCC can close this gap and help the developers to make a secure choice by simply looking into the SCC.
+Despite non-expert developers the SCC can also be used as a template for standardization institutions such as NIST or BSI to provide their parameter recommendations in a structured and machine-readable way.
+Furthermore, cryptographic library developers can integrate the SCC to offer secure defaults.
+But in practice, it is often not possible to simply change the interfaces of existing cryptographic libraries.
 Therefore, an additional abstraction layer is needed here, which should provide an easy to use interface for the programmers to actually use the library functions with the secure parameter choice.
 An example of such an additional abstraction layer can be seen in {{scc_java_api_example}}.
 
-(?) Another occuring problem is the fact that the parameters defined in the SCC may change over time.
+It already exists a Data Structure for the Security Suitability of Cryptographic Algorithms (DSSC) {{-DSSC}} in an XML-format that stores some of the necessary information’s, that are also required for the SCC.
+DSSC represents a data structure that should support the automatic analysis of security suitability of given cryptographic algorithms.
+In contrast to SCC, DSSC does not make suggestions for currently secure parameters that should be used, but is intended for the evaluation of algorithms.
+Nevertheless, it can be regarded as a reference, as it contains a lot of information that will be needed in SCC.
+
+(?) The SCC should also have the property of algorithm agility which includes that it should be easy to switch from one set of parameters and algorithms to another.
+This is necessary to be able to adapt to the current state of security.
+Also, it is important to use a common set of cryptographic algorithms and consider how many choices of parameters and algorithms to provide.
+Procedures that contribute to the achievement of these properties are described in more detail in the "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}} and the "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
+
+One problem in the usage of the SCC is the fact that the defined parameters will change over time.
 Therefore, it is necessary to check the SCC with its parameters regularly and adjust them if necessary.
-A regular adjustment process once a year, for example, could guarantee this.
-However, adjusting the parameters is not always easy.
-In contrast we can see that in the use of Transport Layer Security (TLS), parameter changes are comparatively less complicated.
-For the duration of a connection between client and server, it is possible to choose from different algorithms in advance and thus to choose an algorithm that is secure from a cryptographic point of view.
-A selection of possible algorithms for TLS can be found for example at the [IANA Registry for TLS Cipher suites](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4).
-This is not that easy if for example file encryption should be performed, because in this case one has to keep the same parameters for both encryption and decryption.
+A regular adjustment process once a year, for example, could guarantee this. However, adjusting the parameters is not always easy.
+If for example a plaintext should be encrypted one has to keep the same parameters for both encryption and decryption.
 Otherwise the ciphertext obtained by encryption cannot be decrypted correctly back again.
-This could be solved by developing different backwards compatible layers. 
-However, it would be more advantageous to store the parameters used for the encryption in addition to the actual encrypted data, which would considerably reduce the maintenance costs in contrast to the solution mentioned beforehand.
+In contrast we can see that in the use of Transport Layer Security (TLS), parameter changes are comparatively less complicated. For the duration of a connection between client and server, it is possible to choose from different algorithms in advance.
+A selection of possible algorithms for TLS with recommendation for their usage can be found for example at the [IANA Registry for TLS Cipher suites](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4).
+This issue could be solved by developing different backwards compatible layers. But, it would be more advantageous to store the parameters used for the encryption in addition to the actual encrypted data.
 This is also necessary to prevent applications from becoming incompatible with updated SCC over time.
-To store this necessary informations regarding the parameters there are already different standards like Cryptographic Message Syntax (CMS) {{-CMS}} or CBOR Object Signing and Encryption (COSE) {{-COSE}}. 
-The parameters and algorithms defined for COSE can be found at the [IANA registry for COSE](https://www.iana.org/assignments/cose/cose.xhtml). 
-Both standards representing data structures that are contributing to the storage of the cryptographic output (e.g. ciphertext) as well as the used parameters in an structured way.
+To store this necessary information there already exists a standard named CBOR Object Signing and Encryption (COSE) {{-COSE}}.
+The parameters and algorithms defined for COSE can be found at the [IANA registry for COSE](https://www.iana.org/assignments/cose/cose.xhtml).
+COSE represents a data structure that contributes to the storage of the cryptographic output (e.g. ciphertext) as well as the used parameters in a structured way.
 
 
 ## Terminology
