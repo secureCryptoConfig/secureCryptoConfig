@@ -303,12 +303,13 @@ For each security level the consensuns finding entities and process shall publis
   - Interoperability with other standards/formats (e.g. {{-COSE}})
   - The Secure Crypto Config should cover most common cryptography primitives and their currently broadly available and secure algorithms.
   - *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Gouvernment? Company?). Presumably  different group of attackers.
+  - The Secure Crypto Config should prevent non-experts to configure cryptography primitives in an insecure way.
+  - The Secure Crypto Config should not prevent experts from using or changing all parameters of cryptogaphy primitives provided by a cryptography library/API.
 
 ## Assumptions
 
-- What does secure mean?
-- Level of security? (key length?)
-- [ ] Describe that it is assumed that experts can still use the non-default or customizable variants of cryptography algorithms
+The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure.
+This also means that side-channel attacks are not considered explicitly.
 
 # Secure Crypto Config
 
@@ -388,7 +389,15 @@ See {{scc_example}}.
 
 # Security Considerations
 
-## Special Use Cases and (Non-)Security Experts
+## Consensus Finding
+
+## Publication Format
+
+## Cryptography library implementation
+
+## General Security Considerations
+
+### Special Use Cases and (Non-)Security Experts
 
 The Secure Crypto Config does not apply to all use cases for cryptography and usage of cryptography primitives.
 It is meant to provide secure defaults for the most common use cases and for non-expert programmers.
@@ -398,8 +407,9 @@ Yet, it should reduce the vulnerabilities from making the wrong choices about pa
 ## Security of Cryptography primitives and implementations
 
 The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure.
+- [ ] TODO is this redundant? because it is also described in the assumptions section.
 
-## Security Guarantees
+### Security Guarantees
 
 The Secure Crypto Config does not guarantee security for the proposed parameter configuration.
 E.g. a new algorithm that can do brute-force attacks exponentially faster could be existing or published right after the publication of the most recent Secure Crypto Config was published itself.
@@ -409,7 +419,7 @@ Yet, the Secure Crypto Config makes a best effort to be as up-to-date with recen
 
 - [ ] TODO Security
 - [ ] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
-
+- [ ] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
 
 # IANA Considerations
 
