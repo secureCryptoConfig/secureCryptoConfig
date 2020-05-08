@@ -317,7 +317,7 @@ Yet, not all environments have the same hardware resources available.
 E.g. it is not always the case that the used processors have dedicated cryptography hardware or even specialized execution units or instruction sets like {{AESNI}}.
 A detailed discussion and definitions can be found in {{-ConstrainedDevices}}.
 Yet, their definitions are too concrete. 
-Which is why we defined constrained devices not based on concrete processing power (e.g. 100k instructions per second).
+Which is why we define constrained devices not based on concrete processing power (e.g. 100k instructions per second): 
 For the Secure Crypto Config a device is constrained when it has multiple magnitudes less resources than a current (at the time of reading!) standard personal computer.
 For example if a current standard personal computer can encrypt with 1 GiB/s, a constrained device would be all devices that can only perform the same cryptography operation with less than 10 MiB/s.
 Resources can be everything important for cryptography like memory, power consumption, storage space, communication bandwith, latency etc.
