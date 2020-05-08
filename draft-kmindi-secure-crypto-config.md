@@ -27,7 +27,6 @@ author:
 normative:
   RFC2119:
   RFC4949: SecurityGlossary
-  RFC7228: ConstrainedDevices
   RFC8152: COSE
   RFC8259: JSON
 
@@ -35,6 +34,28 @@ normative:
 informative:
   RFC5652: CMS
   RFC5698: DSSC
+  RFC7228: ConstrainedDevices
+  AESNI:
+    target: https://www.intel.com/content/dam/doc/white-paper/advanced-encryption-standard-new-instructions-set-paper.pdf
+    title: "Intel Advanced Encryption Standard (AES) Instruction Set White Paper"
+    author:
+      name: Shay Gueron
+      org: Intel Corporation
+    date: 2010
+    format:
+      PDF: https://www.intel.com/content/dam/doc/white-paper/advanced-encryption-standard-new-instructions-set-paper.pdf
+
+  # REST:
+  #   target: http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf
+  #   title: Architectural Styles and the Design of Network-based Software Architectures
+  #   author:
+  #     ins: R. Fielding
+  #     name: Roy Thomas Fielding
+  #     org: University of California, Irvine
+  #   date: 2000
+  #   seriesinfo:      "Ph.D.": "Dissertation, University of California, Irvine"
+  #   format:
+  #     PDF: http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf
 
 
 
@@ -289,6 +310,17 @@ ECDSA
 
 ## Longevity
 
+## Constrained Devices
+
+For cryptography often complex computations have to be executed. 
+Yet, not all environments have the same hardware resources available.
+E.g. it is not always the case that the used processors have dedicated cryptography hardware or even specialized execution units or instruction sets like {{AESNI}}.
+A detailed discussion and definitions can be found in {{-ConstrainedDevices}}.
+Yet, their definitions are too concrete. 
+Which is why we defined constrained devices not based on concrete processing power (e.g. 100k instructions per second).
+For the Secure Crypto Config a device is constrained when it has multiple magnitudes less resources than a current (at the time of reading!) standard personal computer.
+For example if a current standard personal computer can encrypt with 1 GiB/s, a constrained device would be all devices that can only perform the same cryptography operation with less than 10 MiB/s.
+Resources can be everything important for cryptography like memory, power consumption, storage space, communication bandwith, latency etc.
 
 
 # Process Consensus Finding and Publication
