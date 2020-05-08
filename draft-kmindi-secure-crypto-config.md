@@ -199,6 +199,7 @@ The terms
   "risk",
   "salt",
   "security",
+  "security level",
   "threat",
   "trust",
   "vulnerability",
@@ -273,29 +274,35 @@ The published SCC provides a simple and easy way for looking up secure parameter
 
 ## Requirements
 
-- Information classification: Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
-  - Information classification is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its classification.
-- Longevity: The time some information must be protected can differ from milliseconds to decades (related to Document classification)
-  - Different SCC's based on longevity is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its longevity.
-- Contrained Devices: Computing power is not always available for both the most advanced cryptography algorithms and their parameters.
-  - See {{-ConstrainedDevices}}
-- *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Gouvernment? Company?). Presumably  different group of attackers.
-- Which primitives should be covered?
-- Which algorithms (per primitive) should be covered?
-- Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
-- Must be easy to verify which Secure Crypto Config is used / was used (e.g. in Continuous Integration platforms)
-- Must be easy to verify the authenticity of the Secure Crypto Config (e.g. is this really what the CFRG has published)
-- Easily accessible for library implementation
-- Really easy mapping for various programming languages, without complicated/many additional logic/parsing
-- Easy to integrate by cryptography libraries
-- Experts should still be able to use/access the unaltered output of cryptographic primitives
-- Regular updates (yearly?)
-- Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hiearchical approach with inheritance from the base SCC?)
-- Must be easy to update by the committee
-- Interoperability with other standards/formats (e.g. {{-COSE}})
-- Recommendation what should be the default secure crypto config for a cryptography library (e.g. should it be the one for TOP Secret or *only* for Secret?)
-- Recommendation what should a cryptography library do if it can not support the parameters specified in the latest Secure Crypto Config. (E.g. key size for RSA would be n*2 and the library supports only n)
-- Recommendation how should a cryptography library integrate the Secure Crypto Config so that it should be up to date as soon as possible after a new SCC has been published?
+- Security Level Requirements:
+The Secure Crypto Config should define different security levels.
+E.g. information could have different classification levels, longevity. 
+Additionally, cryptography operations could not or much slower perform on constrained devices, which should also be handled with the security levels.
+For each security level the consensuns finding entities and process shall publish a distinct secure crypto config. 
+
+- Publication Format Requirements:
+  - Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
+  - Must be easy to verify which Secure Crypto Config is used / was used (e.g. in Continuous Integration platforms)
+  - Must be easy to verify the authenticity of the Secure Crypto Config (e.g. is this really what the CFRG has published)
+  - Easily accessible for library implementation
+  - Really easy mapping for various programming languages, without complicated/many additional logic/parsing
+  - Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hiearchical approach with inheritance from the base SCC?)
+  - Must be easy to update by the committee
+
+- Cryptography library integration requirements:
+  - Easy to integrate by cryptography libraries
+  - Experts should still be able to use/access the unaltered output of cryptographic primitives
+  - Recommendation what should be the default secure crypto config for a cryptography library (e.g. should it be the one for TOP Secret or *only* for Secret?)
+  - Recommendation what should a cryptography library do if it can not support the parameters specified in the latest Secure Crypto Config. (E.g. key size for RSA would be n*2 and the library supports only n)
+  - Recommendation how should a cryptography library integrate the Secure Crypto Config so that it should be up to date as soon as possible after a new SCC has been published?
+
+- Consensuns Finding Process:
+  - Regular updates (yearly?)
+
+- General Requirements:
+  - Interoperability with other standards/formats (e.g. {{-COSE}})
+  - The Secure Crypto Config should cover most common cryptography primitives and their currently broadly available and secure algorithms.
+  - *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Gouvernment? Company?). Presumably  different group of attackers.
 
 ## Assumptions
 
@@ -304,6 +311,13 @@ The published SCC provides a simple and easy way for looking up secure parameter
 - [ ] Describe that it is assumed that experts can still use the non-default or customizable variants of cryptography algorithms
 
 # Secure Crypto Config
+
+- [ ] TODO integrate
+  - Information classification: Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
+    - Information classification is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its classification.
+  - Longevity: The time some information must be protected can differ from milliseconds to decades (related to Document classification)
+    - Different SCC's based on longevity is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its longevity.
+  - Contrained Devices: Computing power is not always available for both the most advanced cryptography algorithms and their parameters.
 
 ## Threat Model / Adversaries
 
