@@ -26,9 +26,11 @@ author:
 
 normative:
   RFC2119:
-  RFC8152: COSE
   RFC4949: SecurityGlossary
+  RFC7228: ConstrainedDevices
+  RFC8152: COSE
   RFC8259: JSON
+
 
 informative:
   RFC5652: CMS
@@ -245,6 +247,7 @@ ECDSA
 - Longevity: The time some information must be protected can differ from milliseconds to decades (related to Document classification)
   - Different SCC's based on longevity is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its longevity.
 - Contrained Devices: Computing power is not always available for both the most advanced cryptography algorithms and their parameters.
+  - See {{-ConstrainedDevices}}
 - *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Gouvernment? Company?). Presumably  different group of attackers.
 - Which primitives should be covered?
 - Which algorithms (per primitive) should be covered?
