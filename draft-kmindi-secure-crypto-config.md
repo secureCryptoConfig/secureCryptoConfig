@@ -313,6 +313,10 @@ This also means that side-channel attacks are not considered explicitly.
 
 # Secure Crypto Config
 
+## Security Levels
+
+### Security Level Constraints
+
 - [ ] TODO integrate
   - Information classification: Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
     - Information classification is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its classification.
@@ -320,22 +324,14 @@ This also means that side-channel attacks are not considered explicitly.
     - Different SCC's based on longevity is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its longevity.
   - Contrained Devices: Computing power is not always available for both the most advanced cryptography algorithms and their parameters.
 
-## Threat Model / Adversaries
-
-- [ ] TODO describe adversaries / group of adversaries and their powers
-- [ ] TODO describe other general threats for the Secure Crypto Config (maybe put that into the section Security Considerations):
-  - [ ] Process
-  - [ ] Publication
-  - [ ] Content
-
-## Information classification
+#### Information classification
 
 - [ ] TODO describe Why is document classification needed (refer to Requirements if possible).
 - [ ] TODO Refer to [Classified Information](https://en.wikipedia.org/wiki/Classified_information) and [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf) or other material to find a globally valid definition for classifying information.
 
-## Longevity
+#### Longevity
 
-## Constrained Devices
+#### Constrained Devices
 
 For cryptography often complex computations have to be executed. 
 Yet, not all environments have the same hardware resources available.
@@ -346,6 +342,21 @@ Which is why we define constrained devices not based on concrete processing powe
 For the Secure Crypto Config a device is constrained when it has multiple magnitudes less resources than a current (at the time of reading!) standard personal computer.
 For example if a current standard personal computer can encrypt with 1 GiB/s, a constrained device would be all devices that can only perform the same cryptography operation with less than 10 MiB/s.
 Resources can be everything important for cryptography like dedicated crytography hardware, instruction sets, memory, power consumption, storage space, communication bandwith, latency etc.
+
+
+### Security Level 1
+
+Unclassified information, constrained devices, short longevity
+
+### Security Level 2
+
+### Security Level 3
+
+### Security Level 4
+
+### Security Level 5
+
+### Security Level Extensions/Extendability
 
 
 # Process Consensus Finding and Publication
@@ -420,6 +431,15 @@ Yet, the Secure Crypto Config makes a best effort to be as up-to-date with recen
 - [ ] TODO Security
 - [ ] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
 - [ ] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
+
+### Threat Model / Adversaries
+
+- [ ] TODO describe adversaries / group of adversaries and their powers
+- [ ] TODO describe other general threats for the Secure Crypto Config (maybe put that into the section Security Considerations):
+  - [ ] Process
+  - [ ] Publication
+  - [ ] Content
+
 
 # IANA Considerations
 
