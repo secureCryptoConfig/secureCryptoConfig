@@ -252,8 +252,18 @@ ECDSA
 
 ### Secure Crypto Config Use Cases
 
-- [ ] TODO
+- [ ] TODO may add more use cases. Check if too similar to things mentioned in Intro
 
+**Integration in cryptographic libraries and APIs:**
+It is often the case that cryptographic libraries and APIs using insecure default parameters or deprecate over time as the library is updated frequently and security standards change over time.
+With the integration of SCC, a constantly secure parameter set can be provided. In this way also the misuse of the libraries and APIs could be prevented.
+
+**Choice of secure parameter set:**
+With the help of SCC it is possible especially for non-expert programmers to look up secure parameters for cryptographic primitives in the SCC.
+In this way an insecure choice of parameters with the help of outdated example codes and documentations can be prevented.
+The published SCC provides a simple and easy way for looking up secure parameter sets.
+
+**Standard for recommendations of parameters:** SCC could be used as a data structure for standardization institutions such as NIST or BSI to provide their security recommendations in a structured and machine-readable way.
 
 ### Misuse Cases
 
