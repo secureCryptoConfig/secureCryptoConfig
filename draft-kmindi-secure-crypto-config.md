@@ -281,13 +281,15 @@ Additionally, cryptography operations could not or much slower perform on constr
 For each security level the consensuns finding entities and process shall publish a distinct secure crypto config. 
 
 - Publication Format Requirements:
-  - Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
-  - Must be easy to verify which Secure Crypto Config is used / was used (e.g. in Continuous Integration platforms)
-  - Must be easy to verify the authenticity of the Secure Crypto Config (e.g. is this really what the CFRG has published)
-  - Easily accessible for library implementation
-  - Really easy mapping for various programming languages, without complicated/many additional logic/parsing
-  - Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hiearchical approach with inheritance from the base SCC?)
-  - Must be easy to update by the committee
+  - Human readable
+    - Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
+    - Easy accessibility
+    - Must be easy to update by the committee
+  - Machine readable
+    - Cryptography libraries, regardless of the programming language, should be able to directly map (without extensive parsing) the Secure Crypto Config to their implementation
+    - Must be easy to verify which Secure Crypto Config is used / was used (e.g. in Continuous Integration platforms)
+    - Must be easy to verify the authenticity of the Secure Crypto Config (e.g. is this really what the CFRG has published)
+    - Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hiearchical approach with inheritance from the base SCC?)
 
 - Cryptography library integration requirements:
   - Easy to integrate by cryptography libraries
