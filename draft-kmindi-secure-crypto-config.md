@@ -447,6 +447,18 @@ Yet, the Secure Crypto Config makes a best effort to be as up-to-date with recen
   - [ ] Publication
   - [ ] Content
 
+There are different possibilities in which a potential adversary could intervene during the creation as well as after the publication of the SCC. These attack scenarios must be considered and prevented.
+
+**Process:** During the creation process, it is necessary for selected institutions to agree on a secure parameter set.
+It could be possible that one party wants to influence this process in a bad way.
+As a result, it could be agreed on weaker parameter sets than originally intended.
+
+**Publication:** After the publication of the SCC a potential attacker could gain access to the provided files on the corresponding platform and change the content to an insecure parameter set.
+Depending on the distribution method of the SCC, it is also possible that an attacker could change the content of the SCC as man-in-the-middle.
+Especially if a http connection is used to obtain the SCC, this will be a serious problem.
+
+
+
 
 # IANA Considerations
 
