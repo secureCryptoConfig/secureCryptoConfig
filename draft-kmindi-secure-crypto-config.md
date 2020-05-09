@@ -258,7 +258,7 @@ ECDSA
 The Secure Crypto Config has three main use cases: 
 - Centralized and regularly updated single source of truth for secure algorithm and (their) parameter choices for most common cryptography primitives and use cases.
 - Machine readable and extensible format so that organisations (e.g. governmental or commercial) can define their own set of cryptography configuration to both allow and to verify the compliant usage of cryptography.
-- Cryptography library/API interface description to make use of the Secure Crypto Config in software development.
+- Cryptography library/API interface description for cryptography API developers and for software developers who can then use that interface.
 
 **Integration in cryptographic libraries and APIs:**
 It is often the case that cryptographic libraries and APIs using insecure default parameters or deprecate over time as the library is updated frequently and security standards change over time.
