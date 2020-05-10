@@ -69,7 +69,7 @@ To keep these defaults up-to-date three things are described in this document:
 (1) A process that is repeated every year, where the
 CRFG publishes a new set of default configurations for standardized cryptography primitives, 
 (2) a format based on *TODO* that specifies the default secure configuration of this (and previous) year(s) and 
-(3) a format to derive the parameters from output of cryptography primitives, otherwise future changes of the default configuration would change existing applications behaviour.
+(3) a format to derive the parameters from output of cryptography primitives, otherwise future changes of the default configuration would change existing applications behavior.
 
 --- middle
 
@@ -96,7 +96,7 @@ CRFG publishes a new set of default configurations for standardized cryptography
   - [ ] TODO even describe this better by describing the basic cryptographic primitives we are concerned about and then describe the current best practice for its standardization (e.g. an RFC) and then an actual often used implementation (e.g. Java SDK Crypto API).
 - [x] TODO mention and describe [TLS Cipher suites](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4)
 - [ ] TODO mention why the "Recommended" Column is not enough
-- [ ] TODO Mention/Refer to (use as example for complexit)how many input parameters (5 to 8 in addition to the password itself) [The memory-hard Argon2 password hash and proof-of-work function](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-10#section-3.1) has.
+- [ ] TODO Mention/Refer to (use as example for complexity)how many input parameters (5 to 8 in addition to the password itself) [The memory-hard Argon2 password hash and proof-of-work function](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-10#section-3.1) has.
 - [x] TODO integrate "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}}.
 - [x] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
 - [x] TODO Mention/Refer to "CBOR Object Signing and Encryption (COSE)" {{-COSE}}
@@ -256,7 +256,7 @@ ECDSA
 The Secure Crypto Config has three main use cases: 
 
 - Centralized and regularly updated single source of truth for secure algorithm and (their) parameter choices for most common cryptography primitives and use cases.
-- Machine readable and extensible format so that organisations (e.g. governmental or commercial) can define their own set of cryptography configuration to both allow and to verify the compliant usage of cryptography.
+- Machine readable and extensible format so that organizations (e.g. governmental or commercial) can define their own set of cryptography configuration to both allow and to verify the compliant usage of cryptography.
 - Cryptography library/API interface description for cryptography API developers and for software developers who can then use that interface.
 
 **Choice of secure parameter set:**
@@ -282,9 +282,9 @@ With the integration of SCC, a constantly secure parameter set can be provided. 
 The Secure Crypto Config should define different security levels.
 E.g. information has different classification levels and longevity. 
 Additionally, cryptography operations could not or much slower perform on constrained devices, which should also be handled with the security levels.
-For each security level the consensuns finding process and entities shall publish a distinct secure crypto config. 
+For each security level the consensus finding process and entities shall publish a distinct secure crypto config. 
 
-- Consensuns Finding Process and entities:
+- Consensus Finding Process and entities:
   - The Secure Crypto Config must be renewed regularly.
   - The Secure Crypto Config must be renewable on-demand.
   - There must be a guideline on which entities must agree to publish a new Secure Crypto Config.
@@ -309,7 +309,7 @@ For each security level the consensuns finding process and entities shall publis
     - Cryptography libraries, regardless of the programming language, should be able to directly map (without extensive parsing) the Secure Crypto Config to their implementation
     - Must be easy to verify which Secure Crypto Config is used / was used (e.g. in Continuous Integration platforms)
     - Must be easy to verify the authenticity of the Secure Crypto Config (e.g. is this really what the CFRG has published)
-    - Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hiearchical approach with inheritance from the base SCC?)
+    - Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hierarchical approach with inheritance from the base SCC?)
 
 - Cryptography library integration requirements:
   - Easy to integrate by cryptography libraries
@@ -321,9 +321,9 @@ For each security level the consensuns finding process and entities shall publis
 - General Requirements:
   - Interoperability with other standards/formats (e.g. {{-COSE}})
   - The Secure Crypto Config should cover most common cryptography primitives and their currently broadly available and secure algorithms.
-  - *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Gouvernment? Company?). Presumably  different group of attackers.
+  - *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Government? Company?). Presumably  different group of attackers.
   - The Secure Crypto Config should prevent non-experts to configure cryptography primitives in an insecure way.
-  - The Secure Crypto Config should not prevent experts from using or changing all parameters of cryptogaphy primitives provided by a cryptography library/API.
+  - The Secure Crypto Config should not prevent experts from using or changing all parameters of cryptography primitives provided by a cryptography library/API.
 
 ## Assumptions
 
@@ -360,7 +360,7 @@ Yet, their definitions are too concrete.
 Which is why we define constrained devices not based on concrete processing power (e.g. 100k instructions per second): 
 For the Secure Crypto Config a device is constrained when it has multiple magnitudes less resources than a current (not a new one, but broadly in use at the time of publication of a Secure Crypto Config!) standard personal computer.
 For example if a current standard personal computer can encrypt with 1 GiB/s, a constrained device would be all devices that can only perform the same cryptography operation with less than 10 MiB/s.
-Resources can be everything important for cryptography like dedicated crytography hardware, instruction sets, memory, power consumption, storage space, communication bandwith, latency etc.
+Resources can be everything important for cryptography like dedicated cryptography hardware, instruction sets, memory, power consumption, storage space, communication bandwidth, latency etc.
 
 #### Attacker Resources and Capabilities
 
@@ -381,7 +381,7 @@ Unclassified information, constrained devices, short longevity
 ### Security Level Extensions/Extendability
 
 
-# Consensuns Finding Process and entities
+# Consensus Finding Process and entities
 
 ## Consensus Finding
 
@@ -408,11 +408,11 @@ Unclassified information, constrained devices, short longevity
 See {{scc_example}}.
 
 - [ ] TODO is JSON a appropriate format?
-- [ ] TODO How is COSE more approriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
+- [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
 
 # Cryptography Algorithm Standards Recommendation
 
-- [ ] TODO should there be a template for cryptogrpahy algorithm standards (in addition to COSE) for the Secure Crypto Config or is it enough that the Secure Crypto Config Consensus Finding defines the secure parameters for all cryptography algorithms?
+- [ ] TODO should there be a template for cryptography algorithm standards (in addition to COSE) for the Secure Crypto Config or is it enough that the Secure Crypto Config Consensus Finding defines the secure parameters for all cryptography algorithms?
 
 # Implementation Specification
 
