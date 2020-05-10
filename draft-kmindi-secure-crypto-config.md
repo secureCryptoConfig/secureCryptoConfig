@@ -297,6 +297,7 @@ For each security level the consensuns finding process and entities shall publis
     - Standardized unique and distinct names for (1) cryptography algorithms (2) their parameters and (3) the combination of the algorithm with set parameters. 
       Otherwise ambiguity would make it harder for developers and cryptography implementors to make correct and secure choices.
     - There must be a versioning that allows to distinguish between Secure Crypto Configurations and what is the latest Secure Crypto Config.
+    - There must be a deprecation process that ensures usage of outdated/insecure Crypto Configurations ceases.
     - There must be an official source where this Secure Crypto Config is maintained and can be obtained from (e.g. via the WWW).
     - The official source should also provide information about the Secure Crypto Config Interface that should be utilized for the application of the Secure Crypto Config.
   - Human readable
