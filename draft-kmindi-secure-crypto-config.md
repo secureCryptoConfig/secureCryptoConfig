@@ -283,19 +283,22 @@ The published SCC provides a simple and easy way for looking up secure parameter
 The Secure Crypto Config should define different security levels.
 E.g. information has different classification levels and longevity. 
 Additionally, cryptography operations could not or much slower perform on constrained devices, which should also be handled with the security levels.
-For each security level the consensuns finding entities and process shall publish a distinct secure crypto config. 
+For each security level the consensuns finding process and entities shall publish a distinct secure crypto config. 
 
-- Consensuns Finding Entities and Process:
+- Consensuns Finding Process and entities:
   - The Secure Crypto Config must be renewed regularly.
   - The Secure Crypto Config must be renewable on-demand.
   - There must be a guideline on which entities must agree to publish a new Secure Crypto Config.
   - There must be a guideline on which entities may participate in the consensus finding process and how they may do so.
+  - There must be a guideline on how to determine broad availability of both cryptography algorithms and chosen parameters.
 
-- Publication Format Requirements:
+- Publication Format and Distribution Requirements:
   - General:
     - Standardized unique and distinct names for (1) cryptography algorithms (2) their parameters and (3) the combination of the algorithm with set parameters. 
       Otherwise ambiguity would make it harder for developers and cryptography implementors to make correct and secure choices.
-    - There must be a versioning that allows to distinguish what is the latest Secure Crypto Config
+    - There must be a versioning that allows to distinguish between Secure Crypto Configurations and what is the latest Secure Crypto Config.
+    - There must be an official source where this Secure Crypto Config is maintained and can be obtained from (e.g. via the WWW).
+    - The official source should also provide information about the Secure Crypto Config Interface that should be utilized for the application of the Secure Crypto Config.
   - Human readable
     - Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
     - Easy accessibility
@@ -373,13 +376,16 @@ Unclassified information, constrained devices, short longevity
 ### Security Level Extensions/Extendability
 
 
-# Process Consensus Finding and Publication
+# Consensuns Finding Process and entities
 
 ## Consensus Finding
 
+### Guideline to choose cryptography algorithm and parameters
+
+## Entities
 
 
-## Publication
+# Publication
 
 - [ ] TODO Describe used versioning concept for SCC. 
 - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
