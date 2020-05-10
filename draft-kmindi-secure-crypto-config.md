@@ -73,20 +73,17 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 --- middle
 
-# TODO Remove at the end
 
-- [ ] TODO https://www.ietf.org/standards/ids/guidelines/
-- [ ] TODO References:
-  - [ ] "Normative references specify documents that must be read to understand or implement the technology in the new RFC, or whose technology must be present for the technology in the new RFC to work." (https://www.ietf.org/about/groups/iesg/statements/normative-informative-references/)
-  - [ ] "Handling Normative References to Standards-Track Documents" https://tools.ietf.org/html/rfc4897
-- [ ] TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
-- [ ] TODO Check if "Generic Security Service Application Program Interface Version 2, Update 1" {{?RFC2743}} is relevant.
-
-[^TODO]: Do not remove the TODOS, but mark them as complete by adding an x between the brackets.
 
 # Introduction
 
+
+## TODO Remove at the end
+
+[^TODO]: Do not remove the TODOS, but mark them as complete by adding an x between the brackets.
 [^TODO]
+
+### General TODOS
 
 - [ ] TODO Write Introduction
 - [x] Mention Main Goals: (0) Prevent insecure cryptography use/implementation for the future. (1) Enable cryptography libraries and APIs to offer secure defaults with inherent future-proofnes; (2) Prevent non-expert programmers from misusing cryptography APIs; (3) Allow standardized definition of secure parameters for cryptography algorithms; (4) Standardized across all implementations; (5) Prevent outdated example code and documentation.
@@ -104,6 +101,15 @@ CRFG publishes a new set of default configurations for standardized cryptography
   - e.g. There is an entry for the Advanced Encryption Standard with key size, mode and tag length: A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag;
 - [x] TODO Mention/Refer to "The JavaScript Object Notation (JSON) Data Interchange Format" {{-JSON}}
 - [x] TODO Mention/Refer to "Data Structure for the Security Suitability of Cryptographic Algorithms (DSSC)" {{-DSSC}}
+
+### Other TODOS
+- [ ] TODO https://www.ietf.org/standards/ids/guidelines/
+- [ ] TODO References:
+  - [ ] "Normative references specify documents that must be read to understand or implement the technology in the new RFC, or whose technology must be present for the technology in the new RFC to work." (https://www.ietf.org/about/groups/iesg/statements/normative-informative-references/)
+  - [ ] "Handling Normative References to Standards-Track Documents" https://tools.ietf.org/html/rfc4897
+- [ ] TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
+- [ ] TODO Check if "Generic Security Service Application Program Interface Version 2, Update 1" {{?RFC2743}} is relevant.
+
 
 ## Motivation
 The correct choice of secure parameters when implementing cryptographic primitives or algorithms is not always easy to ensure.
