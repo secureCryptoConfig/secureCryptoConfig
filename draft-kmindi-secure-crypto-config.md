@@ -298,6 +298,8 @@ For each security level the consensuns finding process and entities shall publis
     - There must be a versioning that allows to distinguish between Secure Crypto Configurations and what is the latest Secure Crypto Config.
     - There must be a deprecation process that ensures usage of outdated/insecure Crypto Configurations ceases.
     - There must be an official source where this Secure Crypto Config is maintained and can be obtained from (e.g. via the WWW).
+    - The official source format of the Secure Crypto Config must be cryptographically protected to ensure its integrity and authenticity.
+    - Other published formats derived from the source format (e.g. for human readability on a webpage) do not have to be cryptographically protected but should be generated automatically from the source format.
     - The official source should also provide information about the Secure Crypto Config Interface that should be utilized for the application of the Secure Crypto Config.
   - Human readable
     - Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
