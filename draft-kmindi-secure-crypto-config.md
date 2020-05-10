@@ -281,11 +281,21 @@ The published SCC provides a simple and easy way for looking up secure parameter
 
 - Security Level Requirements:
 The Secure Crypto Config should define different security levels.
-E.g. information could have different classification levels, longevity. 
+E.g. information has different classification levels and longevity. 
 Additionally, cryptography operations could not or much slower perform on constrained devices, which should also be handled with the security levels.
 For each security level the consensuns finding entities and process shall publish a distinct secure crypto config. 
 
+- Consensuns Finding Entities and Process:
+  - The Secure Crypto Config must be renewed regularly.
+  - The Secure Crypto Config must be renewable on-demand.
+  - There must be a guideline on which entities must agree to publish a new Secure Crypto Config.
+  - There must be a guideline on which entities may participate in the consensus finding process and how they may do so.
+
 - Publication Format Requirements:
+  - General:
+    - Standardized unique and distinct names for (1) cryptography algorithms (2) their parameters and (3) the combination of the algorithm with set parameters. 
+      Otherwise ambiguity would make it harder for developers and cryptography implementors to make correct and secure choices.
+    - There must be a versioning that allows to distinguish what is the latest Secure Crypto Config
   - Human readable
     - Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
     - Easy accessibility
@@ -302,9 +312,6 @@ For each security level the consensuns finding entities and process shall publis
   - Recommendation what should be the default secure crypto config for a cryptography library (e.g. should it be the one for TOP Secret or *only* for Secret?)
   - Recommendation what should a cryptography library do if it can not support the parameters specified in the latest Secure Crypto Config. (E.g. key size for RSA would be n*2 and the library supports only n)
   - Recommendation how should a cryptography library integrate the Secure Crypto Config so that it should be up to date as soon as possible after a new SCC has been published?
-
-- Consensuns Finding Process:
-  - Regular updates (yearly?)
 
 - General Requirements:
   - Interoperability with other standards/formats (e.g. {{-COSE}})
