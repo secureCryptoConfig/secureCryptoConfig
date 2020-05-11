@@ -213,6 +213,8 @@ in this document are to be interpreted as described in {{-SecurityGlossary}}.
 
 The term "hash" is used as a synonym for "cryptographic hash".
 
+- [ ] TODO define cryptographic primitive (for usage in use cases and in document) https://crypto.stackexchange.com/questions/39735/whats-a-cryptographic-primitive-really
+
 
 ## Use Cases
 
@@ -226,7 +228,9 @@ plaintext + key => ciphertext
 
 AES
 
-A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag;
+A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag
+
+ChaCha20/Poly1305;24;ChaCha20/Poly1305 w/ 256-bit key, 128-bit tag
 
 
 #### Asymmetric Encryption
@@ -237,17 +241,27 @@ ciphertext + privatekey => plaintext
 
 RSA
 
+RSAES-OAEP w/ SHA-512,-42,RSAES-OAEP w/ SHA-512
+
 #### Hashing
 
 plaintext => hash
 
-SHA-3
+SHA-512 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-44;SHA-2 512-bit Hash
+SHAKE256 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-45;256-bit SHAKE
+
 
 ##### Password Derivation
 
 plaintext,hashalgorithm => hash
 
-argon2
+argon2: 
+
+- [ ] TODO there is no common parameter set for argon2 currently
+
+#### Key Generation
+
+- [ ] TODO should key generation be considered
 
 #### Digital Signatures
 
@@ -256,6 +270,8 @@ plaintext,privatekey => signature
 signature,publickey => vailid/not-valid
 
 ECDSA
+
+ES512;-36;ECDSA w/ SHA-512
 
 ### Secure Crypto Config Use Cases
 
