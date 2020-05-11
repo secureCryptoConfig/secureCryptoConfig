@@ -335,6 +335,9 @@ For each security level the consensus finding process and entities shall publish
 
 The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure.
 This also means that side-channel attacks are not considered explicitly.
+It is also assumed that programmers, software engineers and other humans are going to use cryptography.
+They are going to make implementation choices without being able to consult cryptography and security experts and without understanding cryptography related documentation fully. 
+This also means that it is not considered best practice to assume or propose that only cryptography experts (should) use cryptography (primitives/libraries).
 
 # Secure Crypto Config
 
