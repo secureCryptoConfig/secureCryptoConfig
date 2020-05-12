@@ -430,12 +430,22 @@ Unclassified information, constrained devices, short longevity
 ## Entities
 
 
-# Publication
+# Publication Format and Distribution
+
+## Available Algorithm Registries
+
+The following list gives an overview and examples for the available registries at IANA for cryptography algorithm and their parameters.
+
+- AEAD Algorithms https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml
+- CBOR Object Signing and Encryption (COSE) https://www.iana.org/assignments/cose/cose.xhtml
+- [ ] TODO extend
+
+## Versioning
 
 - [ ] TODO Describe used versioning concept for SCC. 
 - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
 
-# Data Structures {#dataStructures}
+## Data Structures {#dataStructures}
 
 |              | More than 10 years   | More than 1 year               | More than 1 week | Less than one week |
 | ------------ | -------------------- | ------------------------------ | ---------------- | ------------------ |
@@ -450,10 +460,6 @@ See {{scc_example}}.
 - [ ] TODO is JSON a appropriate format?
 - [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
 
-# Cryptography Algorithm Standards Recommendation
-
-- [ ] TODO should there be a template for cryptography algorithm standards (in addition to COSE) for the Secure Crypto Config or is it enough that the Secure Crypto Config Consensus Finding defines the secure parameters for all cryptography algorithms?
-
 # Implementation Specification
 
 - [ ] TODO describe requirements for cryptography API implementors and designers
@@ -462,6 +468,10 @@ See {{scc_example}}.
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
 - [ ] TODO how should cryptography implementations, that implement/support SCC, generate the parameters?
   - [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
+
+# Cryptography Algorithm Standards Recommendation
+
+- [ ] TODO should there be a template for cryptography algorithm standards (in addition to COSE) for the Secure Crypto Config or is it enough that the Secure Crypto Config Consensus Finding defines the secure parameters for all cryptography algorithms?
 
 # Security Considerations
 
