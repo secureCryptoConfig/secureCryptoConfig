@@ -386,9 +386,17 @@ This also means that it is not considered best practice to assume or propose tha
 #### Longevity
 
 - [ ] TODO rewrite.
+- [ ] TODO may add some examples for short/long logevity
 The time information must be protected can be as low as milliseconds but also be more than a decade.
 Different SCC's based on longevity is not always needed. 
 E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its longevity.
+
+The duration of needed data secrecy can vary with different kinds of informations and their respective applications.
+While for some information it is enough to be encrypted for only a few seconds, for other information it is required to keep them secret for decades.
+Therefore, it is necessary to consider the degree of longevity and provide different SCCs depending on it.
+Such SCCs based on longevity are not needed for every application.
+For many applications it can be sufficient to only have one specified algorithm which is used on all kinds of information.
+But for future proofing it would be good to be able to process information based on its longevity.
 
 #### Constrained Devices
 
