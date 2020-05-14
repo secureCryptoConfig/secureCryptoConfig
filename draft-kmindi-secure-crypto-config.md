@@ -257,6 +257,7 @@ Expected input parameters by cryptography users:
 Expected output: ciphertext.
 
 Additional Parameters often required in practice:
+
 - Algorithm
 - Block-Mode
 - IV
@@ -264,24 +265,28 @@ Additional Parameters often required in practice:
 - Authentication Tag size
 
 Possible secure usage:
+
 - A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag
 - ChaCha20/Poly1305;24;ChaCha20/Poly1305 w/ 256-bit key, 128-bit tag
 
 #### Asymmetric Encryption
 
-Beside symmetric encryption is asymmetric encryption another important cryptographic primitive to considere.
+Beside symmetric encryption is asymmetric encryption another important cryptographic primitive to considered.
 
 Expected input parameters for encryption:
+
 - plaintext 
 - public key
 
 Expected output: ciphertext.
 
 Expected input parameters for decryption:
+
 - ciphertext
 - private key 
 
 Possible secure usage:
+
 - RSA
 - RSAES-OAEP w/ SHA-512,-42,RSAES-OAEP w/ SHA-512
 
@@ -289,13 +294,15 @@ Possible secure usage:
 Hashing is an important cryptographic primitives and is often needed as a part of many other cryptographic use cases e.g. password derivation.
 
 Expected input parameters by cryptography users:
+
 - plaintext
 
 Expected output: hash.
 
 Possible secure usage:
-SHA-512 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-44;SHA-2 512-bit Hash
-SHAKE256 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-45;256-bit SHAKE
+
+- SHA-512 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-44;SHA-2 512-bit Hash
+- SHAKE256 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-45;256-bit SHAKE
 
 
 #### Password Derivation
@@ -318,18 +325,21 @@ argon2:
 Signing is an important and often needed cryptographic use case. It is based on the principle of asymmetrical encryption.
 
 Expected input parameters for encryption:
+
 - plaintext 
 - private key
 
 Expected output: signature.
 
 Expected input parameters for decryption:
+
 - signature
 - public key 
 
 Expected output: valid/not-valid.
 
 Possible secure usage:
+
 - ECDSA
 - ES512;-36;ECDSA w/ SHA-512
 
@@ -403,6 +413,8 @@ This also means that it is not considered best practice to assume or propose tha
 **Longevity: less than one day, more than a day**
 **Constrained Devices: constrained, not constrained**
 
+The SCC should be able to provide a secure parameter choice for different security levels. These security level are including three different security constraints which are further defined in {{constraints}}: **Information classification, Longevity, Constrained devices**.
+
 ## Security Level 1 - Lowest
 
 Restricted information, regardless of the other two constraints
@@ -423,7 +435,7 @@ secret, long longevity, constrained device
 
 secret, long longevity, non-constrained device
 
-## Security Level Constraints
+## Security Level Constraints {#constraints}
 
 ### Information classification
 
@@ -438,10 +450,12 @@ secret, long longevity, non-constrained device
 
 Not all kind of information requires the same protection as others.
 Information can therefore be divided into different classifications.
-On the basis of this classification different strength of protection is needed. On possible way of classifying information can be seen in [Classified Information](https://en.wikipedia.org/wiki/Classified_information) or in the proposed [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf), which contains four different classifications.
+On the basis of this classification different strength of protection is needed. 
+On possible way of classifying information can be seen in [Classified Information](https://en.wikipedia.org/wiki/Classified_information) or in the proposed [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf), which contains four different classifications.
 It should be possible to provide appropriate protection for information of different classifications using SCC.
-The different supported classifications can be seen in the following.
 
+- [ ] TODO may remove later
+The different supported classifications can be seen in the following.
 There exists information whose public availability would lead to very large damage and is therefore classified as **TOPSECRET**.
 Special protection measures must be taken for this information since there is a very high risk of misuse and damage to the organization privacy or reputation if the information is not published correctly. 
 The **SECRET** classification would be a gradation of the former classification.
@@ -453,7 +467,8 @@ The information of this classification is not of high relevance and does not nee
 It is not necessary to consider all theses different classifications in all applications.
 In some cases it may be sufficient to use the same algorithms for all types of information, but it would be good for future proofing to be able to process information according to its classification.
 
-**Summary: SECRET, RESTRICTED****
+
+**Summary: SECRET, RESTRICTED**
 
 ### Longevity
 
