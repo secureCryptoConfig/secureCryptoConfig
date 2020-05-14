@@ -413,7 +413,12 @@ This also means that it is not considered best practice to assume or propose tha
 **Longevity: less than one day, more than a day**
 **Constrained Devices: constrained, not constrained**
 
-The SCC should be able to provide a secure parameter choice for different security levels. These security level are including three different security constraints which are further defined in {{constraints}}: **Information classification, Longevity, Constrained devices**.
+The SCC should be able to provide a secure parameter set for different security levels. 
+These security level are containing values for three different kinds of security constraints: **Information classification, Longevity, Constrained devices**
+The security constraints are further defined in {{constraints}}.
+Based on combinations of security constraint valuess different SCCs can be provided to be able to support various security levels with the appropriate choice of parameters.
+Security level definitions for which a SCC should be provided are defined in the following.
+
 
 ## Security Level 1 - Lowest
 
@@ -452,7 +457,13 @@ Not all kind of information requires the same protection as others.
 Information can therefore be divided into different classifications.
 On the basis of this classification different strength of protection is needed. 
 On possible way of classifying information can be seen in [Classified Information](https://en.wikipedia.org/wiki/Classified_information) or in the proposed [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf), which contains four different classifications.
-It should be possible to provide appropriate protection for information of different classifications using SCC.
+It should be possible to provide appropriate protection for information of different classifications using SCC. The SCC consideres **Secret** and **Restricted** as possible classifications.
+
+- Secret:
+There exists sensitive information whose public availability would lead to large damage.
+Special protection measures must be taken for this information since there is a high risk of misuse and damage to the organization privacy or reputation if the information is not published correctly.
+- Restricted:
+This classification contains information which is relevant and worthy of protection, but the risk of misuse is low even in the case of unintentional publication.
 
 - [ ] TODO may remove later
 The different supported classifications can be seen in the following.
@@ -484,6 +495,7 @@ Therefore, it is necessary to consider the degree of longevity and provide diffe
 Such SCCs based on longevity are not needed for every application.
 For many applications it can be sufficient to only have one specified algorithm which is used on all kinds of information.
 But for future proofing it would be good to be able to process information based on its longevity.
+The SCC only consideres **short** longevity which includes a duration of less than one day and **long** longevity requiring protection for more than one day.
 
 - [ ] TODO logevity definition.
 - [ ] TODO More classifications necessary?
@@ -500,7 +512,8 @@ Yet, their definitions are too concrete.
 Which is why we define constrained devices not based on concrete processing power (e.g. 100k instructions per second): 
 For the Secure Crypto Config a device is constrained when it has multiple magnitudes less resources than a current (not a new one, but broadly in use at the time of publication of a Secure Crypto Config!) standard personal computer.
 For example if a current standard personal computer can encrypt with 1 GiB/s, a constrained device would be all devices that can only perform the same cryptography operation with less than 10 MiB/s.
-Resources can be everything important for cryptography like dedicated cryptography hardware, instruction sets, memory, power consumption, storage space, communication bandwidth, latency etc.
+Resources can be everything important for cryptography like dedicated cryptography hardware, instruction sets, memory, power consumption, storage space, communication bandwidth, latency etc. 
+The SCC only consideres **constrained** and **non-constrained** as possible values for the corrsponding security constraint.
 
 **Summary: constrained, not constrained**
 
@@ -538,6 +551,7 @@ The following list gives an overview and examples for the available registries a
 
 ## Data Structures {#dataStructures}
 - [ ] TODO fill entries, not fitting in one table -> two tables?
+
 In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can be seen in {{scc_example}}.
 
 | Use Case\Level  | 1                    | 2                              | 3                | 4                  | 5                  |
