@@ -390,9 +390,19 @@ This also means that it is not considered best practice to assume or propose tha
 Not all kind of information requires the same protection as others.
 Information can therefore be divided into different classifications.
 On the basis of this classification different strength of protection is needed. On possible way of classifying information can be seen in [Classified Information](https://en.wikipedia.org/wiki/Classified_information) or in the proposed [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf), which contains four different classifications.
-It should be possible to provide appropriate protection for information of different classifications using SCC. The different supported classifications can be seen in the following.
+It should be possible to provide appropriate protection for information of different classifications using SCC.
+The different supported classifications can be seen in the following.
 
-There exists information whose public availability would lead to very large damage and is therefore classified as **TOPSECRET**. Special protection measures must be taken for this information since there is a very high risk of misuse and damage to the organization privacy or reputation if the information is not published correctly. The **SECRET** classification would be a gradation of the former classification. Here sensitive information in included that should not be disclosed to the public unintentionally. In this case, making the information public would still cause damage and a high risk of misuse exists, but not to the same extent as in TOPSECRET. In addition to the classifications of sensitive information, there are also classifications that require less protective measures. **RESTRICTED** describes information which is relevant and worthy of protection, but the risk of misuse is low even in the case of unintentional publication. The lowest classification is **UNCLASSIFIED**. The information of this classification is not of high relevance and does not need protection, since the risk of misuse is minimal. It is not necessary to consider all theses different classifications in all applications. In some cases it may be sufficient to use the same algorithms for all types of information, but it would be good for future proofing to be able to process information according to its classification.
+There exists information whose public availability would lead to very large damage and is therefore classified as **TOPSECRET**.
+Special protection measures must be taken for this information since there is a very high risk of misuse and damage to the organization privacy or reputation if the information is not published correctly. 
+The **SECRET** classification would be a gradation of the former classification.
+Here sensitive information in included that should not be disclosed to the public unintentionally.
+In this case, making the information public would still cause damage and a high risk of misuse exists, but not to the same extent as in TOPSECRET.
+In addition to the classifications of sensitive information, there are also classifications that require less protective measures. **RESTRICTED** describes information which is relevant and worthy of protection, but the risk of misuse is low even in the case of unintentional publication. 
+The lowest classification is **UNCLASSIFIED**.
+The information of this classification is not of high relevance and does not need protection, since the risk of misuse is minimal. 
+It is not necessary to consider all theses different classifications in all applications.
+In some cases it may be sufficient to use the same algorithms for all types of information, but it would be good for future proofing to be able to process information according to its classification.
 
 
 #### Longevity
@@ -410,6 +420,15 @@ Such SCCs based on longevity are not needed for every application.
 For many applications it can be sufficient to only have one specified algorithm which is used on all kinds of information.
 But for future proofing it would be good to be able to process information based on its longevity.
 
+- [ ] TODO logevity definition.
+- [ ] TODO More classifications necessary?
+
+
+- short logevity: less than one week
+- medium longevity: more than one week
+- long logevity: more than one year
+
+
 #### Constrained Devices
 
 For cryptography often complex computations have to be executed. 
@@ -426,17 +445,32 @@ Resources can be everything important for cryptography like dedicated cryptograp
 
 - [ ] TODO describe what kind of attackers and their resources and capabilities are considered for the definition of the security levels.
 
-### Security Level 1
 
-Unclassified information, constrained devices, short longevity
+### Security Level 1
+- [ ] TODO
+Assumption:
+- levels: topsecret, secret, restricted.
+- longevity: short (<one week), medium (>one week), long (>one year)
+- From **1** weak up to **4** strong
+- One SCC file per Security level?
+
+restricted information, long longevity
 
 ### Security Level 2
 
+secret, medium longevity
+
 ### Security Level 3
+
+seret, long longevity
 
 ### Security Level 4
 
+topsecret, long longevity
+
 ### Security Level 5
+
+- [ ] TODO add more levels?
 
 ### Security Level Extensions/Extendability
 
