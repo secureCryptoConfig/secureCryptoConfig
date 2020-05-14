@@ -381,7 +381,19 @@ This also means that it is not considered best practice to assume or propose tha
 - [ ] TODO describe Why is document classification needed (refer to Requirements if possible).
 - [ ] TODO Refer to [Classified Information](https://en.wikipedia.org/wiki/Classified_information) and [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf) or other material to find a globally valid definition for classifying information.
 - [ ] TODO Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
-- [] TODO Integrate: Information classification is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its classification.
+- [ ] TODO Integrate: Information classification is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its classification.
+
+- [ ] TODO Definitions here? Better formatting as bulleted points?
+- [ ] TODO Up to now: Topsecret, secret, restricted, unclassified - Confidential? Or is secret enough? Where exactly is the difference in encryption techniques
+- [ ] TODO Unclassified at all? No protective measures -> no param set necessary
+
+Not all kind of information requires the same protection as others.
+Information can therefore be divided into different classifications.
+On the basis of this classification different strength of protection is needed. On possible way of classifying information can be seen in [Classified Information](https://en.wikipedia.org/wiki/Classified_information) or in the proposed [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf), which contains four different classifications.
+It should be possible to provide appropriate protection for information of different classifications using SCC. The different supported classifications can be seen in the following.
+
+There exists information whose public availability would lead to very large damage and is therefore classified as **TOPSECRET**. Special protection measures must be taken for this information since there is a very high risk of misuse and damage to the organization privacy or reputation if the information is not published correctly. The **SECRET** classification would be a gradation of the former classification. Here sensitive information in included that should not be disclosed to the public unintentionally. In this case, making the information public would still cause damage and a high risk of misuse exists, but not to the same extent as in TOPSECRET. In addition to the classifications of sensitive information, there are also classifications that require less protective measures. **RESTRICTED** describes information which is relevant and worthy of protection, but the risk of misuse is low even in the case of unintentional publication. The lowest classification is **UNCLASSIFIED**. The information of this classification is not of high relevance and does not need protection, since the risk of misuse is minimal. It is not necessary to consider all theses different classifications in all applications. In some cases it may be sufficient to use the same algorithms for all types of information, but it would be good for future proofing to be able to process information according to its classification.
+
 
 #### Longevity
 
