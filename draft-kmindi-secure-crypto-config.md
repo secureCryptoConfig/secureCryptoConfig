@@ -238,7 +238,7 @@ The published SCC provides a simple and easy way for looking up secure parameter
 It is often the case that cryptographic libraries and APIs using insecure default parameters or deprecate over time as the library is updated frequently and security standards change over time.
 With the integration of SCC, a constantly secure parameter set can be provided. In this way also the misuse of the libraries and APIs could be prevented.
 
-### Cryptography Use Cases
+### Cryptography Use Cases {#cryptoCase}
 
 The Secure Crypto Config should cover cryptography algorithm and parameter configurations for the following widely used cryptography use cases.
 These are mostly no security protocols but cryptography primitives.
@@ -374,7 +374,7 @@ It is also assumed that programmers, software engineers and other humans are goi
 They are going to make implementation choices without being able to consult cryptography and security experts and without understanding cryptography related documentation fully. 
 This also means that it is not considered best practice to assume or propose that only cryptography experts (should) use cryptography (primitives/libraries).
 
-# Security Levels
+# Security Levels {#securityLevels}
 
 - [ ] TODO short introduction to different/used constraints
 **Information Classification: SECRET, RESTRICTED****
@@ -500,16 +500,19 @@ The following list gives an overview and examples for the available registries a
 - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
 
 ## Data Structures {#dataStructures}
+In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can de seen in {{scc_example}}.
 
-|              | More than 10 years   | More than 1 year               | More than 1 week | Less than one week |
-| ------------ | -------------------- | ------------------------------ | ---------------- | ------------------ |
-| TOP SECRET   | TOP_SECRET_gt10years | TOP_SECRET_gt1yearsEndFragment |                  |                    |
-| SECRET       |                      |                                |                  |                    |
-| CONFIDENTIAL |                      |                                |                  |                    |
-{: #scc_secret_vs_longevity}
+|                 | 1                    | 2                              | 3                | 4                  | 5                  |
+| --------------- | -------------------- | ------------------------------ | ---------------- | ------------------ | ------------------ |
+| Symmetric       |                      |                                |                  |                    |                    |
+| Asymmetric      |                      |                                |                  |                    |                    |
+| Hashing         |                      |                                |                  |                    |                    |
+| PW derivation   |                      |                                |                  |                    |                    |
+| CSPRNG          |                      |                                |                  |                    |                    |
+| Key Generation  |                      |                                |                  |                    |                    |
+| Signing         |                      |                                |                  |                    |                    |
 
-
-See {{scc_example}}.
+{: #scc_useCase_level}
 
 - [ ] TODO is JSON a appropriate format?
 - [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
