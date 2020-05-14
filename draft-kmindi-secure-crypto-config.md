@@ -285,7 +285,7 @@ SHA-512 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-44;SHA-2 512-bi
 SHAKE256 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-45;256-bit SHAKE
 
 
-##### Password Derivation
+#### Password Derivation
 
 plaintext,hashalgorithm => hash
 
@@ -293,9 +293,13 @@ argon2:
 
 - [ ] TODO there is no common parameter set for argon2 currently
 
+#### CSPRNG
+
+- [ ] TODO do we make suggestions for Cryptographically secure pseudorandom number generator?
+
 #### Key Generation
 
-- [ ] TODO should key generation be considered
+- [ ] TODO should key generation be considered? (Symmetric/Asymmetric)
 
 #### Digital Signatures
 
