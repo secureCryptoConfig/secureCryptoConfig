@@ -374,6 +374,31 @@ This also means that it is not considered best practice to assume or propose tha
 
 ## Security Levels
 
+- [ ] TODO short introduction to different/used constraints
+**Information Classification: SECRET, RESTRICTED****
+**Longevity: less than one day, more than a day**
+**Constrained Devices: constrained, not constrained**
+
+### Security Level 1 - Lowest
+
+Restricted information, regardless of the other two constraints
+
+### Security Level 2
+
+secret, short longevity, constrained device
+
+### Security Level 3
+
+secret, short longevity, non-constrained device
+
+### Security Level 4
+
+secret, long longevity, constrained device
+
+### Security Level 5 - Highest
+
+secret, long longevity, non-constrained device
+
 ### Security Level Constraints
 
 #### Information classification
@@ -404,6 +429,7 @@ The information of this classification is not of high relevance and does not nee
 It is not necessary to consider all theses different classifications in all applications.
 In some cases it may be sufficient to use the same algorithms for all types of information, but it would be good for future proofing to be able to process information according to its classification.
 
+**Summary: SECRET, RESTRICTED****
 
 #### Longevity
 
@@ -423,11 +449,7 @@ But for future proofing it would be good to be able to process information based
 - [ ] TODO logevity definition.
 - [ ] TODO More classifications necessary?
 
-
-- short logevity: less than one week
-- medium longevity: more than one week
-- long logevity: more than one year
-
+**Summary: less than one day, more than a day**
 
 #### Constrained Devices
 
@@ -441,39 +463,15 @@ For the Secure Crypto Config a device is constrained when it has multiple magnit
 For example if a current standard personal computer can encrypt with 1 GiB/s, a constrained device would be all devices that can only perform the same cryptography operation with less than 10 MiB/s.
 Resources can be everything important for cryptography like dedicated cryptography hardware, instruction sets, memory, power consumption, storage space, communication bandwidth, latency etc.
 
+**Summary: constrained, not constrained**
+
 #### Attacker Resources and Capabilities
 
 - [ ] TODO describe what kind of attackers and their resources and capabilities are considered for the definition of the security levels.
 
-
-### Security Level 1
-- [ ] TODO
-Assumption:
-- levels: topsecret, secret, restricted.
-- longevity: short (<one week), medium (>one week), long (>one year)
-- From **1** weak up to **4** strong
-- One SCC file per Security level?
-
-restricted information, long longevity
-
-### Security Level 2
-
-secret, medium longevity
-
-### Security Level 3
-
-seret, long longevity
-
-### Security Level 4
-
-topsecret, long longevity
-
-### Security Level 5
-
-- [ ] TODO add more levels?
-
 ### Security Level Extensions/Extendability
 
+- [ ] TODO
 
 # Consensus Finding Process and entities
 
