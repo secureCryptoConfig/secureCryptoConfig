@@ -500,11 +500,11 @@ The following list gives an overview and examples for the available registries a
 - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
 
 ## Data Structures {#dataStructures}
-In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can de seen in {{scc_example}}.
+In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can be seen in {{scc_example}}.
 
-|                 | 1                    | 2                              | 3                | 4                  | 5                  |
+| Use Case\Level  | 1                    | 2                              | 3                | 4                  | 5                  |
 | --------------- | -------------------- | ------------------------------ | ---------------- | ------------------ | ------------------ |
-| Symmetric       |                      |                                |                  |                    |                    |
+| Symmetric       |                      |                                |                  |                    | Algorithm: AES <br> KeyLength: 256 <br> Mode: GCM <br> Padding: NoPadding <br> NonceLength: 256 <br> Tag: 128                                                                            |       
 | Asymmetric      |                      |                                |                  |                    |                    |
 | Hashing         |                      |                                |                  |                    |                    |
 | PW derivation   |                      |                                |                  |                    |                    |
@@ -513,6 +513,13 @@ In the following table a possible parameter choice for the different cryptograph
 | Signing         |                      |                                |                  |                    |                    |
 
 {: #scc_useCase_level}
+
+
+                                                                                                                    
+                                                                                                                    
+                                                                                                                               
+
+
 
 - [ ] TODO is JSON a appropriate format?
 - [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
