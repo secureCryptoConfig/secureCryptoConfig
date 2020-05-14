@@ -239,6 +239,7 @@ It is often the case that cryptographic libraries and APIs using insecure defaul
 With the integration of SCC, a constantly secure parameter set can be provided. In this way also the misuse of the libraries and APIs could be prevented.
 
 ### Cryptography Use Cases {#cryptoCase}
+- TODO [ ] write text for CSPRNG, Key generation, PW derivation if they are staying
 
 The Secure Crypto Config should cover cryptography algorithm and parameter configurations for the following widely used cryptography use cases.
 These are mostly no security protocols but cryptography primitives.
@@ -262,25 +263,37 @@ Additional Parameters often required in practice:
 - Padding-Mode
 - Authentication Tag size
 
-A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag
-
-ChaCha20/Poly1305;24;ChaCha20/Poly1305 w/ 256-bit key, 128-bit tag
-
+Possible secure usage:
+- A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag
+- ChaCha20/Poly1305;24;ChaCha20/Poly1305 w/ 256-bit key, 128-bit tag
 
 #### Asymmetric Encryption
 
-plaintext + publickey => ciphertext
+Beside symmetric encryption is asymmetric encryption another important cryptographic primitive to considere.
 
-ciphertext + privatekey => plaintext
+Expected input parameters for encryption:
+- plaintext 
+- public key
 
-RSA
+Expected output: ciphertext.
 
-RSAES-OAEP w/ SHA-512,-42,RSAES-OAEP w/ SHA-512
+Expected input parameters for decryption:
+- ciphertext
+- private key 
+
+Possible secure usage:
+- RSA
+- RSAES-OAEP w/ SHA-512,-42,RSAES-OAEP w/ SHA-512
 
 #### Hashing
+Hashing is an important cryptographic primitives and is often needed as a part of many other cryptographic use cases e.g. password derivation.
 
-plaintext => hash
+Expected input parameters by cryptography users:
+- plaintext
 
+Expected output: hash.
+
+Possible secure usage:
 SHA-512 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-44;SHA-2 512-bit Hash
 SHAKE256 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-45;256-bit SHAKE
 
@@ -302,14 +315,23 @@ argon2:
 - [ ] TODO should key generation be considered? (Symmetric/Asymmetric)
 
 #### Digital Signatures
+Signing is an important and often needed cryptographic use case. It is based on the principle of asymmetrical encryption.
 
-plaintext,privatekey => signature
+Expected input parameters for encryption:
+- plaintext 
+- private key
 
-signature,publickey => vailid/not-valid
+Expected output: signature.
 
-ECDSA
+Expected input parameters for decryption:
+- signature
+- public key 
 
-ES512;-36;ECDSA w/ SHA-512
+Expected output: valid/not-valid.
+
+Possible secure usage:
+- ECDSA
+- ES512;-36;ECDSA w/ SHA-512
 
 ### Misuse Cases
 
@@ -500,11 +522,12 @@ The following list gives an overview and examples for the available registries a
 - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
 
 ## Data Structures {#dataStructures}
+- [ ] TODO fill entries, not fitting in one table -> two tables?
 In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can be seen in {{scc_example}}.
 
 | Use Case\Level  | 1                    | 2                              | 3                | 4                  | 5                  |
 | --------------- | -------------------- | ------------------------------ | ---------------- | ------------------ | ------------------ |
-| Symmetric       |                      |                                |                  |                    | Algorithm: AES <br> KeyLength: 256 <br> Mode: GCM <br> Padding: NoPadding <br> NonceLength: 256 <br> Tag: 128                                                                            |       
+| Symmetric       |                      |                                |                  |                    | Algorithm: AES <br> KeyLength: 256 <br> Mode: GCM                                                                                                                      <br> Padding: NoPadding <br> NonceLength: 256 <br>                                                                                                                     Tag: 128           | 
 | Asymmetric      |                      |                                |                  |                    |                    |
 | Hashing         |                      |                                |                  |                    |                    |
 | PW derivation   |                      |                                |                  |                    |                    |
