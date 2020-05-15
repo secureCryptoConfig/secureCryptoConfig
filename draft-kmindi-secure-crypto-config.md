@@ -547,7 +547,7 @@ After the successful decision the agreed on parameters can be added in the propo
 Consensus must be found one year after the last consensus was found.
 This ensures that there is a new Secure Crypto Config every year, even if the configuration itself has not changed.
 
-### Process 
+### Regular Process 
 
 The process has three phases:
 (1) Phase one is the proposal phase during which all participating entities must propose at least two cryptography algorithms and parameters per cryptography use case per security level.
@@ -558,6 +558,17 @@ The phases must follow this time frames to ensure each year a new secure crypto 
 (1) Phase one starts after phase three has ended. Phase one ends after 5 months.
 (2) Phase two starts after phase one has ended. Phase two ends after 5 months.
 (3) Phase three starts after phase two. Phase three must be finished after 2 months.
+
+### Emergency Process
+
+In cases when a regularly still valid Secure Crypto Config would become insecure regarding either a proposed algorithm or a proposed parameter choice it must be revised with the following process:
+
+1. Determine the insecure configuration.
+2. Remove the insecure configuration. *(TODO: would replacing also be an option? how?)*
+3. Publish the revised Secure Crypto Config with a new *(TODO "patch"?)* version.
+4. Mark the old (unrevised) Secure Crypto Config as deprecated.
+
+Examples for emergency cases are drastically better brute force algorithms or brute force performance (e.g. quantum computers/algorithms), drastically discovered flaws in proposed algorithms and their configurations.
 
 ### Guideline to choose cryptography algorithm and parameters
 
