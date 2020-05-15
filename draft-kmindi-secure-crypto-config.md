@@ -520,25 +520,27 @@ The SCC only consideres **constrained** and **non-constrained** as possible valu
 ### Attacker Resources and Capabilities
 
 - [ ] TODO describe what kind of attackers and their resources and capabilities are considered for the definition of the security levels.
+- [ ] TODO should this be in two sections?
+ See {{threatModel}}
 
 ## Security Level Extensions/Extendability
-
 - [ ] TODO
 
 # Consensus Finding Process and entities
 
 ## Consensus Finding
+### Guideline to choose cryptography algorithm and parameters
 To provide a SCC it is necessary to agree upon a secure and appropiate cryptographic parameter set for each security level (see {{securityLevels}}).
 This should happen in a common consensus finding process which takes place at regular intervals e.g. every year. 
 During this process the Internet Engineering Task Force (IETF) decides in cooperation with other institutions like the Bundesamt für Sicherheit in der Informationstechnik (BSI) or the National Institute of Standards and Technology (NIST) for a set of secure parameters.
-It is essential that only trustworthy and cryptographic specialized institutions are participating to make these decisions otherwise a SCC with a weak and insecure parameter set could be provided as a result.
-
-### Guideline to choose cryptography algorithm and parameters
+After the successful decision the agreed on parameters can be added in the proposed JSON data structure (see {{dataStructures}}) and provided on an appropriate platform.
 
 ## Entities
 - [ ] TODO more detailed description of entities?
 
-Entities that are paticipating on the consensus finding process should be the IETF and other institutions that are specialized in the field of cryptography like the BSI or NIST. It is essential that only trustworthy and cryptographic specialized institutions are participating to make these decisions otherwise a SCC with a weak and insecure parameter set could be provided as a result.
+Entities that are paticipating on the consensus finding process should be the IETF and other institutions that are specialized in the field of cryptography like the BSI or NIST.
+It is essential that only trustworthy and cryptographic specialized institutions are participating to make these decisions otherwise a SCC with a weak and insecure parameter set could be provided as a result.
+(?) Further the participating entities should act without political or governmental influences that could affect their decisions.
 
 
 # Publication Format and Distribution
@@ -629,7 +631,7 @@ Yet, the Secure Crypto Config makes a best effort to be as up-to-date with recen
 - [ ] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
 - [ ] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
 
-### Threat Model / Adversaries
+### Threat Model / Adversaries {#threatModel}
 
 - [ ] TODO describe adversaries / group of adversaries and their powers
 - [ ] TODO describe other general threats for the Secure Crypto Config (maybe put that into the section Security Considerations):
