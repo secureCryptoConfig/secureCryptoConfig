@@ -423,7 +423,7 @@ Based on combinations of security constraint valuess different SCCs can be provi
 Security level definitions for which a SCC should be provided are defined in the following.
 
 
-## Security Level 1 - Lowest
+## Security Level 1 - Low
 
 Restricted information, regardless of the other two constraints
 
@@ -439,7 +439,7 @@ secret, short longevity, non-constrained device
 
 secret, long longevity, constrained device
 
-## Security Level 5 - Highest
+## Security Level 5 - High
 
 secret, long longevity, non-constrained device
 
