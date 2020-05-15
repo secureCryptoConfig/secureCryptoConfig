@@ -578,7 +578,7 @@ The following list gives an overview and examples for the available registries a
 
 - AEAD Algorithms https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml
 - CBOR Object Signing and Encryption (COSE) https://www.iana.org/assignments/cose/cose.xhtml
-- [ ] TODO extend
+- [Named Information Hash Registry(https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
 
 ## Versioning
 
