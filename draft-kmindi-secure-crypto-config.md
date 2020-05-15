@@ -528,10 +528,17 @@ The SCC only consideres **constrained** and **non-constrained** as possible valu
 # Consensus Finding Process and entities
 
 ## Consensus Finding
+To provide a SCC it is necessary to agree upon a secure and appropiate cryptographic parameter set for each security level (see {{securityLevels}}).
+This should happen in a common consensus finding process which takes place at regular intervals e.g. every year. 
+During this process the Internet Engineering Task Force (IETF) decides in cooperation with other institutions like the Bundesamt für Sicherheit in der Informationstechnik (BSI) or the National Institute of Standards and Technology (NIST) for a set of secure parameters.
+It is essential that only trustworthy and cryptographic specialized institutions are participating to make these decisions otherwise a SCC with a weak and insecure parameter set could be provided as a result.
 
 ### Guideline to choose cryptography algorithm and parameters
 
 ## Entities
+- [ ] TODO more detailed description of entities?
+
+Entities that are paticipating on the consensus finding process should be the IETF and other institutions that are specialized in the field of cryptography like the BSI or NIST. It is essential that only trustworthy and cryptographic specialized institutions are participating to make these decisions otherwise a SCC with a weak and insecure parameter set could be provided as a result.
 
 
 # Publication Format and Distribution
