@@ -595,6 +595,14 @@ Therefore, the Secure Crypto Config format MUST use the following versioning for
 YYYY is a positive integer describing the year (using the Gregorian calendar, and considering the year that has not ended in all time zones, cf. Anywhere on Earth Time) this specific Secure Crypto Config was published.
 PATCH is a positive integer starting at 0 and only increasing for emergency releases.
 
+## Naming 
+
+The Secure Crypto Config uses the following naming conventions to prevent ambiguity and remove implementation choices:
+ - [ ] TODO propose naming for secure crypto configurations
+ - [ ] TODO maybe merge with versioning section before
+ - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming langauges
+
+
 ## Data Structures {#dataStructures}
 
 - [ ] TODO fill entries, not fitting in one table -> two tables?
