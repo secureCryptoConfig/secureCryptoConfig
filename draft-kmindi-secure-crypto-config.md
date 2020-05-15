@@ -537,14 +537,29 @@ E.g. entities that are participating in the consensus finding process could defi
 
 # Consensus Finding Process and entities
 
+To provide a SCC it is necessary to agree upon a secure and appropriate cryptographic parameter set for each security level (see {{securityLevels}}).
+This should happen in a common consensus finding process which takes place at regular intervals e.g. every year. 
+During this process the Crypto Forum Research Group (CFRG) decides in cooperation with other institutions like the Bundesamt für Sicherheit in der Informationstechnik (BSI) or the National Institute of Standards and Technology (NIST) for a set of secure parameters.
+After the successful decision the agreed on parameters can be added in the proposed JSON data structure (see {{dataStructures}}) and provided on an appropriate platform.
+
 ## Consensus Finding
 
-### Guideline to choose cryptography algorithm and parameters
+Consensus must be found one year after the last consensus was found.
+This ensures that there is a new Secure Crypto Config every year, even if the configuration itself has not changed.
 
-To provide a SCC it is necessary to agree upon a secure and appropiate cryptographic parameter set for each security level (see {{securityLevels}}).
-This should happen in a common consensus finding process which takes place at regular intervals e.g. every year. 
-During this process the Internet Engineering Task Force (IETF) decides in cooperation with other institutions like the Bundesamt für Sicherheit in der Informationstechnik (BSI) or the National Institute of Standards and Technology (NIST) for a set of secure parameters.
-After the successful decision the agreed on parameters can be added in the proposed JSON data structure (see {{dataStructures}}) and provided on an appropriate platform.
+### Process 
+
+The process has three phases:
+(1) Phase one is the proposal phase during which all participating entities must propose at least two cryptography algorithms and parameters per cryptography use case per security level.
+(2) Phase two is the consensus finding phase during which all participating entities must agree on a common secure crypto config.
+(3) Phase three is the finalization phase after the consensus finding phase has ended and ensures the publication of the final secure crypto config.
+
+The phases must follow this time frames to ensure each year a new secure crypto config is finalized and published:
+(1) Phase one starts after phase three has ended. Phase one ends after 5 months.
+(2) Phase two starts after phase one has ended. Phase two ends after 5 months.
+(3) Phase three starts after phase two. Phase three must be finished after 2 months.
+
+### Guideline to choose cryptography algorithm and parameters
 
 ## Entities
 
