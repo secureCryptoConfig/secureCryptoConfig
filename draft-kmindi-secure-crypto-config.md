@@ -554,16 +554,15 @@ The following list gives an overview and examples for the available registries a
 
 In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can be seen in {{scc_example}}.
 
-| Use Case\Level  | 1                    | 2                              | 3                | 4                  | 5                  |
-| --------------- | -------------------- | ------------------------------ | ---------------- | ------------------ | ------------------ |
-| Symmetric       |                      |                                |                  |                    | Algorithm: AES <br> KeyLength: 256 <br> Mode: GCM                                                                                                                      <br> Padding: NoPadding <br> NonceLength: 256 <br>                                                                                                                     Tag: 128           | 
-| Asymmetric      |                      |                                |                  |                    |                    |
-| Hashing         |                      |                                |                  |                    |                    |
-| PW derivation   |                      |                                |                  |                    |                    |
-| CSPRNG          |                      |                                |                  |                    |                    |
-| Key Generation  |                      |                                |                  |                    |                    |
-| Signing         |                      |                                |                  |                    |                    |
-
+| UseCase\Level                                                          | 1 | 2 | 3 | 4 | 5                                                |
+|------------------------------------------------------------------------|---|---|---|---|--------------------------------------------------|
+| **Symmetric**<br>Algorithm:<br>Key:<br>Mode:<br>Padding:<br>Nonce:<br>Tag: |   |   |   |   | <br>AES<br>256<br>GCM<br>NoPadding<br>256<br>128 |
+| Asymmetric                                                             |   |   |   |   |                                                  |
+| Hashing                                                                |   |   |   |   |                                                  |
+| PW derivation                                                          |   |   |   |   |                                                  |
+| CSPRNG                                                                 |   |   |   |   |                                                  |
+| Key Generation                                                         |   |   |   |   |                                                  |
+| Signing                                                                |   |   |   |   |                                                  |
 {: #scc_useCase_level}
 
 
