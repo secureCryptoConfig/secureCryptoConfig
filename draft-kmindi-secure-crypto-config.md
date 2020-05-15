@@ -349,7 +349,7 @@ Possible secure usage:
 
 # Requirements and Assumptions
 
-## Requirements
+## Requirements {#requirements}
 
 - Security Level Requirements:
 The Secure Crypto Config should define different security levels.
@@ -521,21 +521,30 @@ The SCC only consideres **constrained** and **non-constrained** as possible valu
 
 - [ ] TODO describe what kind of attackers and their resources and capabilities are considered for the definition of the security levels.
 - [ ] TODO should this be in two sections?
+
  See {{threatModel}}
 
 ## Security Level Extensions/Extendability
-- [ ] TODO
+
+- [ ] TODO adapt content? 
+
+One requirement of the SCC is that it must be easy to extend/alter (see {{requirements}}).
+It is still possible to change, add or remove some of the here proposed security levels.
+E.g. entities that are participating in the consensus finding process could define additional levels. 
 
 # Consensus Finding Process and entities
 
 ## Consensus Finding
+
 ### Guideline to choose cryptography algorithm and parameters
+
 To provide a SCC it is necessary to agree upon a secure and appropiate cryptographic parameter set for each security level (see {{securityLevels}}).
 This should happen in a common consensus finding process which takes place at regular intervals e.g. every year. 
 During this process the Internet Engineering Task Force (IETF) decides in cooperation with other institutions like the Bundesamt für Sicherheit in der Informationstechnik (BSI) or the National Institute of Standards and Technology (NIST) for a set of secure parameters.
 After the successful decision the agreed on parameters can be added in the proposed JSON data structure (see {{dataStructures}}) and provided on an appropriate platform.
 
 ## Entities
+
 - [ ] TODO more detailed description of entities?
 
 Entities that are paticipating on the consensus finding process should be the IETF and other institutions that are specialized in the field of cryptography like the BSI or NIST.
