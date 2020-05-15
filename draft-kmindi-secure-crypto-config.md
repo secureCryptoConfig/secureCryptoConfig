@@ -593,10 +593,13 @@ The following list gives an overview and examples for the available registries a
 
 ## Versioning
 
-- [ ] TODO Describe used versioning concept for SCC. 
-- [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
+The Secure Crypto Config Format is regularly published in a specific year. 
+Therefore, the Secure Crypto Config format MUST use the following versioning format: **YYYY-PATCH**.
+YYYY is a positive integer describing the year (using the Gregorian calendar, and considering the year that has not ended in all time zones, cf. Anywhere on Earth Time) this specific Secure Crypto Config was published.
+PATCH is a positive integer starting at 0 and only increasing for emergency releases.
 
 ## Data Structures {#dataStructures}
+
 - [ ] TODO fill entries, not fitting in one table -> two tables?
 
 In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can be seen in {{scc_example}}.
@@ -624,6 +627,8 @@ In the following table a possible parameter choice for the different cryptograph
 
 # Implementation Specification
 
+- [ ] TODO Describe used versioning concept for SCC. 
+  - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
 - [ ] TODO describe requirements for cryptography API implementors and designers
 - [ ] TODO decide how the configuration should be made available to programmers
   - [ ] e.g. should there be constants like "SCC_TOP_SECRET_LATEST" and "SCC_TOP_SECRET_LATEST". 
