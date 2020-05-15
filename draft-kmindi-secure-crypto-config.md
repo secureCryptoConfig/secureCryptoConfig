@@ -367,6 +367,7 @@ For each security level the consensus finding process and entities shall publish
 
 - Publication Format and Distribution Requirements:
   - General:
+    - The Secure Crypto Config must be easily publishable by the committee.
     - Standardized unique and distinct names for (1) cryptography algorithms (2) their parameters and (3) the combination of the algorithm with set parameters. 
       Otherwise ambiguity would make it harder for developers and cryptography implementors to make correct and secure choices.
     - There must be a versioning that allows to distinguish between Secure Crypto Configurations and what is the latest Secure Crypto Config.
@@ -375,10 +376,11 @@ For each security level the consensus finding process and entities shall publish
     - The official source format of the Secure Crypto Config must be cryptographically protected to ensure its integrity and authenticity.
     - Other published formats derived from the source format (e.g. for human readability on a webpage) do not have to be cryptographically protected but should be generated automatically from the source format.
     - The official source should also provide information about the Secure Crypto Config Interface that should be utilized for the application of the Secure Crypto Config.
+    - The Secure Crypto Config must specify how it can be extended (e.g. more security levels) and how derivatives work.
   - Human readable
-    - Easy to find what is a secure parameter set for a given requirement (e.g. one table, two-dimensional)
-    - Easy accessibility
-    - Must be easy to update by the committee
+    - The Secure Crypto Config must have a human readable format. 
+    - The Secure Crypto Config must allow non-experts to find secure cryptography algorithms and appropriate parameters for common cryptography use cases.
+    - The Secure Crypto Config human readable publication format should only use easy to comprehend data structures like two-dimensional tables.
   - Machine readable
     - Cryptography libraries, regardless of the programming language, should be able to directly map (without extensive parsing) the Secure Crypto Config to their implementation
     - Must be easy to verify which Secure Crypto Config is used / was used (e.g. in Continuous Integration platforms)
@@ -573,15 +575,15 @@ The following list gives an overview and examples for the available registries a
 
 In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can be seen in {{scc_example}}.
 
-| UseCase\Level                                                              | 1                | 2 | 3                                                | 4 | 5                                                |
-|----------------------------------------------------------------------------|------------------|---|--------------------------------------------------|---|--------------------------------------------------|
-| **Symmetric**<br>Algorithm:<br>Key:<br>Mode:<br>Padding:<br>Nonce:<br>Tag: |                  |   | <br>AES<br>128<br>GCM<br>NoPadding<br>128<br>128 |   | <br>AES<br>256<br>GCM<br>NoPadding<br>256<br>128 |
-| **Asymmetric**<br>Algorithm:<br>Key:<br>Padding:                           |                  |   |                                                  |   |                                                  |
-| **Hashing**<br>Algorithm:<br>Key:                                          | <br>SHA-2<br>512 |   | <br>SHA-3<br>256                                 |   | <br>SHA-3<br>512                                 |
-| **PW derivation**                                                          |                  |   |                                                  |   |                                                  |
-| **CSPRNG**                                                                 |                  |   |                                                  |   |                                                  |
-| **Key Generation**                                                         |                  |   |                                                  |   |                                                  |
-| **Signing**                                                                |                  |   |                                                  |   |                                                  |
+| UseCase\Level                                                              | 1                | 2   | 3                                                | 4   | 5                                                |
+| -------------------------------------------------------------------------- | ---------------- | --- | ------------------------------------------------ | --- | ------------------------------------------------ |
+| **Symmetric**<br>Algorithm:<br>Key:<br>Mode:<br>Padding:<br>Nonce:<br>Tag: |                  |     | <br>AES<br>128<br>GCM<br>NoPadding<br>128<br>128 |     | <br>AES<br>256<br>GCM<br>NoPadding<br>256<br>128 |
+| **Asymmetric**<br>Algorithm:<br>Key:<br>Padding:                           |                  |     |                                                  |     |                                                  |
+| **Hashing**<br>Algorithm:<br>Key:                                          | <br>SHA-2<br>512 |     | <br>SHA-3<br>256                                 |     | <br>SHA-3<br>512                                 |
+| **PW derivation**                                                          |                  |     |                                                  |     |                                                  |
+| **CSPRNG**                                                                 |                  |     |                                                  |     |                                                  |
+| **Key Generation**                                                         |                  |     |                                                  |     |                                                  |
+| **Signing**                                                                |                  |     |                                                  |     |                                                  |
 {: #scc_useCase_level}
 
 
