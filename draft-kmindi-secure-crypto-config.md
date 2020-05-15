@@ -549,15 +549,12 @@ This ensures that there is a new Secure Crypto Config every year, even if the co
 
 ### Regular Process 
 
-The process has three phases:
-(1) Phase one is the proposal phase during which all participating entities must propose at least two cryptography algorithms and parameters per cryptography use case per security level.
-(2) Phase two is the consensus finding phase during which all participating entities must agree on a common secure crypto config.
-(3) Phase three is the finalization phase after the consensus finding phase has ended and ensures the publication of the final secure crypto config.
+The process has three phases that MUST be finalized within 2 years:
+(1) One year **Proposal phase** during which all participating entities must propose at least two cryptography algorithms and parameters per cryptography use case per security level.
+(2) Six months **Consensus finding phase** during which all participating entities must agree on a common secure crypto config.
+(3) Six months **Publication phase ensures** the publication of the final secure crypto config.
 
-The phases must follow this time frames to ensure each year a new secure crypto config is finalized and published:
-(1) Phase one starts after phase three has ended. Phase one ends after 5 months.
-(2) Phase two starts after phase one has ended. Phase two ends after 5 months.
-(3) Phase three starts after phase two. Phase three must be finished after 2 months.
+
 
 ### Emergency Process
 
@@ -635,6 +632,7 @@ In the following table a possible parameter choice for the different cryptograph
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
 - [ ] TODO how should cryptography implementations, that implement/support SCC, generate the parameters?
   - [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
+- [ ] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration.
 
 # Cryptography Algorithm Standards Recommendation
 
