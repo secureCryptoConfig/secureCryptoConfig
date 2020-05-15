@@ -552,9 +552,7 @@ This ensures that there is a new Secure Crypto Config every year, even if the co
 The process has three phases that MUST be finalized within 2 years:
 (1) One year **Proposal phase** during which all participating entities must propose at least two cryptography algorithms and parameters per cryptography use case per security level.
 (2) Six months **Consensus finding phase** during which all participating entities must agree on a common secure crypto config.
-(3) Six months **Publication phase ensures** the publication of the final secure crypto config.
-
-
+(3) Six months **Publication phase ensures** the publication of the final secure crypto config AND allows the Secure Crypto Config Interface and other cryptography implementations to integrate the necessary changes.
 
 ### Emergency Process
 
