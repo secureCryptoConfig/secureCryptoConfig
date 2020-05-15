@@ -321,6 +321,7 @@ argon2:
 
 - [ ] TODO should key generation be considered? (Symmetric/Asymmetric)
 
+
 #### Digital Signatures
 Signing is an important and often needed cryptographic use case. It is based on the principle of asymmetrical encryption.
 
@@ -572,15 +573,15 @@ The following list gives an overview and examples for the available registries a
 
 In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can be seen in {{scc_example}}.
 
-| UseCase\Level                                                          | 1 | 2 | 3 | 4 | 5                                                |
-|------------------------------------------------------------------------|---|---|---|---|--------------------------------------------------|
-| **Symmetric**<br>Algorithm:<br>Key:<br>Mode:<br>Padding:<br>Nonce:<br>Tag: |   |   |   |   | <br>AES<br>256<br>GCM<br>NoPadding<br>256<br>128 |
-| Asymmetric                                                             |   |   |   |   |                                                  |
-| Hashing                                                                |   |   |   |   |                                                  |
-| PW derivation                                                          |   |   |   |   |                                                  |
-| CSPRNG                                                                 |   |   |   |   |                                                  |
-| Key Generation                                                         |   |   |   |   |                                                  |
-| Signing                                                                |   |   |   |   |                                                  |
+| UseCase\Level                                                              | 1                | 2 | 3                                                | 4 | 5                                                |
+|----------------------------------------------------------------------------|------------------|---|--------------------------------------------------|---|--------------------------------------------------|
+| **Symmetric**<br>Algorithm:<br>Key:<br>Mode:<br>Padding:<br>Nonce:<br>Tag: |                  |   | <br>AES<br>128<br>GCM<br>NoPadding<br>128<br>128 |   | <br>AES<br>256<br>GCM<br>NoPadding<br>256<br>128 |
+| **Asymmetric**<br>Algorithm:<br>Key:<br>Padding:                           |                  |   |                                                  |   |                                                  |
+| **Hashing**<br>Algorithm:<br>Key:                                          | <br>SHA-2<br>512 |   | <br>SHA-3<br>256                                 |   | <br>SHA-3<br>512                                 |
+| **PW derivation**                                                          |                  |   |                                                  |   |                                                  |
+| **CSPRNG**                                                                 |                  |   |                                                  |   |                                                  |
+| **Key Generation**                                                         |                  |   |                                                  |   |                                                  |
+| **Signing**                                                                |                  |   |                                                  |   |                                                  |
 {: #scc_useCase_level}
 
 
