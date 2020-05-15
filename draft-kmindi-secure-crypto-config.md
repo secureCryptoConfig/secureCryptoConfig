@@ -565,14 +565,19 @@ In cases when a regularly still valid Secure Crypto Config would become insecure
 
 Examples for emergency cases are drastically better brute force algorithms or brute force performance (e.g. quantum computers/algorithms), drastically discovered flaws in proposed algorithms and their configurations.
 
-### Mandatory Requirements for Selection of Cryptography Algorithm and Parameters
+### Requirements for Selection of Cryptography Algorithm and Parameters
 
 The Secure Crypto Config MUST only propose cryptography algorithms and parameters that fulfill the following requirements:
 
-- Cryptography algorithms and parameters are defined in a globally accepted standard which was suspect to a standardization process.
+- Cryptography algorithms and parameters have stable implementations in at least two different programming languages.
 - Cryptography algorithms and parameters have a defined standard to store the algorithm and parameter identification alongside the result (e.g. like {{-COSE}}). 
   This is required to ensure cryptography operation results can be processed even if the default parameters have been changed or the information has been processed with a previous version of the Secure Crypto Config.
 - Cryptography algorithms that support parametrization to adapt to increased brute force performance and to allow longevity of the algorithm especially for hardware optimized implementations.
+
+The Secure Crypto Config SHOULD only propose cryptography algorithms and parameters that fulfill the following requirements:
+
+- Cryptography algorithms and parameters are defined in a globally accepted standard which was suspect to a standardization process.
+- Cryptography algorithms and parameters are licensed under a license that allows free distribution.
 
 ## Entities
 
