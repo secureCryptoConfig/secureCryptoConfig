@@ -535,7 +535,7 @@ One requirement of the SCC is that it must be easy to extend/alter (see {{requir
 It is still possible to change, add or remove some of the here proposed security levels.
 E.g. entities that are participating in the consensus finding process could define additional levels. 
 
-# Consensus Finding Process and entities
+# Consensus Finding Process and entities {#consensus}
 
 To provide a SCC it is necessary to agree upon a secure and appropriate cryptographic parameter set for each security level (see {{securityLevels}}).
 This should happen in a common consensus finding process which takes place at regular intervals e.g. every year. 
@@ -598,14 +598,14 @@ The following list gives an overview and examples for the available registries a
 - CBOR Object Signing and Encryption (COSE) https://www.iana.org/assignments/cose/cose.xhtml
 - [Named Information Hash Registry(https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
 
-## Versioning
+## Versioning {#version}
 
 The Secure Crypto Config Format is regularly published in a specific year. 
 Therefore, the Secure Crypto Config format MUST use the following versioning format: **YYYY-PATCH**.
 YYYY is a positive integer describing the year (using the Gregorian calendar, and considering the year that has not ended in all time zones, cf. Anywhere on Earth Time) this specific Secure Crypto Config was published.
 PATCH is a positive integer starting at 0 and only increasing for emergency releases.
 
-## Naming 
+## Naming {#naming}
 
 The Secure Crypto Config uses the following naming conventions to prevent ambiguity and remove implementation choices:
  - [ ] TODO propose naming for secure crypto configurations
@@ -625,6 +625,24 @@ For each defined security level a separate JSON-file should be provided. These f
 {::include src/scc_general.json}
 ~~~~
 {: #scc_general title="General JSON format"}
+
+- PolicyName: Contains the name of the corresponding SCC according to the naming schema defined in {{naming}}
+- Publisher: Contains an array of all parties that were participating in the consensus finding process
+  - name: Name of the participating party
+  - URL: Put in the official URL of the named publisher
+- Version: Contains version in the format defined in {{version}}
+- PolicyIssueDate: Date at which the SCC was published in the format: YYYY-MM-DD
+- Expiry: Date at which the SCC expires in the format: YYYY-MM-DD
+- Usage: Contains an array of all cryptographic use cases defined in {{cryptoCase}}. For each cryptographic use case as described in {{consensus}} two agreed on algorithms with necessary parameters are included. Each of this algorithms with its parameters is for uniqueness summarized under a constant name defined in an IANA registry
+  - SymmetricEncryption: Names of two suitable algorithms
+  - AsymmetricEncryption: Names of two suitable algorithms
+  - Hashing: Names of two suitable algorithms 
+  - PasswordDerivation: Names of two suitable algorithms.
+  - CSPRNG: Names of two suitable algorithms
+  - KeyGeneration: Names of two suitable algorithms
+  - Signing: Names of two suitable algorithms
+
+This schema can easily be extended with more cryptographic use cases if necessary by simply adding an additional key-value pair in **Usage**. Also in an possible case emergency in which one of the parameters of the SCC gets insecure before a new current SCC is published it is easy possible to simply change the corresponding value.
 
 
 
