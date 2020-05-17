@@ -1,0 +1,42 @@
+{
+    "PolicyName": "SCC_SecurityLevel_Security Level Number",
+    "Publisher": [
+        {
+            "name": "Publisher name",
+            "URL": "URL corresponding to publisher"
+        }
+    ],
+    "Version": "YYYY-Patch",
+    "PolicyIssueDate": "YYYY-MM-DD",
+    "Expiry": "YYYY-MM-DD",
+    "Usage": {
+        "SymmetricEncryption": [
+            "Algorithm 1",
+            "Algorithm 2"
+        ],
+        "AsymmetricEncryption": [
+            "Algorithm 1",
+            "Algorithm 2"
+        ],
+        "Hashing": [
+            "Algorithm 1",
+            "Algorithm 2"
+        ],
+        "PasswordDerivation": [
+            "Algorithm 1",
+            "Algorithm 2"
+        ],
+        "CSPRNG": [
+            "Algorithm 1",
+            "Algorithm 2"
+        ],
+        "KeyGeneration": [
+            "Algorithm 1",
+            "Algorithm 2"
+        ],
+        "Signing": [
+            "Algorithm 1",
+            "Algorithm 2"
+        ]
+    }
+}

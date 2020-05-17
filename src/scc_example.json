@@ -1,12 +1,12 @@
 {
-    "PolicyName": "SCC Security Level 5",
+    "PolicyName": "SCC_SecurityLevel_5",
     "Publisher": [
         {
             "name": "Crypto Forum Research Group",
             "URL": "https://irtf.org/cfrg"
         }
     ],
-    "Version": "1.0.0",
+    "Version": "2020-0",
     "PolicyIssueDate": "2020-04-20",
     "Expiry": "2023-04-21",
     "Usage": {
