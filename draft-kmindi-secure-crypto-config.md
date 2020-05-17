@@ -612,6 +612,8 @@ The Secure Crypto Config uses the following naming conventions to prevent ambigu
  - [ ] TODO maybe merge with versioning section before
  - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming langauges
 
+ -  [ ] TODO possibly: SCC_SecurityLevel_**Security Level Number" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
+
 
 ## Data Structures {#dataStructures}
 
