@@ -682,7 +682,7 @@ In the following table a possible parameter choice for the different cryptograph
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
 - [ ] TODO how should cryptography implementations, that implement/support SCC, generate the parameters?
   - [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
-- [ ] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration.
+- [ ] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration. E.g. cf. [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/)
 
 # Cryptography Algorithm Standards Recommendation
 
