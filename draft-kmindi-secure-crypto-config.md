@@ -612,10 +612,21 @@ The Secure Crypto Config uses the following naming conventions to prevent ambigu
  - [ ] TODO maybe merge with versioning section before
  - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming langauges
 
- -  [ ] TODO possibly: SCC_SecurityLevel_**Security Level Number" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
+ -  [ ] TODO possibly: SCC_SecurityLevel_**Security Level Number**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
 
 
 ## Data Structures {#dataStructures}
+
+- TODO [ ] necessary in this way?
+
+For each defined security level a separate JSON-file should be provided. These files should follow a common schema and contain the suitable parameters depending on its security level. The general schema of the JSON files can be seen in {{scc_general}}.
+
+~~~~
+{::include src/scc_general.json}
+~~~~
+{: #scc_general title="General JSON format"}
+
+
 
 - [ ] TODO fill entries, not fitting in one table -> two tables?
 
