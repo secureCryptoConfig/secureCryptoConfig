@@ -101,6 +101,7 @@ CRFG publishes a new set of default configurations for standardized cryptography
   - e.g. There is an entry for the Advanced Encryption Standard with key size, mode and tag length: A256GCM;3;AES-GCM mode w/ 256-bit key, 128-bit tag;
 - [x] TODO Mention/Refer to "The JavaScript Object Notation (JSON) Data Interchange Format" {{-JSON}}
 - [x] TODO Mention/Refer to "Data Structure for the Security Suitability of Cryptographic Algorithms (DSSC)" {{-DSSC}}
+- [ ] TODO integrate Password Hashing Format Specification: [PHC String Format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md) a successor to the deprecated Modular Crypt Format (MCF).
 
 ### Other TODOS
 - [ ] TODO https://www.ietf.org/standards/ids/guidelines/
