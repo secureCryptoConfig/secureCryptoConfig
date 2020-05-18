@@ -618,9 +618,15 @@ The Secure Crypto Config uses the following naming conventions to prevent ambigu
 
 ## Data Structures {#dataStructures}
 
-- TODO [ ] necessary in this way?
+- [ ] TODO necessary in this way?
+- [ ] TODO is it possible to define new algorithm/parameter combinations on the fly (in extensions/derivations) or are only SCC IANA registry identifiers allowed/usable?
+- [ ] TODO is JSON a appropriate format?
+- [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
 
-For each defined security level a separate JSON-file should be provided. These files should follow a common schema and contain the suitable parameters depending on its security level. The general schema of the JSON files can be seen in {{scc_general}}.
+
+For each defined security level a distinct JSON-file must be provided. 
+These files must follow a common schema and contain the suitable parameters depending on its security level. 
+The general schema of the JSON files is shown in {{scc_general}}.
 
 ~~~~
 {::include src/scc_general.json}
@@ -638,23 +644,8 @@ For each defined security level a separate JSON-file should be provided. These f
 - For each cryptographic use case, usually at least two as described in {{consensus}}, agreed upon algorithms with necessary parameters are included. Each of these algorithms with its parameters is specified with its unique identification name defined in the *TODO SCC IANA registry*.
 
 This format allows custom algorithm/parameter selections both by overwriting use cases completely or by adding only specific algorithm identifiers.
-- [ ] TODO is it possible to define new algorithm/parameter combinations on the fly or are only SCC IANA registry identifiers allowed/usable?
 
 
-
-- [ ] TODO fill entries, not fitting in one table -> two tables?
-
-
-
-
-                                                                                                                    
-                                                                                                                    
-                                                                                                                               
-
-
-
-- [ ] TODO is JSON a appropriate format?
-- [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
 
 # Implementation Specification
 
