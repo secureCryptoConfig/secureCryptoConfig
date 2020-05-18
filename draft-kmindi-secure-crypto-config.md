@@ -420,7 +420,7 @@ This also means that it is not considered best practice to assume or propose tha
 The SCC should be able to provide a secure parameter set for different security levels. 
 These security level are containing values for three different kinds of security constraints: **Information classification, Longevity, Constrained devices**
 The security constraints are further defined in {{constraints}}.
-Based on combinations of security constraint valuess different SCCs can be provided to be able to support various security levels with the appropriate choice of parameters.
+Based on combinations of security constraint values different SCCs can be provided to be able to support various security levels with the appropriate choice of parameters.
 Security level definitions for which a SCC should be provided are defined in the following.
 
 
@@ -452,7 +452,6 @@ secret, long longevity, non-constrained device
 - [ ] TODO Refer to [Classified Information](https://en.wikipedia.org/wiki/Classified_information) and [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf) or other material to find a globally valid definition for classifying information.
 - [ ] TODO Support different classifications (e.g. TOP SECRET, SECRET, CONFIDENTIAL)
 - [ ] TODO Integrate: Information classification is not always needed. E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its classification.
-
 - [ ] TODO Definitions here? Better formatting as bulleted points?
 - [ ] TODO Up to now: Topsecret, secret, restricted, unclassified - Confidential? Or is secret enough? Where exactly is the difference in encryption techniques
 - [ ] TODO Unclassified at all? No protective measures -> no param set necessary
@@ -521,10 +520,11 @@ The SCC only consideres **constrained** and **non-constrained** as possible valu
 
 **Summary: constrained, not constrained**
 
-### Attacker Resources and Capabilities
+### Attacker Resources and Capabilities / n-Bit-Security
 
 - [ ] TODO describe what kind of attackers and their resources and capabilities are considered for the definition of the security levels.
-- [ ] TODO should this be in two sections?
+- [ ] TODO describe n-Bit-Security commonly used by NIST/BSI to describe a security level
+- [ ] TODO add n-Bit-Security to Security Levels in time-independent way (e.g. referring to increases in bit instead of hardcoded values for the levels)
 
  See {{threatModel}}
 
@@ -620,6 +620,7 @@ The Secure Crypto Config uses the following naming conventions to prevent ambigu
 
 - [ ] TODO necessary in this way?
 - [ ] TODO is it possible to define new algorithm/parameter combinations on the fly (in extensions/derivations) or are only SCC IANA registry identifiers allowed/usable?
+- [ ] TODO What is with parameters that have to be chosen during runtime? (e.g. the length of the nonce can be specified but not its content?) Maybe refer to how the [PHC String Format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md) describes how parameters must be defined and only allow constants and csprng generated content?
 - [ ] TODO is JSON a appropriate format?
 - [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
 
