@@ -634,33 +634,17 @@ For each defined security level a separate JSON-file should be provided. These f
 - Version: Contains version in the format defined in {{version}}
 - PolicyIssueDate: Date at which the SCC was published in the format: YYYY-MM-DD
 - Expiry: Date at which the SCC expires in the format: YYYY-MM-DD
-- Usage: Contains an array of all cryptographic use cases defined in {{cryptoCase}}. For each cryptographic use case as described in {{consensus}} two agreed on algorithms with necessary parameters are included. Each of this algorithms with its parameters is for uniqueness summarized under a constant name defined in an IANA registry
-  - SymmetricEncryption: Names of two suitable algorithms
-  - AsymmetricEncryption: Names of two suitable algorithms
-  - Hashing: Names of two suitable algorithms 
-  - PasswordDerivation: Names of two suitable algorithms.
-  - CSPRNG: Names of two suitable algorithms
-  - KeyGeneration: Names of two suitable algorithms
-  - Signing: Names of two suitable algorithms
+- Usage: Contains an array of all cryptographic use cases defined in {{cryptoCase}} *TODO see SCC IANA registry*. 
+- For each cryptographic use case, usually at least two as described in {{consensus}}, agreed upon algorithms with necessary parameters are included. Each of these algorithms with its parameters is specified with its unique identification name defined in the *TODO SCC IANA registry*.
 
-This schema can easily be extended with more cryptographic use cases if necessary by simply adding an additional key-value pair in **Usage**. Also in an possible case emergency in which one of the parameters of the SCC gets insecure before a new current SCC is published it is easy possible to simply change the corresponding value.
+This format allows custom algorithm/parameter selections both by overwriting use cases completely or by adding only specific algorithm identifiers.
+- [ ] TODO is it possible to define new algorithm/parameter combinations on the fly or are only SCC IANA registry identifiers allowed/usable?
 
 
 
 - [ ] TODO fill entries, not fitting in one table -> two tables?
 
-In the following table a possible parameter choice for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. These parameters could be added in the defined JSON format for the corresponding SCC. An example can be seen in {{scc_example}}.
 
-| UseCase\Level                                                              | 1                | 2   | 3                                                | 4   | 5                                                |
-| -------------------------------------------------------------------------- | ---------------- | --- | ------------------------------------------------ | --- | ------------------------------------------------ |
-| **Symmetric**<br>Algorithm:<br>Key:<br>Mode:<br>Padding:<br>Nonce:<br>Tag: |                  |     | <br>AES<br>128<br>GCM<br>NoPadding<br>128<br>128 |     | <br>AES<br>256<br>GCM<br>NoPadding<br>256<br>128 |
-| **Asymmetric**<br>Algorithm:<br>Key:<br>Padding:                           |                  |     |                                                  |     |                                                  |
-| **Hashing**<br>Algorithm:<br>Key:                                          | <br>SHA-2<br>512 |     | <br>SHA-3<br>256                                 |     | <br>SHA-3<br>512                                 |
-| **PW derivation**                                                          |                  |     |                                                  |     |                                                  |
-| **CSPRNG**                                                                 |                  |     |                                                  |     |                                                  |
-| **Key Generation**                                                         |                  |     |                                                  |     |                                                  |
-| **Signing**                                                                |                  |     |                                                  |     |                                                  |
-{: #scc_useCase_level}
 
 
                                                                                                                     
@@ -750,8 +734,25 @@ Especially if a http connection is used to obtain the SCC, this will be a seriou
 
 --- back
 
-# Example JSON Secure Crypto Config
+# Examples 
 
+In the following table possible algorithm and  parameter choices for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. 
+This is only a visualization format of the source format for which the corresponding example is shown in {{scc_example}}.
+
+- [ ] TODO use algorithm/parameter identifiers
+
+| UseCase\Level                                                              | 1                | 2   | 3                                                | 4   | 5                                                |
+| -------------------------------------------------------------------------- | ---------------- | --- | ------------------------------------------------ | --- | ------------------------------------------------ |
+| **Symmetric**<br>Algorithm:<br>Key:<br>Mode:<br>Padding:<br>Nonce:<br>Tag: |                  |     | <br>AES<br>128<br>GCM<br>NoPadding<br>128<br>128 |     | <br>AES<br>256<br>GCM<br>NoPadding<br>256<br>128 |
+| **Asymmetric**<br>Algorithm:<br>Key:<br>Padding:                           |                  |     |                                                  |     |                                                  |
+| **Hashing**<br>Algorithm:<br>Key:                                          | <br>SHA-2<br>512 |     | <br>SHA-3<br>256                                 |     | <br>SHA-3<br>512                                 |
+| **PW derivation**                                                          |                  |     |                                                  |     |                                                  |
+| **CSPRNG**                                                                 |                  |     |                                                  |     |                                                  |
+| **Key Generation**                                                         |                  |     |                                                  |     |                                                  |
+| **Signing**                                                                |                  |     |                                                  |     |                                                  |
+{: #scc_useCase_level}
+
+## JSON Secure Crypto Config
 ~~~~
 {::include src/scc_example.json}
 ~~~~
