@@ -308,15 +308,37 @@ Possible secure usage:
 
 #### Password Derivation
 
-plaintext,hashalgorithm => hash
+With the help of key derivation we can derive a password out of a given plaintext.
+Of course the output sequence should look random to an potential adversary
 
-argon2: 
+Expected input parameters by cryptography users:
 
-- [ ] TODO there is no common parameter set for argon2 currently
+- plaintext
+- pseudorandom function/hash-algorithm
+- salt
+- iteration number
+- desired password length
 
-#### CSPRNG
+Expected output: derived password.
+
+Possible secure usage:
+
+- PBKDF2WithHmacSHA512
+- salt: 64 bit
+- iterations: 10000
+- password length: 256
+
+
+#### Cryptographically secure pseudorandom number generators (CSPRNG)
 
 - [ ] TODO do we make suggestions for Cryptographically secure pseudorandom number generator?
+- [ ] TODO remove?
+
+If we have to implement cryptographic code it is often necessary to generate a sequence of arbitrary numbers e.g. for generating a key.
+Of course this sequence must be generated in a way such that the output looks random for potential adversaries.
+Therefore, only secure pseudorandom number generators should be used for this purpose.
+
+Possible secure CSPRNG:
 
 #### Key Generation
 
@@ -462,13 +484,15 @@ On the basis of this classification different strength of protection is needed.
 On possible way of classifying information can be seen in [Classified Information](https://en.wikipedia.org/wiki/Classified_information) or in the proposed [Traffic Light Protocol](https://www.first.org/tlp/docs/tlp-v1.pdf), which contains four different classifications.
 It should be possible to provide appropriate protection for information of different classifications using SCC. The SCC consideres **Secret** and **Restricted** as possible classifications.
 
-- Secret:
+- **Secret**:
 There exists sensitive information whose public availability would lead to large damage.
 Special protection measures must be taken for this information since there is a high risk of misuse and damage to the organization privacy or reputation if the information is not published correctly.
-- Restricted:
+- **Restricted**:
 This classification contains information which is relevant and worthy of protection, but the risk of misuse is low even in the case of unintentional publication.
 
 - [ ] TODO may remove later
+
+
 The different supported classifications can be seen in the following.
 There exists information whose public availability would lead to very large damage and is therefore classified as **TOPSECRET**.
 Special protection measures must be taken for this information since there is a very high risk of misuse and damage to the organization privacy or reputation if the information is not published correctly. 
@@ -599,7 +623,11 @@ The following list gives an overview and examples for the available registries a
 - Nonce length only up to 96 bit, only appropriate for "general cryptographic application" mot for highest security level
 - No explicitly mentioned Padding schemes
 
-But often there is no matching algorithm specification in existing IANA registries that support our selection of parameters. E.g. in {{?RFC5116}} the definition for AEAD_AES_128_GCM proposes a nonce length of 96 bit. If we want to use a length higher than this we have to look for another registry than [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml), because there is no specification supporting a higher nonce length. It is difficult to find a specification inside existing IANA registries that exactly match all of the chosen parameters for the SCC.Therefore, it could be advantageous to create a IANA registry explicitly for the creation of SCC.
+But often there is no matching algorithm specification in existing IANA registries that support our selection of parameters.
+E.g. in {{?RFC5116}} the definition for AEAD_AES_128_GCM proposes a nonce length of 96 bit.
+If we want to use a length higher than this we have to look for another registry than [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml), because there is no specification supporting a higher nonce length. 
+It is difficult to find a specification inside existing IANA registries that exactly match all of the chosen parameters for the SCC.
+Therefore, it could be advantageous to create a IANA registry explicitly for the creation of SCC.
 
 - CBOR Object Signing and Encryption (COSE) https://www.iana.org/assignments/cose/cose.xhtml
 - [Named Information Hash Registry(https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
