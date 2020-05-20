@@ -306,28 +306,20 @@ Possible secure usage:
 - SHAKE256 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-45;256-bit SHAKE
 
 
-#### Password Derivation
+#### Password Derivation {#derivation}
 
 With the help of key derivation we can derive a password out of a given plaintext.
-Of course the output sequence should look random to an potential adversary
 
 Expected input parameters by cryptography users:
 
 - plaintext
-- pseudorandom function/hash-algorithm
-- salt
-- iteration number
-- desired password length
+- hash-algorithm
 
 Expected output: derived password.
 
 Possible secure usage:
 
 - PBKDF2WithHmacSHA512
-- salt: 64 bit
-- iterations: 10000
-- password length: 256
-
 
 #### Cryptographically secure pseudorandom number generators (CSPRNG)
 
@@ -335,14 +327,22 @@ Possible secure usage:
 - [ ] TODO remove?
 
 If we have to implement cryptographic code it is often necessary to generate a sequence of arbitrary numbers e.g. for generating a key.
-Of course this sequence must be generated in a way such that the output looks random for potential adversaries.
-Therefore, only secure pseudorandom number generators should be used for this purpose.
+Only secure pseudorandom number generators should be used for this purpose.
 
 Possible secure CSPRNG:
 
 #### Key Generation
 
 - [ ] TODO should key generation be considered? (Symmetric/Asymmetric)
+
+A key is necessary for many cryptographic use cases e.g. symmetric and asymmetric encryption.
+Therefore, key generation is an important part while implementing cryptographic code. 
+
+Expected output: key.
+
+Possible secure generation:
+- Use of CSPRNG
+- Derivation from another key using a derivation function (see {{derivation}})
 
 
 #### Digital Signatures
