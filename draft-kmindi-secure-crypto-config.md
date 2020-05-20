@@ -308,14 +308,14 @@ Possible secure usage:
 
 #### Password Hashing
 
-With the help of key derivation we can derive a password out of a given plaintext.
+With the help of of a hash algorithm we can hash a given plaintext. This can be advantageous e.g. for password storage.
 
 Expected input parameters by cryptography users:
 
 - plaintext
 - hash-algorithm
 
-Expected output: derived password.
+Expected output: hash.
 
 Possible secure usage:
 
