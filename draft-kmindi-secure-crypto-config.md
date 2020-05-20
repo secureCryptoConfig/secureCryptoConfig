@@ -622,20 +622,17 @@ It is essential that only trustworthy and cryptographic specialized institutions
 The following list gives an overview and examples for the available registries at IANA for cryptography algorithm and their parameters.
 
 - [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml)
-- Nonce length only up to 96 bit, only appropriate for "general cryptographic application" mot for highest security level
-- No explicitly mentioned Padding schemes
+- [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml)
+- [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
 
 But often there is no matching algorithm specification in existing IANA registries that support our selection of parameters.
 E.g. in {{?RFC5116}} the definition for AEAD_AES_128_GCM proposes a nonce length of 96 bit.
 If we want to use a length higher than this we have to look for another registry than [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml), because there is no specification supporting a higher nonce length. 
-It is difficult to find a specification inside existing IANA registries that exactly match all of the chosen parameters for symmetric encryption for the SCC.
-Therefore, it could be advantageous to create a IANA registry explicitly for the creation of SCC.
-
-- CBOR Object Signing and Encryption (COSE) https://www.iana.org/assignments/cose/cose.xhtml
-
-
-- [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
+However, for cryptographic use cases such as asymmetric encryption and digital signing appropriate algorithm specifications can be found in the [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml) registry.
 For the crypto use case hashing the [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg) defines appropriate specifications for hash algorithms that matches a possible set of parameters for the SCC.
+It is difficult to find a specification of an algorithm inside existing IANA registries that exactly match all of the chosen parameters for a specific cryptographic use case, especially in the case of symmetric encryption.
+It is also tedious to search for different specifications in different registries.
+Therefore, it could be advantageous to create a IANA registry explicitly for the creation of SCC.
 
 ## Versioning {#version}
 
@@ -774,12 +771,13 @@ This is only a visualization format of the source format for which the correspon
 | UseCase\Level                                                                             | 1                                                                                                   | 3                                                                                                           | 5                                                                                                          |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | **Symmetric**<br> <br> Algorithm:<br> Key:<br> Mode:<br> Padding:<br> Nonce:<br> Tag:<br> | AEAD_AES_128_GCM <br> [RFC5116]->tag length 128<br> AES<br> 128<br>GCM<br> NoPadding<br>  96<br> 96 | AEAD_AES_128_GCM <br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 128<br> GCM<br> NoPadding<br> 128<br> 128 | AEAD_AES_256_GCM<br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 256<br> GCM<br> NoPadding<br> 256<br> 128 |
-| **Asymmetric**<br> Algorithm:<br> Key:<br> Padding:<br>                                   |                                                                                                     |                                                                                                             |                                                                                                            |
+| **Asymmetric**<br> <br> Algorithm:<br>  Key:<br> Padding:<br>                             | ?                                                                                                   | RSAES-OAEP w/ SHA-256<br>  [RFC8230]<br>   RSA<br>>2000<br> OAEP<br>                                        | RSAES-OAEP w/ SHA-512<br> [RFC8230]<br> RSA<br> >3000 (for long longevity BSI)<br> OAEP<br>                |
 | **Hashing**<br> Algorithm:<br> Key:<br>                                                   | sha-512 [FIPS 180-4]<br> SHA-2<br> 512                                                              | sha3-256 [FIPS 202]<br> SHA-3<br> 256                                                                       | sha3-512 [FIPS 202]<br> SHA-3<br> 512                                                                      |
 | **PW hashing**<br> Algorithm:                                                             | sha-512 [FIPS 180-4]<br> SHA-2<br>                                                                  | sha3-256 [FIPS 202]<br> SHA-3<br>                                                                           | sha3-512 [FIPS 202]<br> SHA-3<br>                                                                          |
 | **CSPRNG**                                                                                | -                                                                                                   | -                                                                                                           | -                                                                                                          |
 | **Key Generation**                                                                        |                                                                                                     |                                                                                                             |                                                                                                            |
-| **Signing**                                                                               |                                                                                                     |                                                                                                             |                                                                                                            |{:#scc_useCase_level_constrained}
+| **Signing**                                                                               | ?                                                                                                   | ECDSA w/ SHA-384 [RFC8152]                                                                                  | ECDSA w/ SHA-512 [RFC8152]                                                                                 |
+{:#scc_useCase_level_non-constrained}
 
 | UseCase\\Level                                                                                | 2 | 4 | 
 |-----------------------------------------------------------------------------------------------|---|---|
@@ -791,7 +789,7 @@ This is only a visualization format of the source format for which the correspon
 | **Key Generation**                                                                            |   |   |   
 | **Signing**                                                                                   |   |   |   
 
-{:#scc_useCase_level_non-constrained}
+{:#scc_useCase_level_constrained}
 
 
 ## JSON Secure Crypto Config
