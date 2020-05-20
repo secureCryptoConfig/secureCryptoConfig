@@ -308,7 +308,7 @@ Possible secure usage:
 
 #### Password Hashing
 
-With the help of of a hash algorithm we can hash a given plaintext. This can be advantageous e.g. for password storage.
+With the help of a hash algorithm we can hash a given plaintext. This can be advantageous e.g. for password storage.
 
 Expected input parameters by cryptography users:
 
@@ -319,7 +319,7 @@ Expected output: hash.
 
 Possible secure usage:
 
-- PBKDF2WithHmacSHA512
+- SHA512
 
 #### Cryptographically secure pseudorandom number generators (CSPRNG)
 
