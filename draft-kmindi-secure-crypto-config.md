@@ -306,7 +306,7 @@ Possible secure usage:
 - SHAKE256 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-45;256-bit SHAKE
 
 
-#### Password Derivation {#derivation}
+#### Password Hashing
 
 With the help of key derivation we can derive a password out of a given plaintext.
 
@@ -342,7 +342,7 @@ Expected output: key.
 
 Possible secure generation:
 - Use of CSPRNG
-- Derivation from another key using a derivation function (see {{derivation}})
+
 
 
 #### Digital Signatures
