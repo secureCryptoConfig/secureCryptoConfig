@@ -579,7 +579,13 @@ This ensures that there is a new Secure Crypto Config every year, even if the co
 The process has three phases that MUST be finalized within 2 years:
 (1) One year **Proposal phase** during which all participating entities must propose at least two cryptography algorithms and parameters per cryptography use case per security level.
 (2) Six months **Consensus finding phase** during which all participating entities must agree on a common secure crypto config.
-(3) Six months **Publication phase ensures** the publication of the final secure crypto config AND allows the Secure Crypto Config Interface and other cryptography implementations to integrate the necessary changes.
+(3) Six months **Publication phase** ensures the publication of the final secure crypto config AND allows the Secure Crypto Config Interface and other cryptography implementations to integrate the necessary changes.
+
+- [ ] TODO format for Proposal phase submission
+
+During the Proposal phase the proposed algorithms should be submitted in table form like proposed in {{scc_useCase_level_constrained}}.
+This table format is simply structured and is easy to read by human as the Consensus finding phase can only be done manually.
+It is important that the parameters for each cryptographic use case depending on its security level can be found easily by the participants of the consensus finding process such that it is possible to get to an agreement faster.
 
 ### Emergency Process
 
@@ -610,9 +616,13 @@ The Secure Crypto Config SHOULD only propose cryptography algorithms and paramet
 
 - [ ] TODO more detailed description of entities?
 
-Entities that are paticipating on the consensus finding process should be the IETF and other institutions that are specialized in the field of cryptography like the BSI or NIST.
+Entities that are participating on the consensus finding process should be the CFRG and other institutions that are specialized in the field of cryptography like the BSI or NIST. Commercial companies should not participate in the process.
 It is essential that only trustworthy and cryptographic specialized institutions are participating to make these decisions otherwise a SCC with a weak and insecure parameter set could be provided as a result.
 (?) Further the participating entities should act without political or governmental influences that could affect their decisions.
+
+- [ ] TODO how/to whom apply for participation?
+
+Entities that want to participate in the process of SCC creations should be able to apply to the CFRG which has a central role in the whole process. If the applicant has sufficient knowledge in the area of security and has been established in this area for a long time he can be accepted as a member of the next consensus finding process.
 
 
 # Publication Format and Distribution
@@ -770,8 +780,8 @@ This is only a visualization format of the source format for which the correspon
 
 | UseCase\Level                                                                             | 1                                                                                                   | 3                                                                                                           | 5                                                                                                          |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| **Symmetric**<br> <br> Algorithm:<br> Key:<br> Mode:<br> Padding:<br> Nonce:<br> Tag:<br> | AEAD_AES_128_GCM <br> [RFC5116]->tag length 128<br> AES<br> 128<br>GCM<br> NoPadding<br>  96<br> 96 | AEAD_AES_128_GCM <br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 128<br> GCM<br> NoPadding<br> 128<br> 128 | AEAD_AES_256_GCM<br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 256<br> GCM<br> NoPadding<br> 256<br> 128 |
-| **Asymmetric**<br> <br> Algorithm:<br>  Key:<br> Padding:<br>                             | ?                                                                                                   | RSAES-OAEP w/ SHA-256<br>  [RFC8230]<br>   RSA<br>>2000<br> OAEP<br>                                        | RSAES-OAEP w/ SHA-512<br> [RFC8230]<br> RSA<br> >3000 (for long longevity BSI)<br> OAEP<br>                |
+| **Symmetric**<br><br><br> Algorithm:<br> Key:<br> Mode:<br> Padding:<br> Nonce:<br> Tag:<br> | AEAD_AES_128_GCM <br> [RFC5116]->tag length 128<br> AES<br> 128<br>GCM<br> NoPadding<br>  96<br> 96 | AEAD_AES_128_GCM <br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 128<br> GCM<br> NoPadding<br> 128<br> 128 | AEAD_AES_256_GCM<br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 256<br> GCM<br> NoPadding<br> 256<br> 128 |
+| **Asymmetric**<br><br><br> Algorithm:<br>  Key:<br> Padding:<br>                             | ?                                                                                                   | RSAES-OAEP w/ SHA-256<br>  [RFC8230]<br>   RSA<br>>2000<br> OAEP<br>                                        | RSAES-OAEP w/ SHA-512<br> [RFC8230]<br> RSA<br> >3000 (for long longevity BSI)<br> OAEP<br>                |
 | **Hashing**<br> Algorithm:<br> Key:<br>                                                   | sha-512 [FIPS 180-4]<br> SHA-2<br> 512                                                              | sha3-256 [FIPS 202]<br> SHA-3<br> 256                                                                       | sha3-512 [FIPS 202]<br> SHA-3<br> 512                                                                      |
 | **PW hashing**<br> Algorithm:                                                             | sha-512 [FIPS 180-4]<br> SHA-2<br>                                                                  | sha3-256 [FIPS 202]<br> SHA-3<br>                                                                           | sha3-512 [FIPS 202]<br> SHA-3<br>                                                                          |
 | **CSPRNG**                                                                                | -                                                                                                   | -                                                                                                           | -                                                                                                          |
