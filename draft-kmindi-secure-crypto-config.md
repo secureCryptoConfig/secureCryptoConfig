@@ -439,17 +439,10 @@ This also means that it is not considered best practice to assume or propose tha
 
 # Security Levels {#securityLevels}
 
-- [ ] TODO short introduction to different/used constraints
-**Information Classification: SECRET, RESTRICTED****
-**Longevity: less than one day, more than a day**
-**Constrained Devices: constrained, not constrained**
-
-The SCC should be able to provide a secure parameter set for different security levels. 
-These security level are containing values for three different kinds of security constraints: **Information classification, Longevity, Constrained devices**
-The security constraints are further defined in {{constraints}}.
-Based on combinations of security constraint values different SCCs can be provided to be able to support various security levels with the appropriate choice of parameters.
-Security level definitions for which a SCC should be provided are defined in the following.
-
+The SCC must be able to provide a secure parameter set for different security levels. 
+These security levels depend on the following security constraints: **Information classification (SECRET, RESTRICTED), Longevity (less than one day, more than a day), Constrained devices (constrained, not constrained**.
+They are defined in {{constraints}} below.
+The SCC provides 5 common security levels for which official algorithm/parameter choices are published.
 
 ## Security Level 1 - Low
 
@@ -457,19 +450,19 @@ Restricted information, regardless of the other two constraints
 
 ## Security Level 2
 
-secret, short longevity, constrained device
+Secret information, less than one day longevity, constrained device
 
 ## Security Level 3
 
-secret, short longevity, non-constrained device
+Secret information, less than one day longevity, non-constrained device
 
 ## Security Level 4
 
-secret, long longevity, constrained device
+Secret information, more than a day longevity, constrained device
 
 ## Security Level 5 - High
 
-secret, long longevity, non-constrained device
+Secret information, more than a day longevity, non-constrained device
 
 ## Security Level Constraints {#constraints}
 
