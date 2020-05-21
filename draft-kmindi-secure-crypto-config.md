@@ -481,22 +481,12 @@ The SCC does not endorse a definition of the information classes, yet **Secret**
 
 ### Longevity
 
-- [ ] TODO rewrite.
-- [ ] TODO may add some examples for short/long logevity
-The time information must be protected can be as low as milliseconds but also be more than a decade.
-Different SCC's based on longevity is not always needed. 
-E.g. many applications require one encryption / hashing algorithm and use only that one for all information encrypted/hashed. But for future proofing it would be good to be able to process information based on its longevity.
-
-The duration of needed data secrecy can vary with different kinds of informations and their respective applications.
-While for some information it is enough to be encrypted for only a few seconds, for other information it is required to keep them secret for decades.
-Therefore, it is necessary to consider the degree of longevity and provide different SCCs depending on it.
-Such SCCs based on longevity are not needed for every application.
-For many applications it can be sufficient to only have one specified algorithm which is used on all kinds of information.
-But for future proofing it would be good to be able to process information based on its longevity.
-The SCC only consideres **short** longevity which includes a duration of less than one day and **long** longevity requiring protection for more than one day.
-
-- [ ] TODO logevity definition.
-- [ ] TODO More classifications necessary?
+The time how long information has to be kept confidential can influence cryptography parameters a lot.
+Usually what you talked about with your friends should be kept confidential for a life time.
+Yet, a public trade transaction must only be confidential until the trade was executed which can happen in milliseconds.
+It directly influences a very important attacker resource: The time an attacker has to try to gain access to the confidential information.
+The SCC considers two ranges of longevity for its standardized security levels: short longevity of less than one day and long longevity of a day or more than a day.
+Further levels with finer longevity levels can be added by other organizations.
 
 **Summary: less than one day, more than a day**
 
@@ -513,7 +503,7 @@ For example if a current standard personal computer can encrypt with 1 GiB/s, a 
 Resources can be everything important for cryptography like dedicated cryptography hardware, instruction sets, memory, power consumption, storage space, communication bandwidth, latency etc. 
 The SCC only consideres **constrained** and **non-constrained** as possible values for the corrsponding security constraint.
 
-**Summary: constrained, not constrained**
+**Summary: constrained, non-constrained**
 
 ### Attacker Resources and Capabilities / n-Bit-Security
 
