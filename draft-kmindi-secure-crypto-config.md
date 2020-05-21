@@ -559,7 +559,7 @@ During the Proposal phase the proposed algorithms should be submitted in table f
 This table format is simply structured and is easy to read by human as the Consensus finding phase can only be done manually.
 It is important that the parameters for each cryptographic use case depending on its security level can be found easily by the participants of the consensus finding process such that it is possible to get to an agreement faster.
 
-### Emergency Process
+### Emergency Process {#emergency}
 
 In cases when a regularly still valid Secure Crypto Config would become insecure regarding either a proposed algorithm or a proposed parameter choice it must be revised with the following process:
 
@@ -683,7 +683,20 @@ This format allows custom algorithm/parameter selections both by overwriting use
 
 ## Consensus Finding
 
+- [ ] TODO Are these appropriate security considerations?
+
+- Only trustworthy and cryptographic specialized institutions should participating otherwise a SCC with a weak and insecure parameter set could be provided as a result.
+- Participating entities should act without political or governmental influences that could affect their decisions.(?)
+
+
 ## Publication Format
+
+- [ ] TODO Are these appropriate security considerations?
+
+- The operators of the SCC must ensure that potential unauthorized parties are not able to manipulate the parameters of the published SCC.
+Integrity must also be ensured if potential users want to fetch the provided SCC from the corresponding platform over the network.(?)
+- Users should only trust SCC issued from the original(?) publisher on the intended platform.
+
 
 ## Cryptography library implementation
 
@@ -700,6 +713,9 @@ Yet, it should reduce the vulnerabilities from making the wrong choices about pa
 
 The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure.
 - [ ] TODO is this redundant? because it is also described in the assumptions section.
+
+- Since the validity of the parameters defined in the SCC can change infrequently (e.g. discovered flaws in proposed algorithms) the lifespan of the SCC and an emergency process (see {{emergency}}) should be considered carefully before the actual publication.
+- Operators should keep in mind the validity of the provided parameters e.g. to be able to react fast in the case discovered flaws in algorithms.
 
 ### Security Guarantees
 
@@ -737,6 +753,10 @@ Especially if a http connection is used to obtain the SCC, this will be a seriou
 # IANA Considerations
 
 - [] TODO Are there IANA Considerations?
+- [] TODO May add reference to own registry
+
+The data structure (see {{dataStructures}}) defined in this document uses the JSON format as defined in {{!RFC8259}}.
+
 
 
 --- back
