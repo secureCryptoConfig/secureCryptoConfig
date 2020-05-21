@@ -510,10 +510,8 @@ Further levels with other constrained resource definitions can be added by other
 
 ### n-Bit-Security
 
-- [ ] TODO describe n-Bit-Security commonly used by NIST/BSI to describe a security level
-
-NIST and BSI are describing their security levels with the help of n-Bit-Security (see [BSI – Technical Guideline](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10) for further information).
-Accordingly, a given cryptographic algorithm achieves an n-bit security level if the cost for the execution of an encryption function from an efficient block cipher is equals to 2^n.
+n-Bit Security Level:
+ > A cryptographic mechanism achieves a security level of n bits if costs which are equivalent to 2^n calculations of the encryption function of an efficient block cipher (e.g. AES) are tied to each attack against the mechanism which breaks the security objective of the mechanism with a high probability of success. BSI
 
 - [ ] TODO add n-Bit-Security to Security Levels in time-independent way (e.g. referring to increases in bit instead of hardcoded values for the levels)
 
