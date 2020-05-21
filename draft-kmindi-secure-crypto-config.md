@@ -549,9 +549,10 @@ This ensures that there is a new Secure Crypto Config every year, even if the co
 ### Regular Process 
 
 The process has three phases that MUST be finalized within 2 years:
-(1) One year **Proposal phase** during which all participating entities must propose at least two cryptography algorithms and parameters per cryptography use case per security level.
-(2) Six months **Consensus finding phase** during which all participating entities must agree on a common secure crypto config.
-(3) Six months **Publication phase** ensures the publication of the final secure crypto config AND allows the Secure Crypto Config Interface and other cryptography implementations to integrate the necessary changes.
+
+- (1) One year **Proposal phase** during which all participating entities must propose at least two cryptography algorithms and parameters per cryptography use case per security level.
+- (2) Six months **Consensus finding phase** during which all participating entities must agree on a common secure crypto config.
+- (3) Six months **Publication phase** ensures the publication of the final secure crypto config AND allows the Secure Crypto Config Interface and other cryptography implementations to integrate the necessary changes.
 
 - [ ] TODO format for Proposal phase submission
 
@@ -586,16 +587,10 @@ The Secure Crypto Config SHOULD only propose cryptography algorithms and paramet
 
 ## Entities
 
-- [ ] TODO more detailed description of entities?
+Entities that participate in the proposal phase SHOULD have significant cryptography expertise.
+Entities that participate in the consensus finding phase MUST have significant cryptography expertise.
 
-Entities that are participating on the consensus finding process should be the CFRG and other institutions that are specialized in the field of cryptography like the BSI or NIST. Commercial companies should not participate in the process.
-It is essential that only trustworthy and cryptographic specialized institutions are participating to make these decisions otherwise a SCC with a weak and insecure parameter set could be provided as a result.
-(?) Further the participating entities should act without political or governmental influences that could affect their decisions.
-
-- [ ] TODO how/to whom apply for participation?
-
-Entities that want to participate in the process of SCC creations should be able to apply to the CFRG which has a central role in the whole process. If the applicant has sufficient knowledge in the area of security and has been established in this area for a long time he can be accepted as a member of the next consensus finding process.
-
+- [ ] TODO what is "significant cryptography expertise"?
 
 # Publication Format and Distribution
 
@@ -661,9 +656,7 @@ The general schema of the JSON files is shown in {{scc_general}}.
 
 This format allows custom algorithm/parameter selections both by overwriting use cases completely or by adding only specific algorithm identifiers.
 
-
-
-# Implementation Specification
+# Secure Crypto Config Interface and Implementation Specification
 
 - [ ] TODO Describe used versioning concept for SCC. 
   - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)

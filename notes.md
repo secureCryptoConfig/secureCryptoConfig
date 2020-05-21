@@ -46,3 +46,17 @@ The SCC only consideres **short** longevity which includes a duration of less th
 
 - [ ] TODO logevity definition.
 - [ ] TODO More classifications necessary?
+
+## entities
+
+
+
+- [ ] TODO more detailed description of entities?
+
+Entities that are participating on the consensus finding process should be the CFRG and other institutions that are specialized in the field of cryptography like the BSI or NIST. Commercial companies should not participate in the process.
+It is essential that only trustworthy and cryptographic specialized institutions are participating to make these decisions otherwise a SCC with a weak and insecure parameter set could be provided as a result.
+(?) Further the participating entities should act without political or governmental influences that could affect their decisions.
+
+- [ ] TODO how/to whom apply for participation?
+
+Entities that want to participate in the process of SCC creations should be able to apply to the CFRG which has a central role in the whole process. If the applicant has sufficient knowledge in the area of security and has been established in this area for a long time he can be accepted as a member of the next consensus finding process.
