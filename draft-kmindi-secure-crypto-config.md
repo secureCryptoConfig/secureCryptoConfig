@@ -472,7 +472,7 @@ Information classification here is about the confidentiality of the information.
 Not all information is equally confidential, e.g. it can be classified into different classes of information.
 For governmental institutions usually three classes are used: Confidential, Secret, or Top Secret.
 The SCC considers only **Confidential** and **Secret** for its standardized security levels.
-Further levels with higher or lower classifications can be added by other organizations.
+Further levels with other classifications can be added by other organizations.
 Additionally, in common (non-governmental) use cases data is not labelled with an information class, so one class has to be chosen for the cryptography processing of all data.
 
 The SCC does not endorse a definition of the information classes, yet **Secret** information is to be considered to have higher confidentiality requirements than **Confidential** information.
@@ -486,7 +486,7 @@ Usually what you talked about with your friends should be kept confidential for 
 Yet, a public trade transaction must only be confidential until the trade was executed which can happen in milliseconds.
 It directly influences a very important attacker resource: The time an attacker has to try to gain access to the confidential information.
 The SCC considers only two ranges of longevity for its standardized security levels: short longevity of less than one day and long longevity of a day or more than a day.
-Further levels with finer longevity levels can be added by other organizations.
+Further levels with other longevity levels can be added by other organizations.
 
 **Summary: less than one day, more than a day**
 
@@ -504,7 +504,7 @@ A device is constrained when it has **multiple orders of magnitudes** less resou
 For example if a current standard personal computer can encrypt with 1 GiB/s, a constrained device would be all devices that can only perform the same cryptography operation with less than 10 MiB/s.
 Resources can be everything important for cryptography like dedicated cryptography hardware, instruction sets, memory, power consumption, storage space, communication bandwidth, latency etc. 
 The SCC considers only **constrained** and **non-constrained** for its standardized security levels.
-Further levels with finer constrained resource definitions can be added by other organizations.
+Further levels with other constrained resource definitions can be added by other organizations.
 
 **Summary: constrained, non-constrained**
 
@@ -520,11 +520,12 @@ Accordingly, a given cryptographic algorithm achieves an n-bit security level if
 ### Attacker Resources and Capabilities 
 
 The SCC considers only the following same attacker resources and capabilities for all standardized security levels:
+
 - The attacker knows all used algorithms and parameters except secrets according to Kerckhoffs's principle. 
 - The attacker has access to the system used for cryptography operations and can utilize its cryptography operations apart from obtaining secrets. *TODO is a more formal definition useful, e.g. a list of [Attack Models](https://en.wikipedia.org/wiki/Attack_model)?* *TODO What about side-channels, especially if the attacker has access to the system?*
 - The attacker can utilize very high-performance computing resources such as super computers and distributed computing (e.g. this includes very high memory, storage, processing and networking performance)
 
-Further levels with finer attacker definitions can be added by other organizations.
+Further levels with other attacker definitions can be added by other organizations.
 
 ## Security Level Extensions/Extendability
 
