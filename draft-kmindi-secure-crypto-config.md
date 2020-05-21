@@ -471,7 +471,7 @@ Secret information, more than a day longevity, non-constrained device
 Information classification here is about the confidentiality of the information.
 Not all information is equally confidential, e.g. it can be classified into different classes of information.
 For governmental institutions usually three classes are used: Confidential, Secret, or Top Secret.
-Yet, the SCC uses only **Confidential** and **Secret** for its standardized security levels.
+The SCC considers only **Confidential** and **Secret** for its standardized security levels.
 Further levels with higher or lower classifications can be added by other organizations.
 Additionally, in common (non-governmental) use cases data is not labelled with an information class, so one class has to be chosen for the cryptography processing of all data.
 
@@ -485,7 +485,7 @@ The time how long information has to be kept confidential can influence cryptogr
 Usually what you talked about with your friends should be kept confidential for a life time.
 Yet, a public trade transaction must only be confidential until the trade was executed which can happen in milliseconds.
 It directly influences a very important attacker resource: The time an attacker has to try to gain access to the confidential information.
-The SCC considers two ranges of longevity for its standardized security levels: short longevity of less than one day and long longevity of a day or more than a day.
+The SCC considers only two ranges of longevity for its standardized security levels: short longevity of less than one day and long longevity of a day or more than a day.
 Further levels with finer longevity levels can be added by other organizations.
 
 **Summary: less than one day, more than a day**
@@ -495,13 +495,16 @@ Further levels with finer longevity levels can be added by other organizations.
 For cryptography often complex computations have to be executed. 
 Yet, not all environments have the same hardware resources available.
 E.g. it is not always the case that the used processors have dedicated cryptography hardware or even specialized execution units or instruction sets like {{AESNI}}.
-A detailed discussion and definitions can be found in {{-ConstrainedDevices}}.
-Yet, their definitions are too concrete. 
-Which is why we define constrained devices not based on concrete processing power (e.g. 100k instructions per second): 
-For the Secure Crypto Config a device is constrained when it has multiple magnitudes less resources than a current (not a new one, but broadly in use at the time of publication of a Secure Crypto Config!) standard personal computer.
+Detailed discussion and definitions can be found in {{-ConstrainedDevices}}.
+Yet, their definitions are too concrete to be used in the SCC's standardized security levels. 
+Therefore, the SCC uses defines constraint devices not based on concrete processing power (e.g. 100k instructions per second):
+
+A device is constrained when it has **multiple orders of magnitudes** less resources than a current (not a new one, but broadly in use at the time of publication of a Secure Crypto Config!) standard personal computer.
+
 For example if a current standard personal computer can encrypt with 1 GiB/s, a constrained device would be all devices that can only perform the same cryptography operation with less than 10 MiB/s.
 Resources can be everything important for cryptography like dedicated cryptography hardware, instruction sets, memory, power consumption, storage space, communication bandwidth, latency etc. 
-The SCC only consideres **constrained** and **non-constrained** as possible values for the corrsponding security constraint.
+The SCC considers only **constrained** and **non-constrained** for its standardized security levels.
+Further levels with finer constrained resource definitions can be added by other organizations.
 
 **Summary: constrained, non-constrained**
 
