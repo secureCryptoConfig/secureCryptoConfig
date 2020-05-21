@@ -308,7 +308,10 @@ Possible secure usage:
 
 #### Password Hashing
 
-With the help of a hash algorithm we can hash a given plaintext. This can be advantageous e.g. for password storage.
+The secure storage of passwords requires hashing. 
+Yet, password hashing requires that the hashing can not be performed very fast to prevent attackers from guessing/brute-forcing passwords from leaks or against the live system.
+E.g. it is totally fine for users if the login takes 0.1 seconds instead of microseconds.
+This results in special families of hash algorithms which offer additional tuning parameters.
 
 Expected input parameters by cryptography users:
 
@@ -319,7 +322,7 @@ Expected output: hash.
 
 Possible secure usage:
 
-- SHA512
+- Argon2id
 
 #### Cryptographically secure pseudorandom number generators (CSPRNG)
 
@@ -664,9 +667,7 @@ The Secure Crypto Config uses the following naming conventions to prevent ambigu
  - [ ] TODO propose naming for secure crypto configurations
  - [ ] TODO maybe merge with versioning section before
  - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming langauges
-
- -  [ ] TODO possibly: SCC_SecurityLevel_**Security Level Number**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
-
+ - [ ] TODO possibly: SCC_SecurityLevel_**Security Level Number**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
 
 ## Data Structures {#dataStructures}
 
@@ -785,26 +786,26 @@ This is only a visualization format of the source format for which the correspon
 
 - [ ] TODO use algorithm/parameter identifiers
 
-| UseCase\Level                                                                             | 1                                                                                                   | 3                                                                                                           | 5                                                                                                          |
-|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| UseCase\Level                                                                                | 1                                                                                                   | 3                                                                                                           | 5                                                                                                          |
+| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | **Symmetric**<br><br><br> Algorithm:<br> Key:<br> Mode:<br> Padding:<br> Nonce:<br> Tag:<br> | AEAD_AES_128_GCM <br> [RFC5116]->tag length 128<br> AES<br> 128<br>GCM<br> NoPadding<br>  96<br> 96 | AEAD_AES_128_GCM <br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 128<br> GCM<br> NoPadding<br> 128<br> 128 | AEAD_AES_256_GCM<br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 256<br> GCM<br> NoPadding<br> 256<br> 128 |
 | **Asymmetric**<br><br><br> Algorithm:<br>  Key:<br> Padding:<br>                             | ?                                                                                                   | RSAES-OAEP w/ SHA-256<br>  [RFC8230]<br>   RSA<br>>2000<br> OAEP<br>                                        | RSAES-OAEP w/ SHA-512<br> [RFC8230]<br> RSA<br> >3000 (for long longevity BSI)<br> OAEP<br>                |
-| **Hashing**<br> Algorithm:<br> Key:<br>                                                   | sha-512 [FIPS 180-4]<br> SHA-2<br> 512                                                              | sha3-256 [FIPS 202]<br> SHA-3<br> 256                                                                       | sha3-512 [FIPS 202]<br> SHA-3<br> 512                                                                      |
-| **PW hashing**<br> Algorithm:                                                             | sha-512 [FIPS 180-4]<br> SHA-2<br>                                                                  | sha3-256 [FIPS 202]<br> SHA-3<br>                                                                           | sha3-512 [FIPS 202]<br> SHA-3<br>                                                                          |
-| **CSPRNG**                                                                                | -                                                                                                   | -                                                                                                           | -                                                                                                          |
-| **Key Generation**                                                                        |                                                                                                     |                                                                                                             |                                                                                                            |
-| **Signing**                                                                               | ?                                                                                                   | ECDSA w/ SHA-384 [RFC8152]                                                                                  | ECDSA w/ SHA-512 [RFC8152]                                                                                 |
+| **Hashing**<br> Algorithm:<br> Key:<br>                                                      | sha-512 [FIPS 180-4]<br> SHA-2<br> 512                                                              | sha3-256 [FIPS 202]<br> SHA-3<br> 256                                                                       | sha3-512 [FIPS 202]<br> SHA-3<br> 512                                                                      |
+| **PW hashing**<br> Algorithm:                                                                | sha-512 [FIPS 180-4]<br> SHA-2<br>                                                                  | sha3-256 [FIPS 202]<br> SHA-3<br>                                                                           | sha3-512 [FIPS 202]<br> SHA-3<br>                                                                          |
+| **CSPRNG**                                                                                   | -                                                                                                   | -                                                                                                           | -                                                                                                          |
+| **Key Generation**                                                                           |                                                                                                     |                                                                                                             |                                                                                                            |
+| **Signing**                                                                                  | ?                                                                                                   | ECDSA w/ SHA-384 [RFC8152]                                                                                  | ECDSA w/ SHA-512 [RFC8152]                                                                                 |
 {:#scc_useCase_level_non-constrained}
 
-| UseCase\\Level                                                                                | 2 | 4 | 
-|-----------------------------------------------------------------------------------------------|---|---|
-| **Symmetric**<br> <br> Algorithm:<br> Key:<br> Mode:<br> Padding:<br> Nonce:<br> Tag:<br>     |   |   |   
-| **Asymmetric**<br> Algorithm:<br> Key:<br> Padding:<br>                                       |   |   |   
-| **Hashing**<br> Algorithm:<br> Key:<br>                                                       |   |   |   
-| **PW hashing**<br> Algorithm:                                                                 |   |   |   
-| **CSPRNG**                                                                                    |   |   |  
-| **Key Generation**                                                                            |   |   |   
-| **Signing**                                                                                   |   |   |   
+| UseCase\\Level                                                                            | 2   | 4   |
+| ----------------------------------------------------------------------------------------- | --- | --- |
+| **Symmetric**<br> <br> Algorithm:<br> Key:<br> Mode:<br> Padding:<br> Nonce:<br> Tag:<br> |     |     |
+| **Asymmetric**<br> Algorithm:<br> Key:<br> Padding:<br>                                   |     |     |
+| **Hashing**<br> Algorithm:<br> Key:<br>                                                   |     |     |
+| **PW hashing**<br> Algorithm:                                                             |     |     |
+| **CSPRNG**                                                                                |     |     |
+| **Key Generation**                                                                        |     |     |
+| **Signing**                                                                               |     |     |
 
 {:#scc_useCase_level_constrained}
 
