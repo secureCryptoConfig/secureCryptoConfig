@@ -511,7 +511,8 @@ Further levels with other constrained resource definitions can be added by other
 ### n-Bit-Security
 
 n-Bit Security Level:
- > A cryptographic mechanism achieves a security level of n bits if costs which are equivalent to 2^n calculations of the encryption function of an efficient block cipher (e.g. AES) are tied to each attack against the mechanism which breaks the security objective of the mechanism with a high probability of success. BSI
+
+> A cryptographic mechanism achieves a security level of n bits if costs which are equivalent to 2^n calculations of the encryption function of an efficient block cipher (e.g. AES) are tied to each attack against the mechanism which breaks the security objective of the mechanism with a high probability of success. BSI
 
 - [ ] TODO add n-Bit-Security to Security Levels in time-independent way (e.g. referring to increases in bit instead of hardcoded values for the levels)
 
