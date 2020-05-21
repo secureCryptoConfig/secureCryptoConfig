@@ -508,12 +508,7 @@ Further levels with finer constrained resource definitions can be added by other
 
 **Summary: constrained, non-constrained**
 
-### Attacker Resources and Capabilities / n-Bit-Security
-
-- [ ] TODO describe what kind of attackers and their resources and capabilities are considered for the definition of the security levels.
-
-- Security level 1: brute force attacks (?)
-- Security level 2-5: brute force attacks, side-channel attacks, fault attacks (?)
+### n-Bit-Security
 
 - [ ] TODO describe n-Bit-Security commonly used by NIST/BSI to describe a security level
 
@@ -522,6 +517,14 @@ Accordingly, a given cryptographic algorithm achieves an n-bit security level if
 
 - [ ] TODO add n-Bit-Security to Security Levels in time-independent way (e.g. referring to increases in bit instead of hardcoded values for the levels)
 
+### Attacker Resources and Capabilities 
+
+The SCC considers only the following same attacker resources and capabilities for all standardized security levels:
+- The attacker knows all used algorithms and parameters except secrets according to Kerckhoffs's principle. 
+- The attacker has access to the system used for cryptography operations and can utilize its cryptography operations apart from obtaining secrets. *TODO is a more formal definition useful, e.g. a list of [Attack Models](https://en.wikipedia.org/wiki/Attack_model)?* *TODO What about side-channels, especially if the attacker has access to the system?*
+- The attacker can utilize very high-performance computing resources such as super computers and distributed computing (e.g. this includes very high memory, storage, processing and networking performance)
+
+Further levels with finer attacker definitions can be added by other organizations.
 
 ## Security Level Extensions/Extendability
 
