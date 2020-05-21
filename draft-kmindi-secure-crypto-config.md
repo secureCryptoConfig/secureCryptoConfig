@@ -472,7 +472,7 @@ Information classification here is about the confidentiality of the information.
 Not all information is equally confidential, e.g. it can be classified into different classes of information.
 For governmental institutions usually three classes are used: Confidential, Secret, or Top Secret.
 Yet, the SCC uses only **Confidential** and **Secret** for its standardized security levels.
-Further levels with higher classifications can be added by other organizations.
+Further levels with higher or lower classifications can be added by other organizations.
 Additionally, in common (non-governmental) use cases data is not labelled with an information class, so one class has to be chosen for the cryptography processing of all data.
 
 The SCC does not endorse a definition of the information classes, yet **Secret** information is to be considered to have higher confidentiality requirements than **Confidential** information.
