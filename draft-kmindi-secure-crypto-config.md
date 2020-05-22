@@ -668,30 +668,38 @@ The general schema of the JSON files is shown in {{scc_general}}.
 
 This format allows custom algorithm/parameter selections both by overwriting use cases completely or by adding only specific algorithm identifiers.
 
-# Secure Crypto Config Interface and Implementation Specification
+# Secure Crypto Config Interface 
+
+## Semantic Versioning
+
+The implementation of the Secure Crypto Config Interface MUST follow [Semantic Versioning](https://semver.org/), which specifies a version format of **X.Y.Z** (Major.Minor.Patch) and semantics when to increase which version part. 
+
+## Process to get and update the Secure Crypto Config 
+
+## Application Programming Interface (API)
+
+### Methods and Parameters
+
+### Automatic Parameter Tuning
+
+### Output of readable Secure Crypto Config
+
+
+## TODOs
 
 - [ ] TODO Describe used versioning concept for SCC. 
   - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
-
-The implementation versioning should happen like described in [Semantic Versioning](https://semver.org/) in which a version format of **X.Y.Z** (Major.Minor.Patch) is proposed. 
-This allows a fine granular specification of the current version.
-
 - [ ] TODO describe requirements for cryptography API implementors and designers
-
 - [ ] TODO decide how the configuration should be made available to programmers
 - [ ] TODO which platforms are suitable?
-
 - The SCC could be provided on a suitable platform (?) and is accessible over the network (adversaries? e.g. http connection)
-
   - [ ] e.g. should there be constants like "SCC_TOP_SECRET_LATEST" and "SCC_TOP_SECRET_LATEST". 
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
 - [ ] TODO how should cryptography implementations, that implement/support SCC, generate the parameters?
+- [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
+- [ ] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration. E.g. cf. [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/)
 
 Parameters and algorithms should be referenced within the implementation with the help of their unique name inside the IANA registry.
-
-  - [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
-
-- [ ] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration. E.g. cf. [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/)
 
 It should be possible to have user specified parameters such as the key/nonce length explicitly given by the user, but also a performance mode which makes an evaluation for each configuration and give back a prioritized list for each configuration.
 In this way it is possible to select parameters depending on systems properties.
@@ -700,6 +708,10 @@ This choice should be chosen on the base of the corresponding system.
 That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/), which returns a secure parameter set depending on executed evaluations.
 
 
+# Cryptography Library Implementation Specification
+
+Cryptography libraries should provide the above mentioned Secure Crypto Config Interface.
+Until a common cryptography library provides the Secure Crypto Config Interface itself, a separate interface library should be used instead.
 
 # Cryptography Algorithm Standards Recommendation
 
@@ -794,12 +806,12 @@ This is only a visualization format of the source format for which the correspon
 
 - [x] TODO use algorithm/parameter identifiers
 
-| UseCase\Level  | 5              |
-|----------------|----------------|
-| **Symmetric**  | AEAD_AES_256_GCM<br> [RFC5116] <br> AEAD_CHACHA20_POLY1305 <br>{{?RFC8439}}                |
-| **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230]                                                        |
-| **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)        |
-| **Signing**    | ECDSA w/ SHA-512 <br> {{-COSE}}                                                            |
+| UseCase\Level  | 5                                                                                   |
+| -------------- | ----------------------------------------------------------------------------------- |
+| **Symmetric**  | AEAD_AES_256_GCM<br> [RFC5116] <br> AEAD_CHACHA20_POLY1305 <br>{{?RFC8439}}         |
+| **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230]                                                 |
+| **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf) |
+| **Signing**    | ECDSA w/ SHA-512 <br> {{-COSE}}                                                     |
 
 {:#scc_useCase_level}
 
