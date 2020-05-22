@@ -677,10 +677,18 @@ The implementation versioning should happen like described in [Semantic Versioni
 This allows a fine granular specification of the current version.
 
 - [ ] TODO describe requirements for cryptography API implementors and designers
+
 - [ ] TODO decide how the configuration should be made available to programmers
+- [ ] TODO which platforms are suitable?
+
+- The SCC could be provided on a suitable platform (?) and is accessible over the network (adversaries? e.g. http connection)
+
   - [ ] e.g. should there be constants like "SCC_TOP_SECRET_LATEST" and "SCC_TOP_SECRET_LATEST". 
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
 - [ ] TODO how should cryptography implementations, that implement/support SCC, generate the parameters?
+
+Parameters and algorithms should be referenced within the implementation with the help of their unique name inside the IANA registry.
+
   - [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
 
 - [ ] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration. E.g. cf. [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/)
