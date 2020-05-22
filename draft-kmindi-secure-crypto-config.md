@@ -680,6 +680,8 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 
 ### Methods and Parameters
 
+- [ ] TODO see/unify with Java implementation {{scc_java_api_example}}
+
 #### Supported Algorithm Parameter Types
 
 Cryptography algorithms require different parameters.
