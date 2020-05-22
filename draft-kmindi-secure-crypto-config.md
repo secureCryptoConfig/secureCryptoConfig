@@ -615,8 +615,8 @@ Therefore, it could be advantageous to create a IANA registry explicitly for the
 - [ ] TODO Naming convention: AlgorithmName_KeyLength_AuxiliaryAlgorithms OR Mode_TagLength? Or for every use case different?
 
 An own possible IANA registry must contain a specified **name** of the algorithm to use. 
-This name should be specified with *AlgorithmName_KeyLength_AuxiliaryAlgorithms OR Mode_TagLength* (?).
-Whereby the values for mode, auxiliary algorithms and tag length are optional as not all values are needed for each cryptographic use case. E.g. AES_256_GCM_128, RSA_2048_SHA2
+This name should be specified with *AlgorithmName_KeyLength_AuxiliaryAlgorithms* **OR** *Mode_TagLength* (?).
+Whereby the values for mode, auxiliary algorithms and tag length are optional as not all values are needed for each cryptographic use case. E.g. AES_256_GCM_128, RSA_2048_SHA2.
 For every named algorithm we need a unique **numeric ID** for referencing. 
 This is a positive integer beginning with 1 for the first algorithm and gets assigned incrementally for further inserted algorithms.
 There is also a corresponding RFC as **reference** to look up the specific cryptographic details.
@@ -775,7 +775,7 @@ This is only a visualization format of the source format for which the correspon
 
 | UseCase\Level  | 5              |
 |----------------|----------------|
-| **Symmetric**  | AEAD_AES_256_GCM<br> [RFC5116] <br> AEAD_CHACHA20_POLY1305 [RFC8439]                       |
+| **Symmetric**  | AEAD_AES_256_GCM<br> [RFC5116] <br> AEAD_CHACHA20_POLY1305 <br>[RFC8439]                       |
 | **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230]                                                        |
 | **Hashing**    | sha3-512<br> [FIPS 202]                                                                    |
 | **Signing**    | ECDSA w/ SHA-512 <br> [RFC8152]                                                            |
