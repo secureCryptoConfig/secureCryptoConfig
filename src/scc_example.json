@@ -15,16 +15,13 @@
             "AEAD_AES_256_GCM"
         ],
         "AsymmetricEncryption": [
-            "....."
+            "RSAES-OAEP w/ SHA-512"
         ],
         "Hashing": [
-            "....."
+            "sha3-512"
         ],
         "Signing": [
-            "....."
-        ],
-        "PasswordDerivation": [
-            "....."
+            "ECDSA w/ SHA-512"
         ]
     }
 }
