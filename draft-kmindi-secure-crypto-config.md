@@ -556,7 +556,7 @@ The process has three phases that MUST be finalized within 2 years:
 
 - [ ] TODO format for Proposal phase submission
 
-During the Proposal phase the proposed algorithms should be submitted in table form like proposed in {{scc_useCase_level_constrained}}.
+During the Proposal phase the proposed algorithms should be submitted in table form for each security level and defined cryptographic use case like proposed in {{scc_useCase_level}}.
 This table format is simply structured and is easy to read by human as the Consensus finding phase can only be done manually.
 It is important that the parameters for each cryptographic use case depending on its security level can be found easily by the participants of the consensus finding process such that it is possible to get to an agreement faster.
 
@@ -759,30 +759,16 @@ The data structure (see {{dataStructures}}) defined in this document uses the JS
 In the following table possible algorithm and  parameter choices for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. 
 This is only a visualization format of the source format for which the corresponding example is shown in {{scc_example}}.
 
-- [ ] TODO use algorithm/parameter identifiers
+- [x] TODO use algorithm/parameter identifiers
 
-| UseCase\Level                                                                                | 1                                                                                                   | 3                                                                                                           | 5                                                                                                          |
-| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **Symmetric**<br><br><br> Algorithm:<br> Key:<br> Mode:<br> Padding:<br> Nonce:<br> Tag:<br> | AEAD_AES_128_GCM <br> [RFC5116]->tag length 128<br> AES<br> 128<br>GCM<br> NoPadding<br>  96<br> 96 | AEAD_AES_128_GCM <br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 128<br> GCM<br> NoPadding<br> 128<br> 128 | AEAD_AES_256_GCM<br> [RFC5116]->only Nonce of 96 Bit<br> AES<br> 256<br> GCM<br> NoPadding<br> 256<br> 128 |
-| **Asymmetric**<br><br><br> Algorithm:<br>  Key:<br> Padding:<br>                             | ?                                                                                                   | RSAES-OAEP w/ SHA-256<br>  [RFC8230]<br>   RSA<br>>2000<br> OAEP<br>                                        | RSAES-OAEP w/ SHA-512<br> [RFC8230]<br> RSA<br> >3000 (for long longevity BSI)<br> OAEP<br>                |
-| **Hashing**<br> Algorithm:<br> Key:<br>                                                      | sha-512 [FIPS 180-4]<br> SHA-2<br> 512                                                              | sha3-256 [FIPS 202]<br> SHA-3<br> 256                                                                       | sha3-512 [FIPS 202]<br> SHA-3<br> 512                                                                      |
-| **PW hashing**<br> Algorithm:                                                                | sha-512 [FIPS 180-4]<br> SHA-2<br>                                                                  | sha3-256 [FIPS 202]<br> SHA-3<br>                                                                           | sha3-512 [FIPS 202]<br> SHA-3<br>                                                                          |
-| **CSPRNG**                                                                                   | -                                                                                                   | -                                                                                                           | -                                                                                                          |
-| **Key Generation**                                                                           |                                                                                                     |                                                                                                             |                                                                                                            |
-| **Signing**                                                                                  | ?                                                                                                   | ECDSA w/ SHA-384 [RFC8152]                                                                                  | ECDSA w/ SHA-512 [RFC8152]                                                                                 |
-{:#scc_useCase_level_non-constrained}
+| UseCase\Level  | 5                                                                                          |
+|----------------|--------------------------------------------------------------------------------------------|
+| **Symmetric**  | AEAD_AES_256_GCM<br> {{?RFC5116}} <br> AEAD_CHACHA20_POLY1305 {{?RFC8439}}                 |
+| **Asymmetric** | RSAES-OAEP w/ SHA-512<br> {{?RFC8230}}                                                     |
+| **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)        |
+| **Signing**    | ECDSA w/ SHA-512 <br> {{?RFC8152}}                                                         |
 
-| UseCase\\Level                                                                            | 2   | 4   |
-| ----------------------------------------------------------------------------------------- | --- | --- |
-| **Symmetric**<br> <br> Algorithm:<br> Key:<br> Mode:<br> Padding:<br> Nonce:<br> Tag:<br> |     |     |
-| **Asymmetric**<br> Algorithm:<br> Key:<br> Padding:<br>                                   |     |     |
-| **Hashing**<br> Algorithm:<br> Key:<br>                                                   |     |     |
-| **PW hashing**<br> Algorithm:                                                             |     |     |
-| **CSPRNG**                                                                                |     |     |
-| **Key Generation**                                                                        |     |     |
-| **Signing**                                                                               |     |     |
-
-{:#scc_useCase_level_constrained}
+{:#scc_useCase_level}
 
 
 ## JSON Secure Crypto Config
