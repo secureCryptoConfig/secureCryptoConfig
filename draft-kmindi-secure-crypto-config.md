@@ -611,6 +611,18 @@ It is difficult to find a specification of an algorithm inside existing IANA reg
 It is also tedious to search for different specifications in different registries.
 Therefore, it could be advantageous to create a IANA registry explicitly for the creation of SCC.
 
+- [ ] TODO should the IANA registry look like this? 
+- [ ] TODO Naming convention: AlgorithmName_KeyLength_AuxiliaryAlgorithms OR Mode_TagLength? Or for every use case different?
+
+An own possible IANA registry must contain a specified **name** of the algorithm to use. 
+This name should be specified with *AlgorithmName_KeyLength_AuxiliaryAlgorithms OR Mode_TagLength* (?).
+Whereby the values for mode, auxiliary algorithms and tag length are optional as not all values are needed for each cryptographic use case. E.g. AES_256_GCM_128, RSA_2048_SHA2
+For every named algorithm we need a unique **numeric ID** for referencing. 
+This is a positive integer beginning with 1 for the first algorithm and gets assigned incrementally for further inserted algorithms.
+There is also a corresponding RFC as **reference** to look up the specific cryptographic details.
+At least a **status** must be given to be able to show if a specified algorithm is obsolete or up to the current security standards.
+
+
 ## Versioning {#version}
 
 The Secure Crypto Config Format is regularly published in a specific year. 
@@ -761,12 +773,12 @@ This is only a visualization format of the source format for which the correspon
 
 - [x] TODO use algorithm/parameter identifiers
 
-| UseCase\Level  | 5                                                                                          |
-|----------------|--------------------------------------------------------------------------------------------|
-| **Symmetric**  | AEAD_AES_256_GCM<br> {{?RFC5116}} <br> AEAD_CHACHA20_POLY1305 {{?RFC8439}}                 |
-| **Asymmetric** | RSAES-OAEP w/ SHA-512<br> {{?RFC8230}}                                                     |
-| **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)        |
-| **Signing**    | ECDSA w/ SHA-512 <br> {{?RFC8152}}                                                         |
+| UseCase\Level  | 5              |
+|----------------|----------------|
+| **Symmetric**  | AEAD_AES_256_GCM<br> [RFC5116] <br> AEAD_CHACHA20_POLY1305 [RFC8439]                       |
+| **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230]                                                        |
+| **Hashing**    | sha3-512<br> [FIPS 202]                                                                    |
+| **Signing**    | ECDSA w/ SHA-512 <br> [RFC8152]                                                            |
 
 {:#scc_useCase_level}
 
