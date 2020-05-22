@@ -686,9 +686,11 @@ Cryptography algorithms require different parameters.
 The Secure Crypto Config Interface considers the following types of parameters:
 
 - Parameter Size (e.g. key length in bit)
+- Parameter Counter Content (e.g. nonce)
 - Parameter Secure Random Content (e.g. nonce)
 - Parameter User Automatic Tunable Content (e.g. memory consumption for Argon2 password hashing algorithm)
 - Parameter User Defined Content (e.g. plaintext and key for symmetric encryption)
+- Parameter Compound Parameter Content (e.g. counter + random = nonce)
 
 ### Automatic Parameter Tuning
 
