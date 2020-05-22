@@ -672,13 +672,26 @@ This format allows custom algorithm/parameter selections both by overwriting use
 
 - [ ] TODO Describe used versioning concept for SCC. 
   - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
+
+The implementation versioning should happen like described in [Semantic Versioning](https://semver.org/) in which a version format of **X.Y.Z** (Major.Minor.Patch) is proposed. 
+This allows a fine granular specification of the current version.
+
 - [ ] TODO describe requirements for cryptography API implementors and designers
 - [ ] TODO decide how the configuration should be made available to programmers
   - [ ] e.g. should there be constants like "SCC_TOP_SECRET_LATEST" and "SCC_TOP_SECRET_LATEST". 
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
 - [ ] TODO how should cryptography implementations, that implement/support SCC, generate the parameters?
   - [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
+
 - [ ] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration. E.g. cf. [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/)
+
+It should be possible to have user specified parameters such as the key/nonce length explicitly given by the user, but also a performance mode which makes an evaluation for each configuration and give back a prioritized list for each configuration.
+In this way it is possible to select parameters depending on systems properties.
+Such a parameter choice would be beneficial e.g. in the case of [Argon2](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-03) in which one parameter for the memory usage must be given.
+This choice should be chosen on the base of the corresponding system.
+That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/), which returns a secure parameter set depending on executed evaluations.
+
+
 
 # Cryptography Algorithm Standards Recommendation
 
