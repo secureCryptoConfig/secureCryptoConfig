@@ -668,6 +668,16 @@ The general schema of the JSON files is shown in {{scc_general}}.
 
 This format allows custom algorithm/parameter selections both by overwriting use cases completely or by adding only specific algorithm identifiers.
 
+### Parameter Types
+
+Cryptography algorithms require different parameters.
+The Secure Crypto Config considers the following types of parameters:
+
+- Parameter Size (e.g. key length in bit)
+- Parameter Secure Random Content (e.g. nonce)
+- Parameter User Automatic Tunable Content (e.g. memory consumption for Argon2 password hashing algorithm)
+- Parameter User Defined Content (e.g. plaintext and key for symmetric encryption)
+
 # Secure Crypto Config Interface 
 
 ## Semantic Versioning
