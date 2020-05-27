@@ -21,7 +21,7 @@
             "sha3-512"
         ],
         "Signing": [
-            "ECDSA w/ SHA-512"
+            "ES512"
         ]
     }
 }

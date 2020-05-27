@@ -825,7 +825,7 @@ This is only a visualization format of the source format for which the correspon
 | **Symmetric**  | AEAD_AES_256_GCM<br> [RFC5116] <br> AEAD_CHACHA20_POLY1305 <br>{{?RFC8439}}         |
 | **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230]                                                 |
 | **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf) |
-| **Signing**    | ECDSA w/ SHA-512 <br> {{-COSE}}                                                     |
+| **Signing**    | ES512 <br> {{-COSE}}                                                     |
 
 {:#scc_useCase_level}
 
