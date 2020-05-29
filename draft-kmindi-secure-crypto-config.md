@@ -614,6 +614,10 @@ Therefore, it could be advantageous to create a IANA registry explicitly for the
 - [ ] TODO should the IANA registry look like this? 
 - [ ] TODO Naming convention: Specification depending on crypto use case?
 
+## SCC IANA Registry
+
+- [ ] TODO dash character "-" not possible in enum!
+
 An own possible IANA registry must contain a specified **name** of the algorithm to use. 
 This name should be specified for symmetric encryption with *AlgorithmName_Mode_KeyLength_TagLength* (e.g. AES_GCM_256_128), 
 For hashing as *HashAlgo_KeyLength* (e.g. SHA3_256), for asymmetric encryption and digital signatures *AlgorithmName_AuxiliaryAlgorithm_KeyLength* (e.g. RSA_PSS_256, ECDSA_SHA3_512).
@@ -826,7 +830,7 @@ This is only a visualization format of the source format for which the correspon
 | **Symmetric**  | AEAD_AES_256_GCM<br> [RFC5116] <br> AEAD_CHACHA20_POLY1305 <br>{{?RFC8439}}         |
 | **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230]                                                 |
 | **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf) |
-| **Signing**    | ES512 <br> {{-COSE}}                                                     |
+| **Signing**    | ES512 <br> {{-COSE}}                                                                |
 
 {:#scc_useCase_level}
 

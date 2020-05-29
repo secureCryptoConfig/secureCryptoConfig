@@ -1,106 +1,112 @@
-// TODO
+package main;
+
+import java.util.stream.Stream;
+
+import javax.crypto.spec.SecretKeySpec;
 
 abstract interface SecureCryptoConfigInterface {
-	//COSE/CBOR returning?
-	//Plaintext as String / byte [] ?
-	//methods for symmetric encryption
-    public SCCCiphertext symmetricEncrypt(key SCCKey, String plaintext);  
-    public SCCCiphertext reSymmetricEncrypt(key SCCKey, String plaintext); 
-    public String symmetricDecrypt(key SCCKey, SCCCiphertext sccciphertext);  
-	
-	//should they be realized?
-	//public SCCCiphertextStream encrypt(key SCCKey, Stream plaintext);
-    //public SCCCiphertext[] encrypt(key SCCKey[], String plaintext);
-	
-	//methods for asymmetric encryption
-	public SCCCiphertext asmmetricEncrypt(key SCCKey, String plaintext); 
-    public SCCCiphertext reAsymmetricEncrypt(key SCCKey, String plaintext); 
-    public String asymmetricDecrypt(key SCCKey, SCCCiphertext ciphertext);  
-	
-	//should they be realized?
-	//public SCCCiphertextStream encrypt(key SCCKey, Stream plaintext);
-    //public SCCCiphertext[] encrypt(key SCCKey[], String plaintext);
-	
-	//methods for hashing
-    public SCCHash hash(String plaintext); 
-    public SCCHash reHash(String plaintext);
-    public boolean verifyHash(plaintext, SCCHash hash); // plaintext.verify(hash) / hash.verify(plaintext)
-	
-	//methods for signing
-	public SCCSignature sign(privateKey SCCKey, String plaintext);  
-    public SCCSignature reSign(key SCCKey, String plaintext); 
-    public boolean validteSignature(publicKey SCCKey, SCCSignature signature); 
-	
-	//methods for password hashing
-    public SCCPasswordHash passwordHash(String password);
-    public boolean verifyPassword(String password, SCCPasswordHash passwordhash);
-	
-	//methods for key generation?
-	
-	//methods for CSPRNG?
+	public SCCCiphertext symmetricEncrypt(SCCKey key, PlaintextContainer plaintext);
+
+	public SCCCiphertext SymmetricReEncrypt(SCCKey key, SCCCiphertext ciphertext);
+
+	public PlaintextContainer symmetricDecrypt(SCCKey key, SCCCiphertext sccciphertext);
+
+	public SCCCiphertextStream<?> encrypt(SCCKey key, PlaintextContainerStream<?> plaintext);
+
+	public SCCCiphertextStream<?> reEncrypt(SCCKey key, SCCCiphertextStream<?> ciphertext);
+
+	public PlaintextContainerStream<?> decrypt(SCCKey key, SCCCiphertextStream<?> ciphertext);
+
+	public SCCCiphertext[] encrypt(SCCKey[] key, PlaintextContainer plaintext);
+
+	public SCCCiphertext asymmetricEncrypt(SCCKey key, PlaintextContainer plaintext);
+
+	public SCCCiphertext AsymmetricReEncrypt(SCCKey key, SCCCiphertext ciphertext);
+
+	public PlaintextContainer asymmetricDecrypt(SCCKey key, SCCCiphertext ciphertext);
+
+	public SCCHash hash(PlaintextContainer plaintext);
+
+	public SCCHash reHash(PlaintextContainer plaintext);
+
+	public boolean verifyHash(PlaintextContainer plaintext, SCCHash hash);
+
+	public SCCSignature sign(SCCKey privateKey, PlaintextContainer plaintext);
+
+	public SCCSignature reSign(SCCKey privateKey, PlaintextContainer plaintext);
+
+	public boolean validteSignature(SCCKey publicKeyy, SCCSignature signature);
+
+	public SCCPasswordHash passwordHash(String password);
+
+	public boolean verifyPassword(String password, SCCPasswordHash passwordhash);
+
+	// TODO methods for key generation?
+
+	// TODO methods for CSPRNG?
 
 }
 
-abstract class SCCCiphertext extends String {
+abstract interface PlaintextContainer {
+	public byte[] getPlaintext();
 
-    SCCCiphertext sCCCiphertext(String ciphertext, SCCAlgorithmParameters parameters) {
-        // create string with ciphertext and parameters
-    }
+	boolean verify(SCCHash scchash);
+}
 
-    AlgorithmIdentifier getAlgorithmIdentifier(SCCCiphertext sccciphertext) {
-        //sccciphertext.substring()
-    }
+abstract interface PlaintextContainerStream<T> {
+	public Stream<T> getPlaintextStream();
+}
+
+abstract class SCCCiphertextStream<T> implements Stream<T> {
 
 }
 
-abstract class SCCAlgorithmParameters(){
+abstract class SCCCiphertext {
+
+	abstract SCCCiphertext sCCCiphertext(String ciphertext, SCCAlgorithmParameters parameters);
+
+	abstract AlgorithmIdentifier getAlgorithmIdentifier(SCCCiphertext sccciphertext);
+
+}
+
+abstract class SCCAlgorithmParameters {
 
 }
 
 abstract class AlgorithmIdentifier {
-	//named defined in IANA registry
-    enum AlgorithmID {
-        AEAD_AES_256_GCM,
-        AEAD_AES_512_GCM,
-		sha3-512, 
-		//...
-    }
-	
-	//get AlgorithmID out of CBORObject e.g. for decrypt
-	AlgorithmID getIDfromCBOR(CBORObject o){
-		//..
-		return algorithm
+	// named defined in IANA registry
+	enum AlgorithmID {
+		AEAD_AES_256_GCM, AEAD_AES_512_GCM, SHA3_512,
 	}
 }
 
-abstract class SCCKey extends java.crypto.SecreteKey {
-    
-    enum SCCKeyType {
-        Symmetric,
-        Asymmetric
-    }
-    
-    SCCKey createKey(byte[] bytes) {
-        SCCKey key = new SCCKey();
-        key.fromBytes(bytes);
-        return key;
-    }
+abstract class SCCKey extends SecretKeySpec {
 
-    SCCKeyType getSCCKeyType() {
-        // determine key type
-        return SCCKeyType.Symmetric;
-    }
-    
-}
+	private SCCKey(byte[] key, String algorithm) {
+		super(key, algorithm);
+		// TODO Auto-generated constructor stub
+	}
 
-abstract class SCCHash(){
+	enum SCCKeyType {
+		Symmetric, Asymmetric
+	}
+
+	abstract SCCKey createKey(byte[] bytes);
+
+	abstract SCCKeyType getSCCKeyType();
+
+	abstract String getDefaultAlgorithm();
 
 }
 
-abstract class SCCPasswordHash(){
+abstract class SCCHash {
+	abstract boolean verify(PlaintextContainer plaintext);
+}
+
+abstract class SCCPasswordHash {
 
 }
 
-abstract class SCCSignature(){
+abstract class SCCSignature {
 
 }
