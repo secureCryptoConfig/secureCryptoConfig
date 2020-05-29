@@ -732,7 +732,8 @@ Until a common cryptography library provides the Secure Crypto Config Interface 
 - [ ] TODO should there be a template for cryptography algorithm standards (in addition to COSE) for the Secure Crypto Config or is it enough that the Secure Crypto Config Consensus Finding defines the secure parameters for all cryptography algorithms?
 
 # Security Considerations
-
+- [ ] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
+- [ ] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
 ## Consensus Finding
 
 - [ ] TODO Are these appropriate security considerations?
@@ -745,9 +746,9 @@ Until a common cryptography library provides the Secure Crypto Config Interface 
 
 - [ ] TODO Are these appropriate security considerations?
 
-- The operators of the SCC must ensure that potential unauthorized parties are not able to manipulate the parameters of the published SCC.
+- The operators of the SCC must ensure that potential unauthorized parties are not able to manipulate the parameters of the published SCC e.g. by using a signature.
 Integrity must also be ensured if potential users want to fetch the provided SCC from the corresponding platform over the network.(?)
-- Users should only trust SCC issued from the original(?) publisher on the intended platform.
+- Users should only trust SCC issued from the original publisher with the associated signature. Users are responsible verify this signature.
 
 
 ## Cryptography library implementation
