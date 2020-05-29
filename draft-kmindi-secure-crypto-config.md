@@ -612,11 +612,11 @@ It is also tedious to search for different specifications in different registrie
 Therefore, it could be advantageous to create a IANA registry explicitly for the creation of SCC.
 
 - [ ] TODO should the IANA registry look like this? 
-- [ ] TODO Naming convention: AlgorithmName_KeyLength_AuxiliaryAlgorithms OR Mode_TagLength? Or for every use case different?
+- [ ] TODO Naming convention: Specification depending on crypto use case?
 
 An own possible IANA registry must contain a specified **name** of the algorithm to use. 
-This name should be specified with *AlgorithmName_KeyLength_AuxiliaryAlgorithms* **OR** *Mode_TagLength* (?).
-Whereby the values for mode, auxiliary algorithms and tag length are optional as not all values are needed for each cryptographic use case. E.g. AES_256_GCM_128, RSA_2048_SHA2.
+This name should be specified for symmetric encryption with *AlgorithmName_Mode_KeyLength_TagLength* (e.g. AES_GCM_256_128), 
+For hashing as *HashAlgo_KeyLength* (e.g. SHA3_256), for asymmetric encryption and digital signatures *AlgorithmName_AuxiliaryAlgorithm_KeyLength* (e.g. RSA_PSS_256, ECDSA_SHA3_512).
 For every named algorithm we need a unique **numeric ID** for referencing. 
 This is a positive integer beginning with 1 for the first algorithm and gets assigned incrementally for further inserted algorithms.
 There is also a corresponding RFC as **reference** to look up the specific cryptographic details.
