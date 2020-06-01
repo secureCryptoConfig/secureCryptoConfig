@@ -61,14 +61,16 @@ informative:
 
 --- abstract
 
+- [x] TODO (2) a format based on *TODO* that specifies the default secure configuration
+
 Cryptography providers, libraries and APIs usually define defaults for the offered cryptography primitives.
 These defaults have to be kept to be backwards compatible with all users of the API that used the defaults.
 Yet, these default choices become insecure at some later point. 
 E.g. a key size of 128 bit may not be sufficient anymore.
 To keep these defaults up-to-date three things are described in this document: 
-(1) A process that is repeated every year, where the
+(1) A process that is repeated every two years, where the
 CRFG publishes a new set of default configurations for standardized cryptography primitives, 
-(2) a format based on *TODO* that specifies the default secure configuration of this (and previous) year(s) and 
+(2) a format based on JSON that specifies the default secure configuration of this (and previous) year(s) and 
 (3) a format to derive the parameters from output of cryptography primitives, otherwise future changes of the default configuration would change existing applications behavior.
 
 --- middle
@@ -85,15 +87,15 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 ### General TODOS
 
-- [ ] TODO Write Introduction
+- [x] TODO Write Introduction
 - [x] Mention Main Goals: (0) Prevent insecure cryptography use/implementation for the future. (1) Enable cryptography libraries and APIs to offer secure defaults with inherent future-proofnes; (2) Prevent non-expert programmers from misusing cryptography APIs; (3) Allow standardized definition of secure parameters for cryptography algorithms; (4) Standardized across all implementations; (5) Prevent outdated example code and documentation.
 - [x] Mention: Yearly published secure configuration recommendations that can be used per default from cryptography libraries. This prevents aging/maturing libraries from offering insecure default implementations. 
 - [x] Mention target group ((1) developers who are not experts but still need to implement cryptography functionality. (2) Cryptography library developers that should integrate SCC to provide secure defaults. (3) standardization institutions (like BSI or NIST) who can use the publication format for their own set of cryptography recommendations)
-- [ ] TODO Mention/describe the gap between cryptography concept basics (like all properties of symmetric encryption can be known except the key) vs the standardization process vs the actual implementation. During this concretization much more complexity is added to cryptography for users of cryptography.
-  - [ ] TODO even describe this better by describing the basic cryptographic primitives we are concerned about and then describe the current best practice for its standardization (e.g. an RFC) and then an actual often used implementation (e.g. Java SDK Crypto API).
+- [x] TODO Mention/describe the gap between cryptography concept basics (like all properties of symmetric encryption can be known except the key) vs the standardization process vs the actual implementation. During this concretization much more complexity is added to cryptography for users of cryptography.
+  - [x] TODO even describe this better by describing the basic cryptographic primitives we are concerned about and then describe the current best practice for its standardization (e.g. an RFC) and then an actual often used implementation (e.g. Java SDK Crypto API).
 - [x] TODO mention and describe [TLS Cipher suites](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-4)
 - [ ] TODO mention why the "Recommended" Column is not enough
-- [ ] TODO Mention/Refer to (use as example for complexity)how many input parameters (5 to 8 in addition to the password itself) [The memory-hard Argon2 password hash and proof-of-work function](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-10#section-3.1) has.
+- [x] TODO Mention/Refer to (use as example for complexity)how many input parameters (5 to 8 in addition to the password itself) [The memory-hard Argon2 password hash and proof-of-work function](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-10#section-3.1) has.
 - [x] TODO integrate "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}}.
 - [x] TODO integrate "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
 - [x] TODO Mention/Refer to "CBOR Object Signing and Encryption (COSE)" {{-COSE}}
@@ -109,11 +111,12 @@ CRFG publishes a new set of default configurations for standardized cryptography
   - [ ] "Normative references specify documents that must be read to understand or implement the technology in the new RFC, or whose technology must be present for the technology in the new RFC to work." (https://www.ietf.org/about/groups/iesg/statements/normative-informative-references/)
   - [ ] "Handling Normative References to Standards-Track Documents" https://tools.ietf.org/html/rfc4897
 - [ ] TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
-- [ ] TODO Check if "Generic Security Service Application Program Interface Version 2, Update 1" {{?RFC2743}} is relevant.
-- [ ] TODO Check if "An Interface and Algorithms for Authenticated Encryption" {{?RFC5116}} is relevant.
+- [x] TODO Check if "Generic Security Service Application Program Interface Version 2, Update 1" {{?RFC2743}} is relevant.
+- [x] TODO Check if "An Interface and Algorithms for Authenticated Encryption" {{?RFC5116}} is relevant.
 
 
 ## Motivation
+
 The correct choice of secure parameters when implementing cryptographic primitives or algorithms is not always easy to ensure.
 However, the security of the primitives to be used depends mainly on the choice of these parameters (e.g. the correct key length).
 In order to be able to prevent insecure implementations and usage of cryptography, it is necessary to assure that the choice of parameters is made correctly.
@@ -144,7 +147,7 @@ DSSC represents a data structure that should support the automatic analysis of s
 In contrast to SCC, DSSC does not make suggestions for currently secure parameters that should be used, but is intended for the evaluation of algorithms.
 Nevertheless, it can be regarded as a reference, as it contains a lot of information that will be needed in SCC.
 
-(?) The SCC should also have the property of algorithm agility which includes that it should be easy to switch from one set of parameters and algorithms to another.
+The SCC should also have the property of algorithm agility which includes that it should be easy to switch from one set of parameters and algorithms to another.
 This is necessary to be able to adapt to the current state of security.
 Also, it is important to use a common set of cryptographic algorithms and consider how many choices of parameters and algorithms to provide.
 Procedures that contribute to the achievement of these properties are described in more detail in the "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms" BCP 201 {{?RFC7696}} and the "Algorithm Agility Procedure for the Resource Public Key Infrastructure (RPKI)" BCP 182 {{?RFC6916}}.
@@ -174,8 +177,10 @@ when, and only when, they appear in all capitals, as shown here.
 
 ### Terms
 
+- [x] TODO remove not used in document: "Alice and Bob","hybrid encryption", "permanent storage", "risk",  "vulnerability",
+- [x] TODO define cryptographic primitive (for usage in use cases and in document) https://crypto.stackexchange.com/questions/39735/whats-a-cryptographic-primitive-really
+
 The terms 
-  "Alice and Bob",
   "API",
   "attack",
   "authenticity",
@@ -193,29 +198,24 @@ The terms
   "encode",
   "encrypt",
   "encryption",
-  "hybrid encryption",
   "initialization value (IV)",
   "integrity",
   "key", 
   "mode",
   "nonce",
   "password",
-  "permanent storage",
   "plain text",
   "plaintext",
   "protocol",
-  "risk",
   "salt",
   "security",
   "security level",
   "threat",
   "trust",
-  "vulnerability",
 in this document are to be interpreted as described in {{-SecurityGlossary}}.
 
 The term "hash" is used as a synonym for "cryptographic hash".
-
-- [ ] TODO define cryptographic primitive (for usage in use cases and in document) https://crypto.stackexchange.com/questions/39735/whats-a-cryptographic-primitive-really
+The term "cryptographic primitive" is used in this document to describe a generic building block used in the field of cryptography e.g. Hashing, symmetric encryption.
 
 
 ## Use Cases

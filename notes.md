@@ -60,3 +60,25 @@ It is essential that only trustworthy and cryptographic specialized institutions
 - [ ] TODO how/to whom apply for participation?
 
 Entities that want to participate in the process of SCC creations should be able to apply to the CFRG which has a central role in the whole process. If the applicant has sufficient knowledge in the area of security and has been established in this area for a long time he can be accepted as a member of the next consensus finding process.
+
+
+#### Cryptographically secure pseudorandom number generators (CSPRNG)
+
+If we have to implement cryptographic code it is often necessary to generate a sequence of arbitrary numbers e.g. for generating a key.
+Only secure pseudorandom number generators should be used for this purpose.
+
+Possible secure CSPRNG:
+
+#### Key Generation
+
+- [ ] TODO should key generation be considered? (Symmetric/Asymmetric)
+
+A key is necessary for many cryptographic use cases e.g. symmetric and asymmetric encryption.
+Therefore, key generation is an important part while implementing cryptographic code. 
+
+Expected output: key.
+
+Possible secure generation:
+
+- Use of CSPRNG
+- Keys derived via derivation function from passwords/other keys
