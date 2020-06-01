@@ -345,6 +345,7 @@ Possible secure usage:
 - [ ] TODO in "Publication Format and Distribution Requirements"/Machine readable: Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hierarchical approach with inheritance from the base SCC?) added?
 - [ ] TODO in "General requirements": *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Government? Company?). Presumably  different group of attackers.
 
+
 - Security Level Requirements:
 The Secure Crypto Config should define different security levels.
 E.g. information has different classification levels and longevity. 
@@ -404,7 +405,7 @@ This also means that it is not considered best practice to assume or propose tha
 # Security Levels {#securityLevels}
 
 The Secure Crypto Config must be able to provide a secure parameter set for different security levels. 
-These security levels depend on the following security constraints: **Information classification (SECRET, Confidential), Longevity (less than one day, more than a day), Constrained devices (constrained, not constrained**.
+These security levels depend on the following security constraints: **Information classification (SECRET, Confidential), Longevity (less than one day, more than a day), Constrained devices (constrained, not constrained)**.
 They are defined in {{constraints}} below.
 The Secure Crypto Config provides 5 common security levels for which official algorithm/parameter choices are published.
 
@@ -573,6 +574,7 @@ E.g. in {{?RFC5116}} the definition for AEAD_AES_128_GCM proposes a nonce length
 If we want to use a length higher than this we have to look for another registry than [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml), because there is no specification supporting a higher nonce length. 
 However, for cryptographic use cases such as asymmetric encryption and digital signing appropriate algorithm specifications can be found in the [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml) registry.
 For the crypto use case hashing the [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg) defines appropriate specifications for hash algorithms that matches a possible set of parameters for the Secure Crypto Config.
+
 It is difficult to find a specification of an algorithm inside existing IANA registries that exactly match all of the chosen parameters for a specific cryptographic use case, especially in the case of symmetric encryption.
 It is also tedious to search for different specifications in different registries.
 Therefore, it could be advantageous to create a IANA registry explicitly for the creation of Secure Crypto Config.
@@ -583,10 +585,12 @@ Therefore, it could be advantageous to create a IANA registry explicitly for the
 - [ ] TODO Naming convention: Specification depending on crypto use case?
 - [ ] TODO dash character "-" not possible in enum!
 
-An own possible IANA registry must contain a specified **name** of the algorithm to use. 
-This name should be specified for symmetric encryption with *AlgorithmName_Mode_KeyLength_TagLength_NonceLength* (e.g. AES_GCM_256_128_128), 
-For hashing as *HashAlgorithmName_KeyLength* (e.g. SHA3_256), for asymmetric encryption and digital signatures *AlgorithmName_AuxiliaryAlgorithm_KeyLength* (e.g. RSA_PSS_256, ECDSA_SHA3_512).
-For every named algorithm we need a unique **numeric ID** for referencing. 
+An own possible IANA registry must contain a specified **name** of the algorithm to use:
+- For symmetric encryption the name should look like **AlgorithmName_Mode_KeyLength_TagLength_NonceLength** (e.g. AES_GCM_256_128_128).
+- For hashing as **HashAlgorithmName_KeyLength** (e.g. SHA3_256).
+- For asymmetric encryption and digital signatures **AlgorithmName_AuxiliaryAlgorithm_KeyLength** (e.g. RSA_PSS_256, ECDSA_SHA3_512).
+
+- For every named algorithm we need a unique **numeric ID** for referencing:
 This is a positive integer beginning with 1 for the first algorithm and gets assigned incrementally for further inserted algorithms.
 There is also a corresponding RFC as **reference** to look up the specific cryptographic details.
 At least a **status** must be given to be able to show if a specified algorithm is obsolete or up to the current security standards.

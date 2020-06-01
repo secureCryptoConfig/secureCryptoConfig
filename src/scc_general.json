@@ -22,15 +22,7 @@
             "Algorithm 1",
             "Algorithm 2"
         ],
-        "PasswordDerivation": [
-            "Algorithm 1",
-            "Algorithm 2"
-        ],
-        "CSPRNG": [
-            "Algorithm 1",
-            "Algorithm 2"
-        ],
-        "KeyGeneration": [
+        "PasswordHashing": [
             "Algorithm 1",
             "Algorithm 2"
         ],
