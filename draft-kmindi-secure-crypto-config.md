@@ -612,12 +612,8 @@ Put the corresponding number in **Security Level Number** depending for which se
 
 ## Data Structures {#dataStructures}
 
-- [ ] TODO necessary in this way?
-- [ ] TODO is it possible to define new algorithm/parameter combinations on the fly (in extensions/derivations) or are only SCC IANA registry identifiers allowed/usable?
-- [ ] TODO What is with parameters that have to be chosen during runtime? (e.g. the length of the nonce can be specified but not its content?) Maybe refer to how the [PHC String Format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md) describes how parameters must be defined and only allow constants and csprng generated content?
 - [ ] TODO is JSON a appropriate format?
 - [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
-
 
 For each defined security level a distinct JSON-file must be provided. 
 These files must follow a common schema and contain the suitable parameters depending on its security level. 
@@ -654,7 +650,11 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 
 - [ ] TODO see/unify with Java implementation {{scc_java_api_example}}
 
+Methods and parameters can be seen in {{scc_java_api_example}}.
+
 #### Supported Algorithm Parameter Types
+
+- [ ] TODO What is with parameters that have to be chosen during runtime? (e.g. the length of the nonce can be specified but not its content?) Maybe refer to how the [PHC String Format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md) describes how parameters must be defined and only allow constants and csprng generated content?
 
 Cryptography algorithms require different parameters.
 The Secure Crypto Config Interface considers the following types of parameters:
@@ -668,13 +668,23 @@ The Secure Crypto Config Interface considers the following types of parameters:
 
 ### Automatic Parameter Tuning
 
+- [ ] TODO is it possible to define new algorithm/parameter combinations on the fly (in extensions/derivations) or are only SCC IANA registry identifiers allowed/usable?
+
+It should be possible to have user specified parameters such as the key/nonce length explicitly given by the user, but also a performance mode which makes an evaluation for each configuration and give back a prioritized list for each configuration.
+In this way it is possible to select parameters depending on systems properties.
+Such a parameter choice would be beneficial e.g. in the case of [Argon2](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-03) in which one parameter for the memory usage must be given.
+This choice should be chosen on the base of the corresponding system.
+That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/), which returns a secure parameter set depending on executed evaluations.
+
 ### Output of readable Secure Crypto Config
+
+- [ ] TODO ?
 
 
 ## TODOs
 
-- [ ] TODO Describe used versioning concept for SCC. 
-  - [ ] TODO Refer to [Semantic Versioning](https://semver.org/)
+- [x] TODO Describe used versioning concept for SCC. 
+  - [x] TODO Refer to [Semantic Versioning](https://semver.org/)
 - [ ] TODO describe requirements for cryptography API implementors and designers
 - [ ] TODO decide how the configuration should be made available to programmers
 - [ ] TODO which platforms are suitable?
@@ -682,16 +692,8 @@ The Secure Crypto Config Interface considers the following types of parameters:
   - [ ] e.g. should there be constants like "SCC_TOP_SECRET_LATEST" and "SCC_TOP_SECRET_LATEST". 
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
 - [ ] TODO how should cryptography implementations, that implement/support SCC, generate the parameters?
-- [ ] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
-- [ ] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration. E.g. cf. [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/)
-
-Parameters and algorithms should be referenced within the implementation with the help of their unique name inside the IANA registry.
-
-It should be possible to have user specified parameters such as the key/nonce length explicitly given by the user, but also a performance mode which makes an evaluation for each configuration and give back a prioritized list for each configuration.
-In this way it is possible to select parameters depending on systems properties.
-Such a parameter choice would be beneficial e.g. in the case of [Argon2](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-03) in which one parameter for the memory usage must be given.
-This choice should be chosen on the base of the corresponding system.
-That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/), which returns a secure parameter set depending on executed evaluations.
+- [x] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
+- [x] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration. E.g. cf. [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/)
 
 
 # Cryptography Library Implementation Specification
@@ -704,26 +706,23 @@ Until a common cryptography library provides the Secure Crypto Config Interface 
 - [ ] TODO should there be a template for cryptography algorithm standards (in addition to COSE) for the Secure Crypto Config or is it enough that the Secure Crypto Config Consensus Finding defines the secure parameters for all cryptography algorithms?
 
 # Security Considerations
-- [ ] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
-- [ ] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
-## Consensus Finding
-
+- [x] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
+- [x] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
 - [ ] TODO Are these appropriate security considerations?
 
+## Consensus Finding
+
 - Only trustworthy and cryptographic specialized institutions should participating otherwise a Secure Crypto Config with a weak and insecure parameter set could be provided as a result.
-- Participating entities should act without political or governmental influences that could affect their decisions.(?)
 
 
 ## Publication Format
 
-- [ ] TODO Are these appropriate security considerations?
-
-- The operators of the Secure Crypto Config must ensure that potential unauthorized parties are not able to manipulate the parameters of the published Secure Crypto Config e.g. by using a signature.
-Integrity must also be ensured if potential users want to fetch the provided Secure Crypto Config from the corresponding platform over the network.(?)
-- Users should only trust Secure Crypto Config issued from the original publisher with the associated signature. Users are responsible verify this signature.
-
+- The operators of the Secure Crypto Config must ensure that potential unauthorized parties are not able to manipulate the parameters of the published Secure Crypto Config. 
 
 ## Cryptography library implementation
+
+- Integrity must be ensured if potential users want to fetch the provided Secure Crypto Config from the corresponding platform over the network e.g. by using a signature.
+- Users should only trust Secure Crypto Config issued from the original publisher with the associated signature. Users are responsible verify this signature.
 
 ## General Security Considerations
 
@@ -736,10 +735,10 @@ Yet, it should reduce the vulnerabilities from making the wrong choices about pa
 
 ## Security of Cryptography primitives and implementations
 
-The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure.
 - [ ] TODO is this redundant? because it is also described in the assumptions section.
 
-- Since the validity of the parameters defined in the Secure Crypto Config can change infrequently (e.g. discovered flaws in proposed algorithms). Therefore the lifespan of the Secure Crypto Config and an emergency process (see {{emergency}}) should be considered carefully before the actual publication.
+- The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure.
+- Since the validity of the parameters defined in the Secure Crypto Config can change infrequently (e.g. discovered flaws in proposed algorithms) the lifespan of the Secure Crypto Config and an emergency process (see {{emergency}}) should be considered carefully before the actual publication.
 - Operators should keep in mind the validity of the provided parameters e.g. to be able to react fast in the case discovered flaws in algorithms.
 
 ### Security Guarantees
@@ -750,29 +749,28 @@ Yet, the Secure Crypto Config makes a best effort to be as up-to-date with recen
 
 ## TODO
 
-- [ ] TODO Security
-- [ ] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
-- [ ] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
+- [x] TODO Security
+- [x] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
+- [x] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
 
 ### Threat Model / Adversaries {#threatModel}
 
-- [ ] TODO describe adversaries / group of adversaries and their powers
-- [ ] TODO describe other general threats for the Secure Crypto Config (maybe put that into the section Security Considerations):
-  - [ ] Process
-  - [ ] Publication
-  - [ ] Content
+- [x] TODO describe adversaries / group of adversaries and their powers -> Attacker Resources and Capability
+- [x] TODO describe other general threats for the Secure Crypto Config (maybe put that into the section Security Considerations):
+  - [x] Process
+  - [x] Publication
+  - [x] Content
 
 There are different possibilities in which a potential adversary could intervene during the creation as well as after the publication of the Secure Crypto Config. These attack scenarios must be considered and prevented.
 
-**Process:** During the creation process, it is necessary for selected institutions to agree on a secure parameter set.
+- **Process:** During the creation process, it is necessary for selected institutions to agree on a secure parameter set.
 It could be possible that one party wants to influence this process in a bad way.
 As a result, it could be agreed on weaker parameter sets than originally intended.
 
-**Publication:** After the publication of the Secure Crypto Config a potential attacker could gain access to the provided files on the corresponding platform and change the content to an insecure parameter set.
-Depending on the distribution method of the Secure Crypto Config, it is also possible that an attacker could change the content of the Secure Crypto Config as man-in-the-middle.
+- **Publication:** After the publication of the Secure Crypto Config a potential attacker could gain access to the provided files on the corresponding platform and change the content to an insecure parameter set.
+
+- **Content:** Depending on the distribution method of the Secure Crypto Config, it is also possible that an attacker could change the content of the Secure Crypto Config as man-in-the-middle.
 Especially if a http connection is used to obtain the Secure Crypto Config, this will be a serious problem.
-
-
 
 
 # IANA Considerations
@@ -781,8 +779,6 @@ Especially if a http connection is used to obtain the Secure Crypto Config, this
 - [] TODO May add reference to own registry
 
 The data structure (see {{dataStructures}}) defined in this document uses the JSON format as defined in {{!RFC8259}}.
-
-
 
 --- back
 

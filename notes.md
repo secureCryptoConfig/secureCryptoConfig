@@ -82,3 +82,7 @@ Possible secure generation:
 
 - Use of CSPRNG
 - Keys derived via derivation function from passwords/other keys
+
+### Misuse Cases
+
+*"A Misuse Case [...] highlights something that should not happen (i.e. a Negative Scenario)"* [Misuse Case](https://en.wikipedia.org/w/index.php?title=Misuse_case&oldid=941745374)
