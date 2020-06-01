@@ -1,4 +1,5 @@
-{
+[
+	{
     "PolicyName": "SCC_SecurityLevel_5",
     "Publisher": [
         {
@@ -23,5 +24,6 @@
         "Signing": [
             "ES512"
         ]
+      }
     }
-}
+]
