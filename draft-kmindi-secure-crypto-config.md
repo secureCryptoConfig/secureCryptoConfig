@@ -589,7 +589,7 @@ An own possible IANA registry must contain a specified **name** of the algorithm
 
 - For symmetric encryption the name should look like **AlgorithmName_Mode_Padding_KeyLength_TagLength_NonceLength** (e.g. AES_GCM_NoPadding_256_128_128).
 - For hashing as **HashAlgorithmName_KeyLength** (e.g. SHA3_256).
-- For asymmetric encryption and digital signatures **AlgorithmName_Mode_Padding_KeyLength** (e.g. RSA_ECB_OAEP_4096).
+- For asymmetric encryption and digital signatures **AlgorithmName_AuxiliaryAlgorithm_Padding_KeyLength** (e.g. RSA_ECB_OAEP_4096).
 
 - For every named algorithm we need a unique **numeric ID** for referencing.
 This is a positive integer beginning with 1 for the first algorithm and gets assigned incrementally for further inserted algorithms.
@@ -650,13 +650,17 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 
 ## Process to get and update the Secure Crypto Config 
 
+- [ ] TODO adapt
+
+The Secure Crypto Config should be published at an official Github repository. To be able to guarantee integrity of the file it should be provided with an appropriate signature. Before fetching the Secure Crypto Config the validity of the signature should be checked by the user.
+
 ## Application Programming Interface (API)
 
 ### Methods and Parameters
 
 - [ ] TODO see/unify with Java implementation {{scc_java_api_example}}
 
-Intended methods and parameters included in the Java interface cane be seen in {{scc_java_api_example}}.
+Intended methods and parameters included in the Java interface can be seen in {{scc_java_api_example}}.
 
 #### Supported Algorithm Parameter Types
 
