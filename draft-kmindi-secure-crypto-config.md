@@ -561,23 +561,23 @@ Entities that participate in the consensus finding phase MUST have significant c
 
 # Publication Format and Distribution
 
-## Available Algorithm Registries
+## Versioning {#version}
 
-The following list gives an overview and examples for the available registries at IANA for cryptography algorithm and their parameters.
+The Secure Crypto Config Format is regularly published in a specific year. 
+Therefore, the Secure Crypto Config format MUST use the following versioning format: **YYYY-PATCH**.
+YYYY is a positive integer describing the year (using the Gregorian calendar, and considering the year that has not ended in all time zones, cf. Anywhere on Earth Time) this specific Secure Crypto Config was published.
+PATCH is a positive integer starting at 0 and only increasing for emergency releases.
 
-- [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml)
-- [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml)
-- [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
+## Naming {#naming}
 
-But often there is no matching algorithm specification in existing IANA registries that support the appropriate selection of parameters.
-E.g. in {{?RFC5116}} the definition for AEAD_AES_128_GCM proposes a nonce length of 96 bit.
-If we want to use a length higher than this we have to look for another registry than [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml), because there is no specification supporting a higher nonce length. 
-However, for cryptographic use cases such as asymmetric encryption and digital signing appropriate algorithm specifications can be found in the [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml) registry.
-For the crypto use case hashing the [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg) defines appropriate specifications for hash algorithms that matches a possible set of parameters for the Secure Crypto Config.
+ - [ ] TODO propose naming for secure crypto configurations
+ - [ ] TODO maybe merge with versioning section before
+ - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming langauges
+ - [ ] TODO possibly: SCC_SecurityLevel_**Security Level Number**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
 
-It is difficult to find a specification of an algorithm inside existing IANA registries that exactly match all of the chosen parameters for a specific cryptographic use case, especially in the case of symmetric encryption.
-It is also tedious to search for different specifications in different registries.
-Therefore, it could be advantageous to create a IANA registry explicitly for the creation of Secure Crypto Config.
+The Secure Crypto Config uses the following naming conventions to prevent ambiguity and remove implementation choices:
+SCC_SecurityLevel_**Security Level Number**.
+Put the corresponding number in **Security Level Number** depending for which security level the SCC was created for.
 
 ## Secure Crypto Config IANA Registry
 
@@ -599,29 +599,29 @@ We propose the following schemes:
 - For hashing as **HashAlgorithmName_KeyLength** (e.g. SHA3_256).
 - For asymmetric encryption and digital signatures **AlgorithmName_AuxiliaryAlgorithm_Padding_KeyLength** (e.g. RSA_ECB_OAEP_4096).
 
-### Example Secure Crypto Config IANA Registry 
+### Example for Secure Crypto Config IANA Registry 
 
 | SCC Version | AlgParam Identifier | Reference | Description                                       |
 | ----------- | ------------------- | --------- | ------------------------------------------------- |
 | 2020-01     | AES_GCM_256_128_128 | {{-COSE}} | AES 256 with GCM and 128 bit tag and random nonce |
 
-## Versioning {#version}
+### Other Algorithm Registries
 
-The Secure Crypto Config Format is regularly published in a specific year. 
-Therefore, the Secure Crypto Config format MUST use the following versioning format: **YYYY-PATCH**.
-YYYY is a positive integer describing the year (using the Gregorian calendar, and considering the year that has not ended in all time zones, cf. Anywhere on Earth Time) this specific Secure Crypto Config was published.
-PATCH is a positive integer starting at 0 and only increasing for emergency releases.
+The following list gives an overview and examples for the available registries at IANA for cryptography algorithm and their parameters.
 
-## Naming {#naming}
+- [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml)
+- [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml)
+- [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
 
- - [ ] TODO propose naming for secure crypto configurations
- - [ ] TODO maybe merge with versioning section before
- - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming langauges
- - [ ] TODO possibly: SCC_SecurityLevel_**Security Level Number**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
+But often there is no matching algorithm specification in existing IANA registries that support the appropriate selection of parameters.
+E.g. in {{?RFC5116}} the definition for AEAD_AES_128_GCM proposes a nonce length of 96 bit.
+If we want to use a length higher than this we have to look for another registry than [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml), because there is no specification supporting a higher nonce length. 
+However, for cryptographic use cases such as asymmetric encryption and digital signing appropriate algorithm specifications can be found in the [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml) registry.
+For the crypto use case hashing the [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg) defines appropriate specifications for hash algorithms that matches a possible set of parameters for the Secure Crypto Config.
 
-The Secure Crypto Config uses the following naming conventions to prevent ambiguity and remove implementation choices:
-SCC_SecurityLevel_**Security Level Number**.
-Put the corresponding number in **Security Level Number** depending for which security level the SCC was created for.
+It is difficult to find a specification of an algorithm inside existing IANA registries that exactly match all of the chosen parameters for a specific cryptographic use case, especially in the case of symmetric encryption.
+It is also tedious to search for different specifications in different registries.
+Therefore, it could be advantageous to create a IANA registry explicitly for the creation of Secure Crypto Config.
 
 ## Data Structures {#dataStructures}
 
