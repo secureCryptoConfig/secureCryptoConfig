@@ -342,8 +342,8 @@ Possible secure usage:
 
 ## Requirements {#requirements}
 
-- [ ] TODO in "Publication Format and Distribution Requirements"/Machine readable: Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hierarchical approach with inheritance from the base SCC?) added?
-- [ ] TODO in "General requirements": *Threat Model* / adversary powers: What kind of attacker should the secure crypto config protect against? (Almighty? Government? Company?). Presumably  different group of attackers.
+- [ ] TODO in "Publication Format and Distribution Requirements"/Machine readable. Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hierarchical approach with inheritance from the base SCC?) added?
+- [ ] TODO in "General requirements", *Threat Model* / adversary powers. What kind of attacker should the secure crypto config protect against? (Almighty? Government? Company?). Presumably  different group of attackers.
 
 
 - Security Level Requirements:
@@ -582,18 +582,19 @@ Therefore, it could be advantageous to create a IANA registry explicitly for the
 ## Secure Crypto Config IANA Registry
 
 - [ ] TODO should the IANA registry look like this? 
-- [ ] TODO Naming convention: Specification depending on crypto use case?
+- [ ] TODO Naming convention. Specification depending on crypto use case?
 - [ ] TODO dash character "-" not possible in enum!
 
 An own possible IANA registry must contain a specified **name** of the algorithm to use:
-- For symmetric encryption the name should look like **AlgorithmName_Mode_KeyLength_TagLength_NonceLength** (e.g. AES_GCM_256_128_128).
-- For hashing as **HashAlgorithmName_KeyLength** (e.g. SHA3_256).
-- For asymmetric encryption and digital signatures **AlgorithmName_AuxiliaryAlgorithm_KeyLength** (e.g. RSA_PSS_256, ECDSA_SHA3_512).
 
-- For every named algorithm we need a unique **numeric ID** for referencing:
+- For symmetric encryption the name should look like **AlgorithmName_Mode_Padding_KeyLength_TagLength_NonceLength** (e.g. AES_GCM_NoPadding_256_128_128).
+- For hashing as **HashAlgorithmName_KeyLength** (e.g. SHA3_256).
+- For asymmetric encryption and digital signatures **AlgorithmName_Mode_Padding_KeyLength** (e.g. RSA_ECB_OAEP_4096).
+
+- For every named algorithm we need a unique **numeric ID** for referencing.
 This is a positive integer beginning with 1 for the first algorithm and gets assigned incrementally for further inserted algorithms.
-There is also a corresponding RFC as **reference** to look up the specific cryptographic details.
-At least a **status** must be given to be able to show if a specified algorithm is obsolete or up to the current security standards.
+- There is also a corresponding RFC as **reference** to look up the specific cryptographic details.
+- At least a **status** must be given to be able to show if a specified algorithm is obsolete or up to the current security standards.
 
 
 ## Versioning {#version}
@@ -616,6 +617,7 @@ Put the corresponding number in **Security Level Number** depending for which se
 
 ## Data Structures {#dataStructures}
 
+- [ ] TODO refer to IANA registry in Usage explanation
 - [ ] TODO is JSON a appropriate format?
 - [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
 
@@ -635,8 +637,8 @@ The general schema of the JSON files is shown in {{scc_general}}.
 - Version: Contains version in the format defined in {{version}}
 - PolicyIssueDate: Date at which the Secure Crypto Config was published in the format: YYYY-MM-DD
 - Expiry: Date at which the Secure Crypto Config expires in the format: YYYY-MM-DD
-- Usage: Contains an array of all cryptographic use cases defined in {{cryptoCase}} *TODO see Secure Crypto Config IANA registry*. 
-- For each cryptographic use case, usually at least two as described in {{consensus}}, agreed upon algorithms with necessary parameters are included. Each of these algorithms with its parameters is specified with its unique identification name defined in the *TODO Secure Crypto Config IANA registry*.
+- Usage: Contains an array of all cryptographic use cases defined in {{cryptoCase}}. 
+- For each cryptographic use case, usually at least two as described in {{consensus}}, agreed upon algorithms with necessary parameters are included. Each of these algorithms with its parameters is specified with its unique identification name defined in an Secure Crypto Config IANA registry.
 
 This format allows custom algorithm/parameter selections both by overwriting use cases completely or by adding only specific algorithm identifiers.
 
@@ -654,7 +656,7 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 
 - [ ] TODO see/unify with Java implementation {{scc_java_api_example}}
 
-Methods and parameters can be seen in {{scc_java_api_example}}.
+Intended methods and parameters included in the Java interface cane be seen in {{scc_java_api_example}}.
 
 #### Supported Algorithm Parameter Types
 
