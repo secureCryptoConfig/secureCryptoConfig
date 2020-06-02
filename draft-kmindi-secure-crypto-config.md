@@ -581,21 +581,29 @@ Therefore, it could be advantageous to create a IANA registry explicitly for the
 
 ## Secure Crypto Config IANA Registry
 
-- [ ] TODO should the IANA registry look like this? 
 - [ ] TODO Naming convention. Specification depending on crypto use case?
 - [ ] TODO dash character "-" not possible in enum!
 
-An own possible IANA registry must contain a specified **name** of the algorithm to use:
+The Secure Crypto Config requires one IANA Registry with the following columns:
+
+- Secure Crypto Config release version: **YYYY-PATCH**
+- Distinct **Algorithm-Parameter-Identifier** that uniquely identifies a cryptography algorithm and the parameters
+- Distinct and **constantly available reference** where all parameters are unambiguously defined
+- (Optional) Short Description of the parameters
+
+Algorithm-Parameter-Identifier: MUST only consist of uppercase alphanumeric characters and underscores
+Depending on the use case the AlgParam Identifier can be constructed differently.
+We propose the following schemes:
 
 - For symmetric encryption the name should look like **AlgorithmName_Mode_Padding_KeyLength_TagLength_NonceLength** (e.g. AES_GCM_NoPadding_256_128_128).
 - For hashing as **HashAlgorithmName_KeyLength** (e.g. SHA3_256).
 - For asymmetric encryption and digital signatures **AlgorithmName_AuxiliaryAlgorithm_Padding_KeyLength** (e.g. RSA_ECB_OAEP_4096).
 
-- For every named algorithm we need a unique **numeric ID** for referencing.
-This is a positive integer beginning with 1 for the first algorithm and gets assigned incrementally for further inserted algorithms.
-- There is also a corresponding RFC as **reference** to look up the specific cryptographic details.
-- At least a **status** must be given to be able to show if a specified algorithm is obsolete or up to the current security standards.
+### Example Secure Crypto Config IANA Registry 
 
+| SCC Version | AlgParam Identifier | Reference | Description                                       |
+| ----------- | ------------------- | --------- | ------------------------------------------------- |
+| 2020-01     | AES_GCM_256_128_128 | {{-COSE}} | AES 256 with GCM and 128 bit tag and random nonce |
 
 ## Versioning {#version}
 
