@@ -680,8 +680,9 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 ## Process to get and update the Secure Crypto Config 
 
 - [ ] TODO adapt
+- [ ] TODO Description where to get SCC and how to validate
 
-The Secure Crypto Config should be published at an official Github repository. To be able to guarantee integrity of the file it should be provided with an appropriate signature. Before fetching the Secure Crypto Config the validity of the signature should be checked by the user.
+The Secure Crypto Config should be published at an official Github repository. To be able to guarantee integrity of the file it must be provided with an signature. Before fetching the Secure Crypto Config the validity of the signature must be checked by the user.
 
 ## Application Programming Interface (API)
 
@@ -717,7 +718,8 @@ That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://
 
 ### Output of readable Secure Crypto Config
 
-- [ ] TODO ?
+- [ ] TODO Output of current SCC integrated in crypto library. Method like "printUsedSCC()" with output that shows if it is a validate SCC
+- [ ] TODO In case of own derived version e.g. from a company from the original SCC it could be the case that there is no signature to check
 
 
 ## TODOs
@@ -725,8 +727,8 @@ That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://
 - [x] TODO Describe used versioning concept for SCC. 
   - [x] TODO Refer to [Semantic Versioning](https://semver.org/)
 - [ ] TODO describe requirements for cryptography API implementors and designers
-- [ ] TODO decide how the configuration should be made available to programmers
-- [ ] TODO which platforms are suitable?
+- [x] TODO decide how the configuration should be made available to programmers
+- [x] TODO which platforms are suitable?
 - The SCC could be provided on a suitable platform (?) and is accessible over the network (adversaries? e.g. http connection)
   - [ ] e.g. should there be constants like "SCC_TOP_SECRET_LATEST" and "SCC_TOP_SECRET_LATEST". 
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
