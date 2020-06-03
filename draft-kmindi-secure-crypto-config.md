@@ -664,6 +664,13 @@ The general schema of the JSON files is shown in {{scc_general}}.
 
 This format allows custom algorithm/parameter selections both by overwriting use cases completely or by adding only specific algorithm identifiers.
 
+## Human readable format {#humanReadableFormat}
+
+- [ ] TODO look through
+
+There should also be a human readable format on a webpage derived from the source format. This format must not be cryptographically protected but should be generated automatically from the source format. For a good human readability the content of the source format is presented in form of a table showing the cryptographic use case and its proposed algorithms. There is one table for each each defined security level. Such a table for one security level could be presented on a webpage like shown in {{example}}.
+
+
 # Secure Crypto Config Interface 
 
 ## Semantic Versioning
@@ -814,10 +821,11 @@ The data structure (see {{dataStructures}}) defined in this document uses the JS
 
 --- back
 
-# Examples 
+# Examples {#example}
 
 In the following table possible algorithm and  parameter choices for the different cryptographic use cases (see {{cryptoCase}}) depending on the security levels (see {{securityLevels}}) are given. 
 This is only a visualization format of the source format for which the corresponding example is shown in {{scc_example}}.
+This format could also be used to show the content of the JSON source format in a human readable way on a webpage like described in {{humanReadableFormat}}.
 
 - [x] TODO use algorithm/parameter identifiers
 
