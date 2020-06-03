@@ -679,7 +679,7 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 
 ## Process to get and update the Secure Crypto Config 
 
-- [ ] TODO adapt
+- [ ] TODO adapt?
 - [ ] TODO Description where to get SCC and how to validate
 
 The Secure Crypto Config should be published at an official Github repository. To be able to guarantee integrity of the file it must be provided with an signature. Before fetching the Secure Crypto Config the validity of the signature must be checked by the user.
@@ -721,6 +721,8 @@ That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://
 - [ ] TODO Output of current SCC integrated in crypto library. Method like "printUsedSCC()" with output that shows if it is a validate SCC
 - [ ] TODO In case of own derived version e.g. from a company from the original SCC it could be the case that there is no signature to check
 
+A possibility to check the used Secure Crypto Config for validity should be provided. This can be done by testing the signature of the provided file for validity. 
+If it is a self-derived version from the original Secure Crypto Config than it could also be possible that there is no signature provided that could be checked for validity.
 
 ## TODOs
 
