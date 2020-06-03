@@ -69,19 +69,6 @@ Only secure pseudorandom number generators should be used for this purpose.
 
 Possible secure CSPRNG:
 
-#### Key Generation
-
-- [ ] TODO should key generation be considered? (Symmetric/Asymmetric)
-
-A key is necessary for many cryptographic use cases e.g. symmetric and asymmetric encryption.
-Therefore, key generation is an important part while implementing cryptographic code. 
-
-Expected output: key.
-
-Possible secure generation:
-
-- Use of CSPRNG
-- Keys derived via derivation function from passwords/other keys
 
 ### Misuse Cases
 

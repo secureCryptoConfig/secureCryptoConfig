@@ -27,6 +27,10 @@
             "Algorithm 1",
             "Algorithm 2"
         ],
+        "KeyGeneration": [
+            "Algorithm 1",
+            "Algorithm 2"
+        ],
         "Signing": [
             "Algorithm 1",
             "Algorithm 2"
