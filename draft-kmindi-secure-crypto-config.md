@@ -586,12 +586,13 @@ PATCH is a positive integer starting at 0 and only increasing for emergency rele
 
  - [ ] TODO propose naming for secure crypto configurations
  - [ ] TODO maybe merge with versioning section before
- - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming langauges
- - [ ] TODO possibly: SCC_SecurityLevel_**Security Level Number**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
+ - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming languages
+ - [ ] TODO possibly: SCC_SecurityLevel_**SecurityLevelNumber**_**Version**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
 
 The Secure Crypto Config uses the following naming conventions to prevent ambiguity and remove implementation choices:
-SCC_SecurityLevel_**Security Level Number**.
+SCC_SecurityLevel_**Security Level Number**_**Version**.
 Put the corresponding number in **Security Level Number** depending for which security level the SCC was created for.
+To be able to differentiate SCCs with the same Security Levels but different versions the version according to {{version}} is added.
 
 ## Secure Crypto Config IANA Registry
 
