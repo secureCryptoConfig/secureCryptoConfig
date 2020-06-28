@@ -11,6 +11,7 @@
             "URL" : "https://BSI"
         }
     ],
+    "SecurityLevel" : "5",
     "Version" : "2020-0",
     "PolicyIssueDate" : "2020-04-20",
     "Expiry" : "2023-04-21",

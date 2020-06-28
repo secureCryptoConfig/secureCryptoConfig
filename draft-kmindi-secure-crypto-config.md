@@ -653,6 +653,7 @@ The general schema of the JSON files is shown in {{scc_general}}.
 ~~~~
 {: #scc_general title="General JSON format"}
 
+- SecurityLevel : Contains the number of the corresponding Security Level of the Secure Crypto Config 
 - PolicyName: Contains the name of the corresponding Secure Crypto Config according to the naming schema defined in {{naming}}
 - Publisher: Contains an array of all parties that were participating in the consensus finding process
   - name: Name of the participating party

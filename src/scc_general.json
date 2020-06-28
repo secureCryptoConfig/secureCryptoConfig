@@ -7,6 +7,7 @@
             "URL": "URL corresponding to publisher"
         }
     ],
+    "SecurityLevel" : "Security Level Number",
     "Version": "YYYY-Patch",
     "PolicyIssueDate": "YYYY-MM-DD",
     "Expiry": "YYYY-MM-DD",
