@@ -23,7 +23,10 @@ abstract interface SecureCryptoConfigInterface {
 	// Symmetric Encryption
 	public AbstractSCCCiphertext symmetricEncrypt(AbstractSCCKey key, PlaintextContainerInterface plaintext)
 			throws CoseException;
-
+	
+	public AbstractSCCCiphertext symmetricEncrypt(AbstractSCCKey key, byte[] plaintext)
+			throws CoseException;
+	
 	public AbstractSCCCiphertext symmetricReEncrypt(AbstractSCCKey key, AbstractSCCCiphertext ciphertext)
 			throws CoseException;
 
@@ -46,6 +49,9 @@ abstract interface SecureCryptoConfigInterface {
 	// Asymmetric
 	public AbstractSCCCiphertext asymmetricEncrypt(AbstractSCCKeyPair keyPair, PlaintextContainerInterface plaintext)
 			throws CoseException;
+	
+	public AbstractSCCCiphertext asymmetricEncrypt(AbstractSCCKeyPair keyPair, byte[] plaintext)
+			throws CoseException;
 
 	public AbstractSCCCiphertext asymmetricReEncrypt(AbstractSCCKeyPair keyPair, AbstractSCCCiphertext ciphertext)
 			throws CoseException;
@@ -56,12 +62,17 @@ abstract interface SecureCryptoConfigInterface {
 	// Hashing
 	public AbstractSCCHash hash(PlaintextContainerInterface plaintext) throws CoseException;
 
+	public AbstractSCCHash hash(byte[] plaintext) throws CoseException;
+
 	public AbstractSCCHash updateHash(AbstractSCCHash hash) throws CoseException;
 
 	public boolean validateHash(PlaintextContainerInterface plaintext, AbstractSCCHash hash) throws CoseException;
 
 	// Digital Signature
 	public AbstractSCCSignature sign(AbstractSCCKeyPair key, PlaintextContainerInterface plaintext)
+			throws CoseException;
+	
+	public AbstractSCCSignature sign(AbstractSCCKeyPair key, byte[] plaintext)
 			throws CoseException;
 
 	public AbstractSCCSignature updateSignature(AbstractSCCKeyPair key, AbstractSCCSignature signature)
@@ -72,6 +83,8 @@ abstract interface SecureCryptoConfigInterface {
 	// Password Hashing
 	public AbstractSCCPasswordHash passwordHash(PlaintextContainerInterface password) throws CoseException;
 
+	public AbstractSCCPasswordHash passwordHash(byte[] password) throws CoseException;
+
 	public boolean validatePasswordHash(PlaintextContainerInterface password, AbstractSCCPasswordHash passwordhash)
 			throws CoseException;
 
@@ -79,38 +92,34 @@ abstract interface SecureCryptoConfigInterface {
 
 abstract interface PlaintextContainerInterface {
 
-	abstract byte[] getByteArray();
+	abstract byte[] getPlaintextBytes();
 
-	abstract String getBase64();
-
-	abstract String getString(Charset c);
+	abstract String getPlaintextAsString(Charset c);
 
 	abstract boolean validateHash(AbstractSCCHash hash);
 	
 	abstract boolean validatePasswordHash(AbstractSCCPasswordHash passwordHash);
 	
-	abstract SCCCiphertext symmetricEncrypt(AbstractSCCKey key, SecureCryptoConfig scc);
+	abstract SCCCiphertext symmetricEncrypt(AbstractSCCKey key);
 	
-	abstract SCCCiphertext asymmetricEncrypt(AbstractSCCKeyPair pair, SecureCryptoConfig scc);
+	abstract SCCCiphertext asymmetricEncrypt(AbstractSCCKeyPair pair);
 	
-	abstract SCCSignature sign(AbstractSCCKeyPair keyPair, SecureCryptoConfig scc);
+	abstract SCCSignature sign(AbstractSCCKeyPair keyPair);
 	
-	abstract SCCHash hash(SecureCryptoConfig scc);
+	abstract SCCHash hash();
 	
-	abstract SCCPasswordHash passwordHash(SecureCryptoConfig scc);
+	abstract SCCPasswordHash passwordHash();
 	
 }
 
 
 abstract class AbstractSCCCiphertext {
 	
-	byte[] cipher;
+	byte[] ciphertext;
 	byte[] msg;
-	PlaintextContainerInterface plain;
 
-	public AbstractSCCCiphertext(PlaintextContainerInterface plain, byte[] cipher, byte[] msg) {
-		this.plain = plain;
-		this.cipher = cipher;
+	public AbstractSCCCiphertext(byte[] ciphertext, byte[] msg) {
+		this.ciphertext = ciphertext;
 		this.msg = msg;
 	}
 
@@ -120,22 +129,18 @@ abstract class AbstractSCCCiphertext {
 	abstract Message convertByteToMsg();
 
 	abstract AlgorithmID getAlgorithmIdentifier();
-
-	abstract PlaintextContainerInterface getPlaintextAsPlaintextContainer();
-
-	abstract String getPlaintextAsString(Charset c);
 	
-	abstract byte[] getCipherBytes();
+	abstract byte[] getCiphertextBytes();
 	
-	abstract String getCipherAsString(Charset c);
+	abstract String getCiphertextAsString(Charset c);
 
 	abstract PlaintextContainer asymmetricDecrypt(AbstractSCCKeyPair keyPair);
 
 	abstract PlaintextContainer symmetricDecrypt(AbstractSCCKey key);
 	
-	abstract SCCCiphertext symmetricReEncrypt(AbstractSCCKey key, SecureCryptoConfig scc);
+	abstract SCCCiphertext symmetricReEncrypt(AbstractSCCKey key);
 	
-	abstract SCCCiphertext asymmetricReEncrypt(AbstractSCCKeyPair keyPair, SecureCryptoConfig scc);
+	abstract SCCCiphertext asymmetricReEncrypt(AbstractSCCKeyPair keyPair);
 
 }
 
@@ -202,6 +207,8 @@ abstract class AbstractSCCHash {
 	abstract PlaintextContainerInterface getHashAsPlaintextContainer();
 	
 	abstract String getHashAsString(Charset c);
+	
+	abstract byte[] getHashBytes();
 
 }
 
@@ -232,6 +239,8 @@ abstract class AbstractSCCPasswordHash {
 	abstract PlaintextContainerInterface getHashAsPlaintextContainer();
 	
 	abstract String getHashAsString(Charset c);
+	
+	abstract byte[] getHashBytes();
 
 }
 
@@ -259,7 +268,9 @@ abstract class AbstractSCCSignature {
 
 	abstract PlaintextContainer getSignatureAsPlaintextContainer();
 	
-	abstract String getSignatureAsPlaintextContainer(Charset c);
+	abstract String getSignatureAsString(Charset c);
+	
+	abstract byte[] getSignatureBytes();
 	
 	abstract SCCSignature updateSignature (AbstractSCCKeyPair pair, SecureCryptoConfig scc);
 
@@ -275,4 +286,6 @@ abstract class AbstractSCCCiphertextOutputStream {
 
 }
 
-//abstract class AbstractPlaintextOutputStream {}
+abstract class AbstractPlaintextOutputStream {
+
+}
