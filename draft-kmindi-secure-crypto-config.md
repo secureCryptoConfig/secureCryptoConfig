@@ -590,7 +590,7 @@ SCC_SecurityLevel_**Security Level Number**_**Version**.
 Put the corresponding number in **Security Level Number** depending for which security level the SCC was created for.
 To be able to differentiate SCCs with the same Security Levels but different versions the version according to {{version}} is added.
 
-## Secure Crypto Config IANA Registry{#IANA}
+## Secure Crypto Config IANA Registry {#IANA}
 
 - [ ] TODO Naming convention. Specification depending on crypto use case?
 - [ ] TODO dash character "-" not possible in enum!
@@ -632,7 +632,7 @@ For the crypto use case hashing the [Named Information Hash Registry](https://ww
 
 It is difficult to find a specification of an algorithm inside existing IANA registries that exactly match all of the chosen parameters for a specific cryptographic use case, especially in the case of symmetric encryption.
 It is also tedious to search for different specifications in different registries.
-Therefore, it could be advantageous to create a IANA registry explicitly for the creation of Secure Crypto Config like described in {{{IANA}}}
+Therefore, it could be advantageous to create a IANA registry explicitly for the creation of Secure Crypto Config like described in {{IANA}}
 
 ## Data Structures {#dataStructures}
 
