@@ -191,14 +191,11 @@ The terms
   "ciphertext",
   "classified", 
   "classification level", 
-  "classification label", 
-  "clear text",
   "confidentiality",
   "cryptographic hash",
-  "encode",
   "encrypt",
   "encryption",
-  "initialization value (IV)",
+  "initialization vector (IV)",
   "integrity",
   "key", 
   "mode",
@@ -207,7 +204,6 @@ The terms
   "plain text",
   "plaintext",
   "protocol",
-  "salt",
   "security",
   "security level",
   "threat",
@@ -397,9 +393,9 @@ For each security level the consensus finding process and entities shall publish
 - Cryptography library integration requirements:
   - Easy to integrate by cryptography libraries
   - Experts should still be able to use/access the unaltered output of cryptographic primitives
-  - Recommendation what should be the default secure crypto config for a cryptography library (e.g. should it be the one for TOP Secret or *only* for Secret?)
+  - Recommendation what should be the default Secure Crypto Config for a cryptography library (e.g. should it be the one with the highest security level or *only* a weaker one?)
   - Recommendation what should a cryptography library do if it can not support the parameters specified in the latest Secure Crypto Config. (E.g. key size for RSA would be n*2 and the library supports only n)
-  - Recommendation how should a cryptography library integrate the Secure Crypto Config so that it should be up to date as soon as possible after a new Secure Crypto Config has been published?
+  - Recommendation on how a cryptography library should integrate the Secure Crypto Config so that it is up to date as soon as possible after a new Secure Crypto Config has been published
 
 - General Requirements:
   - Interoperability with other standards/formats (e.g. {{-COSE}})
@@ -419,7 +415,7 @@ This also means that it is not considered best practice to assume or propose tha
 # Security Levels {#securityLevels}
 
 The Secure Crypto Config must be able to provide a secure parameter set for different security levels. 
-These security levels depend on the following security constraints: **Information classification (SECRET, Confidential), Longevity (less than one day, more than a day), Constrained devices (constrained, not constrained)**.
+These security levels depend on the following security constraints: **Information classification (Secret, Confidential), Longevity (less than one day, more than a day), Constrained devices (constrained, not constrained)**.
 They are defined in {{constraints}} below.
 The Secure Crypto Config provides 5 common security levels for which official algorithm/parameter choices are published.
 
@@ -535,7 +531,7 @@ The process has three phases that MUST be finalized within 2 years:
 - (2) Six months **Consensus finding phase** during which all participating entities must agree on a common Secure Crypto Config.
 - (3) Six months **Publication phase** ensures the publication of the final Secure Crypto Config AND allows the Secure Crypto Config Interface and other cryptography implementations to integrate the necessary changes.
 
-During the Proposal phase the proposed algorithms should be submitted in table form for each security level and defined cryptographic use case like proposed in {{scc_useCase_level}}.
+During the Proposal phase the proposed algorithms and all necessary parameters should be submitted in table form for each security level and defined cryptographic use case like proposed.
 This table format is simply structured and is easy to read by human as the Consensus finding phase can only be done manually.
 It is important that the parameters for each cryptographic use case depending on its security level can be found easily by the participants of the consensus finding process such that it is possible to get to an agreement faster.
 
@@ -594,7 +590,7 @@ SCC_SecurityLevel_**Security Level Number**_**Version**.
 Put the corresponding number in **Security Level Number** depending for which security level the SCC was created for.
 To be able to differentiate SCCs with the same Security Levels but different versions the version according to {{version}} is added.
 
-## Secure Crypto Config IANA Registry
+## Secure Crypto Config IANA Registry{#IANA}
 
 - [ ] TODO Naming convention. Specification depending on crypto use case?
 - [ ] TODO dash character "-" not possible in enum!
@@ -606,8 +602,8 @@ The Secure Crypto Config requires one IANA Registry with the following columns:
 - Distinct and **constantly available reference** where all parameters are unambiguously defined
 - (Optional) Short Description of the parameters
 
-Algorithm-Parameter-Identifier: MUST only consist of uppercase alphanumeric characters and underscores
-Depending on the use case the AlgParam Identifier can be constructed differently.
+Algorithm-Parameter-Identifier: MUST only consist of uppercase alphanumeric characters and underscores.
+Depending on the use case the Algorithm Parameter Identifier can be constructed differently.
 We propose the following schemes:
 
 - For symmetric encryption the name should look like **AlgorithmName_Mode_Padding_KeyLength_TagLength_NonceLength** (e.g. AES_GCM_NoPadding_256_128_128).
@@ -636,7 +632,7 @@ For the crypto use case hashing the [Named Information Hash Registry](https://ww
 
 It is difficult to find a specification of an algorithm inside existing IANA registries that exactly match all of the chosen parameters for a specific cryptographic use case, especially in the case of symmetric encryption.
 It is also tedious to search for different specifications in different registries.
-Therefore, it could be advantageous to create a IANA registry explicitly for the creation of Secure Crypto Config.
+Therefore, it could be advantageous to create a IANA registry explicitly for the creation of Secure Crypto Config like described in {{{IANA}}}
 
 ## Data Structures {#dataStructures}
 
@@ -670,7 +666,7 @@ This format allows custom algorithm/parameter selections both by overwriting use
 
 - [ ] TODO look through
 
-There should also be a human readable format on a webpage derived from the source format. This format must not be cryptographically protected but should be generated automatically from the source format. For a good human readability the content of the source format is presented in form of a table showing the cryptographic use case and its proposed algorithms. There is one table for each each defined security level. Such a table for one security level could be presented on a webpage like shown in {{example}}.
+There should also be a human readable format on a webpage derived from the source format. This format must not be cryptographically protected but should be generated automatically from the source format. For a good human readability the content of the source format is presented in form of a table showing the cryptographic use case and its proposed algorithms. There is one table for each defined security level. Such a table for one security level could be presented on a webpage like shown in {{example}}.
 
 
 # Secure Crypto Config Interface 
@@ -841,7 +837,6 @@ This format could also be used to show the content of the JSON source format in 
 | **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230]                                                 |
 | **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf) |
 | **Signing**    | ES512 <br> {{-COSE}}                                                                |
-
 {:#scc_useCase_level}
 
 
