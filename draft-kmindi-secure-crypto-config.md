@@ -521,7 +521,7 @@ After the successful decision the agreed on parameters can be added in the propo
 Consensus must be found two years after the last consensus was found.
 This ensures that there is a new Secure Crypto Config every two years, even if the configuration itself has not changed.
 
-### Regular Process 
+### Regular Process {#process}
 
 - [ ] TODO adapt format for Proposal phase submission?
 
@@ -677,10 +677,36 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 
 ## Process to get and update the Secure Crypto Config 
 
-- [ ] TODO adapt?
 - [ ] TODO Description where to get SCC and how to validate
 
-The Secure Crypto Config should be published at an official Github repository. To be able to guarantee integrity of the file it must be provided with an signature. Before fetching the Secure Crypto Config the validity of the signature must be checked by the user.
+### Location of publication
+
+The needed Secure Crypto Config files should be published at an official Github repository.
+There all current versions will be provided during the interval of the Publication phase (see {{process}}).
+Additionally all previously published files are still stored at this location even if new versions are published. 
+
+### Integrity
+
+- [ ] TODO Who should sign?
+- [ ] TODO Where to keep private key? 
+- Several operating systems provide certificate or key stores
+- (.pfx or .p12) and .jks* (created by the Java keytool) are files containing your public/private keypair (PKCS 12 defines an archive file format for storing many cryptography objects as a single file. It is commonly used to bundle a private key )
+
+To be able to guarantee integrity of the file it must be provided with an signature. 
+After fetching the Secure Crypto Config files the validity of the signature must be checked by the user to circumvent the danger of getting a tampered version of the files. 
+To be able to make use of a digital signature a key pair is needed. 
+The public key is should be known by the users to validate the signature and the private key must kept safe by the signing party otherwise the signature could be forged. 
+The signature should be generate by the party who is responsible of publishing the Secure Crypto Config files during the Publication phase. 
+The private key should be stored "at a safe location" where only authorized parties are able to access it.
+
+### Process to get Secure Crypto Config
+
+- [ ] TODO how does digital signatures work in praxis?
+
+First the Secure Crypto Config files must be fetched from its official github repository e.g. https://github.com/secureCryptoConfigExample. 
+The corresponding github repository containing all needed Secure Crypto Config files can be downloaded as a ZIP archive. The retrieved ZIP archive must be unzipped and the files checked for their valid signatures (?). 
+This process must be repeated each time after the next Publication phase has ended or a new version of a Secure Crypto Config files must be renewed because of a emergency process. 
+The new contents of the ZIP can overwrite the old files and add the new added ones.
 
 ## Application Programming Interface (API)
 
@@ -688,7 +714,7 @@ The Secure Crypto Config should be published at an official Github repository. T
 
 - [ ] TODO see/unify with Java implementation {{scc_java_api_example}}
 
-Intended methods and parameters included in the Java interface can be seen in {{scc_java_api_example}}.
+Intended methods and parameters included in the Java interface are currently work in process. First suggestions can be seen in {{scc_java_api_example}}.
 
 #### Supported Algorithm Parameter Types
 
