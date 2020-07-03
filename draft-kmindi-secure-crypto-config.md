@@ -548,6 +548,9 @@ In cases when a regularly still valid Secure Crypto Config would become insecure
 
 Examples for emergency cases are drastically better brute force algorithms or brute force performance (e.g. quantum computers/algorithms), drastically discovered flaws in proposed algorithms and their configurations.
 
+- [ ] TODO The working group itself can decide when to alter the Secure Crypto Config IANA registry. If e.g. an proposed algorithm gets insecure this can be marked inside the corresponding IANA registry entry.
+- [ ] TODO Another possibility is to use the RFC Errata process. If a security gap was found it can be corrected and the improved version gets published. 
+
 ### Requirements for Selection of Cryptography Algorithm and Parameters
 
 The Secure Crypto Config MUST only propose cryptography algorithms and parameters that fulfill the following requirements:
@@ -568,6 +571,8 @@ The Secure Crypto Config SHOULD only propose cryptography algorithms and paramet
 
 Entities that participate in the proposal phase SHOULD have significant cryptography expertise.
 Entities that participate in the consensus finding phase MUST have significant cryptography expertise.
+
+Each execution of the regular process for the creation of a Secure Crypto Config is described in detail in a separate RFC. The working group itself decides on the participating entities.
 
 # Publication Format and Distribution
 
