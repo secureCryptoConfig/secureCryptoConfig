@@ -1,3 +1,5 @@
+package main;
+
 import java.nio.charset.Charset;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
@@ -36,7 +38,9 @@ abstract interface SecureCryptoConfigInterface {
 
 	public AbstractSCCHash hash(byte[] plaintext) throws CoseException;
 
-	public AbstractSCCHash updateHash(AbstractSCCHash hash) throws CoseException;
+	public AbstractSCCHash updateHash(PlaintextContainerInterface plaintext, AbstractSCCHash hash) throws CoseException;
+
+	public AbstractSCCHash updateHash(byte[] plaintext, AbstractSCCHash hash) throws CoseException;
 
 	public boolean validateHash(PlaintextContainerInterface plaintext, AbstractSCCHash hash) throws CoseException;
 
@@ -139,10 +143,8 @@ abstract class AbstractSCCKeyPair {
 abstract class AbstractSCCHash {
 
 	byte[] hashMsg;
-	PlaintextContainerInterface plaintext;
 
-	public AbstractSCCHash(PlaintextContainerInterface plaintext, byte[] hashMsg) {
-		this.plaintext = plaintext;
+	public AbstractSCCHash(byte[] hashMsg) {
 		this.hashMsg = hashMsg;
 	}
 
@@ -152,7 +154,7 @@ abstract class AbstractSCCHash {
 	
 	abstract boolean validateHash(PlaintextContainerInterface plaintext);
 
-	abstract SCCHash updateHash();
+	abstract SCCHash updateHash(PlaintextContainerInterface plaintext);
 	
 
 }
@@ -160,10 +162,9 @@ abstract class AbstractSCCHash {
 abstract class AbstractSCCPasswordHash {
 
 	byte[] hashMsg;
-	PlaintextContainerInterface password;
+	
 
-	public AbstractSCCPasswordHash(PlaintextContainerInterface password, byte[] hashMsg) {
-		this.password = password;
+	public AbstractSCCPasswordHash(byte[] hashMsg) {
 		this.hashMsg = hashMsg;
 	}
 
@@ -180,9 +181,8 @@ abstract class AbstractSCCSignature {
 	PlaintextContainerInterface plaintext;
 	AbstractSCCKeyPair keyPair;
 
-	public AbstractSCCSignature(PlaintextContainerInterface plaintext, AbstractSCCKeyPair keyPair, byte[] signatureMasg) {
-		this.plaintext = plaintext;
-		this.keyPair = keyPair;
+	// keyPair, plaintext
+	public AbstractSCCSignature(byte[] signatureMasg) {
 		this.signatureMsg = signatureMasg;
 	}
 
@@ -196,5 +196,3 @@ abstract class AbstractSCCSignature {
 
 }
 }
-
-
