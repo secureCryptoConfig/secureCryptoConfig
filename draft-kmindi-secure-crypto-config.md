@@ -709,7 +709,9 @@ scc-repo
   - 2023
   - 2024
 ~~~~
-{: #scc-repo-example title="Example for SCC Repository content"}
+{: #scc_repo_example title="Example for SCC Repository content"}
+
+Text between examples 
 
 ~~~~
 scc-repo
@@ -738,7 +740,7 @@ scc-repo
   - afd
   - af
 ~~~~
-{: #scc-repo-example2 title="Example for SCC Repository content with custom naming scheme"}
+{: #scc_repo_example2 title="Example for SCC Repository content with custom naming scheme"}
 
 The SCC configuration files are expected to be in any folder hierarchy below the folder `configs`-folder.
 The folder which contains the final SCC JSON files must contain the required signature files at the same level of the JSON files.
