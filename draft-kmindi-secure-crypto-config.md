@@ -673,6 +673,89 @@ This format allows custom algorithm/parameter selections both by overwriting use
 
 There should also be a human readable format on a webpage derived from the source format. This format must not be cryptographically protected but should be generated automatically from the source format. For a good human readability the content of the source format is presented in form of a table showing the cryptographic use case and its proposed algorithms. There is one table for each defined security level. Such a table for one security level could be presented on a webpage like shown in {{example}}.
 
+## Official SCC Repository
+
+### Location of SCC Repository
+
+The needed Secure Crypto Config files should be published at an official Github repository.
+There all current versions will be provided during the interval of the Publication phase (see {{process}}).
+Additionally all previously published files are still stored at this location even if new versions are published. 
+
+### Format of SCC Repository
+
+```
+scc-repo
+- configs
+  - 2020
+    - 00
+      - 2020-00.SEC1.json
+      - 2020-00.SEC1-signature1
+      - 2020-00.SEC1-signature2
+      - 2020-00.SEC2.json
+      - 2020-00.SEC2-signature1
+      - 2020-00.SEC2-signature2
+      - 2020-00.SEC3.json
+      - 2020-00.SEC3-signature1
+      - 2020-00.SEC3-signature2
+      - 2020-00.SEC4.json
+      - 2020-00.SEC4-signature1
+      - 2020-00.SEC4-signature2
+      - 2020-00.SEC5.json
+      - 2020-00.SEC5-signature1
+      - 2020-00.SEC5-signature2
+    - 01
+    - 02
+  - 2021
+  - 2022
+  - 2023
+  - 2024
+```
+{: #scc-repo-example title="Example for SCC Repository content"}
+
+```
+scc-repo
+- configs
+  - a
+      - b
+      - 0c1
+      - ReallySecure
+  - 0x1111
+    - 2020-00.SEC1.json
+    - 2020-00.SEC1-signature1
+    - 2020-00.SEC1-signature2
+    - 2020-00.SEC2.json
+    - 2020-00.SEC2-signature1
+    - 2020-00.SEC2-signature2
+    - 2020-00.SEC3.json
+    - 2020-00.SEC3-signature1
+    - 2020-00.SEC3-signature2
+    - 2020-00.SEC4.json
+    - 2020-00.SEC4-signature1
+    - 2020-00.SEC4-signature2
+    - 2020-00.SEC5.json
+    - 2020-00.SEC5-signature1
+    - 2020-00.SEC5-signature2
+  - asdf
+  - afd
+  - af
+```
+{: #scc-repo-example2 title="Example for SCC Repository content with custom naming scheme"}
+
+The SCC configuration files are expected to be in any folder hierarchy below the folder `configs`-folder.
+The folder which contains the final SCC JSON files must contain the required signature files at the same level of the JSON files.
+Each JSON file should be accompanied by a corresponding signature file that has the same filename without extension as the JSON file, suffixed by `-signatureX` where `X` is a counter starting at 1.
+
+### Integrity/Signing process
+
+Each JSON-file should be accompanied by at least two signatures.
+
+- [ ] TODO what kind of signing process should be used? 
+  - [ ] GPG?
+  - [ ] openssl?
+  - [ ] Git GPG signed commits?
+  - [ ] Use an SCC recommended signing algorithm/format
+- [ ] Can two signatures be put in one signature file? Should they be put in the same file?
+- [ ] Public Key distribution?!
 
 # Secure Crypto Config Interface 
 
@@ -684,18 +767,7 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 
 - [ ] TODO Description where to get SCC and how to validate
 
-### Location of publication
-
-The needed Secure Crypto Config files should be published at an official Github repository.
-There all current versions will be provided during the interval of the Publication phase (see {{process}}).
-Additionally all previously published files are still stored at this location even if new versions are published. 
-
 ### Integrity
-
-- [ ] TODO Who should sign?
-- [ ] TODO Where to keep private key? 
-- Several operating systems provide certificate or key stores
-- (.pfx or .p12) and .jks* (created by the Java keytool) are files containing your public/private keypair (PKCS 12 defines an archive file format for storing many cryptography objects as a single file. It is commonly used to bundle a private key )
 
 To be able to guarantee integrity of the file it must be provided with an signature. 
 After fetching the Secure Crypto Config files the validity of the signature must be checked by the user to circumvent the danger of getting a tampered version of the files. 
@@ -705,8 +777,6 @@ The signature should be generate by the party who is responsible of publishing t
 The private key should be stored "at a safe location" where only authorized parties are able to access it.
 
 ### Process to get Secure Crypto Config
-
-- [ ] TODO how does digital signatures work in praxis?
 
 First the Secure Crypto Config files must be fetched from its official github repository e.g. https://github.com/secureCryptoConfigExample. 
 The corresponding github repository containing all needed Secure Crypto Config files can be downloaded as a ZIP archive. The retrieved ZIP archive must be unzipped and the files checked for their valid signatures (?). 
