@@ -61,8 +61,6 @@ informative:
 
 --- abstract
 
-- [x] TODO (2) a format based on *TODO* that specifies the default secure configuration
-
 Cryptography providers, libraries and APIs usually define defaults for the offered cryptography primitives.
 These defaults have to be kept to be backwards compatible with all users of the API that used the defaults.
 Yet, these default choices become insecure at some later point. 
@@ -87,6 +85,7 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 ### General TODOS
 
+- [x] TODO (2) a format based on *TODO* that specifies the default secure configuration
 - [x] TODO Write Introduction
 - [x] Mention Main Goals: (0) Prevent insecure cryptography use/implementation for the future. (1) Enable cryptography libraries and APIs to offer secure defaults with inherent future-proofnes; (2) Prevent non-expert programmers from misusing cryptography APIs; (3) Allow standardized definition of secure parameters for cryptography algorithms; (4) Standardized across all implementations; (5) Prevent outdated example code and documentation.
 - [x] Mention: Yearly published secure configuration recommendations that can be used per default from cryptography libraries. This prevents aging/maturing libraries from offering insecure default implementations. 
@@ -683,7 +682,7 @@ Additionally all previously published files are still stored at this location ev
 
 ### Format of SCC Repository
 
-```
+~~~~
 scc-repo
 - configs
   - 2020
@@ -709,10 +708,10 @@ scc-repo
   - 2022
   - 2023
   - 2024
-```
+~~~~
 {: #scc-repo-example title="Example for SCC Repository content"}
 
-```
+~~~~
 scc-repo
 - configs
   - a
@@ -738,7 +737,7 @@ scc-repo
   - asdf
   - afd
   - af
-```
+~~~~
 {: #scc-repo-example2 title="Example for SCC Repository content with custom naming scheme"}
 
 The SCC configuration files are expected to be in any folder hierarchy below the folder `configs`-folder.
