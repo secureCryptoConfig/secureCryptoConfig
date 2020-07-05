@@ -835,11 +835,15 @@ That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://
 
 ### Output of readable Secure Crypto Config
 
-- [ ] TODO Output of current SCC integrated in crypto library. Method like "printUsedSCC()" with output that shows if it is a validate SCC
-- [ ] TODO In case of own derived version e.g. from a company from the original SCC it could be the case that there is no signature to check
+- [x] TODO Output of current SCC integrated in crypto library. Method like "printUsedSCC()" with output that shows if it is a validate SCC
+- [x] TODO In case of own derived version e.g. from a company from the original SCC it could be the case that there is no signature to check
 
-A possibility to check the used Secure Crypto Config for validity should be provided. This can be done by testing the signature of the provided file for validity. 
-If it is a self-derived version from the original Secure Crypto Config than it could also be possible that there is no signature provided that could be checked for validity.
+A possibility to check the used Secure Crypto Config for validity of a given signature must be given. 
+The Interface provides a method to check if the used Secure Crypto Configs are valid or not. 
+If all Secure Crypto Configs signatures are valid the method will return a positive/true result. 
+If not, at least one Secure Crypto Config has no valid signature. 
+The name of the corresponding Secure Crypto Config will be returned inside a failure message.
+If it is a self-derived version from the original Secure Crypto Config then it could also be possible that there is no need to provide and check a signature.
 
 ## TODOs
 
