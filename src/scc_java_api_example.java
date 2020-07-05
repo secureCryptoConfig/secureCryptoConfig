@@ -182,7 +182,6 @@ abstract class AbstractSCCPasswordHash {
 abstract class AbstractSCCSignature {
 	byte[] signatureMsg;
 
-	// keyPair, plaintext
 	public AbstractSCCSignature(byte[] signatureMasg) {
 		this.signatureMsg = signatureMasg;
 	}
