@@ -591,8 +591,8 @@ PATCH is a positive integer starting at 0 and only increasing for emergency rele
 
 The Secure Crypto Config uses the following naming conventions to prevent ambiguity and remove implementation choices:
 SCC_SecurityLevel_**Security Level Number**_**Version**.
-Put the corresponding number in **Security Level Number** depending for which security level the SCC was created for.
-To be able to differentiate SCCs with the same Security Levels but different versions the version according to {{version}} is added.
+Put the corresponding number in **Security Level Number** depending for which security level the Secure Crypto Config was created for.
+To be able to differentiate Secure Crypto Configs with the same Security Levels but different versions the version according to {{version}} is added.
 
 ## Secure Crypto Config IANA Registry {#IANA}
 
@@ -672,36 +672,36 @@ This format allows custom algorithm/parameter selections both by overwriting use
 
 There should also be a human readable format on a webpage derived from the source format. This format must not be cryptographically protected but should be generated automatically from the source format. For a good human readability the content of the source format is presented in form of a table showing the cryptographic use case and its proposed algorithms. There is one table for each defined security level. Such a table for one security level could be presented on a webpage like shown in {{example}}.
 
-## Official SCC Repository
+## Official Secure Crypto Config Repository
 
-### Location of SCC Repository
+### Location of Secure Crypto Config Repository
 
 The needed Secure Crypto Config files should be published at an official Github repository.
 There all current versions will be provided during the interval of the Publication phase (see {{process}}).
 Additionally all previously published files are still stored at this location even if new versions are published. 
 
-### Format of SCC Repository
+### Format of Secure Crypto Config Repository
 
 ~~~~
 scc-repo
 - configs
   - 2020
     - 00
-      - 2020-00.SEC1.json
-      - 2020-00.SEC1-signature1
-      - 2020-00.SEC1-signature2
-      - 2020-00.SEC2.json
-      - 2020-00.SEC2-signature1
-      - 2020-00.SEC2-signature2
-      - 2020-00.SEC3.json
-      - 2020-00.SEC3-signature1
-      - 2020-00.SEC3-signature2
-      - 2020-00.SEC4.json
-      - 2020-00.SEC4-signature1
-      - 2020-00.SEC4-signature2
-      - 2020-00.SEC5.json
-      - 2020-00.SEC5-signature1
-      - 2020-00.SEC5-signature2
+      - SCC_SecurityLevel_1_2020-00.json
+      - SCC_SecurityLevel_1_2020-00-signature1
+      - SCC_SecurityLevel_1_2020-00-signature2
+      - SCC_SecurityLevel_2_2020-00.json
+      - SCC_SecurityLevel_2_2020-00-signature1
+      - SCC_SecurityLevel_2_2020-00-signature2
+      - SCC_SecurityLevel_3_2020-00.json
+      - SCC_SecurityLevel_3_2020-00-signature1
+      - SCC_SecurityLevel_3_2020-00-signature2
+      - SCC_SecurityLevel_4_2020-00.json
+      - SCC_SecurityLevel_4_2020-00-signature1
+      - SCC_SecurityLevel_4_2020-00-signature2
+      - SCC_SecurityLevel_5_2020-00.json
+      - SCC_SecurityLevel_5_2020-00-signature1
+      - SCC_SecurityLevel_5_2020-00-signature2
     - 01
     - 02
   - 2021
@@ -709,9 +709,7 @@ scc-repo
   - 2023
   - 2024
 ~~~~
-{: #scc_repo_example title="Example for SCC Repository content"}
-
-Text between examples 
+{: #scc_repo_example title="Example for Secure Crypto Config Repository content"}
 
 ~~~~
 scc-repo
@@ -721,29 +719,29 @@ scc-repo
       - 0c1
       - ReallySecure
   - 0x1111
-    - 2020-00.SEC1.json
-    - 2020-00.SEC1-signature1
-    - 2020-00.SEC1-signature2
-    - 2020-00.SEC2.json
-    - 2020-00.SEC2-signature1
-    - 2020-00.SEC2-signature2
-    - 2020-00.SEC3.json
-    - 2020-00.SEC3-signature1
-    - 2020-00.SEC3-signature2
-    - 2020-00.SEC4.json
-    - 2020-00.SEC4-signature1
-    - 2020-00.SEC4-signature2
-    - 2020-00.SEC5.json
-    - 2020-00.SEC5-signature1
-    - 2020-00.SEC5-signature2
+    - SCC_SecurityLevel_1_2020-00.json
+    - SCC_SecurityLevel_1_2020-00-signature1
+    - SCC_SecurityLevel_1_2020-00-signature2
+    - SCC_SecurityLevel_2_2020-00.json
+    - SCC_SecurityLevel_2_2020-00-signature1
+    - SCC_SecurityLevel_2_2020-00-signature2
+    - SCC_SecurityLevel_3_2020-00.json
+    - SCC_SecurityLevel_3_2020-00-signature1
+    - SCC_SecurityLevel_3_2020-00-signature2
+    - SCC_SecurityLevel_4_2020-00.json
+    - SCC_SecurityLevel_4_2020-00-signature1
+    - SCC_SecurityLevel_4_2020-00-signature2
+    - SCC_SecurityLevel_5_2020-00.json
+    - SCC_SecurityLevel_5_2020-00-signature1
+    - SCC_SecurityLevel_5_2020-00-signature2
   - asdf
   - afd
   - af
 ~~~~
-{: #scc_repo_example2 title="Example for SCC Repository content with custom naming scheme"}
+{: #scc_repo_example2 title="Example for Secure Crypto Config Repository content with custom naming scheme"}
 
-The SCC configuration files are expected to be in any folder hierarchy below the folder `configs`-folder.
-The folder which contains the final SCC JSON files must contain the required signature files at the same level of the JSON files.
+The Secure Crypto Config configuration files are expected to be in any folder hierarchy below the folder `configs`-folder.
+The folder which contains the final Secure Crypto Config JSON files must contain the required signature files at the same level of the JSON files.
 Each JSON file should be accompanied by a corresponding signature file that has the same filename without extension as the JSON file, suffixed by `-signatureX` where `X` is a counter starting at 1.
 
 ### Integrity/Signing process
