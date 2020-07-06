@@ -800,8 +800,7 @@ The public key needed for validity can be found in the official Github repositor
 - [x] Define used subfolder or similar
 
 The delivery of the Secure Crypto Config will be done within a subfolder inside the Interface. Therefore, with each version of the Interface the current and the previously supported Secure Crypto Config will be provided. 
-The Secure Crypto Config will be stored inside the subfolder `configs` which is located in the Interfaces `src`-folder. 
-The subfolder `configs` is organized in the same way as in the official repository (see {{RepoFormat}}). 
+The Secure Crypto Config will be stored inside the subfolder `configs` which is located in the Interfaces `src`-folder.  
 In each new version of the Interface the newest Secure Crypto Configs and its signatures will be added. 
 If new Secure Crypto Configs will be published which are not already contained inside the corresponding Interface version they must be added manually or they are added inside the next version of the Interface.
 
@@ -816,7 +815,7 @@ For this case a method for setting and using a specific path will be provided by
 
 ### Methods and Parameters
 
-- [ ] TODO see/unify with Java implementation {{scc_java_api_example}}
+- [x] TODO see/unify with Java implementation {{scc_java_api_example}}
 
 Intended methods and parameters included in the Java interface are currently work in process. First suggestions can be seen in {{scc_java_api_example}}.
 
