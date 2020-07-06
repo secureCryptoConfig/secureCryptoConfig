@@ -116,6 +116,17 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 ## Motivation
 
+Cryptography needs standardization to work across various domains and to be interoperable between different implementations.
+One domain that is not covered sufficiently by cryptography standards is the selection and maintenance of cryptography algorithms and their parameters.
+Choosing an appropriate and secure cryptography algorithm alone is difficult. 
+Yet, even more difficult is the choice of the required and matching parameters for that algorithm (e.g. [Argon2 has 10 input parameters](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-10#section-3.1)).
+After the choice has been made, all involved parties need to use exactly this configuration.
+There is no specification on how the chosen cryptography configuration should be stored, distributed and retrieved.
+Furthermore, supporting more than one configuration or being able to add future configurations is not defined.
+That reduces software compatibility and increases maintenance efforts.
+
+
+
 The correct choice of secure parameters when implementing cryptographic primitives or algorithms is not always easy to ensure.
 However, the security of the primitives to be used depends mainly on the choice of these parameters (e.g. the correct key length).
 In order to be able to prevent insecure implementations and usage of cryptography, it is necessary to assure that the choice of parameters is made correctly.
