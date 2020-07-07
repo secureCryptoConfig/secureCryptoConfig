@@ -792,17 +792,24 @@ In each new Interface version the current Secure Crypto Configs will be added su
 - Another option is to define a specific path to your own/derived versions of the Secure Crypto Configs with the same structure of the files as described in {{dataStructures}} but with other values than in the official ones.
 
 The Interface will process the Secure Crypto Configs as follows:
+
 1. Check if the path to the Secure Crypto Configs is a valid one.
+
 2. Check if the `configs` folder exists.
+
 3. For each folder following `configs` in the hierarchy look inside that folder and check the existence of JSON files that need to be considered.
 This check will happen recursively for all folders inside the hierarchy.
+
 4. For every JSON file found, look if there exists a signature. If one is given, check if the signature is valid for the corresponding file.
+
 5. Every files with a valid signature will be parsed and further processed.
 
 - [ ] TODO describe Parsing
 
 The parsing of the JSON files will be processed as follows:
+
 1. Readout proposed algorithms for each use case. And check if they are supported.
+
 2. Readout Security Level of the corresponding file.
 
 Content that can not be unambiguously assigned will be discarded. 
