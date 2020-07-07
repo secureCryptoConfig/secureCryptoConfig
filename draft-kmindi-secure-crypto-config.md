@@ -782,7 +782,7 @@ The implementation of the Secure Crypto Config Interface MUST follow [Semantic V
 It would be beneficial if the release of a new Interface version gets synchronized with the publication of a new Secure Crypto Config. 
 It should be possible to support the newly defined parameters of Secure Crypto Config in the interface as soon as possible.
 
-## Deplyoment of (custom) Secure Crypto Config with Interface
+## Deployment of (custom) Secure Crypto Config with Interface
 
 - [ ] TODO Description where to get SCC and how to validate
 
