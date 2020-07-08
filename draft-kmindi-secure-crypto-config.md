@@ -568,14 +568,18 @@ The Secure Crypto Config SHOULD only propose cryptography algorithms and paramet
 
 ## Entities
 
-- [ ] TODO what is "significant cryptography expertise"?
+<!--- [ ] TODO what is "significant cryptography expertise"?-->
 
 Entities that participate in the proposal phase SHOULD have significant cryptography expertise.
 Entities that participate in the consensus finding phase MUST have significant cryptography expertise.
+Cryptographic expertise is defined by the Secure Crypto Config Working Group or the CFRG.
 
-Each execution of the regular process for the creation of a Secure Crypto Config is described in detail in a separate RFC. The Working Group itself decides on the participating entities.
+<!--Each execution of the regular process for the creation of a Secure Crypto Config is described in detail in a separate RFC. The Working Group itself decides on the participating entities.-->
 
 # Publication Format and Distribution
+
+In general the Secure Crypto Config is published via JSON-files in an official repository. 
+The Secure Crypto Config also utilizes IANA registries.
 
 ## Versioning {#version}
 
@@ -586,12 +590,12 @@ PATCH is a positive integer starting at 0 and only increasing for emergency rele
 
 ## Naming {#naming}
 
- - [ ] TODO propose naming for secure crypto configurations
- - [ ] TODO maybe merge with versioning section before
- - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming languages
- - [ ] TODO possibly: SCC_SecurityLevel_**SecurityLevelNumber**_**Version**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.
+<!-- - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming languages-->
+<!-- - [ ] TODO possibly: SCC_SecurityLevel_**SecurityLevelNumber**_**Version**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.-->
 
-The Secure Crypto Config uses the following naming conventions to prevent ambiguity and remove implementation choices:
+Naming of files is not important, only the content is standards relevant.
+Yet, the Secure Crypto Config should use the following naming conventions to prevent ambiguity and remove implementation choices:
+Each JSON-file should be named like the following:
 SCC_SecurityLevel_**Security Level Number**_**Version**.
 Put the corresponding number in **Security Level Number** depending for which security level the Secure Crypto Config was created for.
 To be able to differentiate Secure Crypto Configs with the same Security Levels but different versions the version according to {{version}} is added.
