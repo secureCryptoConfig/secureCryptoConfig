@@ -808,11 +808,23 @@ This check will happen recursively for all folders inside the hierarchy.
 
 The parsing of the JSON files will be processed as follows:
 
-1. Readout the security level of each file such that each file can be associated with its level (filename : level). Store a set of all possible levels for later processing. All files not containing an (positive) integer number as value will be discarded.
+1. Readout the security level of each file such that each file can be associated with its level (filename : level). 
+Store a set of all possible levels for later processing. 
+All files not containing an (positive) integer number as value will be discarded.
 
-2. Readout the version of all files. All files with values in the wrong format will be excluded from further processing. Find the latest (according to version) Secure Crypto Config file with the highest appearing security level determined beforehand. The path to this file will be used as default path used for each cryptographic use case if nothing else is specified by the user. It will also be possible to specify a custom path to the Secure Crypto Config, select a specific or the latest Secure Crypto Config of a specific security level for usage.
+2. Readout the version of all files. 
+All files with values in the wrong format will be excluded from further processing. 
+Find the latest (according to version) Secure Crypto Config file with the highest appearing security level (determined beforehand). 
+The path to this file will be used as default path used for each cryptographic use case if nothing else is specified by the user. 
+It will also be possible to specify a custom path to the Secure Crypto Config, select a specific or the latest Secure Crypto Config of a specific security level for usage. 
+If a two files with identical levels and version number will be found only the first occurring file will be considered.
 
-3. The unique algorithm identifiers for the execution of a specific cryptographic use case will be readout at the time the users invokes a method for a specific cryptographic use case. The algorithm identifiers for the specific use case are readout and will then be compared to the supported algorithm identifiers of the Interface. If non of the algorithms inside the selected Secure Crypto Config can be found an error will occur. 
+3. The unique algorithm identifiers for the execution of a specific cryptographic use case will be readout at the time the users invokes a method for a specific cryptographic use case. 
+The algorithm identifiers for the specific use case are readout and will then be compared to the supported algorithm identifiers of the Interface. 
+The supported algorithms are specified inside an enum/list. 
+The identifiers will be compared with the supported ones in order of their occurrence inside the file. 
+If one matching identifier was found this one will be used for execution. If it is not a matching one the value will be skipped and the next one will be compared. 
+If non of the algorithms inside the selected Secure Crypto Config can be found an error will occur.
 
 
 ### Delivery of Secure Crypto Config with Interface
