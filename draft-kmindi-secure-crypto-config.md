@@ -361,9 +361,10 @@ Possible secure usage:
 
 ## Requirements {#requirements}
 
-- [ ] TODO in "Publication Format and Distribution Requirements"/Machine readable. Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hierarchical approach with inheritance from the base SCC?) added?
-- [ ] TODO in "General requirements", *Threat Model* / adversary powers. What kind of attacker should the secure crypto config protect against? (Almighty? Government? Company?). Presumably  different group of attackers.
+<!--- [ ] TODO in "Publication Format and Distribution Requirements"/Machine readable. Must be easy to extend/alter by other organizations (e.g. maybe the BSI wants to publish its own secure crypto config that differs from the standardized one. Maybe a hierarchical approach with inheritance from the base SCC?) added?-->
+<!--- [ ] TODO in "General requirements", *Threat Model* / adversary powers. What kind of attacker should the secure crypto config protect against? (Almighty? Government? Company?). Presumably  different group of attackers.-->
 
+In the following all requirements are listed that regard the Secure Crypto Config or the Secure Crypto Config Interface.
 
 - Security Level Requirements:
 The Secure Crypto Config should define different security levels.
@@ -452,15 +453,15 @@ Secret information, more than a day longevity, non-constrained device
 
 ### Information classification
 
-Information classification here is about the confidentiality of the information.
+Information classification within this document is about the confidentiality of the information.
 Not all information is equally confidential, e.g. it can be classified into different classes of information.
 For governmental institutions usually three classes are used: Confidential, Secret, or Top Secret.
 The Secure Crypto Config considers only **Confidential** and **Secret** for its standardized security levels.
 Further levels with other classifications can be added by other organizations.
-Additionally, in common (non-governmental) use cases data is not labelled with an information class, so one class has to be chosen for the cryptography processing of all data.
+Additionally, in common (non-governmental) use cases data is not labelled with an information class.
+Hence, often only one class is chosen for the cryptography processing of all data.
 
 The Secure Crypto Config does not endorse a definition of the information classes, yet **Secret** information is to be considered to have higher confidentiality requirements than **Confidential** information.
-
 
 ### Longevity
 
@@ -470,7 +471,6 @@ Yet, a public trade transaction must only be confidential until the trade was ex
 It directly influences a very important attacker resource: The time an attacker has to try to gain access to the confidential information.
 The Secure Crypto Config considers only two ranges of longevity for its standardized security levels: **short longevity** of less than one day and **long longevity** of a day or more than a day.
 Further levels with other longevity levels can be added by other organizations.
-
 
 ### Constrained Devices
 
@@ -488,19 +488,17 @@ Resources can be everything important for cryptography like dedicated cryptograp
 The Secure Crypto Config considers only **constrained** and **non-constrained** for its standardized security levels.
 Further levels with other constrained resource definitions can be added by other organizations.
 
-
 ### n-Bit-Security
 
-- [ ] TODO add n-Bit-Security to Security Levels in time-independent way (e.g. referring to increases in bit instead of hardcoded values for the levels) ?
+<!--- [ ] TODO add n-Bit-Security to Security Levels in time-independent way (e.g. referring to increases in bit instead of hardcoded values for the levels) ?-->
 
 n-Bit Security Level:
 
 > A cryptographic mechanism achieves a security level of n bits if costs which are equivalent to 2^n calculations of the encryption function of an efficient block cipher (e.g. AES) are tied to each attack against the mechanism which breaks the security objective of the mechanism with a high probability of success. BSI
 
-
 ### Attacker Resources and Capabilities {#attacker}
 
-- [ ] TODO is a more formal definition useful, e.g. a list of [Attack Models](https://en.wikipedia.org/wiki/Attack_model)?* *TODO What about side-channels, especially if the attacker has access to the system?*
+<!-- - [ ] TODO is a more formal definition useful, e.g. a list of [Attack Models](https://en.wikipedia.org/wiki/Attack_model)?* *TODO What about side-channels, especially if the attacker has access to the system?-->
 
 The Secure Crypto Config considers only the following same attacker resources and capabilities for all standardized security levels:
 
@@ -508,31 +506,25 @@ The Secure Crypto Config considers only the following same attacker resources an
 - The attacker has access to the system used for cryptography operations and can utilize its cryptography operations apart from obtaining secrets. 
 - The attacker can utilize very high-performance computing resources such as super computers and distributed computing (e.g. this includes very high memory, storage, processing and networking performance)
 
-Further levels with other attacker definitions can be added by other organizations.
-
-## Security Level Extensions/Extendability
-
-- [ ] TODO adapt content? 
-
-One requirement of the Secure Crypto Config is that it must be easy to extend/alter (see {{requirements}}).
-It is still possible to change, add or remove some of the here proposed security levels.
-E.g. entities that are participating in the consensus finding process could define additional levels.
+Further security levels with other attacker definitions can be added by other organizations.
 
 # Consensus Finding Process and entities {#consensus}
 
 To provide a Secure Crypto Config it is necessary to agree upon a secure and appropriate cryptographic parameter set for each security level (see {{securityLevels}}).
-This should happen in a common consensus finding process which takes place at regular intervals e.g. every two yeasr. 
-During this process the Crypto Forum Research Group (CFRG) decides in cooperation with other institutions like the Bundesamt für Sicherheit in der Informationstechnik (BSI) or the National Institute of Standards and Technology (NIST) for a set of secure parameters.
-After the successful decision the agreed on parameters can be added in the proposed JSON data structure (see {{dataStructures}}) and provided on an appropriate platform.
+This must happen in a common consensus finding process which takes place during a regular intervals.
+The consensuns finding process is based on the established RFC process during which the Secure Crypto Config Working Group
+decides in cooperation with the Crypto Forum Research Group (CFRG) and other institutions like the Bundesamt für Sicherheit in der Informationstechnik (BSI) or the National Institute of Standards and Technology (NIST) for a set of secure parameters.
+After the successful decision the agreed on parameters can be added in the defined pulibcation data structures (see {{dataStructures}}) and provided on the repository platform.
 
 ## Consensus Finding
 
 Consensus must be found two years after the last consensus was found.
 This ensures that there is a new Secure Crypto Config every two years, even if the configuration itself has not changed.
+There is a regular process and an emergency process to release Secure Crypto Configurations.
 
 ### Regular Process {#process}
 
-- [ ] TODO adapt format for Proposal phase submission?
+<!--- [ ] TODO adapt format for Proposal phase submission?-->
 
 The process has three phases that MUST be finalized within 2 years:
 
@@ -546,8 +538,8 @@ It is important that the parameters for each cryptographic use case depending on
 
 ### Emergency Process {#emergency}
 
-- [ ] TODO in 3) would replacing also be an option? how?
-- [ ] TODO The Working Group can alter the Secure Crypto Config IANA registry / RFC Errata process ?
+<!--- [ ] TODO in 3) would replacing also be an option? how?-->
+- [ ] TODO How can the Working Group alter the Secure Crypto Config IANA registry / or use the RFC Errata process?
 
 In cases when a regularly still valid Secure Crypto Config would become insecure regarding either a proposed algorithm or a proposed parameter choice it must be revised with the following process:
 
@@ -559,7 +551,6 @@ In cases when a regularly still valid Secure Crypto Config would become insecure
 Examples for emergency cases are drastically better brute force algorithms or brute force performance (e.g. quantum computers/algorithms), drastically discovered flaws in proposed algorithms and their configurations.
 
 An applied emergency process results in the problem that currently used Secure Crypto Config Interface versions are no longer up-to-date, because they are still supporting the no longer secure algorithms. Therefore the corresponding algorithms need to be marked as insecure. If e.g. an proposed algorithm gets insecure this can be marked inside the corresponding Secure Crypto Config IANA registry entry as no longer proposed to make the users aware of its insecurity. The Working Group itself can decide when to alter the Secure Crypto Config IANA registry. 
-
 
 ### Requirements for Selection of Cryptography Algorithm and Parameters
 
