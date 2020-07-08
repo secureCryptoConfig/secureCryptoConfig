@@ -187,7 +187,7 @@ when, and only when, they appear in all capitals, as shown here.
 
 ### Terms
 
-- [x] TODO remove not used in document: "Alice and Bob","hybrid encryption", "permanent storage", "risk",  "vulnerability",
+<!--- [x] TODO remove not used in document: "Alice and Bob","hybrid encryption", "permanent storage", "risk",  "vulnerability",-->
 
 The terms 
   "API",
@@ -227,11 +227,12 @@ The term "cryptographic primitive" is used in this document to describe a generi
 
 ### Secure Crypto Config Use Cases
 
-The Secure Crypto Config has three main use cases: 
+The Secure Crypto Config has the following main use cases: 
 
-- Centralized and regularly updated single source of truth for secure algorithm and (their) parameter choices for most common cryptography primitives and use cases.
-- Machine readable and extensible format so that organizations (e.g. governmental or commercial) can define their own set of cryptography configuration to both allow and to verify the compliant usage of cryptography.
-- Cryptography library/API interface description for cryptography API developers and for software developers who can then use that interface.
+- Centralized and regularly updated single source of truth for secure algorithms and their parameters for most common cryptography primitives and use cases.
+- Both machine and human readable format to specify the above mentioned cryptography algorithm/-parameter configuration. 
+  The format is also extensible to allow others (e.g. governmental or commercial organizations) to define their own set of cryptography configurations.
+- Standardized cryptography API that not uses the Secure Crypto Config for the selection of the most recent cryptography configurations but also uses a standardized cryptography operation output format to enclose the chosen parameters.
 
 
 ### Cryptography Use Cases {#cryptoCase}
