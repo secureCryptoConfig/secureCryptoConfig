@@ -236,17 +236,16 @@ The Secure Crypto Config has the following main use cases:
 
 
 ### Cryptography Use Cases {#cryptoCase}
-- TODO [ ] should CSPRNG, Key generation, Password hashing be considered?
+<!--- TODO [ ] should CSPRNG, Key generation, Password hashing be considered?-->
 
-The Secure Crypto Config should cover cryptography algorithm and parameter configurations for the following widely used cryptography use cases.
-These are mostly no security protocols but cryptography primitives.
+The Secure Crypto Config covers cryptography algorithm and parameter configurations for widely used cryptography use cases defined in the following sections.
 
 #### Symmetric Encryption
 
 Symmetric Encryption is an important cryptographic primitive especially as it is usually multiple magnitudes faster both for encryption and decryption than asymmetric cryptography.
 Yet, the secret has to be shared with all participants.
 
-Expected input parameters by cryptography users:
+The only expected input parameters by cryptography users:
 
 - plaintext
 - secret key
@@ -270,14 +269,14 @@ Possible secure usage:
 
 Beside symmetric encryption is asymmetric encryption another important cryptographic primitive to considered.
 
-Expected input parameters for encryption:
+The only expected input parameters for encryption:
 
 - plaintext 
 - public key
 
 Expected output: ciphertext.
 
-Expected input parameters for decryption:
+The only expected input parameters for decryption:
 
 - ciphertext
 - private key 
@@ -290,7 +289,7 @@ Possible secure usage:
 #### Hashing
 Hashing is an important cryptographic primitives and is often needed as a part of many other cryptographic use cases e.g. password derivation.
 
-Expected input parameters by cryptography users:
+The only expected input parameters by cryptography users:
 
 - plaintext
 
@@ -309,7 +308,7 @@ Yet, password hashing requires that the hashing can not be performed very fast t
 E.g. it is totally fine for users if the login takes 0.1 seconds instead of microseconds.
 This results in special families of hash algorithms which offer additional tuning parameters.
 
-Expected input parameters by cryptography users:
+The only expected input parameters by cryptography users:
 
 - plaintext
 - hash-algorithm
@@ -327,6 +326,8 @@ Possible secure usage:
 A key is necessary for many cryptographic use cases e.g. symmetric and asymmetric encryption.
 Therefore, key generation is an important part while implementing cryptographic code. 
 
+The only expected input is the intended use case.
+
 Expected output: key.
 
 Possible secure generation:
@@ -334,18 +335,17 @@ Possible secure generation:
 - Use of CSPRNG
 - Keys derived via derivation function from passwords/other keys
 
-
 #### Digital Signatures
 Signing is an important and often needed cryptographic use case. It is based on the principle of asymmetrical encryption.
 
-Expected input parameters for encryption:
+The only expected input parameters for signing:
 
 - plaintext 
 - private key
 
 Expected output: signature.
 
-Expected input parameters for decryption:
+The only expected input parameters for verifying the signature:
 
 - signature
 - public key 
@@ -356,7 +356,6 @@ Possible secure usage:
 
 - ECDSA
 - ES512;-36;ECDSA w/ SHA-512
-
 
 # Requirements and Assumptions
 
