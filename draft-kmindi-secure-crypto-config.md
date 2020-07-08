@@ -188,7 +188,6 @@ when, and only when, they appear in all capitals, as shown here.
 ### Terms
 
 - [x] TODO remove not used in document: "Alice and Bob","hybrid encryption", "permanent storage", "risk",  "vulnerability",
-- [x] TODO define cryptographic primitive (for usage in use cases and in document) https://crypto.stackexchange.com/questions/39735/whats-a-cryptographic-primitive-really
 
 The terms 
   "API",
@@ -221,8 +220,8 @@ The terms
 in this document are to be interpreted as described in {{-SecurityGlossary}}.
 
 The term "hash" is used as a synonym for "cryptographic hash".
-The term "cryptographic primitive" is used in this document to describe a generic building block used in the field of cryptography e.g. Hashing, symmetric encryption.
 
+The term "cryptographic primitive" is used in this document to describe a generic building block used in the field of cryptography e.g. Hashing, symmetric encryption.
 
 ## Use Cases
 
