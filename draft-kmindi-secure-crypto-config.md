@@ -827,21 +827,21 @@ If none of the algorithms inside the selected Secure Crypto Config can be found 
 
 - [x] Define used subfolder or similar
 
-The delivery of the Secure Crypto Config will be done within a subfolder inside the Interface. 
-Therefore, with each version of the Interface the current and the previously supported Secure Crypto Config will be provided. 
-The Secure Crypto Config will be stored inside the subfolder `configs` which is located in the Interfaces `src`-folder.
-The structure of the `configs` folder will be the same as in the described hierarchy of the Github repository.
-In each new version of the Interface the newest Secure Crypto Configs and its signatures will be added. 
-If new Secure Crypto Configs will be published which are not already contained inside the corresponding Interface version they must be added manually or they are added inside the next version of the Interface.
+Each Secure Crypto Config Interface must be published in such a way that it uses (a copy of) the recent Secure Crypto Config repository.
+This can be realized by providing it in a subfolder.
+With this it is possible that a new Secure Crypto Config can be deployed by using a new version of the Interface.
 
+The Secure Crypto Config will be stored inside the subfolder `scc-configs` which should be located in the Interface's `src`-folder if existent.
+The structure of the `scc-configs` folder will be the same as in the described hierarchy of the Github repository.
+In a new version of the Interface the latest published Secure Crypto Config and its signatures must be added. 
 
-### Using a different Secure Crypto Config Repository/Folder
+If new Secure Crypto Configs will be published for which no published version of the Interface is available, the custom repository approach can be used as described in the following.
 
-- [x] TODO what method to set a different SCC config/repo path
+### Using a custom Secure Crypto Config Repository
 
-It is also possible to use a different path to the Secure Crypto Configs. As also derived versions of the Secure Crypto Config for specific needs should be supported it will also be feasible to define a path to own or derived files which differentiate from the default `src\configs` folder. 
-For this case a method for setting and using a specific path will be provided by the Interface.
-
+It is also possible to use a different path to the Secure Crypto Configs. 
+As also derived versions of the Secure Crypto Config for specific needs should be supported it will also be feasible to define a path to own or derived files which differentiate from the default `src/scc-configs/configs` folder. 
+For this case a method for setting and using a specific path must be provided by the Interface.
 
 ### Integrity Check
 
