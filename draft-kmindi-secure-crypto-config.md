@@ -773,6 +773,9 @@ The public keys needed for validation are published in the official repository o
 
 # Secure Crypto Config Interface {#Interface}
 
+This section describes the programming interface that provides the Secure Crypto Config.
+The Secure Crypto Config Interface is generic and describes the API that should to be used by each programming language.
+
 ## Semantic Versioning
 
 The implementation of the Secure Crypto Config Interface MUST follow [Semantic Versioning](https://semver.org/), which specifies a version format of **X.Y.Z** (Major.Minor.Patch) and semantics when to increase which version part. 
@@ -781,10 +784,8 @@ It should be possible to support the newly defined parameters of Secure Crypto C
 
 ## Deployment of (custom) Secure Crypto Config with Interface
 
-- [ ] TODO Description where to get SCC and how to validate
-
 There are two different possibilities to work with the Secure Crypto Config: 
-- One options is to use the Secure Crypto Configs that will be delivered within the Interface. 
+- The preferred option is to use the Secure Crypto Configs that will be delivered within the Interface. 
 In each new Interface version the current Secure Crypto Configs will be added such that always the newest Secure Crypto Configs at the time of the Interface release will be supported. Previous Secure Crypto Configs will remain inside the Interface such that also older ones can still be used. 
 - Another option is to define a specific path to your own/derived versions of the Secure Crypto Configs with the same structure of the files as described in {{dataStructures}} but with other values than in the official ones.
 
@@ -795,18 +796,16 @@ The Interface will process the Secure Crypto Configs as follows:
 2. Check if the `configs` folder exists.
 
 3. For each folder following `configs` in the hierarchy look inside that folder and check the existence of JSON files that need to be considered.
-This check will happen recursively for all folders inside the hierarchy.
+  This check will happen recursively for all folders inside the hierarchy.
 
 4. For every JSON file found, look if there exists a signature. If one is given, check if the signature is valid for the corresponding file.
 
 5. Every files with a valid signature will be parsed and further processed.
 
-- [ ] TODO describe Parsing
+The parsing of each valid JSON file must be done as follows:
 
-The parsing of the JSON files will be processed as follows:
-
-1. Readout the security level of each file such that each file can be associated with its level (filename : level). 
-Store a set of all possible levels for later processing. 
+1. Readout the security level of each valid file such that each file can be associated with its level (filename : level). 
+Add defined level to a set of all possible levels for later processing. 
 All files not containing an (positive) integer number as value will be discarded.
 
 2. Readout the version of all files. 
@@ -821,7 +820,7 @@ The algorithm identifiers for the specific use case are readout and will then be
 The supported algorithms are specified inside an enum/list. 
 The identifiers will be compared with the supported ones in order of their occurrence inside the file. 
 If one matching identifier was found this one will be used for execution. If it is not a matching one the value will be skipped and the next one will be compared. 
-If non of the algorithms inside the selected Secure Crypto Config can be found an error will occur.
+If none of the algorithms inside the selected Secure Crypto Config can be found an error will occur.
 
 
 ### Delivery of Secure Crypto Config with Interface
