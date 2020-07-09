@@ -596,11 +596,12 @@ PATCH is a positive integer starting at 0 and only increasing for emergency rele
 Naming of files is not important, only the content is standards relevant.
 Yet, the Secure Crypto Config should use the following naming conventions to prevent ambiguity and remove implementation choices:
 Each JSON-file should be named like the following:
-SCC_SecurityLevel_**Security Level Number**_**Version**.
-Put the corresponding number in **Security Level Number** depending for which security level the Secure Crypto Config was created for.
-To be able to differentiate Secure Crypto Configs with the same Security Levels but different versions the version according to {{version}} is added.
+
+SCC_LEVEL_**Security Level Number**_**Version**.json
 
 ## Secure Crypto Config IANA Registry {#IANA}
+
+**NOT NEEDED, as the Secure Crypto Config uses other registries, e.g. COSE**
 
 - [ ] TODO Naming convention. Specification depending on crypto use case?
 - [ ] TODO dash character "-" not possible in enum!
@@ -626,15 +627,19 @@ We propose the following schemes:
 | ----------- | ------------------- | --------- | ------------------------------------------------- |
 | 2020-01     | AES_GCM_256_128_128 | {{-COSE}} | AES 256 with GCM and 128 bit tag and random nonce |
 
-### Other Algorithm Registries
+### Utilized Algorithm Registries
 
-The following list gives an overview and examples for the available registries at IANA for cryptography algorithm and their parameters.
+The Secure Crypto Config can only propse cryptography algorithms and parameters that have been standardized.
+Therefore it refers to the following IANA regsitries: 
 
-- [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml)
 - [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml)
+- [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml)
 - [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
 
-But often there is no matching algorithm specification in existing IANA registries that support the appropriate selection of parameters.
+Used registries must define all required parameters for an algorithm to implement it without ambiguity. 
+E.g. implementations must not be able to choose other parameter values for a cryptography algorithm and parameter combination.
+
+<!--But often there is no matching algorithm specification in existing IANA registries that support the appropriate selection of parameters.
 E.g. in {{?RFC5116}} the definition for AEAD_AES_128_GCM proposes a nonce length of 96 bit.
 If we want to use a length higher than this we have to look for another registry than [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml), because there is no specification supporting a higher nonce length. 
 However, for cryptographic use cases such as asymmetric encryption and digital signing appropriate algorithm specifications can be found in the [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml) registry.
@@ -643,6 +648,7 @@ For the crypto use case hashing the [Named Information Hash Registry](https://ww
 It is difficult to find a specification of an algorithm inside existing IANA registries that exactly match all of the chosen parameters for a specific cryptographic use case, especially in the case of symmetric encryption.
 It is also tedious to search for different specifications in different registries.
 Therefore, it could be advantageous to create a IANA registry explicitly for the creation of Secure Crypto Config like described in {{IANA}}
+-->
 
 ## Data Structures {#dataStructures}
 
