@@ -627,7 +627,7 @@ We propose the following schemes:
 | ----------- | ------------------- | --------- | ------------------------------------------------- |
 | 2020-01     | AES_GCM_256_128_128 | {{-COSE}} | AES 256 with GCM and 128 bit tag and random nonce |
 
-### Utilized Algorithm Registries
+### Utilized Algorithm Registries {{#registries}}
 
 The Secure Crypto Config can only propse cryptography algorithms and parameters that have been standardized.
 Therefore it refers to the following IANA regsitries: 
@@ -652,20 +652,17 @@ Therefore, it could be advantageous to create a IANA registry explicitly for the
 
 ## Data Structures {#dataStructures}
 
-- [ ] TODO refer to IANA registry in Usage explanation
-- [ ] TODO is JSON a appropriate format?
-- [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?
+<!--- [ ] TODO How is COSE more appropriate/in parts of JSON? or is a mapping (=> parsing needed) better between COSE<->JSON?-->
 
 For each defined security level a distinct JSON-file must be provided. 
-These files must follow a common schema and contain the suitable parameters depending on its security level. 
-The general schema of the JSON files is shown in {{scc_general}}.
+These files must adhere to the common schema and shown in {{scc_general}} and described in the following.
 
 ~~~~
 {::include src/scc_general.json}
 ~~~~
 {: #scc_general title="General JSON format"}
 
-- SecurityLevel : Contains the number of the corresponding Security Level of the Secure Crypto Config 
+- SecurityLevel: Contains the number of the corresponding Security Level of the Secure Crypto Config 
 - PolicyName: Contains the name of the corresponding Secure Crypto Config according to the naming schema defined in {{naming}}
 - Publisher: Contains an array of all parties that were participating in the consensus finding process
   - name: Name of the participating party
@@ -673,16 +670,18 @@ The general schema of the JSON files is shown in {{scc_general}}.
 - Version: Contains version in the format defined in {{version}}
 - PolicyIssueDate: Date at which the Secure Crypto Config was published in the format: YYYY-MM-DD
 - Expiry: Date at which the Secure Crypto Config expires in the format: YYYY-MM-DD
-- Usage: Contains an array of all cryptographic use cases defined in {{cryptoCase}}. 
-- For each cryptographic use case, usually at least two as described in {{consensus}}, agreed upon algorithms with necessary parameters are included. Each of these algorithms with its parameters is specified with its unique identification name defined in an Secure Crypto Config IANA registry.
+- Usage: Contains an array of objects for each cryptographic use case defined in {{cryptoCase}}. 
+- For each cryptographic use case, at least two agreed upon algorithms (see {{consensus}}) with necessary parameters are included. 
+  Each of these algorithms with its parameters is specified with its unique identification name defined in a IANA registry used by the Secure Crypto Config see {{registries}}.
 
-This format allows custom algorithm/parameter selections both by overwriting use cases completely or by adding only specific algorithm identifiers.
+This format allows custom algorithm/parameter definitions both by overwriting use cases completely or by adding only specific algorithm identifiers via custom configurations.
 
 ## Human readable format {#humanReadableFormat}
 
-- [ ] TODO look through
-
-There should also be a human readable format on a webpage derived from the source format. This format must not be cryptographically protected but should be generated automatically from the source format. For a good human readability the content of the source format is presented in form of a table showing the cryptographic use case and its proposed algorithms. There is one table for each defined security level. Such a table for one security level could be presented on a webpage like shown in {{example}}.
+The Secure Crypto Config can not only be used in an automatic way, but also provide the cryptography algorithms and parameters for humans.
+The human readable format must be derived from the JSON-files both to protect from copy-paste-errors and to validate the cryptographic signatures.
+Yet, the human readable format or publication page itself must not be cryptographically protected.
+There should be one accessible resource, e.g. a webpage, where the source format (JSON-files) are automatically used for displaying them in appropriate ways (e.g. tables with various sorting and searching options).
 
 ## Official Secure Crypto Config Repository
 
