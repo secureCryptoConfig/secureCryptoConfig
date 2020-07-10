@@ -629,8 +629,8 @@ We propose the following schemes:
 
 ### Utilized Algorithm Registries {{#registries}}
 
-The Secure Crypto Config can only propse cryptography algorithms and parameters that have been standardized.
-Therefore it refers to the following IANA regsitries: 
+The Secure Crypto Config can only propose cryptography algorithms and parameters that have been standardized.
+Therefore it refers to the following IANA registries: 
 
 - [CBOR Object Signing and Encryption (COSE)](https://www.iana.org/assignments/cose/cose.xhtml)
 - [AEAD Algorithms](https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml)
@@ -672,7 +672,7 @@ These files must adhere to the common schema and shown in {{scc_general}} and de
 - Expiry: Date at which the Secure Crypto Config expires in the format: YYYY-MM-DD
 - Usage: Contains an array of objects for each cryptographic use case defined in {{cryptoCase}}. 
 - For each cryptographic use case, at least two agreed upon algorithms (see {{consensus}}) with necessary parameters are included. 
-  Each of these algorithms with its parameters is specified with its unique identification name defined in a IANA registry used by the Secure Crypto Config see {{registries}}.
+  Each of these algorithms with its parameters is specified with its unique identification name defined in a IANA registry used by the Secure Crypto Config.
 
 This format allows custom algorithm/parameter definitions both by overwriting use cases completely or by adding only specific algorithm identifiers via custom configurations.
 
