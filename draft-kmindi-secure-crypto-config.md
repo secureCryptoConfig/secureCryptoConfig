@@ -627,7 +627,7 @@ We propose the following schemes:
 | ----------- | ------------------- | --------- | ------------------------------------------------- |
 | 2020-01     | AES_GCM_256_128_128 | {{-COSE}} | AES 256 with GCM and 128 bit tag and random nonce |
 
-### Utilized Algorithm Registries {{#registries}}
+### Utilized Algorithm Registries {#registries}
 
 The Secure Crypto Config can only propose cryptography algorithms and parameters that have been standardized.
 Therefore it refers to the following IANA registries: 
