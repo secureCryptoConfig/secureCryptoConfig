@@ -78,15 +78,15 @@ abstract interface PlaintextContainerInterface {
 
 	abstract boolean validatePasswordHash(AbstractSCCPasswordHash passwordHash);
 
-	abstract SCCCiphertext encryptSymmetric(AbstractSCCKey key);
+	abstract AbstractSCCCiphertext encryptSymmetric(AbstractSCCKey key);
 
-	abstract SCCCiphertext encryptAsymmetric(AbstractSCCKeyPair pair);
+	abstract AbstractSCCCiphertext encryptAsymmetric(AbstractSCCKeyPair pair);
 
-	abstract SCCSignature sign(AbstractSCCKeyPair keyPair);
+	abstract AbstractSCCSignature sign(AbstractSCCKeyPair keyPair);
 
-	abstract SCCHash hash();
+	abstract AbstractSCCHash hash();
 
-	abstract SCCPasswordHash passwordHash();
+	abstract AbstractSCCPasswordHash passwordHash();
 
 }
 
@@ -101,13 +101,13 @@ abstract class AbstractSCCCiphertext {
 
 	abstract String toString(Charset c);
 
-	abstract PlaintextContainer decryptAsymmetric(AbstractSCCKeyPair keyPair);
+	abstract PlaintextContainerInterface decryptAsymmetric(AbstractSCCKeyPair keyPair);
 
-	abstract PlaintextContainer decryptSymmetric(AbstractSCCKey key);
+	abstract PlaintextContainerInterface decryptSymmetric(AbstractSCCKey key);
 
-	abstract SCCCiphertext reEncryptSymmetric(AbstractSCCKey key);
+	abstract AbstractSCCCiphertext reEncryptSymmetric(AbstractSCCKey key);
 
-	abstract SCCCiphertext reEncryptAsymmetric(AbstractSCCKeyPair keyPair);
+	abstract AbstractSCCCiphertext reEncryptAsymmetric(AbstractSCCKeyPair keyPair);
 
 }
 
@@ -153,7 +153,7 @@ abstract class AbstractSCCHash {
 	
 	abstract boolean validateHash(PlaintextContainerInterface plaintext);
 
-	abstract SCCHash updateHash(PlaintextContainerInterface plaintext);
+	abstract AbstractSCCHash updateHash(PlaintextContainerInterface plaintext);
 	
 
 }
@@ -188,7 +188,7 @@ abstract class AbstractSCCSignature {
 
 	abstract boolean validateSignature(AbstractSCCKeyPair keyPair);
 
-	abstract SCCSignature updateSignature(PlaintextContainerInterface plaintext, AbstractSCCKeyPair keyPair);
+	abstract AbstractSCCSignature updateSignature(PlaintextContainerInterface plaintext, AbstractSCCKeyPair keyPair);
 
 }
 
