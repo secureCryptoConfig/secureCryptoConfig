@@ -1,9 +1,5 @@
-package main;
-
 import java.nio.charset.Charset;
 import java.security.KeyPair;
-import java.security.NoSuchAlgorithmException;
-
 import COSE.CoseException;
 import main.SCCKey.SCCKeyAlgorithm;
 
@@ -47,15 +43,15 @@ abstract interface SecureCryptoConfigInterface {
 	public boolean validateHash(byte[] plaintext, AbstractSCCHash hash) throws CoseException;
 
 	// Digital Signature
-	public AbstractSCCSignature sign(AbstractSCCKeyPair key, PlaintextContainerInterface plaintext)
+	public AbstractSCCSignature sign(AbstractSCCKeyPair keyPair, PlaintextContainerInterface plaintext)
 			throws CoseException;
 
-	public AbstractSCCSignature sign(AbstractSCCKeyPair key, byte[] plaintext) throws CoseException;
+	public AbstractSCCSignature sign(AbstractSCCKeyPair keyPair, byte[] plaintext) throws CoseException;
 
-	public AbstractSCCSignature updateSignature(PlaintextContainerInterface plaintext, AbstractSCCKeyPair keyPair)
+	public AbstractSCCSignature updateSignature(AbstractSCCKeyPair keyPair, PlaintextContainerInterface plaintext)
 			throws CoseException;
 	
-	public AbstractSCCSignature updateSignature(byte[] plaintext, AbstractSCCKeyPair keyPair)
+	public AbstractSCCSignature updateSignature(AbstractSCCKeyPair keyPair, byte[] plaintext)
 			throws CoseException;
 
 	public boolean validateSignature(AbstractSCCKeyPair keyPair, AbstractSCCSignature signature);
@@ -195,4 +191,4 @@ abstract class AbstractSCCSignature {
 	abstract SCCSignature updateSignature(PlaintextContainerInterface plaintext, AbstractSCCKeyPair keyPair);
 
 }
-}
+
