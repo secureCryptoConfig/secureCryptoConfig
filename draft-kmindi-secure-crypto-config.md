@@ -814,7 +814,7 @@ The parsing of each valid JSON file must be done as follows:
   All files not containing an (positive) integer number as security level value will be discarded.
 
 2. Parsing of the version of all files:
-  All files with values in the wrong format (see {{#version}}) will be excluded from further processing. 
+  All files with values in the wrong format (see {{version}}) will be excluded from further processing. 
   Find the latest (according to version) Secure Crypto Config file with the highest appearing security level (determined in previous step). 
   The path to this file will be used as default path used for each cryptographic use case if nothing else is specified by the user. 
   If two or more files with identical levels and version number are found, only the first one will be used, others are discarded.
