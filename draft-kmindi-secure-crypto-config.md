@@ -810,35 +810,31 @@ The Interface will process the Secure Crypto Configs as follows:
 The parsing of each valid JSON file must be done as follows:
 
 1. Readout the security level of each valid file such that each file can be associated with its level (filename : level). 
-Add defined level to a set of all possible levels for later processing. 
-All files not containing an (positive) integer number as value will be discarded.
+  (Optional) Add defined level to a set of all possible levels for later processing. 
+  All files not containing an (positive) integer number as security level value will be discarded.
 
-2. Readout the version of all files. 
-All files with values in the wrong format will be excluded from further processing. 
-Find the latest (according to version) Secure Crypto Config file with the highest appearing security level (determined beforehand). 
-The path to this file will be used as default path used for each cryptographic use case if nothing else is specified by the user. 
-It will also be possible to specify a custom path to the Secure Crypto Config, select a specific or the latest Secure Crypto Config of a specific security level for usage. 
-If a two files with identical levels and version number will be found only the first occurring file will be considered.
+2. Parsing of the version of all files:
+  All files with values in the wrong format (see {{#version}}) will be excluded from further processing. 
+  Find the latest (according to version) Secure Crypto Config file with the highest appearing security level (determined in previous step). 
+  The path to this file will be used as default path used for each cryptographic use case if nothing else is specified by the user. 
+  If two or more files with identical levels and version number are found, only the first one will be used, others are discarded.
 
-3. The unique algorithm identifiers for the execution of a specific cryptographic use case will be readout at the time the users invokes a method for a specific cryptographic use case. 
-The algorithm identifiers for the specific use case are readout and will then be compared to the supported algorithm identifiers of the Interface. 
-The supported algorithms are specified inside an enum/list. 
-The identifiers will be compared with the supported ones in order of their occurrence inside the file. 
-If one matching identifier was found this one will be used for execution. If it is not a matching one the value will be skipped and the next one will be compared. 
-If none of the algorithms inside the selected Secure Crypto Config can be found an error will occur.
+3. The unique algorithm identifiers for the execution of a specific cryptographic use case will be parsed at the time the users invokes a method for a specific cryptographic use case. 
+  The algorithm identifiers for the specific use case are parsed and will then be compared to the supported algorithm identifiers of the Interface. 
+  The supported algorithms are specified inside the interface (e.g. with an enmum). 
+  The identifiers will be compared with the supported ones in order of their occurrence inside the file. 
+  If one matching identifier is found it will be used for execution. 
+  If it is not a matching one the value will be skipped and the next one will be compared. 
+  If none of the algorithms inside the selected Secure Crypto Config can be found an error will occur.
 
 
 ### Delivery of Secure Crypto Config with Interface
 
-- [x] Define used subfolder or similar
-
 Each Secure Crypto Config Interface must be published in such a way that it uses (a copy of) the recent Secure Crypto Config repository.
-This can be realized by providing it in a subfolder.
-With this it is possible that a new Secure Crypto Config can be deployed by using a new version of the Interface.
 
 The Secure Crypto Config will be stored inside the subfolder `scc-configs` which should be located in the Interface's `src`-folder if existent.
 The structure of the `scc-configs` folder will be the same as in the described hierarchy of the Github repository.
-In a new version of the Interface the latest published Secure Crypto Config and its signatures must be added. 
+In any new version of the Interface the latest published Secure Crypto Config and its signatures must be used. 
 
 If new Secure Crypto Configs will be published for which no published version of the Interface is available, the custom repository approach can be used as described in the following.
 
@@ -861,9 +857,7 @@ If own derived Secure Crypto Configs are created than it can be possible that no
 
 ### Methods and Parameters
 
-- [x] TODO see/unify with Java implementation {{scc_java_api_example}}
-
-Intended methods and parameters included in the Java interface are currently work in process. First suggestions can be seen in {{scc_java_api_example}}.
+Intended methods and parameters included in the Java interface are described in {{scc_java_api_example}}.
 
 #### Supported Algorithm Parameter Types
 
@@ -891,23 +885,13 @@ That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://
 
 ### Output of readable Secure Crypto Config
 
-- [x] TODO Output of current SCC integrated in crypto library. Method like "printUsedSCC()" with output that shows if it is a validate SCC
-- [x] TODO In case of own derived version e.g. from a company from the original SCC it could be the case that there is no signature to check
-
-A possibility to check the used Secure Crypto Config for validity of a given signature must be given. 
-The Interface provides a method to check if the used Secure Crypto Configs are valid or not. 
-If all Secure Crypto Configs signatures are valid the method will return a positive/true result. 
-If not, at least one Secure Crypto Config has no valid signature. 
-The name of the corresponding Secure Crypto Config will be returned inside a failure message.
-If it is a self-derived version from the original Secure Crypto Config then it could also be possible that there is no need to provide and check a signature.
+A Secure Crypto Config Interface must offer the following additional methods regarding the configuration
+- A method that returns a human readable version of the currently used Secure Crypto Config 
+- A method that returns the currently used cryptography algorithm and parameters for a given use case
+- A method that validates the content of a Secure Crypto Config JSON file and one or more signatures
 
 ## TODOs
 
-- [x] TODO Describe used versioning concept for SCC. 
-  - [x] TODO Refer to [Semantic Versioning](https://semver.org/)
-- [ ] TODO describe requirements for cryptography API implementors and designers
-- [x] TODO decide how the configuration should be made available to programmers
-- [x] TODO which platforms are suitable?
 - The SCC could be provided on a suitable platform (?) and is accessible over the network (adversaries? e.g. http connection)
   - [ ] e.g. should there be constants like "SCC_TOP_SECRET_LATEST" and "SCC_TOP_SECRET_LATEST". 
   - [ ] And like "SCC_TOP_SECRET_LATEST.AES" which points always to the latest Secure Crypto Config definition for AES parameters.
@@ -915,34 +899,36 @@ If it is a self-derived version from the original Secure Crypto Config then it c
 - [x] What kind of parameters can be chosen based on the Secure Crypto Config? => E.g. Should be all except the plaintext and the key for encryption algorithms. Also many parameters can be generated based on cryptographically secure random numbers.
 - [x] TODO The Secure Crypto Config Interface should include a performance evaluation mode which evaluates the performance of each configuration and returns a prioritized list for each configuration. E.g. cf. [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/)
 
-
 # Cryptography Library Implementation Specification
 
 Cryptography libraries should provide the above mentioned Secure Crypto Config Interface.
-Until a common cryptography library provides the Secure Crypto Config Interface itself, a separate interface library should be used instead.
+Until a common cryptography library provides the Secure Crypto Config Interface itself, there should be wrapper implementations that provide the Secure Crypto Config Interface and make use of the programming languages' standard cryptography library.
 
 # Cryptography Algorithm Standards Recommendation
 
-- [ ] TODO should there be a template for cryptography algorithm standards (in addition to COSE) for the Secure Crypto Config or is it enough that the Secure Crypto Config Consensus Finding defines the secure parameters for all cryptography algorithms?
+When new cryptography algorithm and/or parameter/mode/etc standards are created, they should contain a section mentioning the creating of the proposed secure parameter sets in the above mentioned IANA registries.
+This ensures that new cryptography algorithms and parameter sets are available faster for the Secure Crypto Config Interface implementations to use.
 
 # Security Considerations
+
 - [x] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
 - [x] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
 - [ ] TODO Are these appropriate security considerations?
 
 ## Consensus Finding
 
-- Only trustworthy and cryptographic specialized institutions should participating otherwise a Secure Crypto Config with a weak and insecure parameter set could be provided as a result.
-
+- Only trustworthy and cryptographic specialized entities should participate in the publication process of the Secure Crypto Config.
+  Otherwise a Secure Crypto Config with a weak and insecure parameter set could be provided.
 
 ## Publication Format
 
 - The operators of the Secure Crypto Config must ensure that potential unauthorized parties are not able to manipulate the parameters of the published Secure Crypto Config. 
+  Countermeasures to this are in place by utilizing git's gpg signatures and integrity as well as signatures for the published Secure Crypto Config files as well.
 
 ## Cryptography library implementation
 
-- Integrity must be ensured if potential users want to fetch the provided Secure Crypto Config from the corresponding platform over the network e.g. by using a signature.
-- Users should only trust Secure Crypto Config issued from the original publisher with the associated signature. Users are responsible verify this signature.
+- Integrity must be ensured if potential users want to fetch the provided Secure Crypto Config from the corresponding platform over the network e.g. by using a signatures.
+- Users should only trust Secure Crypto Config issued from the original publisher with the associated signature. Users are responsible to verify the provided signatures.
 
 ## General Security Considerations
 
