@@ -941,31 +941,17 @@ Yet, it should reduce the vulnerabilities from making the wrong choices about pa
 
 ## Security of Cryptography primitives and implementations
 
-- [ ] TODO is this redundant? because it is also described in the assumptions section.
-
-- The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure.
-- Since the validity of the parameters defined in the Secure Crypto Config can change infrequently (e.g. discovered flaws in proposed algorithms) the lifespan of the Secure Crypto Config and an emergency process (see {{emergency}}) should be considered carefully before the actual publication.
-- Operators should keep in mind the validity of the provided parameters e.g. to be able to react fast in the case discovered flaws in algorithms.
+- The Secure Crypto Config assumes that both the proposed algorithms and the implementations (cryptography libraries) for the cryptography primitives are secure as long as they are used with the correct parameters, states and orders of function calls.
 
 ### Security Guarantees
 
-The Secure Crypto Config does not guarantee security for the proposed parameter configuration.
+The Secure Crypto Config makes a best effort to be as up-to-date with recent discoveries, research and developments in cryptography algorithms as possible.
+Following this it strives to publish cryptography algorithms and corresponding parameter choices for common use cases.
+
+Yet, the Secure Crypto Config and the involved parties working on and publishing it doe not guarantee security for the proposed parameter configurations or any entity making use of it.
 E.g. a new algorithm that can do brute-force attacks exponentially faster could be existing or published right after the publication of the most recent Secure Crypto Config was published itself.
-Yet, the Secure Crypto Config makes a best effort to be as up-to-date with recent discoveries, research and developments in cryptography algorithms as possible.
-
-## TODO
-
-- [x] TODO Security
-- [x] TODO are some of the listed common issues relevant?: [TypicalSECAreaIssues](https://trac.ietf.org/trac/sec/wiki/TypicalSECAreaIssues)
-- [x] TODO check if security considerations of TLS 1.2 are relevant, especially appendix [D, E and F](https://tools.ietf.org/html/rfc5246#appendix-D)
 
 ### Threat Model / Adversaries {#threatModel}
-
-- [x] TODO describe adversaries / group of adversaries and their powers -> Attacker Resources and Capability
-- [x] TODO describe other general threats for the Secure Crypto Config (maybe put that into the section Security Considerations):
-  - [x] Process
-  - [x] Publication
-  - [x] Content
 
 There are different possibilities in which a potential adversary could intervene during the creation as well as after the publication of the Secure Crypto Config. These attack scenarios must be considered and prevented.
 
