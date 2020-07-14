@@ -595,14 +595,14 @@ PATCH is a positive integer starting at 0 and only increasing for emergency rele
 
 Naming of official released SCCs must follow this format:
 
-`SCC_**Version**_**Security Level Number**`
+`SCC_**Version**_LEVEL_**Security Level Number**`
 
-E.g. a Secure Crypto Config for Security Level 5 release in 2020 the first time (so no patch version) would be named: `SCC_2020-00_5`
+E.g. a Secure Crypto Config for Security Level 5 release in 2020 the first time (so no patch version) would be named: `SCC_2020-00_LEVEL_5`
 
 Naming of files is not regulated, only the content is standards relevant.
 Yet, the Secure Crypto Config Files should use the mentioned naming convention as well adding a suffix (file type ending) `.json` to prevent ambiguity and remove implementation choices:
 
-`SCC_LEVEL_**Security Level Number**_**Version**.json`
+`SCC_**Version**_LEVEL_**Security Level Number.json**`
 
 ## Secure Crypto Config IANA Registry {#IANA}
 
@@ -669,15 +669,15 @@ These files must adhere to the common schema and shown in {{scc_general}} and de
 
 - SecurityLevel: Contains the number of the corresponding Security Level of the Secure Crypto Config 
 - PolicyName: Contains the name of the corresponding Secure Crypto Config according to the naming schema defined in {{naming}}
-- Publisher: Contains an array of all parties that were participating in the consensus finding process
+- Publisher: Contains an array of all parties that participated in the consensus finding process
   - name: Name of the participating party
   - URL: Put in the official URL of the named publisher
 - Version: Contains version in the format defined in {{version}}
 - PolicyIssueDate: Date at which the Secure Crypto Config was published in the format: YYYY-MM-DD
 - Expiry: Date at which the Secure Crypto Config expires in the format: YYYY-MM-DD
 - Usage: Contains an array of objects for each cryptographic use case defined in {{cryptoCase}}. 
-- For each cryptographic use case, at least two agreed upon algorithms (see {{consensus}}) with necessary parameters are included. 
-  Each of these algorithms with its parameters is specified with its unique identification name defined in a IANA registry used by the Secure Crypto Config.
+  - For each cryptographic use case, at least two agreed upon algorithms (see {{consensus}}) with necessary parameters are included. 
+    Each of these algorithms with its parameters is specified with its unique identification name defined in a IANA registry used by the Secure Crypto Config.
 
 This format allows custom algorithm/parameter definitions both by overwriting use cases completely or by adding only specific algorithm identifiers via custom configurations.
 
@@ -703,21 +703,21 @@ scc-repo
 - configs
   - 2020
     - 00
-      - SCC_SecurityLevel_1_2020-00.json
-      - SCC_SecurityLevel_1_2020-00-signature1
-      - SCC_SecurityLevel_1_2020-00-signature2
-      - SCC_SecurityLevel_2_2020-00.json
-      - SCC_SecurityLevel_2_2020-00-signature1
-      - SCC_SecurityLevel_2_2020-00-signature2
-      - SCC_SecurityLevel_3_2020-00.json
-      - SCC_SecurityLevel_3_2020-00-signature1
-      - SCC_SecurityLevel_3_2020-00-signature2
-      - SCC_SecurityLevel_4_2020-00.json
-      - SCC_SecurityLevel_4_2020-00-signature1
-      - SCC_SecurityLevel_4_2020-00-signature2
-      - SCC_SecurityLevel_5_2020-00.json
-      - SCC_SecurityLevel_5_2020-00-signature1
-      - SCC_SecurityLevel_5_2020-00-signature2
+      - SCC_2020-00_LEVEL_1.json
+      - SCC_2020-00_LEVEL_1.signature1
+      - SCC_2020-00_LEVEL_1.signature2
+      - SCC_2020-00_LEVEL_2.json
+      - SCC_2020-00_LEVEL_2.signature1
+      - SCC_2020-00_LEVEL_2.signature2
+      - SCC_2020-00_LEVEL_3.json
+      - SCC_2020-00_LEVEL_3.signature1
+      - SCC_2020-00_LEVEL_3.signature2
+      - SCC_2020-00_LEVEL_4.json
+      - SCC_2020-00_LEVEL_4.signature1
+      - SCC_2020-00_LEVEL_4.signature2
+      - SCC_2020-00_LEVEL_5.json
+      - SCC_2020-00_LEVEL_5.signature1
+      - SCC_2020-00_LEVEL_5.signature2
     - 01
     - 02
   - 2021
@@ -735,21 +735,21 @@ scc-repo
       - 0c1
       - ReallySecure
   - 0x1111
-    - SCC_SecurityLevel_1_2020-00.json
-    - SCC_SecurityLevel_1_2020-00-signature1
-    - SCC_SecurityLevel_1_2020-00-signature2
-    - SCC_SecurityLevel_2_2020-00.json
-    - SCC_SecurityLevel_2_2020-00-signature1
-    - SCC_SecurityLevel_2_2020-00-signature2
-    - SCC_SecurityLevel_3_2020-00.json
-    - SCC_SecurityLevel_3_2020-00-signature1
-    - SCC_SecurityLevel_3_2020-00-signature2
-    - SCC_SecurityLevel_4_2020-00.json
-    - SCC_SecurityLevel_4_2020-00-signature1
-    - SCC_SecurityLevel_4_2020-00-signature2
-    - SCC_SecurityLevel_5_2020-00.json
-    - SCC_SecurityLevel_5_2020-00-signature1
-    - SCC_SecurityLevel_5_2020-00-signature2
+    - SCC_2020-00_LEVEL_1.json
+    - SCC_2020-00_LEVEL_1.signature1
+    - SCC_2020-00_LEVEL_1.signature2
+    - SCC_2020-00_LEVEL_2.json
+    - SCC_2020-00_LEVEL_2.signature1
+    - SCC_2020-00_LEVEL_2.signature2
+    - SCC_2020-00_LEVEL_3.json
+    - SCC_2020-00_LEVEL_3.signature1
+    - SCC_2020-00_LEVEL_3.signature2
+    - SCC_2020-00_LEVEL_4.json
+    - SCC_2020-00_LEVEL_4.signature1
+    - SCC_2020-00_LEVEL_4.signature2
+    - SCC_2020-00_LEVEL_5.json
+    - SCC_2020-00_LEVEL_5.signature1
+    - SCC_2020-00_LEVEL_5.signature2
   - asdf
   - afd
   - af
