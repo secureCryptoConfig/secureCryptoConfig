@@ -593,15 +593,20 @@ PATCH is a positive integer starting at 0 and only increasing for emergency rele
 <!-- - [ ] TODO keep in mind the secure crypto config interface, which should be able to use these naming conventions in multiple programming languages-->
 <!-- - [ ] TODO possibly: SCC_SecurityLevel_**SecurityLevelNumber**_**Version**" ? Put the corresponding number in **Security Level Number** depending for which security level the SCC is created for.-->
 
-Naming of files is not important, only the content is standards relevant.
-Yet, the Secure Crypto Config should use the following naming conventions to prevent ambiguity and remove implementation choices:
-Each JSON-file should be named like the following:
+Naming of official released SCCs must follow this format:
 
-SCC_LEVEL_**Security Level Number**_**Version**.json
+`SCC_**Version**_**Security Level Number**`
+
+E.g. a Secure Crypto Config for Security Level 5 release in 2020 the first time (so no patch version) would be named: `SCC_2020-00_5`
+
+Naming of files is not regulated, only the content is standards relevant.
+Yet, the Secure Crypto Config Files should use the mentioned naming convention as well adding a suffix (file type ending) `.json` to prevent ambiguity and remove implementation choices:
+
+`SCC_LEVEL_**Security Level Number**_**Version**.json`
 
 ## Secure Crypto Config IANA Registry {#IANA}
 
-**NOT NEEDED, as the Secure Crypto Config uses other registries, e.g. COSE**
+**NOT NEEDED?, as the Secure Crypto Config uses other registries, e.g. COSE. No final decision, yet.**
 
 - [ ] TODO Naming convention. Specification depending on crypto use case?
 - [ ] TODO dash character "-" not possible in enum!
