@@ -996,9 +996,9 @@ This format could also be used to show the content of the JSON source format in 
 | UseCase\Level  | 5                                                                                   |
 | -------------- | ----------------------------------------------------------------------------------- |
 | **Symmetric**  | AEAD_AES_256_GCM<br> [RFC5116] <br> AEAD_CHACHA20_POLY1305 <br>{{?RFC8439}}         |
-| **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230]                                                 |
-| **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf) |
-| **Signing**    | ES512 <br> {{-COSE}}                                                                |
+| **Asymmetric** | RSAES-OAEP w/ SHA-512<br> [RFC8230] <br> ECDH-SS + HKDF-512 <br>  {{-COSE}}         |
+| **Hashing**    | sha3-512<br> [[FIPS 202]](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf) <br> sha3-512 <br> [[FIPS 202]]       (https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)                                             |
+| **Signing**    | ES512 <br> {{-COSE}} <br>  PS512 <br>  [RFC8230]                                    |
 {:#scc_useCase_level}
 
 

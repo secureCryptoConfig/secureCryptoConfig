@@ -127,10 +127,13 @@ abstract class AbstractSCCKey {
 }
 
 abstract class AbstractSCCKeyPair {
-	KeyPair pair;
+	byte[] privateKey, publicKey;
+	SCCKeyPairAlgorithm algorithm;
 
-	protected AbstractSCCKeyPair(KeyPair pair) {
-		this.pair = pair;
+	protected AbstractSCCKeyPair(byte[] publicKey, byte[] privateKey, SCCKeyPairAlgorithm algorithm) {
+		this.publicKey = publicKey;
+		this.privateKey = privateKey;
+		this.algorithm = algorithm;
 	}
 
 	abstract byte[] getPublicKeyBytes();
