@@ -69,12 +69,11 @@ This is achieved by combining three things standardized by the Secure Crypto Con
 (2) A Secure Crypto Config Interface that describes a common API to use cryptography primitives in software
 (3) using COSE to derive the parameters from output of cryptography primitives, otherwise future changes of the default configuration would change existing applications behavior.
 
---- middle
-
-# Notice on Commenting this document
-{:numbered="false"}
+--- note_Note_to_Readers
 
 Comments are solicited and should be addressed to the GitHub repository issue tracker available at https://github.com/secureCryptoConfig/secureCryptoConfig and/or the author(s)
+
+--- middle
 
 # Introduction
 <!--
