@@ -1,12 +1,12 @@
 ---
 title: Secure Crypto Config
 abbrev: SCC
-docname: draft-kmindi-secure-crypto-config-latest
+docname: draft-kaimindermann-securecryptoconfig-latest
 category: info
 
 ipr: trust200902
 area: General
-workgroup: TODO Working Group
+workgroup: NO Working Group YET
 keyword: Internet-Draft
 
 stand_alone: yes
@@ -69,12 +69,16 @@ This is achieved by combining three things standardized by the Secure Crypto Con
 (2) A Secure Crypto Config Interface that describes a common API to use cryptography primitives in software
 (3) using COSE to derive the parameters from output of cryptography primitives, otherwise future changes of the default configuration would change existing applications behavior.
 
+--- notice
+
+Comments are solicited and should be addressed to the GitHub repository issue tracker available at https://github.com/secureCryptoConfig/secureCryptoConfig and/or the author(s)
+
 --- middle
 
 
 
 # Introduction
-
+<!--
 ### General TODOS
 
 - [x] Mention Main Goals: (0) Prevent insecure cryptography use/implementation for the future. (1) Enable cryptography libraries and APIs to offer secure defaults with inherent future-proofnes; (2) Prevent non-expert programmers from misusing cryptography APIs; (3) Allow standardized definition of secure parameters for cryptography algorithms; (4) Standardized across all implementations; (5) Prevent outdated example code and documentation.
@@ -102,7 +106,7 @@ This is achieved by combining three things standardized by the Secure Crypto Con
 - [ ] TODO https://www.ietf.org/media/documents/92kramdown-Bormann.pdf
 - [x] TODO Check if "Generic Security Service Application Program Interface Version 2, Update 1" {{?RFC2743}} is relevant.
 - [x] TODO Check if "An Interface and Algorithms for Authenticated Encryption" {{?RFC5116}} is relevant.
-
+-->
 
 ## Motivation
 
