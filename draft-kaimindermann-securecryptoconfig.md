@@ -71,7 +71,7 @@ This is achieved by combining three things standardized by the Secure Crypto Con
 
 --- note_Note_to_Readers
 
-Comments are solicited and should be addressed to the GitHub repository issue tracker available at https://github.com/secureCryptoConfig/secureCryptoConfig and/or the author(s)
+Comments are solicited and should be addressed to the [GitHub repository issue tracker](https://github.com/secureCryptoConfig/secureCryptoConfig) and/or the author(s)
 
 --- middle
 
