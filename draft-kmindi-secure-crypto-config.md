@@ -61,15 +61,13 @@ informative:
 
 --- abstract
 
-Cryptography providers, libraries and APIs usually define defaults for the offered cryptography primitives.
-These defaults have to be kept to be backwards compatible with all users of the API that used the defaults.
-Yet, these default choices become insecure at some later point. 
-E.g. a key size of 128 bit may not be sufficient anymore.
-To keep these defaults up-to-date three things are described in this document: 
-(1) A process that is repeated every two years, where the
-CRFG publishes a new set of default configurations for standardized cryptography primitives, 
-(2) a format based on JSON that specifies the default secure configuration of this (and previous) year(s) and 
-(3) a format to derive the parameters from output of cryptography primitives, otherwise future changes of the default configuration would change existing applications behavior.
+Choosing secure cryptography algorithms and their corresponding parameters is difficult.
+Also, current cryptography APIs cannot change their default configuration which renders them inherently insecure. 
+The Secure Crypto Config provides a method that allows cryptography libraries to change the default cryptography algorithms over time and at the same time stay compatible with previous cryptography operations. 
+This is achieved by combining three things standardized by the Secure Crypto Config:
+(1) A process that is repeated every two years, where a new set of default configurations for standardized cryptography primitives is published in a specific format.
+(2) A Secure Crypto Config Interface that describes a common API to use cryptography primitives in software
+(3) using COSE to derive the parameters from output of cryptography primitives, otherwise future changes of the default configuration would change existing applications behavior.
 
 --- middle
 
@@ -77,16 +75,8 @@ CRFG publishes a new set of default configurations for standardized cryptography
 
 # Introduction
 
-
-## TODO Remove at the end
-
-[^TODO]: Do not remove the TODOS, but mark them as complete by adding an x between the brackets.
-[^TODO]
-
 ### General TODOS
 
-- [x] TODO (2) a format based on *TODO* that specifies the default secure configuration
-- [x] TODO Write Introduction
 - [x] Mention Main Goals: (0) Prevent insecure cryptography use/implementation for the future. (1) Enable cryptography libraries and APIs to offer secure defaults with inherent future-proofnes; (2) Prevent non-expert programmers from misusing cryptography APIs; (3) Allow standardized definition of secure parameters for cryptography algorithms; (4) Standardized across all implementations; (5) Prevent outdated example code and documentation.
 - [x] Mention: Yearly published secure configuration recommendations that can be used per default from cryptography libraries. This prevents aging/maturing libraries from offering insecure default implementations. 
 - [x] Mention target group ((1) developers who are not experts but still need to implement cryptography functionality. (2) Cryptography library developers that should integrate Secure Crypto Config to provide secure defaults. (3) standardization institutions (like BSI or NIST) who can use the publication format for their own set of cryptography recommendations)
@@ -125,8 +115,27 @@ There is no specification on how the chosen cryptography configuration should be
 Furthermore, supporting more than one configuration or being able to add future configurations is not defined.
 That reduces software compatibility and increases maintenance efforts.
 
+Cryptography algorithm implementations, regardless of for one algorithm or multiple ones, offer some kind of Application Programming Interface for developers to use the algorithms.
+Yet, in many cases these interfaces provide no abstraction from the underlying algorithm but expose much of the internal states and parameters.
+Also the more abstracting interfaces, usually found in the standard libraries of programming languages, require users to have much cryptography experience to use them correctly and securely.
+Moreover, even approaches that tried to increase usability by providing defaults, these defaults become quickly outdated but cannot be changed in the interface anymore as applications using these defaults rely on that functionality.
 
+It sounds a lot like a problem for software engineering and not for cryptography standardization.
+But software engineering alone cannot provide a programming interface for cryptography algorithms that also works for future algorithms and parameters and at the same time is able to change the default implementation easily.
+Both the choice of the algorithm/parameters and the default behavior must be automated and standardized to remove this burden from developers and to make cryptography work by default and in the intended secure way.
 
+The Secure Crypto Config approaches this problem first by providing a regular updated list of secure cryptography algorithms and corresponding parameters for common cryptography use cases.
+Second, it provides a standardized Application Programming Interface which provides the Secure Crypto Config in a misuse resistant way to developers.
+Third, it leverages an already standardized format ({{-COSE}}) to store the used parameters alongside the results of cryptography operations. 
+That ensures that future implementations can change their default cryptography algorithms but still parse the used configuration from existing data and perform the required cryptography operations on it.
+
+Each of these approaches could be used on its own. 
+Yet, the combination of them allows software to be more easy to maintain, more compatible to other cryptography implementations and to future security developments, and most importantly more secure.
+
+The Secure Crypto Config makes common assumptions that are not true for all possible scenarios.
+In cases where security experts are indeed involved and more implementation choices have to be made, the Secure Crypto Config still allows the usage of predefined or even custom cryptography algorithms and parameters.
+
+<!--
 The correct choice of secure parameters when implementing cryptographic primitives or algorithms is not always easy to ensure.
 However, the security of the primitives to be used depends mainly on the choice of these parameters (e.g. the correct key length).
 In order to be able to prevent insecure implementations and usage of cryptography, it is necessary to assure that the choice of parameters is made correctly.
@@ -174,7 +183,7 @@ This is also necessary to prevent applications from becoming incompatible with u
 To store this necessary information there already exists a standard named CBOR Object Signing and Encryption (COSE) {{-COSE}}.
 The parameters and algorithms defined for COSE can be found at the [IANA registry for COSE](https://www.iana.org/assignments/cose/cose.xhtml).
 COSE represents a data structure that contributes to the storage of the cryptographic output (e.g. ciphertext) as well as the used parameters in a structured way.
-
+-->
 
 ## Terminology
 
