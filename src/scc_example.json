@@ -17,20 +17,24 @@
     "Expiry" : "2023-04-21",
     "Usage" : {
         "SymmetricEncryption" : [
-            "AES_GCM_256_96",
-            "AES_GCM_128_96"
+            "AEAD_AES_256_GCM",
+            "AEAD_CHACHA20_POLY1305"
         ],
         "AsymmetricEncryption" : [
-            "RSA_SHA_256"
+            "RSAES-OAEP w/ SHA-512",
+            "ECDH-SS + HKDF-512"
         ],
         "Hashing" : [
-            "SHA_512"
+            "sha3-512",
+            "sha3-512"
         ],
         "Signing" : [
-            "ECDSA_512"
+            "ES512",
+            "PS512"
         ],
         "PasswordHashing" : [
-        	"PBKDF_SHA_256"
+            "PBKDF_SHA_512",
+            "PBKDF_SHA_256"
         ]
     }
   }
