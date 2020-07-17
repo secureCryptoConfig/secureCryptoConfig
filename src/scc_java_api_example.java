@@ -1,7 +1,11 @@
 import java.nio.charset.Charset;
 import java.security.KeyPair;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+
 import COSE.CoseException;
 import main.SCCKey.SCCKeyAlgorithm;
+import main.SCCKeyPair.SCCKeyPairAlgorithm;
 
 abstract interface SecureCryptoConfigInterface {
 
@@ -126,19 +130,23 @@ abstract class AbstractSCCKey {
 
 }
 
-abstract class AbstractSCCKeyPair {
-	byte[] privateKey, publicKey;
-	SCCKeyPairAlgorithm algorithm;
 
-	protected AbstractSCCKeyPair(byte[] publicKey, byte[] privateKey, SCCKeyPairAlgorithm algorithm) {
-		this.publicKey = publicKey;
-		this.privateKey = privateKey;
-		this.algorithm = algorithm;
+abstract class AbstractSCCKeyPair {
+	KeyPair keyPair;
+
+	protected AbstractSCCKeyPair(KeyPair keyPair) {
+		this.keyPair = keyPair;
 	}
 
 	abstract byte[] getPublicKeyBytes();
-
+	
 	abstract byte[] getPrivateKeyBytes();
+	
+	abstract PublicKey getPublicKey();
+
+	abstract PrivateKey getPrivateKey();
+
+	abstract KeyPair getKeyPair();
 
 }
 
