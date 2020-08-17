@@ -820,19 +820,19 @@ The Interface will process the Secure Crypto Configs as follows:
 
 The parsing of each valid JSON file must be done as follows:
 
-1. Readout the security level of each valid file such that each file can be associated with its level (filename : level). 
-  (Optional) Add defined level to a set of all possible levels for later processing. 
-  All files not containing an (positive) integer number as security level value will be discarded.
+1. Readout all informations of all JSON files that need to be considered. The information of each file is stored in a correspoding object. With this procedure all JSON files need to be read only once which will contribute to the performance.
 
-2. Parsing of the version of all files:
+2. Parsing of security level: Check if it is a positive integer. All files not containing an (positive) integer number as security level value will be discarded.
+
+3. Parsing of algorithm identifiers: Only the algorithm identifiers that are supported by the Interface will be considered and stored inside the corresponding object. The supported algorithms are specified inside the interface (e.g. with an enmum).
+
+4. Parsing of the version of all files:
   All files with values in the wrong format (see {{version}}) will be excluded from further processing. 
   Find the latest (according to version) Secure Crypto Config file with the highest appearing security level (determined in previous step). 
   The path to this file will be used as default path used for each cryptographic use case if nothing else is specified by the user. 
   If two or more files with identical levels and version number are found, only the first one will be used, others are discarded.
 
-3. The unique algorithm identifiers for the execution of a specific cryptographic use case will be parsed at the time the users invokes a method for a specific cryptographic use case. 
-  The algorithm identifiers for the specific use case are parsed and will then be compared to the supported algorithm identifiers of the Interface. 
-  The supported algorithms are specified inside the interface (e.g. with an enmum). 
+5. The unique algorithm identifiers for the execution of a specific cryptographic use case will be fetched from the corresponding object (representing the JSON file determined beforehand) at the time the users invokes a method for a specific cryptographic use case. The Interface will also provide a possibility to choose a specific algorithm (out of the supported ones) for executing the desired use case. In this case the specified algorithm is used.
   The identifiers will be compared with the supported ones in order of their occurrence inside the file. 
   If one matching identifier is found it will be used for execution. 
   If it is not a matching one the value will be skipped and the next one will be compared. 
