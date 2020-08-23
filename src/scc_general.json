@@ -1,5 +1,4 @@
-[
-	{
+{
     "PolicyName": "SCC_SecurityLevel_Security Level Number",
     "Publisher": [
         {
@@ -33,5 +32,4 @@
             "Algorithm 2"
         ]
     }
-  }
-]
+}

@@ -1,213 +1,285 @@
-package main;
+package org.securecryptoconfig;
 
 import java.nio.charset.Charset;
+import java.security.InvalidKeyException;
+import org.securecryptoconfig.SCCKey.KeyType;
+import org.securecryptoconfig.SCCKey.KeyUseCase;
+
 import COSE.CoseException;
-import main.SCCKey.KeyType;
 
-abstract interface SecureCryptoConfigInterface {
+public abstract interface SecureCryptoConfigInterface {
 
-	// Symmetric Encryption
+	//Symmetric 
 	
 	public AbstractSCCCiphertext encryptSymmetric(AbstractSCCKey key, PlaintextContainerInterface plaintext)
-			throws CoseException;
+			throws CoseException, InvalidKeyException, SCCException;
 
-	public AbstractSCCCiphertext encryptSymmetric(AbstractSCCKey key, byte[] plaintext) throws CoseException;
+	
+	public AbstractSCCCiphertext encryptSymmetric(AbstractSCCKey key, byte[] plaintext)
+			throws CoseException, InvalidKeyException, SCCException;
 
+	
 	public AbstractSCCCiphertext reEncryptSymmetric(AbstractSCCKey key, AbstractSCCCiphertext ciphertext)
-			throws CoseException;
+			throws CoseException, InvalidKeyException, SCCException;
 
+	
 	public PlaintextContainerInterface decryptSymmetric(AbstractSCCKey key, AbstractSCCCiphertext sccciphertext)
-			throws CoseException;
+			throws CoseException, InvalidKeyException;
 
 	// Asymmetric
 	
-	public AbstractSCCCiphertext encryptAsymmetric(AbstractSCCKey keyPair, PlaintextContainerInterface plaintext)
-			throws CoseException;
+	public AbstractSCCCiphertext encryptAsymmetric(AbstractSCCKey key, PlaintextContainerInterface plaintext)
+			throws CoseException, InvalidKeyException, SCCException;
 
-	public AbstractSCCCiphertext encryptAsymmetric(AbstractSCCKey keyPair, byte[] plaintext) throws CoseException;
 
-	public AbstractSCCCiphertext reEncryptAsymmetric(AbstractSCCKey keyPair, AbstractSCCCiphertext ciphertext)
-			throws CoseException;
+	public AbstractSCCCiphertext encryptAsymmetric(AbstractSCCKey key, byte[] plaintext)
+			throws CoseException, InvalidKeyException, SCCException;
 
-	public PlaintextContainerInterface decryptAsymmetric(AbstractSCCKey keyPair, AbstractSCCCiphertext ciphertext)
-			throws CoseException;
+	
+	public AbstractSCCCiphertext reEncryptAsymmetric(AbstractSCCKey key, AbstractSCCCiphertext ciphertext)
+			throws CoseException, InvalidKeyException, SCCException;
+
+	
+	public PlaintextContainerInterface decryptAsymmetric(AbstractSCCKey key, AbstractSCCCiphertext ciphertext)
+			throws CoseException, InvalidKeyException, SCCException;
 
 	// Hashing
 
-	public AbstractSCCHash hash(PlaintextContainerInterface plaintext) throws CoseException;
+	public AbstractSCCHash hash(PlaintextContainerInterface plaintext) throws CoseException, SCCException;
 
-	public AbstractSCCHash hash(byte[] plaintext) throws CoseException;
+	
+	public AbstractSCCHash hash(byte[] plaintext) throws CoseException, SCCException;
 
-	public AbstractSCCHash updateHash(PlaintextContainerInterface plaintext, AbstractSCCHash hash) throws CoseException;
+	
+	public AbstractSCCHash updateHash(PlaintextContainerInterface plaintext, AbstractSCCHash hash)
+			throws CoseException, SCCException;
 
-	public AbstractSCCHash updateHash(byte[] plaintext, AbstractSCCHash hash) throws CoseException;
+	
+	public AbstractSCCHash updateHash(byte[] plaintext, AbstractSCCHash hash) throws CoseException, SCCException;
 
-	public boolean validateHash(PlaintextContainerInterface plaintext, AbstractSCCHash hash) throws CoseException;
+	
+	public boolean validateHash(PlaintextContainerInterface plaintext, AbstractSCCHash hash)
+			throws CoseException, SCCException;
 
-	public boolean validateHash(byte[] plaintext, AbstractSCCHash hash) throws CoseException;
+	
+	public boolean validateHash(byte[] plaintext, AbstractSCCHash hash) throws CoseException, SCCException;
 
 	// Digital Signature
+
+	public AbstractSCCSignature sign(AbstractSCCKey key, PlaintextContainerInterface plaintext)
+			throws CoseException, InvalidKeyException, SCCException;
+
 	
-	public AbstractSCCSignature sign(AbstractSCCKey keyPair, PlaintextContainerInterface plaintext)
-			throws CoseException;
+	public AbstractSCCSignature sign(AbstractSCCKey key, byte[] plaintext)
+			throws CoseException, InvalidKeyException, SCCException;
 
-	public AbstractSCCSignature sign(AbstractSCCKey keyPair, byte[] plaintext) throws CoseException;
-
-	public AbstractSCCSignature updateSignature(AbstractSCCKey keyPair, PlaintextContainerInterface plaintext)
-			throws CoseException;
 	
-	public AbstractSCCSignature updateSignature(AbstractSCCKey keyPair, byte[] plaintext)
-			throws CoseException;
+	public AbstractSCCSignature updateSignature(AbstractSCCKey key, PlaintextContainerInterface plaintext)
+			throws CoseException, InvalidKeyException, SCCException;
+
 	
-	public boolean validateSignature(AbstractSCCKey keyPair, AbstractSCCSignature signature);
+	public AbstractSCCSignature updateSignature(AbstractSCCKey key, byte[] plaintext)
+			throws CoseException, InvalidKeyException, SCCException;
+
 	
-	public boolean validateSignature(AbstractSCCKey keyPair, byte[] signature);
+	public boolean validateSignature(AbstractSCCKey key, AbstractSCCSignature signature)
+			throws InvalidKeyException, SCCException;
 
-	public AbstractSCCPasswordHash passwordHash(PlaintextContainerInterface password) throws CoseException;
+	
+	public boolean validateSignature(AbstractSCCKey key, byte[] signature) throws InvalidKeyException, SCCException;
 
-	public AbstractSCCPasswordHash passwordHash(byte[] password) throws CoseException;
+	// Password Hashing
 
+	
+	public AbstractSCCPasswordHash passwordHash(PlaintextContainerInterface password)
+			throws CoseException, SCCException;
+
+	
+	public AbstractSCCPasswordHash passwordHash(byte[] password) throws CoseException, SCCException;
+
+	
 	public boolean validatePasswordHash(PlaintextContainerInterface password, AbstractSCCPasswordHash passwordhash)
-			throws CoseException;
+			throws CoseException, SCCException;
 
-	public boolean validatePasswordHash(byte[] password, AbstractSCCPasswordHash passwordhash)
-			throws CoseException;
-}
-
-abstract interface PlaintextContainerInterface {
-
-	abstract byte[] toBytes();
-
-	abstract String toString(Charset c);
-
-	abstract boolean validateHash(AbstractSCCHash hash);
-
-	abstract boolean validatePasswordHash(AbstractSCCPasswordHash passwordHash);
-
-	abstract AbstractSCCCiphertext encryptSymmetric(AbstractSCCKey key);
-
-	abstract AbstractSCCCiphertext encryptAsymmetric(AbstractSCCKey pair);
-
-	abstract AbstractSCCSignature sign(AbstractSCCKey keyPair);
-
-	abstract AbstractSCCHash hash();
-
-	abstract AbstractSCCPasswordHash passwordHash();
-
-}
-
-abstract class AbstractSCCCiphertext {
 	
+	public boolean validatePasswordHash(byte[] password, AbstractSCCPasswordHash passwordhash)
+			throws CoseException, SCCException;
+}
+
+
+  abstract interface PlaintextContainerInterface {
+
+	
+	public abstract byte[] toBytes();
+
+
+	public abstract String toString(Charset c);
+
+
+	@Override
+	public abstract String toString();
+
+	
+	public abstract boolean validateHash(AbstractSCCHash hash) throws SCCException;
+
+	
+	public abstract boolean validatePasswordHash(AbstractSCCPasswordHash passwordHash) throws SCCException;
+
+	
+	public abstract AbstractSCCCiphertext encryptSymmetric(AbstractSCCKey key) throws SCCException;
+
+	
+	public abstract AbstractSCCCiphertext encryptAsymmetric(AbstractSCCKey key) throws SCCException;
+
+	
+	public abstract AbstractSCCSignature sign(AbstractSCCKey key) throws SCCException;
+
+	
+	public abstract AbstractSCCHash hash() throws SCCException;
+
+	
+	public abstract AbstractSCCPasswordHash passwordHash() throws SCCException;
+
+}
+
+
+ abstract class AbstractSCCCiphertext {
+
 	byte[] msg;
 
-	public AbstractSCCCiphertext(byte[] msg) {
+	protected AbstractSCCCiphertext(byte[] msg) {
 		this.msg = msg;
 	}
 
-	abstract byte[] toBytes();
+	
+	public abstract byte[] toBytes();
 
-	abstract String toString(Charset c);
+	
+	@Override
+	public abstract String toString();
 
-	abstract PlaintextContainerInterface decryptSymmetric(AbstractSCCKey key);
+	
+	public abstract PlaintextContainerInterface decryptSymmetric(AbstractSCCKey key) throws SCCException;
 
-	abstract PlaintextContainerInterface decryptAsymmetric(AbstractSCCKey keyPair);
+	
+	public abstract PlaintextContainerInterface decryptAsymmetric(AbstractSCCKey key) throws SCCException;
 
-	abstract AbstractSCCCiphertext reEncryptSymmetric(AbstractSCCKey key);
+	
+	public abstract AbstractSCCCiphertext reEncryptSymmetric(AbstractSCCKey key) throws SCCException;
 
-	abstract AbstractSCCCiphertext reEncryptAsymmetric(AbstractSCCKey keyPair);
+	
+	public abstract AbstractSCCCiphertext reEncryptAsymmetric(AbstractSCCKey key) throws SCCException;
 
 }
 
-abstract class AbstractSCCKey {
+
+ abstract class AbstractSCCKey {
 
 	KeyType type;
-	byte[] key, privateKey, publicKey;
+	byte[] privateKey, publicKey;
 	String algorithm;
-	
-	protected AbstractSCCKey(KeyType type, byte[] publicKey, byte[] privateKey, String algorithm)
-	{
+
+	protected AbstractSCCKey(KeyType type, byte[] publicKey, byte[] privateKey, String algorithm) {
 		this.type = type;
 		this.publicKey = publicKey;
 		this.privateKey = privateKey;
 		this.algorithm = algorithm;
-		
-	}
-	
-	protected AbstractSCCKey(KeyType type, byte[] key, String algorithm)
-	{
-		this.type = type;
-		this.key = key;
-		this.algorithm = algorithm;
-		
+
 	}
 
-	abstract byte[] toBytes();
+	
+	public abstract byte[] toBytes() throws InvalidKeyException;
 
-	abstract byte[] getPublicKeyBytes();
 	
-	abstract byte[] getPrivateKeyBytes();
+	public abstract byte[] getPublicKeyBytes() throws InvalidKeyException;
+
 	
-	abstract String getAlgorithm();
+	public abstract byte[] getPrivateKeyBytes() throws InvalidKeyException;
+
+	
+	public abstract KeyType getKeyType();
+
+	
+	public abstract String getAlgorithm();
 
 }
+
 
 abstract class AbstractSCCHash {
 
 	byte[] hashMsg;
 
-	public AbstractSCCHash(byte[] hashMsg) {
+	
+	protected AbstractSCCHash(byte[] hashMsg) {
 		this.hashMsg = hashMsg;
 	}
 
-	abstract byte[] toBytes();
-	
-	abstract String toString(Charset c);
-	
-	abstract boolean validateHash(PlaintextContainerInterface plaintext);
-	
-	abstract boolean validateHash(byte[] plaintext);
 
-	abstract AbstractSCCHash updateHash(PlaintextContainerInterface plaintext);
+	public abstract byte[] toBytes();
+
+
+	@Override
+	public abstract String toString();
+
 	
-	abstract AbstractSCCHash updateHash(byte[] plaintext);
+	public abstract boolean validateHash(PlaintextContainerInterface plaintext) throws SCCException;
+
 	
+	public abstract boolean validateHash(byte[] plaintext) throws SCCException;
+
+	
+	public abstract AbstractSCCHash updateHash(PlaintextContainerInterface plaintext) throws SCCException;
+
+	
+	public abstract AbstractSCCHash updateHash(byte[] plaintext) throws SCCException;
 
 }
+
 
 abstract class AbstractSCCPasswordHash {
 
 	byte[] hashMsg;
-	
 
-	public AbstractSCCPasswordHash(byte[] hashMsg) {
+	
+	protected AbstractSCCPasswordHash(byte[] hashMsg) {
 		this.hashMsg = hashMsg;
 	}
 
-	abstract byte[] toBytes();
+
+	public abstract byte[] toBytes();
+
 	
-	abstract String toString(Charset c);
+	@Override
+	public abstract String toString();
+
 	
-	abstract boolean validatePasswordHash(PlaintextContainerInterface password);
+	public abstract boolean validatePasswordHash(PlaintextContainerInterface password) throws SCCException;
+
 	
-	abstract boolean validatePasswordHash(byte[] password);
+	public abstract boolean validatePasswordHash(byte[] password) throws SCCException;
 
 }
+
 
 abstract class AbstractSCCSignature {
 	byte[] signatureMsg;
 
-	public AbstractSCCSignature(byte[] signatureMasg) {
+	protected AbstractSCCSignature(byte[] signatureMasg) {
 		this.signatureMsg = signatureMasg;
 	}
 
-	abstract byte[] toBytes();
+	
+	public abstract byte[] toBytes();
 
-	abstract String toString(Charset c);
+	
+	@Override
+	public abstract String toString();
 
-	abstract boolean validateSignature(AbstractSCCKey keyPair);
+	
+	public abstract boolean validateSignature(AbstractSCCKey key) throws SCCException;
 
-	abstract AbstractSCCSignature updateSignature(PlaintextContainerInterface plaintext, AbstractSCCKey keyPair);
+	
+	public abstract AbstractSCCSignature updateSignature(PlaintextContainerInterface plaintext, AbstractSCCKey key)
+			throws SCCException;
 
 }
-
-

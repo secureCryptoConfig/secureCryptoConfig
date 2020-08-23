@@ -1,5 +1,4 @@
-[
-	{
+{
     "PolicyName" : "SCC_SecurityLevel_5",
     "Publisher" : [
         {
@@ -17,25 +16,24 @@
     "Expiry" : "2023-04-21",
     "Usage" : {
         "SymmetricEncryption" : [
-            "AEAD_AES_256_GCM",
-            "AEAD_CHACHA20_POLY1305"
+            "AES_GCM_256_96",
+            "AES_GCM_192_96"
         ],
         "AsymmetricEncryption" : [
-            "RSAES-OAEP w/ SHA-512",
-            "ECDH-SS + HKDF-512"
+            "RSA_SHA_512",
+            "RSA_SHA_256"
         ],
         "Hashing" : [
-            "sha3-512",
-            "sha3-512"
+            "SHA3_512",
+            "SHA_512"
         ],
         "Signing" : [
-            "ES512",
-            "PS512"
+            "ECDSA_512",
+            "ECDSA_384"
         ],
         "PasswordHashing" : [
             "PBKDF_SHA_512",
-            "PBKDF_SHA_256"
+            "SHA_512_64"
         ]
     }
-  }
-]
+}
