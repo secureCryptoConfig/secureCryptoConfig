@@ -6,7 +6,7 @@ category: info
 
 ipr: trust200902
 area: General
-workgroup: Crypto Forum Research Group
+workgroup: cfrg
 keyword: Internet-Draft
 
 stand_alone: yes
