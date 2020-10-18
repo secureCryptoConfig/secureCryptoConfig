@@ -6,10 +6,11 @@ category: info
 
 ipr: trust200902
 area: General
-workgroup: NO Working Group YET
+workgroup: Crypto Forum Research Group
 keyword: Internet-Draft
 
 stand_alone: yes
+smart_quotes: no
 pi: [toc, sortrefs, symrefs]
 
 author:
