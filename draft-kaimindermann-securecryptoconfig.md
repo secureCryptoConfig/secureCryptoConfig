@@ -437,7 +437,7 @@ This also means that it is not considered best practice to assume or propose tha
 # Security Levels {#securityLevels}
 
 The Secure Crypto Config must be able to provide a secure parameter set for different security levels. 
-These security levels depending on the following security constraints: **Information classification (Secret, Confidential), Longevity (less than one day, more than a day), Constrained devices (constrained, not constrained)**.
+These security levels depend on the following security constraints: **Information classification (Secret, Confidential), Longevity (less than one day, more than a day), Constrained devices (constrained, not constrained)**.
 They are defined in {{constraints}} below.
 The Secure Crypto Config provides 5 common security levels for which official algorithm/parameter choices are published.
 
@@ -935,7 +935,7 @@ This ensures that new cryptography algorithms and parameter sets are available f
 ## Publication Format
 
 - The operators of the Secure Crypto Config must ensure that potential unauthorized parties are not able to manipulate the parameters of the published Secure Crypto Config. 
-  Countermeasures to this are in place by utilizing gits gpg signatures and integrity as well as signatures for the published Secure Crypto Config files as well.
+  Countermeasures to this are in place by utilizing git's gpg signatures and integrity as well as signatures for the published Secure Crypto Config files as well.
 
 ## Cryptography library implementation
 
