@@ -295,7 +295,6 @@ The only expected input parameters for decryption:
 
 Possible secure usage:
 
-- RSA
 - RSAES-OAEP w/ SHA-512,-42,RSAES-OAEP w/ SHA-512
 
 #### Hashing
@@ -311,7 +310,6 @@ Possible secure usage:
 
 - SHA-512 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-44;SHA-2 512-bit Hash
 - SHAKE256 (TEMPORARY - registered 2019-08-13, expires 2020-08-13);-45;256-bit SHAKE
-
 
 #### Password Hashing
 
@@ -329,7 +327,7 @@ Expected output: hash.
 
 Possible secure usage:
 
-- Argon2id
+- [Argon2id](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-13)
 
 #### Key Generation
 
@@ -590,8 +588,8 @@ Cryptographic expertise is defined by the Secure Crypto Config Working Group or 
 
 # Publication Format and Distribution
 
-In general the Secure Crypto Config is published via JSON files in an official repository. 
-The Secure Crypto Config also utilizes IANA registries.
+In general the Secure Crypto Config is published via JSON {{-JSON}} files in an official repository. 
+The Secure Crypto Config also utilizes IANA registries, see {#IANA}.
 
 ## Versioning {#version}
 
@@ -654,7 +652,7 @@ Therefore, it refers to the following IANA registries:
 - [Named Information Hash Registry](https://www.iana.org/assignments/named-information/named-information.xhtml#hash-alg)
 
 Used registries must define all required parameters for an algorithm to implement it without ambiguity. 
-E.g. implementations must not be able to choose other parameter values for a cryptography algorithm and parameter combination.
+E.g. implementations must not be able to choose other parameter values for these predefined cryptography algorithm and parameter combinations.
 
 <!--But often there is no matching algorithm specification in existing IANA registries that support the appropriate selection of parameters.
 E.g. in {{?RFC5116}} the definition for AEAD_AES_128_GCM proposes a nonce length of 96 bit.
@@ -788,9 +786,9 @@ They are responsible to publish and renew the used public keys.
 For signing of the corresponding Secure Crypto Config JSON files *openssl* could be used. 
 The public keys needed for validation are published in the official repository of the Secure Crypto Config.
 
-# Secure Crypto Config Interface {#Interface}
+# Secure Crypto Config Application Programming Interface (API) {#Interface}
 
-This section describes the programming interface that provides the Secure Crypto Config.
+This section describes the application programming interface (API) that provides the Secure Crypto Config.
 The Secure Crypto Config Interface is generic and describes the API that should be used by each programming language.
 
 ## Semantic Versioning
@@ -865,8 +863,6 @@ In this way, it is possible to guarantee that the entity using the Interface onl
 The public key needed for validity can be found in the official GitHub repository.
 If own derived Secure Crypto Configs are created than it can be possible that no validation process is needed for these files.
 
-## Application Programming Interface (API)
-
 ### Methods and Parameters
 
 Intended methods and parameters included in the Java interface are described in {{scc_java_api_example}}.
@@ -891,7 +887,7 @@ The Secure Crypto Config Interface considers the following types of parameters:
 
 It should be possible to have user specified parameters such as the key/nonce length explicitly given by the user, but also a performance mode that evaluates for each configuration and gives back a prioritized list for each configuration.
 In this way, it is possible to select parameters depending on systems properties.
-Such a parameter choice would be beneficial e.g. in the case of [Argon2](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-03) in which one parameter for the memory usage must be given.
+Such a parameter choice would be beneficial e.g. in the case of [Argon2](https://tools.ietf.org/html/draft-irtf-cfrg-argon2-13) in which one parameter for the memory usage must be given.
 This choice should be chosen based on the corresponding system.
 That kind of parameter selection can be seen e.g. in  [Libpasta Tuning](https://libpasta.github.io/advanced/tuning/), which returns a secure parameter set depending on executed evaluations.
 
