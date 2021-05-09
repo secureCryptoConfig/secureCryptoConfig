@@ -1,0 +1,429 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2021-05-09T00:47:39.023856+00:00",
+  "repo": "secureCryptoConfig/secureCryptoConfig",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "MDU6SXNzdWU2MDk3NjA0MDE=",
+      "title": "Change email adress in draft",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/1",
+      "state": "CLOSED",
+      "author": "kmindi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-04-30T09:35:19Z",
+      "updatedAt": "2020-04-30T09:48:27Z",
+      "closedAt": "2020-04-30T09:48:27Z",
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "MDU6SXNzdWU2MDk3NzI0MTI=",
+      "title": "Write Introduction",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/2",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-04-30T09:51:54Z",
+      "updatedAt": "2020-07-15T10:51:34Z",
+      "closedAt": "2020-07-15T10:51:34Z",
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "MDU6SXNzdWU2MTI3OTk2NTI=",
+      "title": "Add references in Introduction",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/3",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "At the moment no references to corrsponding RFCs",
+      "createdAt": "2020-05-05T18:17:11Z",
+      "updatedAt": "2020-05-06T10:40:06Z",
+      "closedAt": "2020-05-06T10:40:06Z",
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "MDU6SXNzdWU2MTMzNDkxNDY=",
+      "title": "Writing of section \"Use cases\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/5",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-05-06T14:07:51Z",
+      "updatedAt": "2020-07-15T10:51:53Z",
+      "closedAt": "2020-07-15T10:51:53Z",
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "MDU6SXNzdWU2MTMzNTA0NTM=",
+      "title": "Writing section of \"Requirements and assumptions\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/6",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-05-06T14:09:37Z",
+      "updatedAt": "2020-07-15T10:51:58Z",
+      "closedAt": "2020-07-15T10:51:58Z",
+      "comments": []
+    },
+    {
+      "number": 7,
+      "id": "MDU6SXNzdWU2MTMzNTI5NTY=",
+      "title": "Writing of \"security/IANA considerations\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/7",
+      "state": "OPEN",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi",
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-05-06T14:12:53Z",
+      "updatedAt": "2020-07-02T07:50:41Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 8,
+      "id": "MDU6SXNzdWU2MTMzNTUxMTM=",
+      "title": "Writing of section \"Process Consensus Finding and Publication\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/8",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi",
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-05-06T14:15:45Z",
+      "updatedAt": "2020-07-15T10:51:48Z",
+      "closedAt": "2020-07-15T10:51:48Z",
+      "comments": []
+    },
+    {
+      "number": 9,
+      "id": "MDU6SXNzdWU2MTMzNTY2NDI=",
+      "title": "Remove table in \"Appendix A\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/9",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi"
+      ],
+      "labels": [],
+      "body": "format and adapt content",
+      "createdAt": "2020-05-06T14:17:47Z",
+      "updatedAt": "2020-07-15T13:22:42Z",
+      "closedAt": "2020-07-15T13:22:42Z",
+      "comments": [
+        {
+          "author": "kmindi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "was ist hier die Aufgabe? Also wie entscheide ich ob das erledigt ist oder ob noch was zu tun ist?",
+          "createdAt": "2020-07-15T07:17:50Z",
+          "updatedAt": "2020-07-15T07:17:50Z"
+        },
+        {
+          "author": "lisaTeis",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ich hatte damals (vor ein paar Wochen bereits) die Tabelle in Appendix A Examples angepasst/mit Beispielen gef\u00fcllt. Damals hattest du noch nicht dr\u00fcber geschaut. War nur als Erinnerung, dass du auch nochmal \u00fcber die Tabelle schaust, ob sich die Vorschl\u00e4ge zum jeweiligen Use Case als sichere Beispiele eignen.",
+          "createdAt": "2020-07-15T09:23:14Z",
+          "updatedAt": "2020-07-15T09:23:14Z"
+        },
+        {
+          "author": "kmindi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "M\u00fcssen pro Use case mindestens zwei verschiedene vorgeschlagene Algorithmen/Parameter Kombinationen sein, bitte noch mal aktualisieren/erg\u00e4nzen",
+          "createdAt": "2020-07-15T10:37:40Z",
+          "updatedAt": "2020-07-15T10:37:40Z"
+        },
+        {
+          "author": "kmindi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@lisaTeis die Tabelle kann entfernt werden, wir brauchen erstmal nur die JSON-Datei in der das ja quasi genau so drinsteht. Um die Darstellung in einer Tabelle o.\u00e4. k\u00fcmmern wir uns sp\u00e4ter.",
+          "createdAt": "2020-07-15T11:16:33Z",
+          "updatedAt": "2020-07-15T11:16:33Z"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "MDU6SXNzdWU2MTMzNjMwNTU=",
+      "title": "Writing of section \"Security levels\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/10",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "Describe Threatmodel, information classification and longevity",
+      "createdAt": "2020-05-06T14:26:19Z",
+      "updatedAt": "2020-07-15T10:52:09Z",
+      "closedAt": "2020-07-15T10:52:08Z",
+      "comments": []
+    },
+    {
+      "number": 11,
+      "id": "MDU6SXNzdWU2MTMzNjUwMzg=",
+      "title": "Writing of section \"Data structure\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/11",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "Look for COSE, may combining of JSON/COSE components",
+      "createdAt": "2020-05-06T14:28:48Z",
+      "updatedAt": "2020-07-15T10:52:05Z",
+      "closedAt": "2020-07-15T10:52:05Z",
+      "comments": []
+    },
+    {
+      "number": 12,
+      "id": "MDU6SXNzdWU2MTMzNjcxOTc=",
+      "title": "Check if RFC draft follows guidelines",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/12",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi",
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "Look at the end if guidelines (https://www.ietf.org/standards/ids/guidelines/) are respected and adapt if necessary.",
+      "createdAt": "2020-05-06T14:31:39Z",
+      "updatedAt": "2020-07-15T10:56:29Z",
+      "closedAt": "2020-07-15T10:56:29Z",
+      "comments": [
+        {
+          "author": "kmindi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Passt aus meiner Sicht",
+          "createdAt": "2020-07-15T10:56:29Z",
+          "updatedAt": "2020-07-15T10:56:29Z"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "MDU6SXNzdWU2MTMzNzIyNjA=",
+      "title": "Writing of section \"Cryptography Algorithm Standards Recommendation\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/13",
+      "state": "OPEN",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-05-06T14:38:10Z",
+      "updatedAt": "2020-05-22T07:01:14Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 14,
+      "id": "MDU6SXNzdWU2MTMzNzI4MTc=",
+      "title": "Check section 6  \"Secure Crypto Config Interface\"",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/14",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi",
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-05-06T14:38:56Z",
+      "updatedAt": "2020-07-15T10:51:42Z",
+      "closedAt": "2020-07-15T10:51:42Z",
+      "comments": []
+    },
+    {
+      "number": 15,
+      "id": "MDU6SXNzdWU2NDk3MTgyMDY=",
+      "title": "Shorten Introduction",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/15",
+      "state": "CLOSED",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-07-02T07:53:59Z",
+      "updatedAt": "2020-07-15T10:51:19Z",
+      "closedAt": "2020-07-15T10:51:19Z",
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "MDU6SXNzdWU2NTUxNTY3NjA=",
+      "title": "Recruiting of participants ",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/16",
+      "state": "OPEN",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "kmindi",
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "Write E-mail to possible participants until 19.7.",
+      "createdAt": "2020-07-11T07:35:24Z",
+      "updatedAt": "2020-07-11T09:29:51Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "kmindi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Is this only for the pilot study, right?",
+          "createdAt": "2020-07-11T07:48:24Z",
+          "updatedAt": "2020-07-11T07:48:24Z"
+        },
+        {
+          "author": "lisaTeis",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, only for the pilot study.",
+          "createdAt": "2020-07-11T09:29:51Z",
+          "updatedAt": "2020-07-11T09:29:51Z"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "id": "MDU6SXNzdWU2NTUxNTcwNzU=",
+      "title": "Preparation of survey",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/17",
+      "state": "OPEN",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-07-11T07:37:45Z",
+      "updatedAt": "2020-07-11T07:37:46Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 18,
+      "id": "MDU6SXNzdWU2NTUxNTcxOTI=",
+      "title": "Preparation of implementation task",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/18",
+      "state": "OPEN",
+      "author": "lisaTeis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "lisaTeis"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-07-11T07:38:32Z",
+      "updatedAt": "2020-07-11T07:38:32Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 19,
+      "id": "MDU6SXNzdWU2NTcyNTY3NDY=",
+      "title": "Prepare list of recipients to ask for feedback in addition to the CFRG/-Mailinglist",
+      "url": "https://github.com/secureCryptoConfig/secureCryptoConfig/issues/19",
+      "state": "CLOSED",
+      "author": "kmindi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-07-15T10:52:38Z",
+      "updatedAt": "2021-01-04T21:53:38Z",
+      "closedAt": "2021-01-04T21:53:38Z",
+      "comments": []
+    }
+  ],
+  "pulls": []
+}
