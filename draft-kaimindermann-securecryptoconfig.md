@@ -244,7 +244,7 @@ The Secure Crypto Config has the following main use cases:
 - Centralized and regularly updated single source of truth for secure algorithms and their parameters for most common cryptography primitives and use cases.
 - Both machine and human readable format to specify the above mentioned cryptography algorithm/parameter configuration. 
   The format is also extensible to allow others (e.g. governmental or commercial organizations) to define their own set of cryptography configurations.
-- Standardized cryptography API that not uses the Secure Crypto Config for the selection of the most recent cryptography configurations but also uses a standardized cryptography operation output format to enclose the chosen parameters.
+- Standardized cryptography API that not only uses the Secure Crypto Config for the selection of the most recent cryptography configurations but also uses a standardized cryptography operation output format to enclose the chosen parameters.
 
 
 ### Cryptography Use Cases {#cryptoCase}
