@@ -16,12 +16,12 @@ This is achieved by combining three things standardized by the Secure Crypto Con
 (2) A Secure Crypto Config Interface that describes a common API to use cryptography primitives in software
 (3) using COSE to derive the parameters from output of cryptography primitives, otherwise future changes of the default configuration would change existing applications behavior. 
     " name="description">
-<meta content="xml2rfc 3.7.0" name="generator">
+<meta content="xml2rfc 3.8.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-kaimindermann-securecryptoconfig-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.7.0
-    Python 3.8.8
+  xml2rfc 3.8.0
+    Python 3.8.10
     appdirs 1.4.4
     ConfigArgParse 1.2.3
     google-i18n-address 2.4.0
@@ -32,7 +32,7 @@ This is achieved by combining three things standardized by the Secure Crypto Con
     lxml 4.6.3
     pycountry 20.7.3
     pyflakes 2.2.0
-    PyYAML 5.4.1
+    PyYAML 5.3.1
     requests 2.25.1
     setuptools 51.3.3
     six 1.15.0
@@ -844,11 +844,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SCC</td>
-<td class="right">April 2021</td>
+<td class="right">June 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mindermann &amp; Teis</td>
-<td class="center">Expires 21 October 2021</td>
+<td class="center">Expires 11 December 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -861,12 +861,12 @@ address div.right {
 <dd class="internet-draft">draft-kaimindermann-securecryptoconfig-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-04-19" class="published">19 April 2021</time>
+<time datetime="2021-06-09" class="published">9 June 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-10-21">21 October 2021</time></dd>
+<dd class="expires"><time datetime="2021-12-11">11 December 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -915,7 +915,7 @@ This is achieved by combining three things standardized by the Secure Crypto Con
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 21 October 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 11 December 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -943,254 +943,254 @@ This is achieved by combining three things standardized by the Secure Crypto Con
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.1">
+<nav class="toc"><ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.1.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-motivation" class="xref">Motivation</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.2">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.1.2.2">
                 <p id="section-toc.1-1.1.2.2.1"><a href="#section-1.2" class="xref">1.2</a>.  <a href="#name-terminology" class="xref">Terminology</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.1.2.2.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.1.2.2.2.1">
                     <p id="section-toc.1-1.1.2.2.2.1.1" class="keepWithNext"><a href="#section-1.2.1" class="xref">1.2.1</a>.  <a href="#name-conventions-and-definitions" class="xref">Conventions and Definitions</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.2.2.2">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.1.2.2.2.2">
                     <p id="section-toc.1-1.1.2.2.2.2.1" class="keepWithNext"><a href="#section-1.2.2" class="xref">1.2.2</a>.  <a href="#name-terms" class="xref">Terms</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.3">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.1.2.3">
                 <p id="section-toc.1-1.1.2.3.1"><a href="#section-1.3" class="xref">1.3</a>.  <a href="#name-use-cases" class="xref">Use Cases</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.1.2.3.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.1.2.3.2.1">
                     <p id="section-toc.1-1.1.2.3.2.1.1"><a href="#section-1.3.1" class="xref">1.3.1</a>.  <a href="#name-secure-crypto-config-use-ca" class="xref">Secure Crypto Config Use Cases</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.3.2.2">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.1.2.3.2.2">
                     <p id="section-toc.1-1.1.2.3.2.2.1"><a href="#section-1.3.2" class="xref">1.3.2</a>.  <a href="#name-cryptography-use-cases" class="xref">Cryptography Use Cases</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.2">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-requirements-and-assumption" class="xref">Requirements and Assumptions</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.2.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.2.2.1">
                 <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-requirements" class="xref">Requirements</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.2">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.2.2.2">
                 <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-assumptions" class="xref">Assumptions</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.3">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-security-levels" class="xref">Security Levels</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.3.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.3.2.1">
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-security-level-1-low" class="xref">Security Level 1 - Low</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.2">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-security-level-2" class="xref">Security Level 2</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.3">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.3">
                 <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-security-level-3" class="xref">Security Level 3</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.4">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.4">
                 <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-security-level-4" class="xref">Security Level 4</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.5">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5">
                 <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-security-level-5-high" class="xref">Security Level 5 - High</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.6">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.6">
                 <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="xref">3.6</a>.  <a href="#name-security-level-constraints" class="xref">Security Level Constraints</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.3.2.6.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.3.2.6.2.1">
                     <p id="section-toc.1-1.3.2.6.2.1.1"><a href="#section-3.6.1" class="xref">3.6.1</a>.  <a href="#name-information-classification" class="xref">Information classification</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.6.2.2">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.6.2.2">
                     <p id="section-toc.1-1.3.2.6.2.2.1"><a href="#section-3.6.2" class="xref">3.6.2</a>.  <a href="#name-longevity" class="xref">Longevity</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.6.2.3">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.6.2.3">
                     <p id="section-toc.1-1.3.2.6.2.3.1"><a href="#section-3.6.3" class="xref">3.6.3</a>.  <a href="#name-constrained-devices" class="xref">Constrained Devices</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.6.2.4">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.6.2.4">
                     <p id="section-toc.1-1.3.2.6.2.4.1"><a href="#section-3.6.4" class="xref">3.6.4</a>.  <a href="#name-n-bit-security" class="xref">n-Bit-Security</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.6.2.5">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.6.2.5">
                     <p id="section-toc.1-1.3.2.6.2.5.1"><a href="#section-3.6.5" class="xref">3.6.5</a>.  <a href="#name-attacker-resources-and-capa" class="xref">Attacker Resources and Capabilities</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.4">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-consensus-finding-process-a" class="xref">Consensus Finding Process and entities</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.4.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.4.2.1">
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-consensus-finding" class="xref">Consensus Finding</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.4.2.1.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.4.2.1.2.1">
                     <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="xref">4.1.1</a>.  <a href="#name-regular-process" class="xref">Regular Process</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.1.2.2">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.4.2.1.2.2">
                     <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="xref">4.1.2</a>.  <a href="#name-emergency-process" class="xref">Emergency Process</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.1.2.3">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.4.2.1.2.3">
                     <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="xref">4.1.3</a>.  <a href="#name-requirements-for-selection-" class="xref">Requirements for Selection of Cryptography Algorithm and Parameters</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.4.2.2">
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-entities" class="xref">Entities</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.5">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-publication-format-and-dist" class="xref">Publication Format and Distribution</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-versioning" class="xref">Versioning</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.2">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.5.2.2">
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-naming" class="xref">Naming</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.3">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.5.2.3">
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-secure-crypto-config-iana-r" class="xref">Secure Crypto Config IANA Registry</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.3.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.5.2.3.2.1">
                     <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="xref">5.3.1</a>.  <a href="#name-example-for-secure-crypto-c" class="xref">Example for Secure Crypto Config IANA Registry</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.3.2.2">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.5.2.3.2.2">
                     <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="xref">5.3.2</a>.  <a href="#name-utilized-algorithm-registri" class="xref">Utilized Algorithm Registries</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.4">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.5.2.4">
                 <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="xref">5.4</a>.  <a href="#name-data-structures" class="xref">Data Structures</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.5">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.5.2.5">
                 <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="xref">5.5</a>.  <a href="#name-human-readable-format" class="xref">Human readable format</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.6">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.5.2.6">
                 <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="xref">5.6</a>.  <a href="#name-official-secure-crypto-conf" class="xref">Official Secure Crypto Config Repository</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.6.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.5.2.6.2.1">
                     <p id="section-toc.1-1.5.2.6.2.1.1"><a href="#section-5.6.1" class="xref">5.6.1</a>.  <a href="#name-location-of-secure-crypto-c" class="xref">Location of Secure Crypto Config Repository</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.6.2.2">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.5.2.6.2.2">
                     <p id="section-toc.1-1.5.2.6.2.2.1"><a href="#section-5.6.2" class="xref">5.6.2</a>.  <a href="#name-format-of-secure-crypto-con" class="xref">Format of Secure Crypto Config Repository</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.6.2.3">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.5.2.6.2.3">
                     <p id="section-toc.1-1.5.2.6.2.3.1"><a href="#section-5.6.3" class="xref">5.6.3</a>.  <a href="#name-integrity-signing-process" class="xref">Integrity/Signing process</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.6">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-secure-crypto-config-applic" class="xref">Secure Crypto Config Application Programming Interface (API)</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.6.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-semantic-versioning" class="xref">Semantic Versioning</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.2">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-deployment-of-custom-secure" class="xref">Deployment of (custom) Secure Crypto Config with Interface</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.6.2.2.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2.2.1">
                     <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="xref">6.2.1</a>.  <a href="#name-delivery-of-secure-crypto-c" class="xref">Delivery of Secure Crypto Config with Interface</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.2.2.2">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2.2.2">
                     <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="xref">6.2.2</a>.  <a href="#name-using-a-custom-secure-crypt" class="xref">Using a custom Secure Crypto Config Repository</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.2.2.3">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2.2.3">
                     <p id="section-toc.1-1.6.2.2.2.3.1"><a href="#section-6.2.3" class="xref">6.2.3</a>.  <a href="#name-integrity-check" class="xref">Integrity Check</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.2.2.4">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2.2.4">
                     <p id="section-toc.1-1.6.2.2.2.4.1"><a href="#section-6.2.4" class="xref">6.2.4</a>.  <a href="#name-methods-and-parameters" class="xref">Methods and Parameters</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.2.2.5">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2.2.5">
                     <p id="section-toc.1-1.6.2.2.2.5.1"><a href="#section-6.2.5" class="xref">6.2.5</a>.  <a href="#name-automatic-parameter-tuning" class="xref">Automatic Parameter Tuning</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.2.2.6">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2.2.6">
                     <p id="section-toc.1-1.6.2.2.2.6.1"><a href="#section-6.2.6" class="xref">6.2.6</a>.  <a href="#name-output-of-readable-secure-c" class="xref">Output of readable Secure Crypto Config</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.3">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.3">
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-todos" class="xref">TODOs</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.7">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-cryptography-library-implem" class="xref">Cryptography Library Implementation Specification</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.8">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-cryptography-algorithm-stan" class="xref">Cryptography Algorithm Standards Recommendation</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.9">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.9">
             <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.9.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.9.2.1">
                 <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-consensus-finding-2" class="xref">Consensus Finding</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.9.2.2">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.9.2.2">
                 <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-publication-format" class="xref">Publication Format</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.9.2.3">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.9.2.3">
                 <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-cryptography-library-impleme" class="xref">Cryptography library implementation</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.9.2.4">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.9.2.4">
                 <p id="section-toc.1-1.9.2.4.1"><a href="#section-9.4" class="xref">9.4</a>.  <a href="#name-general-security-considerat" class="xref">General Security Considerations</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.9.2.4.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.9.2.4.2.1">
                     <p id="section-toc.1-1.9.2.4.2.1.1"><a href="#section-9.4.1" class="xref">9.4.1</a>.  <a href="#name-special-use-cases-and-non-s" class="xref">Special Use Cases and (Non-)Security Experts</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.9.2.5">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.9.2.5">
                 <p id="section-toc.1-1.9.2.5.1"><a href="#section-9.5" class="xref">9.5</a>.  <a href="#name-security-of-cryptography-pr" class="xref">Security of Cryptography primitives and implementations</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.9.2.5.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.9.2.5.2.1">
                     <p id="section-toc.1-1.9.2.5.2.1.1"><a href="#section-9.5.1" class="xref">9.5.1</a>.  <a href="#name-security-guarantees" class="xref">Security Guarantees</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.9.2.5.2.2">
+                  <li class="compact ulEmpty toc" id="section-toc.1-1.9.2.5.2.2">
                     <p id="section-toc.1-1.9.2.5.2.2.1"><a href="#section-9.5.2" class="xref">9.5.2</a>.  <a href="#name-threat-model-adversaries" class="xref">Threat Model / Adversaries</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.10">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.11">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.11">
             <p id="section-toc.1-1.11.1"><a href="#section-11" class="xref">11</a>. <a href="#name-references" class="xref">References</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.11.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.11.2.1">
                 <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="xref">11.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.11.2.2">
+              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.2">
                 <p id="section-toc.1-1.11.2.2.1"><a href="#section-11.2" class="xref">11.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.12">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.12">
             <p id="section-toc.1-1.12.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-examples" class="xref">Examples</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.12.2.1">
+<ul class="compact ulEmpty toc">
+<li class="compact ulEmpty toc" id="section-toc.1-1.12.2.1">
                 <p id="section-toc.1-1.12.2.1.1"><a href="#section-a.1" class="xref">A.1</a>.  <a href="#name-json-secure-crypto-config" class="xref">JSON Secure Crypto Config</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.13">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.13">
             <p id="section-toc.1-1.13.1"><a href="#section-appendix.b" class="xref">Appendix B</a>.  <a href="#name-example-java-interface-usin" class="xref">Example Java Interface using Secure Crypto Config</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.14">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.14">
             <p id="section-toc.1-1.14.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-acknowledgments" class="xref">Acknowledgments</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.15">
+          <li class="ulEmpty compact toc" id="section-toc.1-1.15">
             <p id="section-toc.1-1.15.1"><a href="#section-appendix.d" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
@@ -1305,7 +1305,7 @@ in this document are to be interpreted as described in <span>[<a href="#RFC4949"
             <li class="normal" id="section-1.3.1-2.2">Both machine and human readable format to specify the above mentioned cryptography algorithm/parameter configuration. 
 The format is also extensible to allow others (e.g. governmental or commercial organizations) to define their own set of cryptography configurations.<a href="#section-1.3.1-2.2" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-1.3.1-2.3">Standardized cryptography API that not uses the Secure Crypto Config for the selection of the most recent cryptography configurations but also uses a standardized cryptography operation output format to enclose the chosen parameters.<a href="#section-1.3.1-2.3" class="pilcrow">¶</a>
+            <li class="normal" id="section-1.3.1-2.3">Standardized cryptography API that not only uses the Secure Crypto Config for the selection of the most recent cryptography configurations but also uses a standardized cryptography operation output format to enclose the chosen parameters.<a href="#section-1.3.1-2.3" class="pilcrow">¶</a>
 </li>
           </ul>
 </section>
@@ -1723,8 +1723,8 @@ Further levels with other constrained resource definitions can be added by other
 <a href="#section-3.6.4" class="section-number selfRef">3.6.4. </a><a href="#name-n-bit-security" class="section-name selfRef">n-Bit-Security</a>
           </h4>
 <p id="section-3.6.4-1">n-Bit Security Level:<a href="#section-3.6.4-1" class="pilcrow">¶</a></p>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-3.6.4-2.1">A cryptographic mechanism achieves a security level of n bits if costs which are equivalent to 2^n calculations of the encryption function of an efficient block cipher (e.g. AES) are tied to each attack against the mechanism which breaks the security objective of the mechanism with a high probability of success. BSI<a href="#section-3.6.4-2.1" class="pilcrow">¶</a>
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-3.6.4-2.1">A cryptographic mechanism achieves a security level of n bits if costs which are equivalent to 2^n calculations of the encryption function of an efficient block cipher (e.g. AES) are tied to each attack against the mechanism which breaks the security objective of the mechanism with a high probability of success. BSI<a href="#section-3.6.4-2.1" class="pilcrow">¶</a>
 </li>
           </ul>
 </section>

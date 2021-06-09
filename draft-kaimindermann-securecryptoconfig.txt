@@ -5,7 +5,7 @@
 cfrg                                                       K. Mindermann
 Internet-Draft                                           iC Consult GmbH
 Intended status: Informational                                   L. Teis
-Expires: 21 October 2021                                   19 April 2021
+Expires: 11 December 2021                                    9 June 2021
 
 
                           Secure Crypto Config
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 October 2021.
+   This Internet-Draft will expire on 11 December 2021.
 
 Copyright Notice
 
@@ -248,7 +248,7 @@ Table of Contents
       commercial organizations) to define their own set of cryptography
       configurations.
 
-   *  Standardized cryptography API that not uses the Secure Crypto
+   *  Standardized cryptography API that not only uses the Secure Crypto
       Config for the selection of the most recent cryptography
       configurations but also uses a standardized cryptography operation
       output format to enclose the chosen parameters.
